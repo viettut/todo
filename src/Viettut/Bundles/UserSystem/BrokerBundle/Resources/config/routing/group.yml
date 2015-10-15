@@ -1,0 +1,23 @@
+
+viettut_user_system_broker_group_list:
+    path: /list
+    defaults: { _controller: "FOSUserBundle:Group:list" }
+    methods: "GET"
+
+viettut_user_system_broker_group_new:
+    path: /new
+    defaults: { _controller: "FOSUserBundle:Group:new" }
+
+viettut_user_system_broker_group_show:
+    path: /{groupName}
+    defaults: { _controller: "FOSUserBundle:Group:show" }
+    methods: "GET"
+
+viettut_user_system_broker_group_edit:
+    path: /{groupName}/edit
+    defaults: { _controller: "FOSUserBundle:Group:edit" }
+
+viettut_user_system_broker_group_delete:
+    path: /{groupName}/delete
+    defaults: { _controller: "FOSUserBundle:Group:delete" }
+    methods: "GET"

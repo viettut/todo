@@ -1,0 +1,20 @@
+services:
+    # main public services
+
+    viettut_admin_api.handler.user:
+        class: Viettut\Bundles\AdminApiBundle\Handler\UserHandler
+        parent: viettut.handler.handler_abstract
+        public: true
+        arguments:
+            - @form.factory
+            - @viettut_admin_api.form.type.user
+            - @viettut_user.domain_manager.broker
+
+    # forms
+
+    viettut_admin_api.form.type.user:
+        class: Viettut\Bundles\AdminApiBundle\Form\Type\UserFormType
+        arguments:
+            - @=service('security.context').getToken().getUser()
+        tags:
+            - { name: form.type, alias: viettut_form_admin_api_user }

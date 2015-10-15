@@ -1,0 +1,5 @@
+services:
+    viettut_user_system_broker.set_broker_role_listener:
+        class: Viettut\Bundles\UserSystem\BrokerBundle\EventListener\SetBrokerRoleListener
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }

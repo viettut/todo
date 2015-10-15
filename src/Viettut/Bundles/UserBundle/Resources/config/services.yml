@@ -1,0 +1,45 @@
+parameters:
+    viettut.bundle.user.entity.user.class: Viettut\Bundles\UserBundle\Entity\User
+    # define user systems
+    viettut.user_system.broker: viettut_user_system_broker
+    viettut.user_system.admin: viettut_user_system_admin
+    # event dispatched on login success
+    viettut_user.events.login_success: viettut_user.events.login_success
+    # used in \Viettut\Bundle\UserBundle\DependencyInjection\Compiler\OverrideServiceCompilerPass
+    viettut_user.request.user_system.authentication_listener.class: Viettut\Bundles\UserBundle\Request\UserSystem\AuthenticationListener
+
+services:
+    # returns our role model class for the current authenticated user entity
+    viettut.token:
+        class: Symfony\Component\Security\Core\Authentication\Token\TokenInterface
+        factory_service: security.context
+        factory_method: getToken
+
+    viettut.user_role:
+        class: Viettut\Model\User\Role\UserRoleInterface
+        factory_service: viettut.token
+        factory_method: getUser
+
+    viettut_user.domain_manager.broker:
+        class: Viettut\Bundles\UserBundle\DomainManager\BrokerManager
+        arguments:
+            - @viettut_user_system_broker.user_manager
+
+    viettut_user.handler.authentication_success:
+        class: Viettut\Bundles\UserBundle\Handler\AuthenticationSuccessHandler
+        arguments:
+            - @lexik_jwt_authentication.handler.authentication_success
+        calls:
+            - [setEventDispatcher, ["@event_dispatcher"]]
+            - [setSuccessEventName, ["%viettut_user.events.login_success%"]]
+
+    viettut_user.request.user_system.request_matcher:
+        class: Viettut\Bundles\UserBundle\Request\UserSystem\RequestMatcher
+
+    viettut_app.event_listener.user_type_security_listener:
+        class: Viettut\Bundles\UserBundle\EventListener\UserTypeSecurityListener
+        arguments:
+            - @security.context
+            - @annotation_reader
+        tags:
+            - { name: kernel.event_listener, event: kernel.controller, method: onKernelController }

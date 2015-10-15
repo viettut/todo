@@ -1,0 +1,29 @@
+Viettut\Bundles\UserBundle\Entity\User:
+    type: entity
+    table: core_user
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    attributeOverride:
+        email:
+            nullable: true
+        emailCanonical:
+            nullable: true
+            unique: false
+    fields:
+        joinDate:
+            type: date
+            gedmo:
+                timestampable:
+                    on: create
+
+    inheritanceType: JOINED
+
+    discriminatorColumn:
+        name: type
+        type: string
+    discriminatorMap:
+        admin: Viettut\Bundles\UserSystem\AdminBundle\Entity\User
+        broker: Viettut\Bundles\UserSystem\BrokerBundle\Entity\User

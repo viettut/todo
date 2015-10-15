@@ -1,0 +1,15 @@
+viettut_admin_api:
+    resource: "@ViettutAdminApiBundle/Resources/config/routing.yml"
+    type:   rest
+    prefix: /api/admin/v1
+
+viettut_broker_api:
+    resource: "@ViettutUserSystemBrokerBundle/Resources/config/routing.yml"
+    type:   rest
+    prefix: /api/broker/v1
+
+viettut_api:
+    resource: "@ViettutApiBundle/Resources/config/routing.yml"
+    type:   rest
+    prefix: /api/v1
+
