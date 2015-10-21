@@ -1,5 +1,10 @@
-parameters:
+imports:
+    - { resource: services/course.services.yml }
+    - { resource: services/chapter.services.yml }
+    - { resource: services/tutorial.services.yml }
+    - { resource: services/comment.services.yml }
 
+parameters:
     # jwt
     viettut_api.service.jwt_response_transformer.class: Viettut\Bundles\ApiBundle\Service\JWTResponseTransformer
     viettut.event.authentication_success_listener.class: Viettut\Bundles\ApiBundle\EventListener\AuthenticationSuccessListener

@@ -1,0 +1,43 @@
+Viettut\Entity\Core\Comment:
+    type: entity
+    table: viettut_comment
+    repositoryClass: Viettut\Repository\Core\CommentRepository
+    gedmo:
+        soft_deleteable:
+            field_name: deletedAt
+            time_aware: false
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        content:
+            type: text
+            nullable: false
+        active:
+            type: boolean
+        like:
+            type: integer
+            options:
+                default: 0
+        createdAt:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+        deletedAt:
+            type: date
+            nullable: true
+    manyToOne:
+        author:
+            targetEntity: Viettut\Bundles\UserBundle\Entity\User
+        course:
+            targetEntity: Viettut\Entity\Core\Course
+            inversedBy: comments
+        tutorial:
+            targetEntity: Viettut\Entity\Core\Tutorial
+            inversedBy: comments
+            
+    lifecycleCallbacks: {  }

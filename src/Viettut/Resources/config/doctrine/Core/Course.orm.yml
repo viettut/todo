@@ -1,0 +1,62 @@
+Viettut\Entity\Core\Course:
+    type: entity
+    table: viettut_course
+    repositoryClass: Viettut\Repository\Core\CourseRepository
+    gedmo:
+        soft_deleteable:
+            field_name: deletedAt
+            time_aware: false
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: 255
+            nullable: false
+        introduce:
+            type: text
+            nullable: false
+        active:
+            type: boolean
+        hashTag:
+            type: string
+            nullable: false
+        view:
+            type: integer
+            options:
+                default: 0
+        enroll:
+            type: integer
+            options:
+                default: 0
+        imagePath:
+            type: string
+            nullable: true
+            options:
+                default: '/uploads/default.png'
+        createdAt:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+        updatedAt:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: update
+        deletedAt:
+            type: date
+            nullable: true
+    manyToOne:
+        author:
+            targetEntity: Viettut\Bundles\UserBundle\Entity\User
+    oneToMany:
+        chapters:
+            targetEntity: Viettut\Entity\Core\Chapter
+            mappedBy: course
+            cascade: ['persist', 'remove']
+            orphanRemoval: true
+    lifecycleCallbacks: {  }
