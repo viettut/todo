@@ -8,9 +8,7 @@
 
 namespace Viettut\Repository\Core;
 use Doctrine\Common\Persistence\ObjectRepository;
-use Viettut\Model\User\Role\BrokerInterface;
 
 interface CommentRepositoryInterface extends ObjectRepository
 {
-
 }

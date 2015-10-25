@@ -8,17 +8,17 @@ security:
 #            cost:      15
 
     role_hierarchy:
-        ROLE_BROKER: ROLE_USER
+        ROLE_LECTURER: ROLE_USER
         ROLE_ADMIN:     ROLE_USER
 
     providers:
-        viettut_user_broker:
-            id: viettut_user_system_broker.user_provider.username
+        viettut_user_lecturer:
+            id: viettut_user_system_lecturer.user_provider.username
         viettut_user_admin:
             id: viettut_user_system_admin.user_provider.username
         viettut_user:
             chain:
-                providers: [viettut_user_broker, viettut_user_admin]
+                providers: [viettut_user_lecturer, viettut_user_admin]
         #
         fos_userbundle:
             id: fos_user.user_manager
@@ -50,7 +50,7 @@ security:
             stateless: true
             security: false
             anonymous: ~
-            provider:  viettut_user_broker
+            provider:  viettut_user_lecturer
 
         api:
             pattern:    ^/api/

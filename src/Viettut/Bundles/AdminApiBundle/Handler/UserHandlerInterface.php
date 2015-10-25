@@ -9,5 +9,5 @@ interface UserHandlerInterface extends HandlerInterface
     /**
      * @return array
      */
-    public function allBrokers();
+    public function allLecturers();
 }

@@ -14,7 +14,7 @@ use ReflectionClass;
 use Viettut\Exception\InvalidArgumentException;
 use Viettut\Model\Core\CourseInterface;
 use Viettut\Model\ModelInterface;
-use Viettut\Model\User\Role\BrokerInterface;
+use Viettut\Model\User\Role\LecturerInterface;
 use Viettut\Repository\Core\CourseRepositoryInterface;
 
 class CourseManager implements CourseManagerInterface
@@ -100,13 +100,13 @@ class CourseManager implements CourseManagerInterface
     }
 
     /**
-     * @param BrokerInterface $broker
+     * @param LecturerInterface $lecturer
      * @param null $limit
      * @param null $offset
      * @return mixed
      */
-    public function getCourseByBroker(BrokerInterface $broker, $limit = null, $offset = null)
+    public function getCourseByLecturer(LecturerInterface $lecturer, $limit = null, $offset = null)
     {
-        return $this->repository->getCourseByBroker($broker, $limit, $offset);
+        return $this->repository->getCourseByLecturer($lecturer, $limit, $offset);
     }
 }

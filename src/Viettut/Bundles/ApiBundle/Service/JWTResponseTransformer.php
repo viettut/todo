@@ -2,7 +2,7 @@
 
 namespace Viettut\Bundles\ApiBundle\Service;
 
-use Viettut\Model\User\Role\BrokerInterface;
+use Viettut\Model\User\Role\LecturerInterface;
 use Viettut\Model\User\UserEntityInterface;
 
 class JWTResponseTransformer
@@ -13,7 +13,7 @@ class JWTResponseTransformer
         $data['username'] = $user->getUsername();
         $data['userRoles'] = $user->getUserRoles();
 
-        if($user instanceof BrokerInterface) {
+        if($user instanceof LecturerInterface) {
             $data['settings'] = $user->getSettings();
         }
 

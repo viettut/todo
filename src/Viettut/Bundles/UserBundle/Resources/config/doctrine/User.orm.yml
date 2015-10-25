@@ -26,4 +26,4 @@ Viettut\Bundles\UserBundle\Entity\User:
         type: string
     discriminatorMap:
         admin: Viettut\Bundles\UserSystem\AdminBundle\Entity\User
-        broker: Viettut\Bundles\UserSystem\BrokerBundle\Entity\User
+        lecturer: Viettut\Bundles\UserSystem\LecturerBundle\Entity\User

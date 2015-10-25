@@ -9,15 +9,15 @@
 namespace Viettut\DomainManager;
 
 
-use Viettut\Model\User\Role\BrokerInterface;
+use Viettut\Model\User\Role\LecturerInterface;
 
 interface CourseManagerInterface extends ManagerInterface
 {
     /**
-     * @param BrokerInterface $broker
+     * @param LecturerInterface $lecturer
      * @param null $limit
      * @param null $offset
      * @return mixed
      */
-    public function getCourseByBroker(BrokerInterface $broker, $limit = null, $offset = null);
+    public function getCourseByLecturer(LecturerInterface $lecturer, $limit = null, $offset = null);
 }

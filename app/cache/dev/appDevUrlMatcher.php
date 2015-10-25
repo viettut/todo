@@ -152,7 +152,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 not_admin_api_1_get_user:
 
                 // admin_api_1_get_user_token
-                if (preg_match('#^/api/admin/v1/users/(?P<brokerId>[^/]++)/token$#s', $pathinfo, $matches)) {
+                if (preg_match('#^/api/admin/v1/users/(?P<lecturerId>[^/]++)/token$#s', $pathinfo, $matches)) {
                     if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
                         $allow = array_merge($allow, array('GET', 'HEAD'));
                         goto not_admin_api_1_get_user_token;
@@ -208,28 +208,28 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
             }
 
-            if (0 === strpos($pathinfo, '/api/broker/v1/brokers/current')) {
-                // broker_api_1_get_current
-                if ($pathinfo === '/api/broker/v1/brokers/current') {
+            if (0 === strpos($pathinfo, '/api/lecturer/v1/lecturers/current')) {
+                // lecturer_api_1_get_current
+                if ($pathinfo === '/api/lecturer/v1/lecturers/current') {
                     if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
                         $allow = array_merge($allow, array('GET', 'HEAD'));
-                        goto not_broker_api_1_get_current;
+                        goto not_lecturer_api_1_get_current;
                     }
 
-                    return array (  '_controller' => 'Viettut\\Bundles\\UserSystem\\BrokerBundle\\Controller\\BrokerController::getAction',  '_format' => 'json',  '_route' => 'broker_api_1_get_current',);
+                    return array (  '_controller' => 'Viettut\\Bundles\\UserSystem\\LecturerBundle\\Controller\\LecturerController::getAction',  '_format' => 'json',  '_route' => 'lecturer_api_1_get_current',);
                 }
-                not_broker_api_1_get_current:
+                not_lecturer_api_1_get_current:
 
-                // broker_api_1_patch_current
-                if ($pathinfo === '/api/broker/v1/brokers/current') {
+                // lecturer_api_1_patch_current
+                if ($pathinfo === '/api/lecturer/v1/lecturers/current') {
                     if ($this->context->getMethod() != 'PATCH') {
                         $allow[] = 'PATCH';
-                        goto not_broker_api_1_patch_current;
+                        goto not_lecturer_api_1_patch_current;
                     }
 
-                    return array (  '_controller' => 'Viettut\\Bundles\\UserSystem\\BrokerBundle\\Controller\\BrokerController::patchAction',  '_format' => 'json',  '_route' => 'broker_api_1_patch_current',);
+                    return array (  '_controller' => 'Viettut\\Bundles\\UserSystem\\LecturerBundle\\Controller\\LecturerController::patchAction',  '_format' => 'json',  '_route' => 'lecturer_api_1_patch_current',);
                 }
-                not_broker_api_1_patch_current:
+                not_lecturer_api_1_patch_current:
 
             }
 

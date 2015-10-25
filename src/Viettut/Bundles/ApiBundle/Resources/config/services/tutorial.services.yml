@@ -47,8 +47,8 @@ services:
         parent: viettut.handler.handlers.tutorial.abstract
         public: false
 
-    viettut.handler.handlers.tutorial.broker:
-        class: Viettut\Handler\Handlers\Core\Broker\TutorialHandler
+    viettut.handler.handlers.tutorial.lecturer:
+        class: Viettut\Handler\Handlers\Core\Lecturer\TutorialHandler
         parent: viettut.handler.handlers.tutorial.abstract
         public: false
 
@@ -58,6 +58,6 @@ services:
             - %viettut.entity.core.tutorial.class%
             -
                 - @viettut.handler.handlers.tutorial.admin
-                - @viettut.handler.handlers.tutorial.broker
+                - @viettut.handler.handlers.tutorial.lecturer
 
     # end tutorial #####################################################

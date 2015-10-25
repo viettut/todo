@@ -161,7 +161,7 @@
   'ViettutApiBundle:Default:index.html.twig' => '/var/www/api.server.dev/src/Viettut/Bundles/ApiBundle/Resources/views/Default/index.html.twig',
   'ViettutUserBundle:Default:index.html.twig' => '/var/www/api.server.dev/src/Viettut/Bundles/UserBundle/Resources/views/Default/index.html.twig',
   'ViettutUserSystemAdminBundle:Default:index.html.twig' => '/var/www/api.server.dev/src/Viettut/Bundles/UserSystem/AdminBundle/Resources/views/Default/index.html.twig',
-  'ViettutUserSystemBrokerBundle:Default:index.html.twig' => '/var/www/api.server.dev/src/Viettut/Bundles/UserSystem/BrokerBundle/Resources/views/Default/index.html.twig',
+  'ViettutUserSystemLecturerBundle:Default:index.html.twig' => '/var/www/api.server.dev/src/Viettut/Bundles/UserSystem/LecturerBundle/Resources/views/Default/index.html.twig',
   'DebugBundle:Profiler:dump.html.twig' => '/var/www/api.server.dev/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views/Profiler/dump.html.twig',
   'WebProfilerBundle:Profiler:layout.html.twig' => '/var/www/api.server.dev/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views/Profiler/layout.html.twig',
   'WebProfilerBundle:Profiler:base.html.twig' => '/var/www/api.server.dev/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views/Profiler/base.html.twig',
