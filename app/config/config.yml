@@ -86,7 +86,7 @@ doctrine:
                     ViettutUserBundle:  ~
                     ViettutAdminApiBundle: ~
                     ViettutUserSystemAdminBundle:  ~
-                    ViettutUserSystemBrokerBundle:  ~
+                    ViettutUserSystemLecturerBundle:  ~
                     # custom
                     CoreEntities:
                         type:       yml
@@ -120,7 +120,7 @@ viettut_user_system_admin:
     # just doing this here for completeness
     firewall_name: api
 
-viettut_user_system_broker:
+viettut_user_system_lecturer:
     request_matcher: viettut_user.request.user_system.request_matcher
     firewall_name: api
     resetting:

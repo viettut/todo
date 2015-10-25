@@ -31,7 +31,7 @@ class AppKernel extends Kernel
             new Viettut\Bundles\ApiBundle\ViettutApiBundle(),
             new Viettut\Bundles\UserBundle\ViettutUserBundle(),
             new Viettut\Bundles\UserSystem\AdminBundle\ViettutUserSystemAdminBundle(),
-            new Viettut\Bundles\UserSystem\BrokerBundle\ViettutUserSystemBrokerBundle(),
+            new Viettut\Bundles\UserSystem\LecturerBundle\ViettutUserSystemLecturerBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

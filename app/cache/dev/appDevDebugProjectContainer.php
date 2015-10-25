@@ -248,7 +248,7 @@ class appDevDebugProjectContainer extends Container
             'rollerworks_multi_user.templating.helper.user_core' => 'getRollerworksMultiUser_Templating_Helper_UserCoreService',
             'rollerworks_multi_user.user_discriminator' => 'getRollerworksMultiUser_UserDiscriminatorService',
             'rollerworks_multi_user.user_system.viettut_user_system_admin' => 'getRollerworksMultiUser_UserSystem_ViettutUserSystemAdminService',
-            'rollerworks_multi_user.user_system.viettut_user_system_broker' => 'getRollerworksMultiUser_UserSystem_ViettutUserSystemBrokerService',
+            'rollerworks_multi_user.user_system.viettut_user_system_lecturer' => 'getRollerworksMultiUser_UserSystem_ViettutUserSystemLecturerService',
             'router' => 'getRouterService',
             'router.request_context' => 'getRouter_RequestContextService',
             'router_listener' => 'getRouterListenerService',
@@ -356,16 +356,36 @@ class appDevDebugProjectContainer extends Container
             'validator.expression' => 'getValidator_ExpressionService',
             'var_dumper.cli_dumper' => 'getVarDumper_CliDumperService',
             'var_dumper.cloner' => 'getVarDumper_ClonerService',
+            'viettut.domain_manager.chapter' => 'getViettut_DomainManager_ChapterService',
+            'viettut.domain_manager.comment' => 'getViettut_DomainManager_CommentService',
+            'viettut.domain_manager.course' => 'getViettut_DomainManager_CourseService',
+            'viettut.domain_manager.tutorial' => 'getViettut_DomainManager_TutorialService',
             'viettut.event.authentication_success_listener' => 'getViettut_Event_AuthenticationSuccessListenerService',
             'viettut.event.jwt_created_listener' => 'getViettut_Event_JwtCreatedListenerService',
+            'viettut.form.type.chapter' => 'getViettut_Form_Type_ChapterService',
+            'viettut.form.type.comment' => 'getViettut_Form_Type_CommentService',
+            'viettut.form.type.course' => 'getViettut_Form_Type_CourseService',
+            'viettut.form.type.tutorial' => 'getViettut_Form_Type_TutorialService',
+            'viettut.handler.handler_manager.chapter' => 'getViettut_Handler_HandlerManager_ChapterService',
+            'viettut.handler.handler_manager.comment' => 'getViettut_Handler_HandlerManager_CommentService',
+            'viettut.handler.handler_manager.course' => 'getViettut_Handler_HandlerManager_CourseService',
+            'viettut.handler.handler_manager.tutorial' => 'getViettut_Handler_HandlerManager_TutorialService',
+            'viettut.repository.chapter' => 'getViettut_Repository_ChapterService',
+            'viettut.repository.comment' => 'getViettut_Repository_CommentService',
+            'viettut.repository.course' => 'getViettut_Repository_CourseService',
+            'viettut.repository.tutorial' => 'getViettut_Repository_TutorialService',
             'viettut.token' => 'getViettut_TokenService',
             'viettut.user_role' => 'getViettut_UserRoleService',
             'viettut_admin_api.form.type.user' => 'getViettutAdminApi_Form_Type_UserService',
             'viettut_admin_api.handler.user' => 'getViettutAdminApi_Handler_UserService',
+            'viettut_api.handler.chapter' => 'getViettutApi_Handler_ChapterService',
+            'viettut_api.handler.comment' => 'getViettutApi_Handler_CommentService',
+            'viettut_api.handler.course' => 'getViettutApi_Handler_CourseService',
+            'viettut_api.handler.tutorial' => 'getViettutApi_Handler_TutorialService',
             'viettut_api.mailer.mailer' => 'getViettutApi_Mailer_MailerService',
             'viettut_api.service.jwt_response_transformer' => 'getViettutApi_Service_JwtResponseTransformerService',
             'viettut_app.event_listener.user_type_security_listener' => 'getViettutApp_EventListener_UserTypeSecurityListenerService',
-            'viettut_user.domain_manager.broker' => 'getViettutUser_DomainManager_BrokerService',
+            'viettut_user.domain_manager.lecturer' => 'getViettutUser_DomainManager_LecturerService',
             'viettut_user.handler.authentication_success' => 'getViettutUser_Handler_AuthenticationSuccessService',
             'viettut_user.request.user_system.request_matcher' => 'getViettutUser_Request_UserSystem_RequestMatcherService',
             'viettut_user_system_admin.change_password.form.factory' => 'getViettutUserSystemAdmin_ChangePassword_Form_FactoryService',
@@ -380,18 +400,18 @@ class appDevDebugProjectContainer extends Container
             'viettut_user_system_admin.resetting.form.type' => 'getViettutUserSystemAdmin_Resetting_Form_TypeService',
             'viettut_user_system_admin.user_manager' => 'getViettutUserSystemAdmin_UserManagerService',
             'viettut_user_system_admin.user_manipulator' => 'getViettutUserSystemAdmin_UserManipulatorService',
-            'viettut_user_system_broker.change_password.form.factory' => 'getViettutUserSystemBroker_ChangePassword_Form_FactoryService',
-            'viettut_user_system_broker.change_password.form.type' => 'getViettutUserSystemBroker_ChangePassword_Form_TypeService',
-            'viettut_user_system_broker.listener.authentication' => 'getViettutUserSystemBroker_Listener_AuthenticationService',
-            'viettut_user_system_broker.mailer' => 'getViettutUserSystemBroker_MailerService',
-            'viettut_user_system_broker.profile.form.factory' => 'getViettutUserSystemBroker_Profile_Form_FactoryService',
-            'viettut_user_system_broker.profile.form.type' => 'getViettutUserSystemBroker_Profile_Form_TypeService',
-            'viettut_user_system_broker.registration.form.factory' => 'getViettutUserSystemBroker_Registration_Form_FactoryService',
-            'viettut_user_system_broker.registration.form.type' => 'getViettutUserSystemBroker_Registration_Form_TypeService',
-            'viettut_user_system_broker.resetting.form.type' => 'getViettutUserSystemBroker_Resetting_Form_TypeService',
-            'viettut_user_system_broker.set_broker_role_listener' => 'getViettutUserSystemBroker_SetBrokerRoleListenerService',
-            'viettut_user_system_broker.user_manager' => 'getViettutUserSystemBroker_UserManagerService',
-            'viettut_user_system_broker.user_manipulator' => 'getViettutUserSystemBroker_UserManipulatorService',
+            'viettut_user_system_lecturer.change_password.form.factory' => 'getViettutUserSystemLecturer_ChangePassword_Form_FactoryService',
+            'viettut_user_system_lecturer.change_password.form.type' => 'getViettutUserSystemLecturer_ChangePassword_Form_TypeService',
+            'viettut_user_system_lecturer.listener.authentication' => 'getViettutUserSystemLecturer_Listener_AuthenticationService',
+            'viettut_user_system_lecturer.mailer' => 'getViettutUserSystemLecturer_MailerService',
+            'viettut_user_system_lecturer.profile.form.factory' => 'getViettutUserSystemLecturer_Profile_Form_FactoryService',
+            'viettut_user_system_lecturer.profile.form.type' => 'getViettutUserSystemLecturer_Profile_Form_TypeService',
+            'viettut_user_system_lecturer.registration.form.factory' => 'getViettutUserSystemLecturer_Registration_Form_FactoryService',
+            'viettut_user_system_lecturer.registration.form.type' => 'getViettutUserSystemLecturer_Registration_Form_TypeService',
+            'viettut_user_system_lecturer.resetting.form.type' => 'getViettutUserSystemLecturer_Resetting_Form_TypeService',
+            'viettut_user_system_lecturer.set_lecturer_role_listener' => 'getViettutUserSystemLecturer_SetLecturerRoleListenerService',
+            'viettut_user_system_lecturer.user_manager' => 'getViettutUserSystemLecturer_UserManagerService',
+            'viettut_user_system_lecturer.user_manipulator' => 'getViettutUserSystemLecturer_UserManipulatorService',
             'web_profiler.controller.exception' => 'getWebProfiler_Controller_ExceptionService',
             'web_profiler.controller.profiler' => 'getWebProfiler_Controller_ProfilerService',
             'web_profiler.controller.router' => 'getWebProfiler_Controller_RouterService',
@@ -421,7 +441,7 @@ class appDevDebugProjectContainer extends Container
             'swiftmailer.spool' => 'swiftmailer.mailer.default.spool',
             'swiftmailer.transport' => 'swiftmailer.mailer.default.transport',
             'swiftmailer.transport.real' => 'swiftmailer.mailer.default.transport.real',
-            'viettut_user_system_broker.group_manager' => 'viettut_user_system_admin.group_manager',
+            'viettut_user_system_lecturer.group_manager' => 'viettut_user_system_admin.group_manager',
         );
     }
 
@@ -759,7 +779,7 @@ class appDevDebugProjectContainer extends Container
         $instance->addSubscriberService('fos_rest.exception_listener', 'Symfony\\Component\\HttpKernel\\EventListener\\ExceptionListener');
         $instance->addSubscriberService('fos_rest.access_denied_listener', 'FOS\\RestBundle\\EventListener\\AccessDeniedListener');
         $instance->addSubscriberService('viettut_user_system_admin.listener.authentication', 'FOS\\UserBundle\\EventListener\\AuthenticationListener');
-        $instance->addSubscriberService('viettut_user_system_broker.listener.authentication', 'FOS\\UserBundle\\EventListener\\AuthenticationListener');
+        $instance->addSubscriberService('viettut_user_system_lecturer.listener.authentication', 'FOS\\UserBundle\\EventListener\\AuthenticationListener');
         $instance->addSubscriberService('debug.dump_listener', 'Symfony\\Component\\HttpKernel\\EventListener\\DumpListener');
         $instance->addSubscriberService('web_profiler.debug_toolbar', 'Symfony\\Bundle\\WebProfilerBundle\\EventListener\\WebDebugToolbarListener');
 
@@ -834,7 +854,7 @@ class appDevDebugProjectContainer extends Container
         $f->addEventSubscriber($d);
         $f->addEventSubscriber($e);
         $f->addEventSubscriber(new \Rollerworks\Bundle\MultiUserBundle\Doctrine\Orm\UserListener($this->get('rollerworks_multi_user.service_container_injector')));
-        $f->addEventListener(array(0 => 'prePersist'), $this->get('viettut_user_system_broker.set_broker_role_listener'));
+        $f->addEventListener(array(0 => 'prePersist'), $this->get('viettut_user_system_lecturer.set_lecturer_role_listener'));
 
         return $this->services['doctrine.dbal.default_connection'] = $this->get('doctrine.dbal.connection_factory')->createConnection(array('driver' => 'pdo_mysql', 'host' => 'api.viettut.com', 'port' => NULL, 'dbname' => 'viettut', 'user' => 'viettut', 'password' => 12345678, 'charset' => 'UTF8', 'driverOptions' => array()), $c, $f, array());
     }
@@ -862,20 +882,20 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getDoctrine_Orm_DefaultEntityManagerService()
     {
-        $a = new \Doctrine\ORM\Mapping\Driver\SimplifiedYamlDriver(array(($this->targetDirs[3].'/src/Viettut/Bundles/UserBundle/Resources/config/doctrine') => 'Viettut\\Bundles\\UserBundle\\Entity', ($this->targetDirs[3].'/src/Viettut/Bundles/UserSystem/AdminBundle/Resources/config/doctrine') => 'Viettut\\Bundles\\UserSystem\\AdminBundle\\Entity', ($this->targetDirs[3].'/src/Viettut/Bundles/UserSystem/BrokerBundle/Resources/config/doctrine') => 'Viettut\\Bundles\\UserSystem\\BrokerBundle\\Entity', ($this->targetDirs[3].'/src/Viettut/Resources/config/doctrine/Core') => 'Viettut\\Entity\\Core'));
+        $a = new \Doctrine\ORM\Mapping\Driver\SimplifiedYamlDriver(array(($this->targetDirs[3].'/src/Viettut/Bundles/UserBundle/Resources/config/doctrine') => 'Viettut\\Bundles\\UserBundle\\Entity', ($this->targetDirs[3].'/src/Viettut/Bundles/UserSystem/AdminBundle/Resources/config/doctrine') => 'Viettut\\Bundles\\UserSystem\\AdminBundle\\Entity', ($this->targetDirs[3].'/src/Viettut/Bundles/UserSystem/LecturerBundle/Resources/config/doctrine') => 'Viettut\\Bundles\\UserSystem\\LecturerBundle\\Entity', ($this->targetDirs[3].'/src/Viettut/Resources/config/doctrine/Core') => 'Viettut\\Entity\\Core'));
         $a->setGlobalBasename('mapping');
 
         $b = new \Doctrine\Common\Persistence\Mapping\Driver\MappingDriverChain();
         $b->addDriver($a, 'Viettut\\Bundles\\UserBundle\\Entity');
         $b->addDriver($a, 'Viettut\\Bundles\\UserSystem\\AdminBundle\\Entity');
-        $b->addDriver($a, 'Viettut\\Bundles\\UserSystem\\BrokerBundle\\Entity');
+        $b->addDriver($a, 'Viettut\\Bundles\\UserSystem\\LecturerBundle\\Entity');
         $b->addDriver($a, 'Viettut\\Entity\\Core');
         $b->addDriver(new \Doctrine\ORM\Mapping\Driver\XmlDriver(new \Doctrine\Common\Persistence\Mapping\Driver\SymfonyFileLocator(array(($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/config/doctrine-mapping') => 'FOS\\UserBundle\\Model'), '.orm.xml')), 'FOS\\UserBundle\\Model');
         $b->addDriver(new \Doctrine\ORM\Mapping\Driver\XmlDriver(new \Doctrine\Common\Persistence\Mapping\Driver\SymfonyFileLocator(array(($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/config/doctrine-mapping') => 'FOS\\UserBundle\\Model'), '.orm.xml')), 'FOS\\UserBundle\\Model');
         $b->addDriver(new \Doctrine\ORM\Mapping\Driver\XmlDriver(new \Doctrine\Common\Persistence\Mapping\Driver\SymfonyFileLocator(array(($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/config/doctrine-mapping') => 'FOS\\UserBundle\\Model'), '.orm.xml')), 'FOS\\UserBundle\\Model');
 
         $c = new \Doctrine\ORM\Configuration();
-        $c->setEntityNamespaces(array('ViettutUserBundle' => 'Viettut\\Bundles\\UserBundle\\Entity', 'ViettutUserSystemAdminBundle' => 'Viettut\\Bundles\\UserSystem\\AdminBundle\\Entity', 'ViettutUserSystemBrokerBundle' => 'Viettut\\Bundles\\UserSystem\\BrokerBundle\\Entity', 'ViettutCoreEntity' => 'Viettut\\Entity\\Core'));
+        $c->setEntityNamespaces(array('ViettutUserBundle' => 'Viettut\\Bundles\\UserBundle\\Entity', 'ViettutUserSystemAdminBundle' => 'Viettut\\Bundles\\UserSystem\\AdminBundle\\Entity', 'ViettutUserSystemLecturerBundle' => 'Viettut\\Bundles\\UserSystem\\LecturerBundle\\Entity', 'ViettutCoreEntity' => 'Viettut\\Entity\\Core'));
         $c->setMetadataCacheImpl($this->get('doctrine_cache.providers.doctrine.orm.default_metadata_cache'));
         $c->setQueryCacheImpl($this->get('doctrine_cache.providers.doctrine.orm.default_query_cache'));
         $c->setResultCacheImpl($this->get('doctrine_cache.providers.doctrine.orm.default_result_cache'));
@@ -1036,7 +1056,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getForm_RegistryService()
     {
-        return $this->services['form.registry'] = new \Symfony\Component\Form\FormRegistry(array(0 => new \Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension($this, array('form' => 'form.type.form', 'birthday' => 'form.type.birthday', 'checkbox' => 'form.type.checkbox', 'choice' => 'form.type.choice', 'collection' => 'form.type.collection', 'country' => 'form.type.country', 'date' => 'form.type.date', 'datetime' => 'form.type.datetime', 'email' => 'form.type.email', 'file' => 'form.type.file', 'hidden' => 'form.type.hidden', 'integer' => 'form.type.integer', 'language' => 'form.type.language', 'locale' => 'form.type.locale', 'money' => 'form.type.money', 'number' => 'form.type.number', 'password' => 'form.type.password', 'percent' => 'form.type.percent', 'radio' => 'form.type.radio', 'repeated' => 'form.type.repeated', 'search' => 'form.type.search', 'textarea' => 'form.type.textarea', 'text' => 'form.type.text', 'time' => 'form.type.time', 'timezone' => 'form.type.timezone', 'url' => 'form.type.url', 'button' => 'form.type.button', 'submit' => 'form.type.submit', 'reset' => 'form.type.reset', 'currency' => 'form.type.currency', 'entity' => 'form.type.entity', 'fos_user_username' => 'fos_user.username_form_type', 'fos_user_profile' => 'fos_user.profile.form.type', 'fos_user_registration' => 'fos_user.registration.form.type', 'fos_user_change_password' => 'fos_user.change_password.form.type', 'fos_user_resetting' => 'fos_user.resetting.form.type', 'fos_user_group' => 'fos_user.group.form.type', 'viettut_form_admin_api_user' => 'viettut_admin_api.form.type.user', 'viettut_user_system_admin_profile' => 'viettut_user_system_admin.profile.form.type', 'viettut_user_system_admin_registration' => 'viettut_user_system_admin.registration.form.type', 'viettut_user_system_admin_change_password' => 'viettut_user_system_admin.change_password.form.type', 'viettut_user_system_admin_resetting' => 'viettut_user_system_admin.resetting.form.type', 'viettut_user_system_broker_profile' => 'viettut_user_system_broker.profile.form.type', 'viettut_user_system_broker_registration' => 'viettut_user_system_broker.registration.form.type', 'viettut_user_system_broker_change_password' => 'viettut_user_system_broker.change_password.form.type', 'viettut_user_system_broker_resetting' => 'viettut_user_system_broker.resetting.form.type'), array('form' => array(0 => 'form.type_extension.form.http_foundation', 1 => 'form.type_extension.form.validator', 2 => 'form.type_extension.form.data_collector', 3 => 'nelmio_api_doc.form.extension.description_form_type_extension'), 'repeated' => array(0 => 'form.type_extension.repeated.validator'), 'submit' => array(0 => 'form.type_extension.submit.validator')), array(0 => 'form.type_guesser.validator', 1 => 'form.type_guesser.doctrine'))), $this->get('form.resolved_type_factory'));
+        return $this->services['form.registry'] = new \Symfony\Component\Form\FormRegistry(array(0 => new \Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension($this, array('form' => 'form.type.form', 'birthday' => 'form.type.birthday', 'checkbox' => 'form.type.checkbox', 'choice' => 'form.type.choice', 'collection' => 'form.type.collection', 'country' => 'form.type.country', 'date' => 'form.type.date', 'datetime' => 'form.type.datetime', 'email' => 'form.type.email', 'file' => 'form.type.file', 'hidden' => 'form.type.hidden', 'integer' => 'form.type.integer', 'language' => 'form.type.language', 'locale' => 'form.type.locale', 'money' => 'form.type.money', 'number' => 'form.type.number', 'password' => 'form.type.password', 'percent' => 'form.type.percent', 'radio' => 'form.type.radio', 'repeated' => 'form.type.repeated', 'search' => 'form.type.search', 'textarea' => 'form.type.textarea', 'text' => 'form.type.text', 'time' => 'form.type.time', 'timezone' => 'form.type.timezone', 'url' => 'form.type.url', 'button' => 'form.type.button', 'submit' => 'form.type.submit', 'reset' => 'form.type.reset', 'currency' => 'form.type.currency', 'entity' => 'form.type.entity', 'fos_user_username' => 'fos_user.username_form_type', 'fos_user_profile' => 'fos_user.profile.form.type', 'fos_user_registration' => 'fos_user.registration.form.type', 'fos_user_change_password' => 'fos_user.change_password.form.type', 'fos_user_resetting' => 'fos_user.resetting.form.type', 'fos_user_group' => 'fos_user.group.form.type', 'viettut_form_admin_api_user' => 'viettut_admin_api.form.type.user', 'tagcade_form_course' => 'viettut.form.type.course', 'tagcade_form_chapter' => 'viettut.form.type.chapter', 'tagcade_form_tutorial' => 'viettut.form.type.tutorial', 'tagcade_form_comment' => 'viettut.form.type.comment', 'viettut_user_system_admin_profile' => 'viettut_user_system_admin.profile.form.type', 'viettut_user_system_admin_registration' => 'viettut_user_system_admin.registration.form.type', 'viettut_user_system_admin_change_password' => 'viettut_user_system_admin.change_password.form.type', 'viettut_user_system_admin_resetting' => 'viettut_user_system_admin.resetting.form.type', 'viettut_user_system_lecturer_profile' => 'viettut_user_system_lecturer.profile.form.type', 'viettut_user_system_lecturer_registration' => 'viettut_user_system_lecturer.registration.form.type', 'viettut_user_system_lecturer_change_password' => 'viettut_user_system_lecturer.change_password.form.type', 'viettut_user_system_lecturer_resetting' => 'viettut_user_system_lecturer.resetting.form.type'), array('form' => array(0 => 'form.type_extension.form.http_foundation', 1 => 'form.type_extension.form.validator', 2 => 'form.type_extension.form.data_collector', 3 => 'nelmio_api_doc.form.extension.description_form_type_extension'), 'repeated' => array(0 => 'form.type_extension.repeated.validator'), 'submit' => array(0 => 'form.type_extension.submit.validator')), array(0 => 'form.type_guesser.validator', 1 => 'form.type_guesser.doctrine'))), $this->get('form.resolved_type_factory'));
     }
 
     /**
@@ -2411,7 +2431,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getJmsSerializer_MetadataDriverService()
     {
-        $a = new \Metadata\Driver\FileLocator(array('Symfony\\Bundle\\FrameworkBundle' => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Resources/config/serializer'), 'Symfony\\Bundle\\SecurityBundle' => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle/Resources/config/serializer'), 'Symfony\\Bundle\\TwigBundle' => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/Resources/config/serializer'), 'Symfony\\Bundle\\MonologBundle' => ($this->targetDirs[3].'/vendor/symfony/monolog-bundle/Resources/config/serializer'), 'Symfony\\Bundle\\SwiftmailerBundle' => ($this->targetDirs[3].'/vendor/symfony/swiftmailer-bundle/Resources/config/serializer'), 'Symfony\\Bundle\\AsseticBundle' => ($this->targetDirs[3].'/vendor/symfony/assetic-bundle/Resources/config/serializer'), 'Doctrine\\Bundle\\DoctrineBundle' => ($this->targetDirs[3].'/vendor/doctrine/doctrine-bundle/Resources/config/serializer'), 'Sensio\\Bundle\\FrameworkExtraBundle' => ($this->targetDirs[3].'/vendor/sensio/framework-extra-bundle/Resources/config/serializer'), 'FOS\\UserBundle' => ($this->targetDirs[3].'/src/Viettut/Bundles/UserBundle/Resources/config/serializer/fos'), 'Rollerworks\\Bundle\\MultiUserBundle' => ($this->targetDirs[3].'/vendor/rollerworks/multi-user-bundle/src/Resources/config/serializer'), 'FOS\\RestBundle' => ($this->targetDirs[3].'/vendor/friendsofsymfony/rest-bundle/FOS/RestBundle/Resources/config/serializer'), 'JMS\\SerializerBundle' => ($this->targetDirs[3].'/vendor/jms/serializer-bundle/JMS/SerializerBundle/Resources/config/serializer'), 'Lexik\\Bundle\\JWTAuthenticationBundle' => ($this->targetDirs[3].'/vendor/lexik/jwt-authentication-bundle/Lexik/Bundle/JWTAuthenticationBundle/Resources/config/serializer'), 'Gfreeau\\Bundle\\GetJWTBundle' => ($this->targetDirs[3].'/vendor/gfreeau/get-jwt-bundle/Gfreeau/Bundle/GetJWTBundle/Resources/config/serializer'), 'Gfreeau\\Bundle\\CustomValidationPathBundle' => ($this->targetDirs[3].'/vendor/gfreeau/custom-validation-path-bundle/Gfreeau/Bundle/CustomValidationPathBundle/Resources/config/serializer'), 'Stof\\DoctrineExtensionsBundle' => ($this->targetDirs[3].'/vendor/stof/doctrine-extensions-bundle/Resources/config/serializer'), 'Nelmio\\CorsBundle' => ($this->targetDirs[3].'/vendor/nelmio/cors-bundle/Nelmio/CorsBundle/Resources/config/serializer'), 'Nelmio\\ApiDocBundle' => ($this->targetDirs[3].'/vendor/nelmio/api-doc-bundle/Nelmio/ApiDocBundle/Resources/config/serializer'), 'Viettut\\Bundles\\AdminApiBundle' => ($this->targetDirs[3].'/src/Viettut/Bundles/AdminApiBundle/Resources/config/serializer'), 'Viettut\\Bundles\\ApiBundle' => ($this->targetDirs[3].'/src/Viettut/Bundles/ApiBundle/Resources/config/serializer'), 'Viettut\\Bundles\\UserBundle' => ($this->targetDirs[3].'/src/Viettut/Bundles/UserBundle/Resources/config/serializer'), 'Viettut\\Bundles\\UserSystem\\AdminBundle' => ($this->targetDirs[3].'/src/Viettut/Bundles/UserSystem/AdminBundle/Resources/config/serializer'), 'Viettut\\Bundles\\UserSystem\\BrokerBundle' => ($this->targetDirs[3].'/src/Viettut/Bundles/UserSystem/BrokerBundle/Resources/config/serializer'), 'Symfony\\Bundle\\DebugBundle' => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/config/serializer'), 'Symfony\\Bundle\\WebProfilerBundle' => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/config/serializer'), 'Sensio\\Bundle\\DistributionBundle' => ($this->targetDirs[3].'/vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle/Resources/config/serializer'), 'Sensio\\Bundle\\GeneratorBundle' => ($this->targetDirs[3].'/vendor/sensio/generator-bundle/Sensio/Bundle/GeneratorBundle/Resources/config/serializer'), 'Viettut' => ($this->targetDirs[2].'/../src/Viettut/Resources/config/serializer')));
+        $a = new \Metadata\Driver\FileLocator(array('Symfony\\Bundle\\FrameworkBundle' => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Resources/config/serializer'), 'Symfony\\Bundle\\SecurityBundle' => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle/Resources/config/serializer'), 'Symfony\\Bundle\\TwigBundle' => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/Resources/config/serializer'), 'Symfony\\Bundle\\MonologBundle' => ($this->targetDirs[3].'/vendor/symfony/monolog-bundle/Resources/config/serializer'), 'Symfony\\Bundle\\SwiftmailerBundle' => ($this->targetDirs[3].'/vendor/symfony/swiftmailer-bundle/Resources/config/serializer'), 'Symfony\\Bundle\\AsseticBundle' => ($this->targetDirs[3].'/vendor/symfony/assetic-bundle/Resources/config/serializer'), 'Doctrine\\Bundle\\DoctrineBundle' => ($this->targetDirs[3].'/vendor/doctrine/doctrine-bundle/Resources/config/serializer'), 'Sensio\\Bundle\\FrameworkExtraBundle' => ($this->targetDirs[3].'/vendor/sensio/framework-extra-bundle/Resources/config/serializer'), 'FOS\\UserBundle' => ($this->targetDirs[3].'/src/Viettut/Bundles/UserBundle/Resources/config/serializer/fos'), 'Rollerworks\\Bundle\\MultiUserBundle' => ($this->targetDirs[3].'/vendor/rollerworks/multi-user-bundle/src/Resources/config/serializer'), 'FOS\\RestBundle' => ($this->targetDirs[3].'/vendor/friendsofsymfony/rest-bundle/FOS/RestBundle/Resources/config/serializer'), 'JMS\\SerializerBundle' => ($this->targetDirs[3].'/vendor/jms/serializer-bundle/JMS/SerializerBundle/Resources/config/serializer'), 'Lexik\\Bundle\\JWTAuthenticationBundle' => ($this->targetDirs[3].'/vendor/lexik/jwt-authentication-bundle/Lexik/Bundle/JWTAuthenticationBundle/Resources/config/serializer'), 'Gfreeau\\Bundle\\GetJWTBundle' => ($this->targetDirs[3].'/vendor/gfreeau/get-jwt-bundle/Gfreeau/Bundle/GetJWTBundle/Resources/config/serializer'), 'Gfreeau\\Bundle\\CustomValidationPathBundle' => ($this->targetDirs[3].'/vendor/gfreeau/custom-validation-path-bundle/Gfreeau/Bundle/CustomValidationPathBundle/Resources/config/serializer'), 'Stof\\DoctrineExtensionsBundle' => ($this->targetDirs[3].'/vendor/stof/doctrine-extensions-bundle/Resources/config/serializer'), 'Nelmio\\CorsBundle' => ($this->targetDirs[3].'/vendor/nelmio/cors-bundle/Nelmio/CorsBundle/Resources/config/serializer'), 'Nelmio\\ApiDocBundle' => ($this->targetDirs[3].'/vendor/nelmio/api-doc-bundle/Nelmio/ApiDocBundle/Resources/config/serializer'), 'Viettut\\Bundles\\AdminApiBundle' => ($this->targetDirs[3].'/src/Viettut/Bundles/AdminApiBundle/Resources/config/serializer'), 'Viettut\\Bundles\\ApiBundle' => ($this->targetDirs[3].'/src/Viettut/Bundles/ApiBundle/Resources/config/serializer'), 'Viettut\\Bundles\\UserBundle' => ($this->targetDirs[3].'/src/Viettut/Bundles/UserBundle/Resources/config/serializer'), 'Viettut\\Bundles\\UserSystem\\AdminBundle' => ($this->targetDirs[3].'/src/Viettut/Bundles/UserSystem/AdminBundle/Resources/config/serializer'), 'Viettut\\Bundles\\UserSystem\\LecturerBundle' => ($this->targetDirs[3].'/src/Viettut/Bundles/UserSystem/LecturerBundle/Resources/config/serializer'), 'Symfony\\Bundle\\DebugBundle' => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/config/serializer'), 'Symfony\\Bundle\\WebProfilerBundle' => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/config/serializer'), 'Sensio\\Bundle\\DistributionBundle' => ($this->targetDirs[3].'/vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle/Resources/config/serializer'), 'Sensio\\Bundle\\GeneratorBundle' => ($this->targetDirs[3].'/vendor/sensio/generator-bundle/Sensio/Bundle/GeneratorBundle/Resources/config/serializer'), 'Viettut' => ($this->targetDirs[2].'/../src/Viettut/Resources/config/serializer')));
 
         return $this->services['jms_serializer.metadata_driver'] = new \JMS\Serializer\Metadata\Driver\DoctrineTypeDriver(new \Metadata\Driver\DriverChain(array(0 => new \JMS\Serializer\Metadata\Driver\YamlDriver($a), 1 => new \JMS\Serializer\Metadata\Driver\XmlDriver($a), 2 => new \JMS\Serializer\Metadata\Driver\PhpDriver($a), 3 => new \JMS\Serializer\Metadata\Driver\AnnotationDriver($this->get('annotation_reader')))), $this->get('doctrine'));
     }
@@ -3231,7 +3251,7 @@ class appDevDebugProjectContainer extends Container
         $this->services['rollerworks_multi_user.listener.authentication'] = $instance = new \Viettut\Bundles\UserBundle\Request\UserSystem\AuthenticationListener($this->get('rollerworks_multi_user.user_discriminator'));
 
         $instance->addUser('viettut_user_system_admin', 'Viettut\\Bundles\\UserSystem\\AdminBundle\\Entity\\User');
-        $instance->addUser('viettut_user_system_broker', 'Viettut\\Bundles\\UserSystem\\BrokerBundle\\Entity\\User');
+        $instance->addUser('viettut_user_system_lecturer', 'Viettut\\Bundles\\UserSystem\\LecturerBundle\\Entity\\User');
 
         return $instance;
     }
@@ -3329,7 +3349,7 @@ class appDevDebugProjectContainer extends Container
         $this->services['rollerworks_multi_user.listener.request'] = $instance = new \Rollerworks\Bundle\MultiUserBundle\EventListener\RequestListener($this->get('rollerworks_multi_user.user_discriminator'));
 
         $instance->addUser('viettut_user_system_admin', $a);
-        $instance->addUser('viettut_user_system_broker', $a);
+        $instance->addUser('viettut_user_system_lecturer', $a);
 
         return $instance;
     }
@@ -3450,7 +3470,7 @@ class appDevDebugProjectContainer extends Container
         $this->services['rollerworks_multi_user.user_discriminator'] = $instance = new \Rollerworks\Bundle\MultiUserBundle\Model\UserDiscriminator(array());
 
         $instance->addUser('viettut_user_system_admin', $this->get('rollerworks_multi_user.user_system.viettut_user_system_admin'));
-        $instance->addUser('viettut_user_system_broker', $this->get('rollerworks_multi_user.user_system.viettut_user_system_broker'));
+        $instance->addUser('viettut_user_system_lecturer', $this->get('rollerworks_multi_user.user_system.viettut_user_system_lecturer'));
 
         return $instance;
     }
@@ -4696,7 +4716,7 @@ class appDevDebugProjectContainer extends Container
         $instance->addPath(($this->targetDirs[3].'/src/Viettut/Bundles/ApiBundle/Resources/views'), 'ViettutApi');
         $instance->addPath(($this->targetDirs[3].'/src/Viettut/Bundles/UserBundle/Resources/views'), 'ViettutUser');
         $instance->addPath(($this->targetDirs[3].'/src/Viettut/Bundles/UserSystem/AdminBundle/Resources/views'), 'ViettutUserSystemAdmin');
-        $instance->addPath(($this->targetDirs[3].'/src/Viettut/Bundles/UserSystem/BrokerBundle/Resources/views'), 'ViettutUserSystemBroker');
+        $instance->addPath(($this->targetDirs[3].'/src/Viettut/Bundles/UserSystem/LecturerBundle/Resources/views'), 'ViettutUserSystemLecturer');
         $instance->addPath(($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views'), 'Debug');
         $instance->addPath(($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views'), 'WebProfiler');
         $instance->addPath(($this->targetDirs[3].'/vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle/Resources/views'), 'SensioDistribution');
@@ -4840,6 +4860,58 @@ class appDevDebugProjectContainer extends Container
     }
 
     /**
+     * Gets the 'viettut.domain_manager.chapter' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Viettut\DomainManager\ChapterManager A Viettut\DomainManager\ChapterManager instance.
+     */
+    protected function getViettut_DomainManager_ChapterService()
+    {
+        return $this->services['viettut.domain_manager.chapter'] = new \Viettut\DomainManager\ChapterManager($this->get('doctrine.orm.default_entity_manager'), $this->get('viettut.repository.chapter'));
+    }
+
+    /**
+     * Gets the 'viettut.domain_manager.comment' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Viettut\DomainManager\CommentManager A Viettut\DomainManager\CommentManager instance.
+     */
+    protected function getViettut_DomainManager_CommentService()
+    {
+        return $this->services['viettut.domain_manager.comment'] = new \Viettut\DomainManager\CommentManager($this->get('doctrine.orm.default_entity_manager'), $this->get('viettut.repository.comment'));
+    }
+
+    /**
+     * Gets the 'viettut.domain_manager.course' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Viettut\DomainManager\CourseManager A Viettut\DomainManager\CourseManager instance.
+     */
+    protected function getViettut_DomainManager_CourseService()
+    {
+        return $this->services['viettut.domain_manager.course'] = new \Viettut\DomainManager\CourseManager($this->get('doctrine.orm.default_entity_manager'), $this->get('viettut.repository.course'));
+    }
+
+    /**
+     * Gets the 'viettut.domain_manager.tutorial' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Viettut\DomainManager\TutorialManager A Viettut\DomainManager\TutorialManager instance.
+     */
+    protected function getViettut_DomainManager_TutorialService()
+    {
+        return $this->services['viettut.domain_manager.tutorial'] = new \Viettut\DomainManager\TutorialManager($this->get('doctrine.orm.default_entity_manager'), $this->get('viettut.repository.tutorial'));
+    }
+
+    /**
      * Gets the 'viettut.event.authentication_success_listener' service.
      *
      * This service is shared.
@@ -4863,6 +4935,214 @@ class appDevDebugProjectContainer extends Container
     protected function getViettut_Event_JwtCreatedListenerService()
     {
         return $this->services['viettut.event.jwt_created_listener'] = new \Viettut\Bundles\ApiBundle\EventListener\JWTCreatedListener();
+    }
+
+    /**
+     * Gets the 'viettut.form.type.chapter' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Viettut\Form\Type\ChapterFormType A Viettut\Form\Type\ChapterFormType instance.
+     */
+    protected function getViettut_Form_Type_ChapterService()
+    {
+        return $this->services['viettut.form.type.chapter'] = new \Viettut\Form\Type\ChapterFormType($this->get('viettut.repository.chapter'));
+    }
+
+    /**
+     * Gets the 'viettut.form.type.comment' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Viettut\Form\Type\CommentFormType A Viettut\Form\Type\CommentFormType instance.
+     */
+    protected function getViettut_Form_Type_CommentService()
+    {
+        return $this->services['viettut.form.type.comment'] = new \Viettut\Form\Type\CommentFormType($this->get('viettut.repository.comment'));
+    }
+
+    /**
+     * Gets the 'viettut.form.type.course' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Viettut\Form\Type\CourseFormType A Viettut\Form\Type\CourseFormType instance.
+     */
+    protected function getViettut_Form_Type_CourseService()
+    {
+        return $this->services['viettut.form.type.course'] = new \Viettut\Form\Type\CourseFormType($this->get('viettut.repository.course'));
+    }
+
+    /**
+     * Gets the 'viettut.form.type.tutorial' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Viettut\Form\Type\TutorialFormType A Viettut\Form\Type\TutorialFormType instance.
+     */
+    protected function getViettut_Form_Type_TutorialService()
+    {
+        return $this->services['viettut.form.type.tutorial'] = new \Viettut\Form\Type\TutorialFormType($this->get('viettut.repository.tutorial'));
+    }
+
+    /**
+     * Gets the 'viettut.handler.handler_manager.chapter' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Viettut\Handler\HandlerManager A Viettut\Handler\HandlerManager instance.
+     */
+    protected function getViettut_Handler_HandlerManager_ChapterService()
+    {
+        $a = $this->get('form.factory');
+        $b = $this->get('viettut.form.type.chapter');
+        $c = $this->get('viettut.domain_manager.chapter');
+        $d = $this->get('debug.event_dispatcher');
+
+        $e = new \Viettut\Handler\Handlers\Core\Admin\ChapterHandler($a, $b, $c);
+        $e->setEventDispatcher($d);
+        $e->setEvent('viettut.events.handler_event');
+
+        $f = new \Viettut\Handler\Handlers\Core\Lecturer\ChapterHandler($a, $b, $c);
+        $f->setEventDispatcher($d);
+        $f->setEvent('viettut.events.handler_event');
+
+        return $this->services['viettut.handler.handler_manager.chapter'] = new \Viettut\Handler\HandlerManager('Viettut\\Entity\\Core\\Chapter', array(0 => $e, 1 => $f));
+    }
+
+    /**
+     * Gets the 'viettut.handler.handler_manager.comment' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Viettut\Handler\HandlerManager A Viettut\Handler\HandlerManager instance.
+     */
+    protected function getViettut_Handler_HandlerManager_CommentService()
+    {
+        $a = $this->get('form.factory');
+        $b = $this->get('viettut.form.type.comment');
+        $c = $this->get('viettut.domain_manager.comment');
+        $d = $this->get('debug.event_dispatcher');
+
+        $e = new \Viettut\Handler\Handlers\Core\Admin\CommentHandler($a, $b, $c);
+        $e->setEventDispatcher($d);
+        $e->setEvent('viettut.events.handler_event');
+
+        $f = new \Viettut\Handler\Handlers\Core\Lecturer\CommentHandler($a, $b, $c);
+        $f->setEventDispatcher($d);
+        $f->setEvent('viettut.events.handler_event');
+
+        return $this->services['viettut.handler.handler_manager.comment'] = new \Viettut\Handler\HandlerManager('Viettut\\Entity\\Core\\Comment', array(0 => $e, 1 => $f));
+    }
+
+    /**
+     * Gets the 'viettut.handler.handler_manager.course' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Viettut\Handler\HandlerManager A Viettut\Handler\HandlerManager instance.
+     */
+    protected function getViettut_Handler_HandlerManager_CourseService()
+    {
+        $a = $this->get('form.factory');
+        $b = $this->get('viettut.form.type.course');
+        $c = $this->get('viettut.domain_manager.course');
+        $d = $this->get('debug.event_dispatcher');
+
+        $e = new \Viettut\Handler\Handlers\Core\Admin\CourseHandler($a, $b, $c);
+        $e->setEventDispatcher($d);
+        $e->setEvent('viettut.events.handler_event');
+
+        $f = new \Viettut\Handler\Handlers\Core\Lecturer\CourseHandler($a, $b, $c);
+        $f->setEventDispatcher($d);
+        $f->setEvent('viettut.events.handler_event');
+
+        return $this->services['viettut.handler.handler_manager.course'] = new \Viettut\Handler\HandlerManager('Viettut\\Entity\\Core\\Course', array(0 => $e, 1 => $f));
+    }
+
+    /**
+     * Gets the 'viettut.handler.handler_manager.tutorial' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Viettut\Handler\HandlerManager A Viettut\Handler\HandlerManager instance.
+     */
+    protected function getViettut_Handler_HandlerManager_TutorialService()
+    {
+        $a = $this->get('form.factory');
+        $b = $this->get('viettut.form.type.tutorial');
+        $c = $this->get('viettut.domain_manager.tutorial');
+        $d = $this->get('debug.event_dispatcher');
+
+        $e = new \Viettut\Handler\Handlers\Core\Admin\TutorialHandler($a, $b, $c);
+        $e->setEventDispatcher($d);
+        $e->setEvent('viettut.events.handler_event');
+
+        $f = new \Viettut\Handler\Handlers\Core\Lecturer\TutorialHandler($a, $b, $c);
+        $f->setEventDispatcher($d);
+        $f->setEvent('viettut.events.handler_event');
+
+        return $this->services['viettut.handler.handler_manager.tutorial'] = new \Viettut\Handler\HandlerManager('Viettut\\Entity\\Core\\Tutorial', array(0 => $e, 1 => $f));
+    }
+
+    /**
+     * Gets the 'viettut.repository.chapter' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Viettut\Repository\Core\ChapterRepositoryInterface A Viettut\Repository\Core\ChapterRepositoryInterface instance.
+     */
+    protected function getViettut_Repository_ChapterService()
+    {
+        return $this->services['viettut.repository.chapter'] = $this->get('doctrine.orm.default_entity_manager')->getRepository('Viettut\\Entity\\Core\\Chapter');
+    }
+
+    /**
+     * Gets the 'viettut.repository.comment' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Viettut\Repository\Core\CommentRepositoryInterface A Viettut\Repository\Core\CommentRepositoryInterface instance.
+     */
+    protected function getViettut_Repository_CommentService()
+    {
+        return $this->services['viettut.repository.comment'] = $this->get('doctrine.orm.default_entity_manager')->getRepository('Viettut\\Entity\\Core\\Comment');
+    }
+
+    /**
+     * Gets the 'viettut.repository.course' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Viettut\Repository\Core\CourseRepositoryInterface A Viettut\Repository\Core\CourseRepositoryInterface instance.
+     */
+    protected function getViettut_Repository_CourseService()
+    {
+        return $this->services['viettut.repository.course'] = $this->get('doctrine.orm.default_entity_manager')->getRepository('Viettut\\Entity\\Core\\Course');
+    }
+
+    /**
+     * Gets the 'viettut.repository.tutorial' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Viettut\Repository\Core\TutorialRepositoryInterface A Viettut\Repository\Core\TutorialRepositoryInterface instance.
+     */
+    protected function getViettut_Repository_TutorialService()
+    {
+        return $this->services['viettut.repository.tutorial'] = $this->get('doctrine.orm.default_entity_manager')->getRepository('Viettut\\Entity\\Core\\Tutorial');
     }
 
     /**
@@ -4914,12 +5194,64 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getViettutAdminApi_Handler_UserService()
     {
-        $this->services['viettut_admin_api.handler.user'] = $instance = new \Viettut\Bundles\AdminApiBundle\Handler\UserHandler($this->get('form.factory'), $this->get('viettut_admin_api.form.type.user'), $this->get('viettut_user.domain_manager.broker'));
+        $this->services['viettut_admin_api.handler.user'] = $instance = new \Viettut\Bundles\AdminApiBundle\Handler\UserHandler($this->get('form.factory'), $this->get('viettut_admin_api.form.type.user'), $this->get('viettut_user.domain_manager.lecturer'));
 
         $instance->setEventDispatcher($this->get('debug.event_dispatcher'));
         $instance->setEvent('viettut.events.handler_event');
 
         return $instance;
+    }
+
+    /**
+     * Gets the 'viettut_api.handler.chapter' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Viettut\Handler\HandlerInterface A Viettut\Handler\HandlerInterface instance.
+     */
+    protected function getViettutApi_Handler_ChapterService()
+    {
+        return $this->services['viettut_api.handler.chapter'] = $this->get('viettut.handler.handler_manager.chapter')->getHandler($this->get('viettut.user_role'));
+    }
+
+    /**
+     * Gets the 'viettut_api.handler.comment' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Viettut\Handler\HandlerInterface A Viettut\Handler\HandlerInterface instance.
+     */
+    protected function getViettutApi_Handler_CommentService()
+    {
+        return $this->services['viettut_api.handler.comment'] = $this->get('viettut.handler.handler_manager.comment')->getHandler($this->get('viettut.user_role'));
+    }
+
+    /**
+     * Gets the 'viettut_api.handler.course' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Viettut\Handler\HandlerInterface A Viettut\Handler\HandlerInterface instance.
+     */
+    protected function getViettutApi_Handler_CourseService()
+    {
+        return $this->services['viettut_api.handler.course'] = $this->get('viettut.handler.handler_manager.course')->getHandler($this->get('viettut.user_role'));
+    }
+
+    /**
+     * Gets the 'viettut_api.handler.tutorial' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Viettut\Handler\HandlerInterface A Viettut\Handler\HandlerInterface instance.
+     */
+    protected function getViettutApi_Handler_TutorialService()
+    {
+        return $this->services['viettut_api.handler.tutorial'] = $this->get('viettut.handler.handler_manager.tutorial')->getHandler($this->get('viettut.user_role'));
     }
 
     /**
@@ -4962,16 +5294,16 @@ class appDevDebugProjectContainer extends Container
     }
 
     /**
-     * Gets the 'viettut_user.domain_manager.broker' service.
+     * Gets the 'viettut_user.domain_manager.lecturer' service.
      *
      * This service is shared.
      * This method always returns the same instance of the service.
      *
-     * @return \Viettut\Bundles\UserBundle\DomainManager\BrokerManager A Viettut\Bundles\UserBundle\DomainManager\BrokerManager instance.
+     * @return \Viettut\Bundles\UserBundle\DomainManager\LecturerManager A Viettut\Bundles\UserBundle\DomainManager\LecturerManager instance.
      */
-    protected function getViettutUser_DomainManager_BrokerService()
+    protected function getViettutUser_DomainManager_LecturerService()
     {
-        return $this->services['viettut_user.domain_manager.broker'] = new \Viettut\Bundles\UserBundle\DomainManager\BrokerManager($this->get('viettut_user_system_broker.user_manager'));
+        return $this->services['viettut_user.domain_manager.lecturer'] = new \Viettut\Bundles\UserBundle\DomainManager\LecturerManager($this->get('viettut_user_system_lecturer.user_manager'));
     }
 
     /**
@@ -5176,16 +5508,16 @@ class appDevDebugProjectContainer extends Container
     }
 
     /**
-     * Gets the 'viettut_user_system_broker.change_password.form.factory' service.
+     * Gets the 'viettut_user_system_lecturer.change_password.form.factory' service.
      *
      * This service is shared.
      * This method always returns the same instance of the service.
      *
      * @return \FOS\UserBundle\Form\Factory\FormFactory A FOS\UserBundle\Form\Factory\FormFactory instance.
      */
-    protected function getViettutUserSystemBroker_ChangePassword_Form_FactoryService()
+    protected function getViettutUserSystemLecturer_ChangePassword_Form_FactoryService()
     {
-        $this->services['viettut_user_system_broker.change_password.form.factory'] = $instance = new \FOS\UserBundle\Form\Factory\FormFactory($this->get('form.factory'), 'viettut_user_system_broker_change_password_form', 'viettut_user_system_broker_change_password', array(0 => 'ChangePassword', 1 => 'Default'));
+        $this->services['viettut_user_system_lecturer.change_password.form.factory'] = $instance = new \FOS\UserBundle\Form\Factory\FormFactory($this->get('form.factory'), 'viettut_user_system_lecturer_change_password_form', 'viettut_user_system_lecturer_change_password', array(0 => 'ChangePassword', 1 => 'Default'));
 
         $instance->setUserDiscriminator($this->get('rollerworks_multi_user.user_discriminator'));
 
@@ -5193,55 +5525,55 @@ class appDevDebugProjectContainer extends Container
     }
 
     /**
-     * Gets the 'viettut_user_system_broker.change_password.form.type' service.
+     * Gets the 'viettut_user_system_lecturer.change_password.form.type' service.
      *
      * This service is shared.
      * This method always returns the same instance of the service.
      *
      * @return \Rollerworks\Bundle\MultiUserBundle\Form\Type\ChangePasswordFormType A Rollerworks\Bundle\MultiUserBundle\Form\Type\ChangePasswordFormType instance.
      */
-    protected function getViettutUserSystemBroker_ChangePassword_Form_TypeService()
+    protected function getViettutUserSystemLecturer_ChangePassword_Form_TypeService()
     {
-        return $this->services['viettut_user_system_broker.change_password.form.type'] = new \Rollerworks\Bundle\MultiUserBundle\Form\Type\ChangePasswordFormType('Viettut\\Bundles\\UserSystem\\BrokerBundle\\Entity\\User', 'viettut_user_system_broker_change_password');
+        return $this->services['viettut_user_system_lecturer.change_password.form.type'] = new \Rollerworks\Bundle\MultiUserBundle\Form\Type\ChangePasswordFormType('Viettut\\Bundles\\UserSystem\\LecturerBundle\\Entity\\User', 'viettut_user_system_lecturer_change_password');
     }
 
     /**
-     * Gets the 'viettut_user_system_broker.listener.authentication' service.
+     * Gets the 'viettut_user_system_lecturer.listener.authentication' service.
      *
      * This service is shared.
      * This method always returns the same instance of the service.
      *
      * @return \FOS\UserBundle\EventListener\AuthenticationListener A FOS\UserBundle\EventListener\AuthenticationListener instance.
      */
-    protected function getViettutUserSystemBroker_Listener_AuthenticationService()
+    protected function getViettutUserSystemLecturer_Listener_AuthenticationService()
     {
-        return $this->services['viettut_user_system_broker.listener.authentication'] = new \FOS\UserBundle\EventListener\AuthenticationListener($this->get('fos_user.security.login_manager'), 'api');
+        return $this->services['viettut_user_system_lecturer.listener.authentication'] = new \FOS\UserBundle\EventListener\AuthenticationListener($this->get('fos_user.security.login_manager'), 'api');
     }
 
     /**
-     * Gets the 'viettut_user_system_broker.mailer' service.
+     * Gets the 'viettut_user_system_lecturer.mailer' service.
      *
      * This service is shared.
      * This method always returns the same instance of the service.
      *
      * @return \FOS\UserBundle\Mailer\Mailer A FOS\UserBundle\Mailer\Mailer instance.
      */
-    protected function getViettutUserSystemBroker_MailerService()
+    protected function getViettutUserSystemLecturer_MailerService()
     {
-        return $this->services['viettut_user_system_broker.mailer'] = new \FOS\UserBundle\Mailer\Mailer($this->get('swiftmailer.mailer.default'), $this->get('rollerworks_multi_user.routing.user_discriminator_url_generator'), $this->get('templating'), array('confirmation.template' => 'RollerworksMultiUserBundle:UserBundle/Registration:email.txt.twig', 'resetting.template' => 'ViettutApiBundle:Resetting:email.txt.twig', 'from_email' => array('confirmation' => array('' => NULL), 'resetting' => array('tagcade.dev@gmail.com' => 'Tagcade.dev'))));
+        return $this->services['viettut_user_system_lecturer.mailer'] = new \FOS\UserBundle\Mailer\Mailer($this->get('swiftmailer.mailer.default'), $this->get('rollerworks_multi_user.routing.user_discriminator_url_generator'), $this->get('templating'), array('confirmation.template' => 'RollerworksMultiUserBundle:UserBundle/Registration:email.txt.twig', 'resetting.template' => 'ViettutApiBundle:Resetting:email.txt.twig', 'from_email' => array('confirmation' => array('' => NULL), 'resetting' => array('tagcade.dev@gmail.com' => 'Tagcade.dev'))));
     }
 
     /**
-     * Gets the 'viettut_user_system_broker.profile.form.factory' service.
+     * Gets the 'viettut_user_system_lecturer.profile.form.factory' service.
      *
      * This service is shared.
      * This method always returns the same instance of the service.
      *
      * @return \FOS\UserBundle\Form\Factory\FormFactory A FOS\UserBundle\Form\Factory\FormFactory instance.
      */
-    protected function getViettutUserSystemBroker_Profile_Form_FactoryService()
+    protected function getViettutUserSystemLecturer_Profile_Form_FactoryService()
     {
-        $this->services['viettut_user_system_broker.profile.form.factory'] = $instance = new \FOS\UserBundle\Form\Factory\FormFactory($this->get('form.factory'), 'viettut_user_system_broker_profile_form', 'viettut_user_system_broker_profile', array(0 => 'Profile', 1 => 'Default'));
+        $this->services['viettut_user_system_lecturer.profile.form.factory'] = $instance = new \FOS\UserBundle\Form\Factory\FormFactory($this->get('form.factory'), 'viettut_user_system_lecturer_profile_form', 'viettut_user_system_lecturer_profile', array(0 => 'Profile', 1 => 'Default'));
 
         $instance->setUserDiscriminator($this->get('rollerworks_multi_user.user_discriminator'));
 
@@ -5249,29 +5581,29 @@ class appDevDebugProjectContainer extends Container
     }
 
     /**
-     * Gets the 'viettut_user_system_broker.profile.form.type' service.
+     * Gets the 'viettut_user_system_lecturer.profile.form.type' service.
      *
      * This service is shared.
      * This method always returns the same instance of the service.
      *
      * @return \Rollerworks\Bundle\MultiUserBundle\Form\Type\ProfileFormType A Rollerworks\Bundle\MultiUserBundle\Form\Type\ProfileFormType instance.
      */
-    protected function getViettutUserSystemBroker_Profile_Form_TypeService()
+    protected function getViettutUserSystemLecturer_Profile_Form_TypeService()
     {
-        return $this->services['viettut_user_system_broker.profile.form.type'] = new \Rollerworks\Bundle\MultiUserBundle\Form\Type\ProfileFormType('Viettut\\Bundles\\UserSystem\\BrokerBundle\\Entity\\User', 'viettut_user_system_broker_profile');
+        return $this->services['viettut_user_system_lecturer.profile.form.type'] = new \Rollerworks\Bundle\MultiUserBundle\Form\Type\ProfileFormType('Viettut\\Bundles\\UserSystem\\LecturerBundle\\Entity\\User', 'viettut_user_system_lecturer_profile');
     }
 
     /**
-     * Gets the 'viettut_user_system_broker.registration.form.factory' service.
+     * Gets the 'viettut_user_system_lecturer.registration.form.factory' service.
      *
      * This service is shared.
      * This method always returns the same instance of the service.
      *
      * @return \FOS\UserBundle\Form\Factory\FormFactory A FOS\UserBundle\Form\Factory\FormFactory instance.
      */
-    protected function getViettutUserSystemBroker_Registration_Form_FactoryService()
+    protected function getViettutUserSystemLecturer_Registration_Form_FactoryService()
     {
-        $this->services['viettut_user_system_broker.registration.form.factory'] = $instance = new \FOS\UserBundle\Form\Factory\FormFactory($this->get('form.factory'), 'viettut_user_system_broker_registration_form', 'viettut_user_system_broker_registration', array(0 => 'Registration', 1 => 'Default'));
+        $this->services['viettut_user_system_lecturer.registration.form.factory'] = $instance = new \FOS\UserBundle\Form\Factory\FormFactory($this->get('form.factory'), 'viettut_user_system_lecturer_registration_form', 'viettut_user_system_lecturer_registration', array(0 => 'Registration', 1 => 'Default'));
 
         $instance->setUserDiscriminator($this->get('rollerworks_multi_user.user_discriminator'));
 
@@ -5279,70 +5611,70 @@ class appDevDebugProjectContainer extends Container
     }
 
     /**
-     * Gets the 'viettut_user_system_broker.registration.form.type' service.
+     * Gets the 'viettut_user_system_lecturer.registration.form.type' service.
      *
      * This service is shared.
      * This method always returns the same instance of the service.
      *
      * @return \Rollerworks\Bundle\MultiUserBundle\Form\Type\RegistrationFormType A Rollerworks\Bundle\MultiUserBundle\Form\Type\RegistrationFormType instance.
      */
-    protected function getViettutUserSystemBroker_Registration_Form_TypeService()
+    protected function getViettutUserSystemLecturer_Registration_Form_TypeService()
     {
-        return $this->services['viettut_user_system_broker.registration.form.type'] = new \Rollerworks\Bundle\MultiUserBundle\Form\Type\RegistrationFormType('Viettut\\Bundles\\UserSystem\\BrokerBundle\\Entity\\User', 'viettut_user_system_broker_registration');
+        return $this->services['viettut_user_system_lecturer.registration.form.type'] = new \Rollerworks\Bundle\MultiUserBundle\Form\Type\RegistrationFormType('Viettut\\Bundles\\UserSystem\\LecturerBundle\\Entity\\User', 'viettut_user_system_lecturer_registration');
     }
 
     /**
-     * Gets the 'viettut_user_system_broker.resetting.form.type' service.
+     * Gets the 'viettut_user_system_lecturer.resetting.form.type' service.
      *
      * This service is shared.
      * This method always returns the same instance of the service.
      *
      * @return \Rollerworks\Bundle\MultiUserBundle\Form\Type\ResettingFormType A Rollerworks\Bundle\MultiUserBundle\Form\Type\ResettingFormType instance.
      */
-    protected function getViettutUserSystemBroker_Resetting_Form_TypeService()
+    protected function getViettutUserSystemLecturer_Resetting_Form_TypeService()
     {
-        return $this->services['viettut_user_system_broker.resetting.form.type'] = new \Rollerworks\Bundle\MultiUserBundle\Form\Type\ResettingFormType('Viettut\\Bundles\\UserSystem\\BrokerBundle\\Entity\\User', 'viettut_user_system_broker_resetting');
+        return $this->services['viettut_user_system_lecturer.resetting.form.type'] = new \Rollerworks\Bundle\MultiUserBundle\Form\Type\ResettingFormType('Viettut\\Bundles\\UserSystem\\LecturerBundle\\Entity\\User', 'viettut_user_system_lecturer_resetting');
     }
 
     /**
-     * Gets the 'viettut_user_system_broker.set_broker_role_listener' service.
+     * Gets the 'viettut_user_system_lecturer.set_lecturer_role_listener' service.
      *
      * This service is shared.
      * This method always returns the same instance of the service.
      *
-     * @return \Viettut\Bundles\UserSystem\BrokerBundle\EventListener\SetBrokerRoleListener A Viettut\Bundles\UserSystem\BrokerBundle\EventListener\SetBrokerRoleListener instance.
+     * @return \Viettut\Bundles\UserSystem\LecturerBundle\EventListener\SetLecturerRoleListener A Viettut\Bundles\UserSystem\LecturerBundle\EventListener\SetLecturerRoleListener instance.
      */
-    protected function getViettutUserSystemBroker_SetBrokerRoleListenerService()
+    protected function getViettutUserSystemLecturer_SetLecturerRoleListenerService()
     {
-        return $this->services['viettut_user_system_broker.set_broker_role_listener'] = new \Viettut\Bundles\UserSystem\BrokerBundle\EventListener\SetBrokerRoleListener();
+        return $this->services['viettut_user_system_lecturer.set_lecturer_role_listener'] = new \Viettut\Bundles\UserSystem\LecturerBundle\EventListener\SetLecturerRoleListener();
     }
 
     /**
-     * Gets the 'viettut_user_system_broker.user_manager' service.
+     * Gets the 'viettut_user_system_lecturer.user_manager' service.
      *
      * This service is shared.
      * This method always returns the same instance of the service.
      *
      * @return \FOS\UserBundle\Doctrine\UserManager A FOS\UserBundle\Doctrine\UserManager instance.
      */
-    protected function getViettutUserSystemBroker_UserManagerService()
+    protected function getViettutUserSystemLecturer_UserManagerService()
     {
         $a = $this->get('fos_user.util.email_canonicalizer');
 
-        return $this->services['viettut_user_system_broker.user_manager'] = new \FOS\UserBundle\Doctrine\UserManager($this->get('security.encoder_factory'), $a, $a, $this->get('doctrine')->getManager('default'), 'Viettut\\Bundles\\UserSystem\\BrokerBundle\\Entity\\User');
+        return $this->services['viettut_user_system_lecturer.user_manager'] = new \FOS\UserBundle\Doctrine\UserManager($this->get('security.encoder_factory'), $a, $a, $this->get('doctrine')->getManager('default'), 'Viettut\\Bundles\\UserSystem\\LecturerBundle\\Entity\\User');
     }
 
     /**
-     * Gets the 'viettut_user_system_broker.user_manipulator' service.
+     * Gets the 'viettut_user_system_lecturer.user_manipulator' service.
      *
      * This service is shared.
      * This method always returns the same instance of the service.
      *
      * @return \FOS\UserBundle\Util\UserManipulator A FOS\UserBundle\Util\UserManipulator instance.
      */
-    protected function getViettutUserSystemBroker_UserManipulatorService()
+    protected function getViettutUserSystemLecturer_UserManipulatorService()
     {
-        return $this->services['viettut_user_system_broker.user_manipulator'] = new \FOS\UserBundle\Util\UserManipulator($this->get('viettut_user_system_broker.user_manager'));
+        return $this->services['viettut_user_system_lecturer.user_manipulator'] = new \FOS\UserBundle\Util\UserManipulator($this->get('viettut_user_system_lecturer.user_manager'));
     }
 
     /**
@@ -5570,7 +5902,7 @@ class appDevDebugProjectContainer extends Container
         if ($lazyLoad) {
             $container = $this;
 
-            return $this->services['rollerworks_multi_user.user_system.viettut_user_system_admin'] = new RollerworksBundleMultiUserBundleModelUserConfig_000000001efe5468000000000ec66f7cc0c75094f995231bf6ce0f9b276f0fc3(
+            return $this->services['rollerworks_multi_user.user_system.viettut_user_system_admin'] = new RollerworksBundleMultiUserBundleModelUserConfig_0000000076a36a82000000005504ee9f1ca799daed2cd5f683165563fef8ff53(
                 function (&$wrappedInstance, \ProxyManager\Proxy\LazyLoadingInterface $proxy) use ($container) {
                     $wrappedInstance = $container->getRollerworksMultiUser_UserSystem_ViettutUserSystemAdminService(false);
 
@@ -5609,7 +5941,7 @@ class appDevDebugProjectContainer extends Container
     }
 
     /**
-     * Gets the 'rollerworks_multi_user.user_system.viettut_user_system_broker' service.
+     * Gets the 'rollerworks_multi_user.user_system.viettut_user_system_lecturer' service.
      *
      * This service is shared.
      * This method always returns the same instance of the service.
@@ -5622,14 +5954,14 @@ class appDevDebugProjectContainer extends Container
      *
      * @return \Rollerworks\Bundle\MultiUserBundle\Model\UserConfig A Rollerworks\Bundle\MultiUserBundle\Model\UserConfig instance.
      */
-    public function getRollerworksMultiUser_UserSystem_ViettutUserSystemBrokerService($lazyLoad = true)
+    public function getRollerworksMultiUser_UserSystem_ViettutUserSystemLecturerService($lazyLoad = true)
     {
         if ($lazyLoad) {
             $container = $this;
 
-            return $this->services['rollerworks_multi_user.user_system.viettut_user_system_broker'] = new RollerworksBundleMultiUserBundleModelUserConfig_000000001efe5503000000000ec66f7cc0c75094f995231bf6ce0f9b276f0fc3(
+            return $this->services['rollerworks_multi_user.user_system.viettut_user_system_lecturer'] = new RollerworksBundleMultiUserBundleModelUserConfig_0000000076a36ba4000000005504ee9f1ca799daed2cd5f683165563fef8ff53(
                 function (&$wrappedInstance, \ProxyManager\Proxy\LazyLoadingInterface $proxy) use ($container) {
-                    $wrappedInstance = $container->getRollerworksMultiUser_UserSystem_ViettutUserSystemBrokerService(false);
+                    $wrappedInstance = $container->getRollerworksMultiUser_UserSystem_ViettutUserSystemLecturerService(false);
 
                     $proxy->setProxyInitializer(null);
 
@@ -5638,23 +5970,23 @@ class appDevDebugProjectContainer extends Container
             );
         }
 
-        $instance = new \Rollerworks\Bundle\MultiUserBundle\Model\UserConfig('viettut_user_system_broker', 'viettut_user_system_broker', $this->get('viettut_user_system_broker.user_manager'), $this->get('viettut_user_system_admin.group_manager'));
+        $instance = new \Rollerworks\Bundle\MultiUserBundle\Model\UserConfig('viettut_user_system_lecturer', 'viettut_user_system_lecturer', $this->get('viettut_user_system_lecturer.user_manager'), $this->get('viettut_user_system_admin.group_manager'));
 
         $instance->setConfig('use_listener', true);
         $instance->setTemplate('layout', 'RollerworksMultiUserBundle::layout.html.twig');
-        $instance->setForm('profile', 'viettut_user_system_broker_profile_form', 'viettut_user_system_broker_profile', array(0 => 'Profile', 1 => 'Default'));
+        $instance->setForm('profile', 'viettut_user_system_lecturer_profile_form', 'viettut_user_system_lecturer_profile', array(0 => 'Profile', 1 => 'Default'));
         $instance->setTemplate('profile.edit', 'RollerworksMultiUserBundle:UserBundle/Profile:edit.html.twig');
         $instance->setTemplate('profile.show', 'RollerworksMultiUserBundle:UserBundle/Profile:show.html.twig');
         $instance->setTemplate('security.login', 'RollerworksMultiUserBundle:UserBundle/Security:login.html.twig');
-        $instance->setForm('registration', 'viettut_user_system_broker_registration_form', 'viettut_user_system_broker_registration', array(0 => 'Registration', 1 => 'Default'));
+        $instance->setForm('registration', 'viettut_user_system_lecturer_registration_form', 'viettut_user_system_lecturer_registration', array(0 => 'Registration', 1 => 'Default'));
         $instance->setTemplate('registration.register', 'RollerworksMultiUserBundle:UserBundle/Registration:register.html.twig');
         $instance->setTemplate('registration.check_email', 'RollerworksMultiUserBundle:UserBundle/Registration:checkEmail.html.twig');
         $instance->setConfig('registering.confirmation.enabled', false);
         $instance->setTemplate('registration.confirmation.email', 'RollerworksMultiUserBundle:UserBundle/Registration:email.txt.twig');
         $instance->setTemplate('registration.confirmation.confirmed', 'RollerworksMultiUserBundle:UserBundle/Registration:confirmed.html.twig');
-        $instance->setForm('change_password', 'viettut_user_system_broker_change_password_form', 'viettut_user_system_broker_change_password', array(0 => 'ChangePassword', 1 => 'Default'));
+        $instance->setForm('change_password', 'viettut_user_system_lecturer_change_password_form', 'viettut_user_system_lecturer_change_password', array(0 => 'ChangePassword', 1 => 'Default'));
         $instance->setTemplate('change_password.change_password', 'RollerworksMultiUserBundle:UserBundle/ChangePassword:changePassword.html.twig');
-        $instance->setForm('resetting', 'viettut_user_system_broker_resetting_form', 'viettut_user_system_broker_resetting', array(0 => 'ResetPassword', 1 => 'Default'));
+        $instance->setForm('resetting', 'viettut_user_system_lecturer_resetting_form', 'viettut_user_system_lecturer_resetting', array(0 => 'ResetPassword', 1 => 'Default'));
         $instance->setTemplate('resetting.check_email', 'RollerworksMultiUserBundle:UserBundle/Resetting:checkEmail.html.twig');
         $instance->setTemplate('resetting.email', 'ViettutApiBundle:Resetting:email.txt.twig');
         $instance->setTemplate('resetting.password_already_requested', 'RollerworksMultiUserBundle:UserBundle/Resetting:passwordAlreadyRequested.html.twig');
@@ -5756,7 +6088,7 @@ class appDevDebugProjectContainer extends Container
     protected function getSecurity_Authentication_ManagerService()
     {
         $a = $this->get('debug.event_dispatcher');
-        $b = $this->get('viettut_user_system_broker.user_manager');
+        $b = $this->get('viettut_user_system_lecturer.user_manager');
         $c = $this->get('viettut_user_system_admin.user_manager');
 
         $d = new \FOS\UserBundle\Security\UserProvider($b);
@@ -5859,7 +6191,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSecurity_RoleHierarchyService()
     {
-        return $this->services['security.role_hierarchy'] = new \Symfony\Component\Security\Core\Role\RoleHierarchy(array('ROLE_BROKER' => array(0 => 'ROLE_USER'), 'ROLE_ADMIN' => array(0 => 'ROLE_USER')));
+        return $this->services['security.role_hierarchy'] = new \Symfony\Component\Security\Core\Role\RoleHierarchy(array('ROLE_LECTURER' => array(0 => 'ROLE_USER'), 'ROLE_ADMIN' => array(0 => 'ROLE_USER')));
     }
 
     /**
@@ -5985,7 +6317,7 @@ class appDevDebugProjectContainer extends Container
             'kernel.root_dir' => $this->targetDirs[2],
             'kernel.environment' => 'dev',
             'kernel.debug' => true,
-            'kernel.name' => 'ap_',
+            'kernel.name' => 'app',
             'kernel.cache_dir' => __DIR__,
             'kernel.logs_dir' => ($this->targetDirs[2].'/logs'),
             'kernel.bundles' => array(
@@ -6011,7 +6343,7 @@ class appDevDebugProjectContainer extends Container
                 'ViettutApiBundle' => 'Viettut\\Bundles\\ApiBundle\\ViettutApiBundle',
                 'ViettutUserBundle' => 'Viettut\\Bundles\\UserBundle\\ViettutUserBundle',
                 'ViettutUserSystemAdminBundle' => 'Viettut\\Bundles\\UserSystem\\AdminBundle\\ViettutUserSystemAdminBundle',
-                'ViettutUserSystemBrokerBundle' => 'Viettut\\Bundles\\UserSystem\\BrokerBundle\\ViettutUserSystemBrokerBundle',
+                'ViettutUserSystemLecturerBundle' => 'Viettut\\Bundles\\UserSystem\\LecturerBundle\\ViettutUserSystemLecturerBundle',
                 'DebugBundle' => 'Symfony\\Bundle\\DebugBundle\\DebugBundle',
                 'WebProfilerBundle' => 'Symfony\\Bundle\\WebProfilerBundle\\WebProfilerBundle',
                 'SensioDistributionBundle' => 'Sensio\\Bundle\\DistributionBundle\\SensioDistributionBundle',
@@ -6272,7 +6604,7 @@ class appDevDebugProjectContainer extends Container
             'security.access.always_authenticate_before_granting' => false,
             'security.authentication.hide_user_not_found' => true,
             'security.role_hierarchy.roles' => array(
-                'ROLE_BROKER' => array(
+                'ROLE_LECTURER' => array(
                     0 => 'ROLE_USER',
                 ),
                 'ROLE_ADMIN' => array(
@@ -6845,11 +7177,19 @@ class appDevDebugProjectContainer extends Container
             'nelmio_api_doc.extractor.handler.phpdoc.class' => 'Nelmio\\ApiDocBundle\\Extractor\\Handler\\PhpDocHandler',
             'nelmio_api_doc.request_listener.parameter' => '_doc',
             'nelmio_api_doc.event_listener.request.class' => 'Nelmio\\ApiDocBundle\\EventListener\\RequestListener',
+            'viettut.entity.core.course.class' => 'Viettut\\Entity\\Core\\Course',
+            'viettut.form.type.course.class' => 'Viettut\\Form\\Type\\CourseFormType',
+            'viettut.entity.core.chapter.class' => 'Viettut\\Entity\\Core\\Chapter',
+            'viettut.form.type.chapter.class' => 'Viettut\\Form\\Type\\ChapterFormType',
+            'viettut.entity.core.tutorial.class' => 'Viettut\\Entity\\Core\\Tutorial',
+            'viettut.form.type.tutorial.class' => 'Viettut\\Form\\Type\\TutorialFormType',
+            'viettut.entity.core.comment.class' => 'Viettut\\Entity\\Core\\Comment',
+            'viettut.form.type.comment.class' => 'Viettut\\Form\\Type\\CommentFormType',
             'viettut_api.service.jwt_response_transformer.class' => 'Viettut\\Bundles\\ApiBundle\\Service\\JWTResponseTransformer',
             'viettut.event.authentication_success_listener.class' => 'Viettut\\Bundles\\ApiBundle\\EventListener\\AuthenticationSuccessListener',
             'viettut.event.jwt_created_listener.class' => 'Viettut\\Bundles\\ApiBundle\\EventListener\\JWTCreatedListener',
             'viettut.bundle.user.entity.user.class' => 'Viettut\\Bundles\\UserBundle\\Entity\\User',
-            'viettut.user_system.broker' => 'viettut_user_system_broker',
+            'viettut.user_system.lecturer' => 'viettut_user_system_lecturer',
             'viettut.user_system.admin' => 'viettut_user_system_admin',
             'viettut_user.events.login_success' => 'viettut_user.events.login_success',
             'viettut_user.request.user_system.authentication_listener.class' => 'Viettut\\Bundles\\UserBundle\\Request\\UserSystem\\AuthenticationListener',
@@ -6913,66 +7253,66 @@ class appDevDebugProjectContainer extends Container
             'viettut_user_system_admin.resetting.password_already_requested.template' => 'RollerworksMultiUserBundle:UserBundle/Resetting:passwordAlreadyRequested.html.twig',
             'viettut_user_system_admin.resetting.request.template' => 'RollerworksMultiUserBundle:UserBundle/Resetting:request.html.twig',
             'viettut_user_system_admin.resetting.reset.template' => 'RollerworksMultiUserBundle:UserBundle/Resetting:reset.html.twig',
-            'viettut_user_system_broker.firewall_name' => 'api',
-            'viettut_user_system_broker.model_manager_name' => 'default',
-            'viettut_user_system_broker.model.user.class' => 'Viettut\\Bundles\\UserSystem\\BrokerBundle\\Entity\\User',
-            'viettut_user_system_broker.template.layout' => 'RollerworksMultiUserBundle::layout.html.twig',
-            'viettut_user_system_broker.template.engine' => 'twig',
-            'viettut_user_system_broker.backend_type_orm' => true,
-            'viettut_user_system_broker.profile.form.class' => NULL,
-            'viettut_user_system_broker.profile.form.type' => 'viettut_user_system_broker_profile',
-            'viettut_user_system_broker.profile.form.name' => 'viettut_user_system_broker_profile_form',
-            'viettut_user_system_broker.profile.form.validation_groups' => array(
+            'viettut_user_system_lecturer.firewall_name' => 'api',
+            'viettut_user_system_lecturer.model_manager_name' => 'default',
+            'viettut_user_system_lecturer.model.user.class' => 'Viettut\\Bundles\\UserSystem\\LecturerBundle\\Entity\\User',
+            'viettut_user_system_lecturer.template.layout' => 'RollerworksMultiUserBundle::layout.html.twig',
+            'viettut_user_system_lecturer.template.engine' => 'twig',
+            'viettut_user_system_lecturer.backend_type_orm' => true,
+            'viettut_user_system_lecturer.profile.form.class' => NULL,
+            'viettut_user_system_lecturer.profile.form.type' => 'viettut_user_system_lecturer_profile',
+            'viettut_user_system_lecturer.profile.form.name' => 'viettut_user_system_lecturer_profile_form',
+            'viettut_user_system_lecturer.profile.form.validation_groups' => array(
                 0 => 'Profile',
                 1 => 'Default',
             ),
-            'viettut_user_system_broker.profile.edit.template' => 'RollerworksMultiUserBundle:UserBundle/Profile:edit.html.twig',
-            'viettut_user_system_broker.profile.show.template' => 'RollerworksMultiUserBundle:UserBundle/Profile:show.html.twig',
-            'viettut_user_system_broker.security.login.template' => 'RollerworksMultiUserBundle:UserBundle/Security:login.html.twig',
-            'viettut_user_system_broker.registration.confirmation.from_email' => array(
+            'viettut_user_system_lecturer.profile.edit.template' => 'RollerworksMultiUserBundle:UserBundle/Profile:edit.html.twig',
+            'viettut_user_system_lecturer.profile.show.template' => 'RollerworksMultiUserBundle:UserBundle/Profile:show.html.twig',
+            'viettut_user_system_lecturer.security.login.template' => 'RollerworksMultiUserBundle:UserBundle/Security:login.html.twig',
+            'viettut_user_system_lecturer.registration.confirmation.from_email' => array(
                 '' => NULL,
             ),
-            'viettut_user_system_broker.registration.confirmation.enabled' => false,
-            'viettut_user_system_broker.registration.confirmation.template' => array(
+            'viettut_user_system_lecturer.registration.confirmation.enabled' => false,
+            'viettut_user_system_lecturer.registration.confirmation.template' => array(
                 'email' => 'RollerworksMultiUserBundle:UserBundle/Registration:email.txt.twig',
                 'confirmed' => 'RollerworksMultiUserBundle:UserBundle/Registration:confirmed.html.twig',
             ),
-            'viettut_user_system_broker.registration.form.class' => NULL,
-            'viettut_user_system_broker.registration.form.type' => 'viettut_user_system_broker_registration',
-            'viettut_user_system_broker.registration.form.name' => 'viettut_user_system_broker_registration_form',
-            'viettut_user_system_broker.registration.form.validation_groups' => array(
+            'viettut_user_system_lecturer.registration.form.class' => NULL,
+            'viettut_user_system_lecturer.registration.form.type' => 'viettut_user_system_lecturer_registration',
+            'viettut_user_system_lecturer.registration.form.name' => 'viettut_user_system_lecturer_registration_form',
+            'viettut_user_system_lecturer.registration.form.validation_groups' => array(
                 0 => 'Registration',
                 1 => 'Default',
             ),
-            'viettut_user_system_broker.registration.register.template' => 'RollerworksMultiUserBundle:UserBundle/Registration:register.html.twig',
-            'viettut_user_system_broker.registration.check_email.template' => 'RollerworksMultiUserBundle:UserBundle/Registration:checkEmail.html.twig',
-            'viettut_user_system_broker.registration.confirmation.email.template' => 'RollerworksMultiUserBundle:UserBundle/Registration:email.txt.twig',
-            'viettut_user_system_broker.registration.confirmation.confirmed.template' => 'RollerworksMultiUserBundle:UserBundle/Registration:confirmed.html.twig',
-            'viettut_user_system_broker.change_password.form.class' => NULL,
-            'viettut_user_system_broker.change_password.form.type' => 'viettut_user_system_broker_change_password',
-            'viettut_user_system_broker.change_password.form.name' => 'viettut_user_system_broker_change_password_form',
-            'viettut_user_system_broker.change_password.form.validation_groups' => array(
+            'viettut_user_system_lecturer.registration.register.template' => 'RollerworksMultiUserBundle:UserBundle/Registration:register.html.twig',
+            'viettut_user_system_lecturer.registration.check_email.template' => 'RollerworksMultiUserBundle:UserBundle/Registration:checkEmail.html.twig',
+            'viettut_user_system_lecturer.registration.confirmation.email.template' => 'RollerworksMultiUserBundle:UserBundle/Registration:email.txt.twig',
+            'viettut_user_system_lecturer.registration.confirmation.confirmed.template' => 'RollerworksMultiUserBundle:UserBundle/Registration:confirmed.html.twig',
+            'viettut_user_system_lecturer.change_password.form.class' => NULL,
+            'viettut_user_system_lecturer.change_password.form.type' => 'viettut_user_system_lecturer_change_password',
+            'viettut_user_system_lecturer.change_password.form.name' => 'viettut_user_system_lecturer_change_password_form',
+            'viettut_user_system_lecturer.change_password.form.validation_groups' => array(
                 0 => 'ChangePassword',
                 1 => 'Default',
             ),
-            'viettut_user_system_broker.change_password.change_password.template' => 'RollerworksMultiUserBundle:UserBundle/ChangePassword:changePassword.html.twig',
-            'viettut_user_system_broker.resetting.email.from_email' => array(
+            'viettut_user_system_lecturer.change_password.change_password.template' => 'RollerworksMultiUserBundle:UserBundle/ChangePassword:changePassword.html.twig',
+            'viettut_user_system_lecturer.resetting.email.from_email' => array(
                 'tagcade.dev@gmail.com' => 'Tagcade.dev',
             ),
-            'viettut_user_system_broker.resetting.token_ttl' => 86400,
-            'viettut_user_system_broker.resetting.form.template' => NULL,
-            'viettut_user_system_broker.resetting.form.class' => NULL,
-            'viettut_user_system_broker.resetting.form.type' => 'viettut_user_system_broker_resetting',
-            'viettut_user_system_broker.resetting.form.name' => 'viettut_user_system_broker_resetting_form',
-            'viettut_user_system_broker.resetting.form.validation_groups' => array(
+            'viettut_user_system_lecturer.resetting.token_ttl' => 86400,
+            'viettut_user_system_lecturer.resetting.form.template' => NULL,
+            'viettut_user_system_lecturer.resetting.form.class' => NULL,
+            'viettut_user_system_lecturer.resetting.form.type' => 'viettut_user_system_lecturer_resetting',
+            'viettut_user_system_lecturer.resetting.form.name' => 'viettut_user_system_lecturer_resetting_form',
+            'viettut_user_system_lecturer.resetting.form.validation_groups' => array(
                 0 => 'ResetPassword',
                 1 => 'Default',
             ),
-            'viettut_user_system_broker.resetting.check_email.template' => 'RollerworksMultiUserBundle:UserBundle/Resetting:checkEmail.html.twig',
-            'viettut_user_system_broker.resetting.email.template' => 'ViettutApiBundle:Resetting:email.txt.twig',
-            'viettut_user_system_broker.resetting.password_already_requested.template' => 'RollerworksMultiUserBundle:UserBundle/Resetting:passwordAlreadyRequested.html.twig',
-            'viettut_user_system_broker.resetting.request.template' => 'RollerworksMultiUserBundle:UserBundle/Resetting:request.html.twig',
-            'viettut_user_system_broker.resetting.reset.template' => 'RollerworksMultiUserBundle:UserBundle/Resetting:reset.html.twig',
+            'viettut_user_system_lecturer.resetting.check_email.template' => 'RollerworksMultiUserBundle:UserBundle/Resetting:checkEmail.html.twig',
+            'viettut_user_system_lecturer.resetting.email.template' => 'ViettutApiBundle:Resetting:email.txt.twig',
+            'viettut_user_system_lecturer.resetting.password_already_requested.template' => 'RollerworksMultiUserBundle:UserBundle/Resetting:passwordAlreadyRequested.html.twig',
+            'viettut_user_system_lecturer.resetting.request.template' => 'RollerworksMultiUserBundle:UserBundle/Resetting:request.html.twig',
+            'viettut_user_system_lecturer.resetting.reset.template' => 'RollerworksMultiUserBundle:UserBundle/Resetting:reset.html.twig',
             'web_profiler.controller.profiler.class' => 'Symfony\\Bundle\\WebProfilerBundle\\Controller\\ProfilerController',
             'web_profiler.controller.router.class' => 'Symfony\\Bundle\\WebProfilerBundle\\Controller\\RouterController',
             'web_profiler.controller.exception.class' => 'Symfony\\Bundle\\WebProfilerBundle\\Controller\\ExceptionController',
@@ -7062,23 +7402,23 @@ class appDevDebugProjectContainer extends Container
     }
 }
 
-class RollerworksBundleMultiUserBundleModelUserConfig_000000001efe5468000000000ec66f7cc0c75094f995231bf6ce0f9b276f0fc3 extends \Rollerworks\Bundle\MultiUserBundle\Model\UserConfig implements \ProxyManager\Proxy\VirtualProxyInterface
+class RollerworksBundleMultiUserBundleModelUserConfig_0000000076a36a82000000005504ee9f1ca799daed2cd5f683165563fef8ff53 extends \Rollerworks\Bundle\MultiUserBundle\Model\UserConfig implements \ProxyManager\Proxy\VirtualProxyInterface
 {
 
     /**
      * @var \Closure|null initializer responsible for generating the wrapped object
      */
-    private $valueHolder561fd6789676b789909700 = null;
+    private $valueHolder562c561dcb50a729806766 = null;
 
     /**
      * @var \Closure|null initializer responsible for generating the wrapped object
      */
-    private $initializer561fd67896786334876561 = null;
+    private $initializer562c561dcb97d312726454 = null;
 
     /**
      * @var bool[] map of public properties of the parent class
      */
-    private static $publicProperties561fd67896720838317727 = array(
+    private static $publicProperties562c561dc84cf997180457 = array(
         
     );
 
@@ -7087,9 +7427,9 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000001efe5468000000000e
      */
     public function setConfig($name, $value)
     {
-        $this->initializer561fd67896786334876561 && $this->initializer561fd67896786334876561->__invoke($this->valueHolder561fd6789676b789909700, $this, 'setConfig', array('name' => $name, 'value' => $value), $this->initializer561fd67896786334876561);
+        $this->initializer562c561dcb97d312726454 && $this->initializer562c561dcb97d312726454->__invoke($this->valueHolder562c561dcb50a729806766, $this, 'setConfig', array('name' => $name, 'value' => $value), $this->initializer562c561dcb97d312726454);
 
-        return $this->valueHolder561fd6789676b789909700->setConfig($name, $value);
+        return $this->valueHolder562c561dcb50a729806766->setConfig($name, $value);
     }
 
     /**
@@ -7097,9 +7437,9 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000001efe5468000000000e
      */
     public function getConfig($name, $defaultValue = null)
     {
-        $this->initializer561fd67896786334876561 && $this->initializer561fd67896786334876561->__invoke($this->valueHolder561fd6789676b789909700, $this, 'getConfig', array('name' => $name, 'defaultValue' => $defaultValue), $this->initializer561fd67896786334876561);
+        $this->initializer562c561dcb97d312726454 && $this->initializer562c561dcb97d312726454->__invoke($this->valueHolder562c561dcb50a729806766, $this, 'getConfig', array('name' => $name, 'defaultValue' => $defaultValue), $this->initializer562c561dcb97d312726454);
 
-        return $this->valueHolder561fd6789676b789909700->getConfig($name, $defaultValue);
+        return $this->valueHolder562c561dcb50a729806766->getConfig($name, $defaultValue);
     }
 
     /**
@@ -7107,9 +7447,9 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000001efe5468000000000e
      */
     public function setForm($name, $formName, $type, array $validationGroups)
     {
-        $this->initializer561fd67896786334876561 && $this->initializer561fd67896786334876561->__invoke($this->valueHolder561fd6789676b789909700, $this, 'setForm', array('name' => $name, 'formName' => $formName, 'type' => $type, 'validationGroups' => $validationGroups), $this->initializer561fd67896786334876561);
+        $this->initializer562c561dcb97d312726454 && $this->initializer562c561dcb97d312726454->__invoke($this->valueHolder562c561dcb50a729806766, $this, 'setForm', array('name' => $name, 'formName' => $formName, 'type' => $type, 'validationGroups' => $validationGroups), $this->initializer562c561dcb97d312726454);
 
-        return $this->valueHolder561fd6789676b789909700->setForm($name, $formName, $type, $validationGroups);
+        return $this->valueHolder562c561dcb50a729806766->setForm($name, $formName, $type, $validationGroups);
     }
 
     /**
@@ -7117,9 +7457,9 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000001efe5468000000000e
      */
     public function setTemplate($name, $resource)
     {
-        $this->initializer561fd67896786334876561 && $this->initializer561fd67896786334876561->__invoke($this->valueHolder561fd6789676b789909700, $this, 'setTemplate', array('name' => $name, 'resource' => $resource), $this->initializer561fd67896786334876561);
+        $this->initializer562c561dcb97d312726454 && $this->initializer562c561dcb97d312726454->__invoke($this->valueHolder562c561dcb50a729806766, $this, 'setTemplate', array('name' => $name, 'resource' => $resource), $this->initializer562c561dcb97d312726454);
 
-        return $this->valueHolder561fd6789676b789909700->setTemplate($name, $resource);
+        return $this->valueHolder562c561dcb50a729806766->setTemplate($name, $resource);
     }
 
     /**
@@ -7127,9 +7467,9 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000001efe5468000000000e
      */
     public function getFormType($name)
     {
-        $this->initializer561fd67896786334876561 && $this->initializer561fd67896786334876561->__invoke($this->valueHolder561fd6789676b789909700, $this, 'getFormType', array('name' => $name), $this->initializer561fd67896786334876561);
+        $this->initializer562c561dcb97d312726454 && $this->initializer562c561dcb97d312726454->__invoke($this->valueHolder562c561dcb50a729806766, $this, 'getFormType', array('name' => $name), $this->initializer562c561dcb97d312726454);
 
-        return $this->valueHolder561fd6789676b789909700->getFormType($name);
+        return $this->valueHolder562c561dcb50a729806766->getFormType($name);
     }
 
     /**
@@ -7137,9 +7477,9 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000001efe5468000000000e
      */
     public function getFormName($name)
     {
-        $this->initializer561fd67896786334876561 && $this->initializer561fd67896786334876561->__invoke($this->valueHolder561fd6789676b789909700, $this, 'getFormName', array('name' => $name), $this->initializer561fd67896786334876561);
+        $this->initializer562c561dcb97d312726454 && $this->initializer562c561dcb97d312726454->__invoke($this->valueHolder562c561dcb50a729806766, $this, 'getFormName', array('name' => $name), $this->initializer562c561dcb97d312726454);
 
-        return $this->valueHolder561fd6789676b789909700->getFormName($name);
+        return $this->valueHolder562c561dcb50a729806766->getFormName($name);
     }
 
     /**
@@ -7147,9 +7487,9 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000001efe5468000000000e
      */
     public function getFormValidationGroups($name)
     {
-        $this->initializer561fd67896786334876561 && $this->initializer561fd67896786334876561->__invoke($this->valueHolder561fd6789676b789909700, $this, 'getFormValidationGroups', array('name' => $name), $this->initializer561fd67896786334876561);
+        $this->initializer562c561dcb97d312726454 && $this->initializer562c561dcb97d312726454->__invoke($this->valueHolder562c561dcb50a729806766, $this, 'getFormValidationGroups', array('name' => $name), $this->initializer562c561dcb97d312726454);
 
-        return $this->valueHolder561fd6789676b789909700->getFormValidationGroups($name);
+        return $this->valueHolder562c561dcb50a729806766->getFormValidationGroups($name);
     }
 
     /**
@@ -7157,9 +7497,9 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000001efe5468000000000e
      */
     public function getTemplate($name)
     {
-        $this->initializer561fd67896786334876561 && $this->initializer561fd67896786334876561->__invoke($this->valueHolder561fd6789676b789909700, $this, 'getTemplate', array('name' => $name), $this->initializer561fd67896786334876561);
+        $this->initializer562c561dcb97d312726454 && $this->initializer562c561dcb97d312726454->__invoke($this->valueHolder562c561dcb50a729806766, $this, 'getTemplate', array('name' => $name), $this->initializer562c561dcb97d312726454);
 
-        return $this->valueHolder561fd6789676b789909700->getTemplate($name);
+        return $this->valueHolder562c561dcb50a729806766->getTemplate($name);
     }
 
     /**
@@ -7167,9 +7507,9 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000001efe5468000000000e
      */
     public function getUserManager()
     {
-        $this->initializer561fd67896786334876561 && $this->initializer561fd67896786334876561->__invoke($this->valueHolder561fd6789676b789909700, $this, 'getUserManager', array(), $this->initializer561fd67896786334876561);
+        $this->initializer562c561dcb97d312726454 && $this->initializer562c561dcb97d312726454->__invoke($this->valueHolder562c561dcb50a729806766, $this, 'getUserManager', array(), $this->initializer562c561dcb97d312726454);
 
-        return $this->valueHolder561fd6789676b789909700->getUserManager();
+        return $this->valueHolder562c561dcb50a729806766->getUserManager();
     }
 
     /**
@@ -7177,9 +7517,9 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000001efe5468000000000e
      */
     public function getGroupManager()
     {
-        $this->initializer561fd67896786334876561 && $this->initializer561fd67896786334876561->__invoke($this->valueHolder561fd6789676b789909700, $this, 'getGroupManager', array(), $this->initializer561fd67896786334876561);
+        $this->initializer562c561dcb97d312726454 && $this->initializer562c561dcb97d312726454->__invoke($this->valueHolder562c561dcb50a729806766, $this, 'getGroupManager', array(), $this->initializer562c561dcb97d312726454);
 
-        return $this->valueHolder561fd6789676b789909700->getGroupManager();
+        return $this->valueHolder562c561dcb50a729806766->getGroupManager();
     }
 
     /**
@@ -7187,9 +7527,9 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000001efe5468000000000e
      */
     public function getServicePrefix()
     {
-        $this->initializer561fd67896786334876561 && $this->initializer561fd67896786334876561->__invoke($this->valueHolder561fd6789676b789909700, $this, 'getServicePrefix', array(), $this->initializer561fd67896786334876561);
+        $this->initializer562c561dcb97d312726454 && $this->initializer562c561dcb97d312726454->__invoke($this->valueHolder562c561dcb50a729806766, $this, 'getServicePrefix', array(), $this->initializer562c561dcb97d312726454);
 
-        return $this->valueHolder561fd6789676b789909700->getServicePrefix();
+        return $this->valueHolder562c561dcb50a729806766->getServicePrefix();
     }
 
     /**
@@ -7197,9 +7537,9 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000001efe5468000000000e
      */
     public function getRoutePrefix()
     {
-        $this->initializer561fd67896786334876561 && $this->initializer561fd67896786334876561->__invoke($this->valueHolder561fd6789676b789909700, $this, 'getRoutePrefix', array(), $this->initializer561fd67896786334876561);
+        $this->initializer562c561dcb97d312726454 && $this->initializer562c561dcb97d312726454->__invoke($this->valueHolder562c561dcb50a729806766, $this, 'getRoutePrefix', array(), $this->initializer562c561dcb97d312726454);
 
-        return $this->valueHolder561fd6789676b789909700->getRoutePrefix();
+        return $this->valueHolder562c561dcb50a729806766->getRoutePrefix();
     }
 
     /**
@@ -7209,7 +7549,7 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000001efe5468000000000e
      */
     public function __construct($initializer)
     {
-        $this->initializer561fd67896786334876561 = $initializer;
+        $this->initializer562c561dcb97d312726454 = $initializer;
     }
 
     /**
@@ -7217,16 +7557,16 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000001efe5468000000000e
      */
     public function & __get($name)
     {
-        $this->initializer561fd67896786334876561 && $this->initializer561fd67896786334876561->__invoke($this->valueHolder561fd6789676b789909700, $this, '__get', array('name' => $name), $this->initializer561fd67896786334876561);
+        $this->initializer562c561dcb97d312726454 && $this->initializer562c561dcb97d312726454->__invoke($this->valueHolder562c561dcb50a729806766, $this, '__get', array('name' => $name), $this->initializer562c561dcb97d312726454);
 
-        if (isset(self::$publicProperties561fd67896720838317727[$name])) {
-            return $this->valueHolder561fd6789676b789909700->$name;
+        if (isset(self::$publicProperties562c561dc84cf997180457[$name])) {
+            return $this->valueHolder562c561dcb50a729806766->$name;
         }
 
         $realInstanceReflection = new \ReflectionClass(get_parent_class($this));
 
         if (! $realInstanceReflection->hasProperty($name)) {
-            $targetObject = $this->valueHolder561fd6789676b789909700;
+            $targetObject = $this->valueHolder562c561dcb50a729806766;
 
             $backtrace = debug_backtrace(false);
             trigger_error('Undefined property: ' . get_parent_class($this) . '::$' . $name . ' in ' . $backtrace[0]['file'] . ' on line ' . $backtrace[0]['line'], \E_USER_NOTICE);
@@ -7234,7 +7574,7 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000001efe5468000000000e
             return;
         }
 
-        $targetObject = $this->valueHolder561fd6789676b789909700;
+        $targetObject = $this->valueHolder562c561dcb50a729806766;
         $accessor = function & () use ($targetObject, $name) {
             return $targetObject->$name;
         };
@@ -7252,18 +7592,18 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000001efe5468000000000e
      */
     public function __set($name, $value)
     {
-        $this->initializer561fd67896786334876561 && $this->initializer561fd67896786334876561->__invoke($this->valueHolder561fd6789676b789909700, $this, '__set', array('name' => $name, 'value' => $value), $this->initializer561fd67896786334876561);
+        $this->initializer562c561dcb97d312726454 && $this->initializer562c561dcb97d312726454->__invoke($this->valueHolder562c561dcb50a729806766, $this, '__set', array('name' => $name, 'value' => $value), $this->initializer562c561dcb97d312726454);
 
         $realInstanceReflection = new \ReflectionClass(get_parent_class($this));
 
         if (! $realInstanceReflection->hasProperty($name)) {
-            $targetObject = $this->valueHolder561fd6789676b789909700;
+            $targetObject = $this->valueHolder562c561dcb50a729806766;
 
             return $targetObject->$name = $value;;
             return;
         }
 
-        $targetObject = $this->valueHolder561fd6789676b789909700;
+        $targetObject = $this->valueHolder562c561dcb50a729806766;
         $accessor = function & () use ($targetObject, $name, $value) {
             return $targetObject->$name = $value;
         };
@@ -7280,18 +7620,18 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000001efe5468000000000e
      */
     public function __isset($name)
     {
-        $this->initializer561fd67896786334876561 && $this->initializer561fd67896786334876561->__invoke($this->valueHolder561fd6789676b789909700, $this, '__isset', array('name' => $name), $this->initializer561fd67896786334876561);
+        $this->initializer562c561dcb97d312726454 && $this->initializer562c561dcb97d312726454->__invoke($this->valueHolder562c561dcb50a729806766, $this, '__isset', array('name' => $name), $this->initializer562c561dcb97d312726454);
 
         $realInstanceReflection = new \ReflectionClass(get_parent_class($this));
 
         if (! $realInstanceReflection->hasProperty($name)) {
-            $targetObject = $this->valueHolder561fd6789676b789909700;
+            $targetObject = $this->valueHolder562c561dcb50a729806766;
 
             return isset($targetObject->$name);;
             return;
         }
 
-        $targetObject = $this->valueHolder561fd6789676b789909700;
+        $targetObject = $this->valueHolder562c561dcb50a729806766;
         $accessor = function () use ($targetObject, $name) {
             return isset($targetObject->$name);
         };
@@ -7308,18 +7648,18 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000001efe5468000000000e
      */
     public function __unset($name)
     {
-        $this->initializer561fd67896786334876561 && $this->initializer561fd67896786334876561->__invoke($this->valueHolder561fd6789676b789909700, $this, '__unset', array('name' => $name), $this->initializer561fd67896786334876561);
+        $this->initializer562c561dcb97d312726454 && $this->initializer562c561dcb97d312726454->__invoke($this->valueHolder562c561dcb50a729806766, $this, '__unset', array('name' => $name), $this->initializer562c561dcb97d312726454);
 
         $realInstanceReflection = new \ReflectionClass(get_parent_class($this));
 
         if (! $realInstanceReflection->hasProperty($name)) {
-            $targetObject = $this->valueHolder561fd6789676b789909700;
+            $targetObject = $this->valueHolder562c561dcb50a729806766;
 
             unset($targetObject->$name);;
             return;
         }
 
-        $targetObject = $this->valueHolder561fd6789676b789909700;
+        $targetObject = $this->valueHolder562c561dcb50a729806766;
         $accessor = function () use ($targetObject, $name) {
             unset($targetObject->$name);
         };
@@ -7333,16 +7673,16 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000001efe5468000000000e
 
     public function __clone()
     {
-        $this->initializer561fd67896786334876561 && $this->initializer561fd67896786334876561->__invoke($this->valueHolder561fd6789676b789909700, $this, '__clone', array(), $this->initializer561fd67896786334876561);
+        $this->initializer562c561dcb97d312726454 && $this->initializer562c561dcb97d312726454->__invoke($this->valueHolder562c561dcb50a729806766, $this, '__clone', array(), $this->initializer562c561dcb97d312726454);
 
-        $this->valueHolder561fd6789676b789909700 = clone $this->valueHolder561fd6789676b789909700;
+        $this->valueHolder562c561dcb50a729806766 = clone $this->valueHolder562c561dcb50a729806766;
     }
 
     public function __sleep()
     {
-        $this->initializer561fd67896786334876561 && $this->initializer561fd67896786334876561->__invoke($this->valueHolder561fd6789676b789909700, $this, '__sleep', array(), $this->initializer561fd67896786334876561);
+        $this->initializer562c561dcb97d312726454 && $this->initializer562c561dcb97d312726454->__invoke($this->valueHolder562c561dcb50a729806766, $this, '__sleep', array(), $this->initializer562c561dcb97d312726454);
 
-        return array('valueHolder561fd6789676b789909700');
+        return array('valueHolder562c561dcb50a729806766');
     }
 
     public function __wakeup()
@@ -7354,7 +7694,7 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000001efe5468000000000e
      */
     public function setProxyInitializer(\Closure $initializer = null)
     {
-        $this->initializer561fd67896786334876561 = $initializer;
+        $this->initializer562c561dcb97d312726454 = $initializer;
     }
 
     /**
@@ -7362,7 +7702,7 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000001efe5468000000000e
      */
     public function getProxyInitializer()
     {
-        return $this->initializer561fd67896786334876561;
+        return $this->initializer562c561dcb97d312726454;
     }
 
     /**
@@ -7370,7 +7710,7 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000001efe5468000000000e
      */
     public function initializeProxy()
     {
-        return $this->initializer561fd67896786334876561 && $this->initializer561fd67896786334876561->__invoke($this->valueHolder561fd6789676b789909700, $this, 'initializeProxy', array(), $this->initializer561fd67896786334876561);
+        return $this->initializer562c561dcb97d312726454 && $this->initializer562c561dcb97d312726454->__invoke($this->valueHolder562c561dcb50a729806766, $this, 'initializeProxy', array(), $this->initializer562c561dcb97d312726454);
     }
 
     /**
@@ -7378,7 +7718,7 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000001efe5468000000000e
      */
     public function isProxyInitialized()
     {
-        return null !== $this->valueHolder561fd6789676b789909700;
+        return null !== $this->valueHolder562c561dcb50a729806766;
     }
 
     /**
@@ -7386,29 +7726,29 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000001efe5468000000000e
      */
     public function getWrappedValueHolderValue()
     {
-        return $this->valueHolder561fd6789676b789909700;
+        return $this->valueHolder562c561dcb50a729806766;
     }
 
 
 }
 
-class RollerworksBundleMultiUserBundleModelUserConfig_000000001efe5503000000000ec66f7cc0c75094f995231bf6ce0f9b276f0fc3 extends \Rollerworks\Bundle\MultiUserBundle\Model\UserConfig implements \ProxyManager\Proxy\VirtualProxyInterface
+class RollerworksBundleMultiUserBundleModelUserConfig_0000000076a36ba4000000005504ee9f1ca799daed2cd5f683165563fef8ff53 extends \Rollerworks\Bundle\MultiUserBundle\Model\UserConfig implements \ProxyManager\Proxy\VirtualProxyInterface
 {
 
     /**
      * @var \Closure|null initializer responsible for generating the wrapped object
      */
-    private $valueHolder561fd678a48fe951338840 = null;
+    private $valueHolder562c561de6bfc451804592 = null;
 
     /**
      * @var \Closure|null initializer responsible for generating the wrapped object
      */
-    private $initializer561fd678a4924182891606 = null;
+    private $initializer562c561de6c12707919196 = null;
 
     /**
      * @var bool[] map of public properties of the parent class
      */
-    private static $publicProperties561fd678a48a4968884065 = array(
+    private static $publicProperties562c561de6bc3223845024 = array(
         
     );
 
@@ -7417,9 +7757,9 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000001efe5503000000000e
      */
     public function setConfig($name, $value)
     {
-        $this->initializer561fd678a4924182891606 && $this->initializer561fd678a4924182891606->__invoke($this->valueHolder561fd678a48fe951338840, $this, 'setConfig', array('name' => $name, 'value' => $value), $this->initializer561fd678a4924182891606);
+        $this->initializer562c561de6c12707919196 && $this->initializer562c561de6c12707919196->__invoke($this->valueHolder562c561de6bfc451804592, $this, 'setConfig', array('name' => $name, 'value' => $value), $this->initializer562c561de6c12707919196);
 
-        return $this->valueHolder561fd678a48fe951338840->setConfig($name, $value);
+        return $this->valueHolder562c561de6bfc451804592->setConfig($name, $value);
     }
 
     /**
@@ -7427,9 +7767,9 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000001efe5503000000000e
      */
     public function getConfig($name, $defaultValue = null)
     {
-        $this->initializer561fd678a4924182891606 && $this->initializer561fd678a4924182891606->__invoke($this->valueHolder561fd678a48fe951338840, $this, 'getConfig', array('name' => $name, 'defaultValue' => $defaultValue), $this->initializer561fd678a4924182891606);
+        $this->initializer562c561de6c12707919196 && $this->initializer562c561de6c12707919196->__invoke($this->valueHolder562c561de6bfc451804592, $this, 'getConfig', array('name' => $name, 'defaultValue' => $defaultValue), $this->initializer562c561de6c12707919196);
 
-        return $this->valueHolder561fd678a48fe951338840->getConfig($name, $defaultValue);
+        return $this->valueHolder562c561de6bfc451804592->getConfig($name, $defaultValue);
     }
 
     /**
@@ -7437,9 +7777,9 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000001efe5503000000000e
      */
     public function setForm($name, $formName, $type, array $validationGroups)
     {
-        $this->initializer561fd678a4924182891606 && $this->initializer561fd678a4924182891606->__invoke($this->valueHolder561fd678a48fe951338840, $this, 'setForm', array('name' => $name, 'formName' => $formName, 'type' => $type, 'validationGroups' => $validationGroups), $this->initializer561fd678a4924182891606);
+        $this->initializer562c561de6c12707919196 && $this->initializer562c561de6c12707919196->__invoke($this->valueHolder562c561de6bfc451804592, $this, 'setForm', array('name' => $name, 'formName' => $formName, 'type' => $type, 'validationGroups' => $validationGroups), $this->initializer562c561de6c12707919196);
 
-        return $this->valueHolder561fd678a48fe951338840->setForm($name, $formName, $type, $validationGroups);
+        return $this->valueHolder562c561de6bfc451804592->setForm($name, $formName, $type, $validationGroups);
     }
 
     /**
@@ -7447,9 +7787,9 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000001efe5503000000000e
      */
     public function setTemplate($name, $resource)
     {
-        $this->initializer561fd678a4924182891606 && $this->initializer561fd678a4924182891606->__invoke($this->valueHolder561fd678a48fe951338840, $this, 'setTemplate', array('name' => $name, 'resource' => $resource), $this->initializer561fd678a4924182891606);
+        $this->initializer562c561de6c12707919196 && $this->initializer562c561de6c12707919196->__invoke($this->valueHolder562c561de6bfc451804592, $this, 'setTemplate', array('name' => $name, 'resource' => $resource), $this->initializer562c561de6c12707919196);
 
-        return $this->valueHolder561fd678a48fe951338840->setTemplate($name, $resource);
+        return $this->valueHolder562c561de6bfc451804592->setTemplate($name, $resource);
     }
 
     /**
@@ -7457,9 +7797,9 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000001efe5503000000000e
      */
     public function getFormType($name)
     {
-        $this->initializer561fd678a4924182891606 && $this->initializer561fd678a4924182891606->__invoke($this->valueHolder561fd678a48fe951338840, $this, 'getFormType', array('name' => $name), $this->initializer561fd678a4924182891606);
+        $this->initializer562c561de6c12707919196 && $this->initializer562c561de6c12707919196->__invoke($this->valueHolder562c561de6bfc451804592, $this, 'getFormType', array('name' => $name), $this->initializer562c561de6c12707919196);
 
-        return $this->valueHolder561fd678a48fe951338840->getFormType($name);
+        return $this->valueHolder562c561de6bfc451804592->getFormType($name);
     }
 
     /**
@@ -7467,9 +7807,9 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000001efe5503000000000e
      */
     public function getFormName($name)
     {
-        $this->initializer561fd678a4924182891606 && $this->initializer561fd678a4924182891606->__invoke($this->valueHolder561fd678a48fe951338840, $this, 'getFormName', array('name' => $name), $this->initializer561fd678a4924182891606);
+        $this->initializer562c561de6c12707919196 && $this->initializer562c561de6c12707919196->__invoke($this->valueHolder562c561de6bfc451804592, $this, 'getFormName', array('name' => $name), $this->initializer562c561de6c12707919196);
 
-        return $this->valueHolder561fd678a48fe951338840->getFormName($name);
+        return $this->valueHolder562c561de6bfc451804592->getFormName($name);
     }
 
     /**
@@ -7477,9 +7817,9 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000001efe5503000000000e
      */
     public function getFormValidationGroups($name)
     {
-        $this->initializer561fd678a4924182891606 && $this->initializer561fd678a4924182891606->__invoke($this->valueHolder561fd678a48fe951338840, $this, 'getFormValidationGroups', array('name' => $name), $this->initializer561fd678a4924182891606);
+        $this->initializer562c561de6c12707919196 && $this->initializer562c561de6c12707919196->__invoke($this->valueHolder562c561de6bfc451804592, $this, 'getFormValidationGroups', array('name' => $name), $this->initializer562c561de6c12707919196);
 
-        return $this->valueHolder561fd678a48fe951338840->getFormValidationGroups($name);
+        return $this->valueHolder562c561de6bfc451804592->getFormValidationGroups($name);
     }
 
     /**
@@ -7487,9 +7827,9 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000001efe5503000000000e
      */
     public function getTemplate($name)
     {
-        $this->initializer561fd678a4924182891606 && $this->initializer561fd678a4924182891606->__invoke($this->valueHolder561fd678a48fe951338840, $this, 'getTemplate', array('name' => $name), $this->initializer561fd678a4924182891606);
+        $this->initializer562c561de6c12707919196 && $this->initializer562c561de6c12707919196->__invoke($this->valueHolder562c561de6bfc451804592, $this, 'getTemplate', array('name' => $name), $this->initializer562c561de6c12707919196);
 
-        return $this->valueHolder561fd678a48fe951338840->getTemplate($name);
+        return $this->valueHolder562c561de6bfc451804592->getTemplate($name);
     }
 
     /**
@@ -7497,9 +7837,9 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000001efe5503000000000e
      */
     public function getUserManager()
     {
-        $this->initializer561fd678a4924182891606 && $this->initializer561fd678a4924182891606->__invoke($this->valueHolder561fd678a48fe951338840, $this, 'getUserManager', array(), $this->initializer561fd678a4924182891606);
+        $this->initializer562c561de6c12707919196 && $this->initializer562c561de6c12707919196->__invoke($this->valueHolder562c561de6bfc451804592, $this, 'getUserManager', array(), $this->initializer562c561de6c12707919196);
 
-        return $this->valueHolder561fd678a48fe951338840->getUserManager();
+        return $this->valueHolder562c561de6bfc451804592->getUserManager();
     }
 
     /**
@@ -7507,9 +7847,9 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000001efe5503000000000e
      */
     public function getGroupManager()
     {
-        $this->initializer561fd678a4924182891606 && $this->initializer561fd678a4924182891606->__invoke($this->valueHolder561fd678a48fe951338840, $this, 'getGroupManager', array(), $this->initializer561fd678a4924182891606);
+        $this->initializer562c561de6c12707919196 && $this->initializer562c561de6c12707919196->__invoke($this->valueHolder562c561de6bfc451804592, $this, 'getGroupManager', array(), $this->initializer562c561de6c12707919196);
 
-        return $this->valueHolder561fd678a48fe951338840->getGroupManager();
+        return $this->valueHolder562c561de6bfc451804592->getGroupManager();
     }
 
     /**
@@ -7517,9 +7857,9 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000001efe5503000000000e
      */
     public function getServicePrefix()
     {
-        $this->initializer561fd678a4924182891606 && $this->initializer561fd678a4924182891606->__invoke($this->valueHolder561fd678a48fe951338840, $this, 'getServicePrefix', array(), $this->initializer561fd678a4924182891606);
+        $this->initializer562c561de6c12707919196 && $this->initializer562c561de6c12707919196->__invoke($this->valueHolder562c561de6bfc451804592, $this, 'getServicePrefix', array(), $this->initializer562c561de6c12707919196);
 
-        return $this->valueHolder561fd678a48fe951338840->getServicePrefix();
+        return $this->valueHolder562c561de6bfc451804592->getServicePrefix();
     }
 
     /**
@@ -7527,9 +7867,9 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000001efe5503000000000e
      */
     public function getRoutePrefix()
     {
-        $this->initializer561fd678a4924182891606 && $this->initializer561fd678a4924182891606->__invoke($this->valueHolder561fd678a48fe951338840, $this, 'getRoutePrefix', array(), $this->initializer561fd678a4924182891606);
+        $this->initializer562c561de6c12707919196 && $this->initializer562c561de6c12707919196->__invoke($this->valueHolder562c561de6bfc451804592, $this, 'getRoutePrefix', array(), $this->initializer562c561de6c12707919196);
 
-        return $this->valueHolder561fd678a48fe951338840->getRoutePrefix();
+        return $this->valueHolder562c561de6bfc451804592->getRoutePrefix();
     }
 
     /**
@@ -7539,7 +7879,7 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000001efe5503000000000e
      */
     public function __construct($initializer)
     {
-        $this->initializer561fd678a4924182891606 = $initializer;
+        $this->initializer562c561de6c12707919196 = $initializer;
     }
 
     /**
@@ -7547,16 +7887,16 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000001efe5503000000000e
      */
     public function & __get($name)
     {
-        $this->initializer561fd678a4924182891606 && $this->initializer561fd678a4924182891606->__invoke($this->valueHolder561fd678a48fe951338840, $this, '__get', array('name' => $name), $this->initializer561fd678a4924182891606);
+        $this->initializer562c561de6c12707919196 && $this->initializer562c561de6c12707919196->__invoke($this->valueHolder562c561de6bfc451804592, $this, '__get', array('name' => $name), $this->initializer562c561de6c12707919196);
 
-        if (isset(self::$publicProperties561fd678a48a4968884065[$name])) {
-            return $this->valueHolder561fd678a48fe951338840->$name;
+        if (isset(self::$publicProperties562c561de6bc3223845024[$name])) {
+            return $this->valueHolder562c561de6bfc451804592->$name;
         }
 
         $realInstanceReflection = new \ReflectionClass(get_parent_class($this));
 
         if (! $realInstanceReflection->hasProperty($name)) {
-            $targetObject = $this->valueHolder561fd678a48fe951338840;
+            $targetObject = $this->valueHolder562c561de6bfc451804592;
 
             $backtrace = debug_backtrace(false);
             trigger_error('Undefined property: ' . get_parent_class($this) . '::$' . $name . ' in ' . $backtrace[0]['file'] . ' on line ' . $backtrace[0]['line'], \E_USER_NOTICE);
@@ -7564,7 +7904,7 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000001efe5503000000000e
             return;
         }
 
-        $targetObject = $this->valueHolder561fd678a48fe951338840;
+        $targetObject = $this->valueHolder562c561de6bfc451804592;
         $accessor = function & () use ($targetObject, $name) {
             return $targetObject->$name;
         };
@@ -7582,18 +7922,18 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000001efe5503000000000e
      */
     public function __set($name, $value)
     {
-        $this->initializer561fd678a4924182891606 && $this->initializer561fd678a4924182891606->__invoke($this->valueHolder561fd678a48fe951338840, $this, '__set', array('name' => $name, 'value' => $value), $this->initializer561fd678a4924182891606);
+        $this->initializer562c561de6c12707919196 && $this->initializer562c561de6c12707919196->__invoke($this->valueHolder562c561de6bfc451804592, $this, '__set', array('name' => $name, 'value' => $value), $this->initializer562c561de6c12707919196);
 
         $realInstanceReflection = new \ReflectionClass(get_parent_class($this));
 
         if (! $realInstanceReflection->hasProperty($name)) {
-            $targetObject = $this->valueHolder561fd678a48fe951338840;
+            $targetObject = $this->valueHolder562c561de6bfc451804592;
 
             return $targetObject->$name = $value;;
             return;
         }
 
-        $targetObject = $this->valueHolder561fd678a48fe951338840;
+        $targetObject = $this->valueHolder562c561de6bfc451804592;
         $accessor = function & () use ($targetObject, $name, $value) {
             return $targetObject->$name = $value;
         };
@@ -7610,18 +7950,18 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000001efe5503000000000e
      */
     public function __isset($name)
     {
-        $this->initializer561fd678a4924182891606 && $this->initializer561fd678a4924182891606->__invoke($this->valueHolder561fd678a48fe951338840, $this, '__isset', array('name' => $name), $this->initializer561fd678a4924182891606);
+        $this->initializer562c561de6c12707919196 && $this->initializer562c561de6c12707919196->__invoke($this->valueHolder562c561de6bfc451804592, $this, '__isset', array('name' => $name), $this->initializer562c561de6c12707919196);
 
         $realInstanceReflection = new \ReflectionClass(get_parent_class($this));
 
         if (! $realInstanceReflection->hasProperty($name)) {
-            $targetObject = $this->valueHolder561fd678a48fe951338840;
+            $targetObject = $this->valueHolder562c561de6bfc451804592;
 
             return isset($targetObject->$name);;
             return;
         }
 
-        $targetObject = $this->valueHolder561fd678a48fe951338840;
+        $targetObject = $this->valueHolder562c561de6bfc451804592;
         $accessor = function () use ($targetObject, $name) {
             return isset($targetObject->$name);
         };
@@ -7638,18 +7978,18 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000001efe5503000000000e
      */
     public function __unset($name)
     {
-        $this->initializer561fd678a4924182891606 && $this->initializer561fd678a4924182891606->__invoke($this->valueHolder561fd678a48fe951338840, $this, '__unset', array('name' => $name), $this->initializer561fd678a4924182891606);
+        $this->initializer562c561de6c12707919196 && $this->initializer562c561de6c12707919196->__invoke($this->valueHolder562c561de6bfc451804592, $this, '__unset', array('name' => $name), $this->initializer562c561de6c12707919196);
 
         $realInstanceReflection = new \ReflectionClass(get_parent_class($this));
 
         if (! $realInstanceReflection->hasProperty($name)) {
-            $targetObject = $this->valueHolder561fd678a48fe951338840;
+            $targetObject = $this->valueHolder562c561de6bfc451804592;
 
             unset($targetObject->$name);;
             return;
         }
 
-        $targetObject = $this->valueHolder561fd678a48fe951338840;
+        $targetObject = $this->valueHolder562c561de6bfc451804592;
         $accessor = function () use ($targetObject, $name) {
             unset($targetObject->$name);
         };
@@ -7663,16 +8003,16 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000001efe5503000000000e
 
     public function __clone()
     {
-        $this->initializer561fd678a4924182891606 && $this->initializer561fd678a4924182891606->__invoke($this->valueHolder561fd678a48fe951338840, $this, '__clone', array(), $this->initializer561fd678a4924182891606);
+        $this->initializer562c561de6c12707919196 && $this->initializer562c561de6c12707919196->__invoke($this->valueHolder562c561de6bfc451804592, $this, '__clone', array(), $this->initializer562c561de6c12707919196);
 
-        $this->valueHolder561fd678a48fe951338840 = clone $this->valueHolder561fd678a48fe951338840;
+        $this->valueHolder562c561de6bfc451804592 = clone $this->valueHolder562c561de6bfc451804592;
     }
 
     public function __sleep()
     {
-        $this->initializer561fd678a4924182891606 && $this->initializer561fd678a4924182891606->__invoke($this->valueHolder561fd678a48fe951338840, $this, '__sleep', array(), $this->initializer561fd678a4924182891606);
+        $this->initializer562c561de6c12707919196 && $this->initializer562c561de6c12707919196->__invoke($this->valueHolder562c561de6bfc451804592, $this, '__sleep', array(), $this->initializer562c561de6c12707919196);
 
-        return array('valueHolder561fd678a48fe951338840');
+        return array('valueHolder562c561de6bfc451804592');
     }
 
     public function __wakeup()
@@ -7684,7 +8024,7 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000001efe5503000000000e
      */
     public function setProxyInitializer(\Closure $initializer = null)
     {
-        $this->initializer561fd678a4924182891606 = $initializer;
+        $this->initializer562c561de6c12707919196 = $initializer;
     }
 
     /**
@@ -7692,7 +8032,7 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000001efe5503000000000e
      */
     public function getProxyInitializer()
     {
-        return $this->initializer561fd678a4924182891606;
+        return $this->initializer562c561de6c12707919196;
     }
 
     /**
@@ -7700,7 +8040,7 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000001efe5503000000000e
      */
     public function initializeProxy()
     {
-        return $this->initializer561fd678a4924182891606 && $this->initializer561fd678a4924182891606->__invoke($this->valueHolder561fd678a48fe951338840, $this, 'initializeProxy', array(), $this->initializer561fd678a4924182891606);
+        return $this->initializer562c561de6c12707919196 && $this->initializer562c561de6c12707919196->__invoke($this->valueHolder562c561de6bfc451804592, $this, 'initializeProxy', array(), $this->initializer562c561de6c12707919196);
     }
 
     /**
@@ -7708,7 +8048,7 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000001efe5503000000000e
      */
     public function isProxyInitialized()
     {
-        return null !== $this->valueHolder561fd678a48fe951338840;
+        return null !== $this->valueHolder562c561de6bfc451804592;
     }
 
     /**
@@ -7716,7 +8056,7 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000001efe5503000000000e
      */
     public function getWrappedValueHolderValue()
     {
-        return $this->valueHolder561fd678a48fe951338840;
+        return $this->valueHolder562c561de6bfc451804592;
     }
 
 

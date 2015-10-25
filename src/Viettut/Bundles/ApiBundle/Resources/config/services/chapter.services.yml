@@ -47,8 +47,8 @@ services:
         parent: viettut.handler.handlers.chapter.abstract
         public: false
 
-    viettut.handler.handlers.chapter.broker:
-        class: Viettut\Handler\Handlers\Core\Broker\ChapterHandler
+    viettut.handler.handlers.chapter.lecturer:
+        class: Viettut\Handler\Handlers\Core\Lecturer\ChapterHandler
         parent: viettut.handler.handlers.chapter.abstract
         public: false
 
@@ -58,6 +58,6 @@ services:
             - %viettut.entity.core.chapter.class%
             -
                 - @viettut.handler.handlers.chapter.admin
-                - @viettut.handler.handlers.chapter.broker
+                - @viettut.handler.handlers.chapter.lecturer
 
     # end course #####################################################

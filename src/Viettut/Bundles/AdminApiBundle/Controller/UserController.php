@@ -8,15 +8,15 @@ use FOS\RestBundle\View\View;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\FormTypeInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Viettut\Bundles\UserBundle\DomainManager\BrokerManagerInterface;
 use Viettut\Bundles\AdminApiBundle\Handler\UserHandlerInterface;
 use Viettut\Bundles\ApiBundle\Controller\RestControllerAbstract;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
+use Viettut\Bundles\UserBundle\DomainManager\LecturerManagerInterface;
 
 class UserController extends RestControllerAbstract implements ClassResourceInterface
 {
     /**
-     * Get all publisher
+     * Get all lecturer
      *
      * @ApiDoc(
      *  section = "admin",
@@ -30,11 +30,11 @@ class UserController extends RestControllerAbstract implements ClassResourceInte
      */
     public function cgetAction()
     {
-        return $this->getHandler()->allBrokers();
+        return $this->getHandler()->allLecturers();
     }
 
     /**
-     * Get a single publisher for the given id
+     * Get a single lecturer for the given id
      *
      * @ApiDoc(
      *  section = "admin",
@@ -57,28 +57,28 @@ class UserController extends RestControllerAbstract implements ClassResourceInte
 
 
     /**
-     * Get token for broker only
-     * @param $brokerId
+     * Get token for lecturer only
+     * @param $lecturerId
      * @return array
      */
-    public function getTokenAction($brokerId)
+    public function getTokenAction($lecturerId)
     {
         /**
-         * @var BrokerManagerInterface $brokerManager
+         * @var LecturerManagerInterface $lecturerManager
          */
-        $brokerManager = $this->get('viettut_user.domain_manager.publisher');
-        $broker = $brokerManager->findBroker($brokerId);
+        $lecturerManager = $this->get('viettut_user.domain_manager.lecturer');
+        $lecturer = $lecturerManager->findLecturer($lecturerId);
 
-        if (!$broker) {
-            throw new NotFoundHttpException('That broker does not exist');
+        if (!$lecturer) {
+            throw new NotFoundHttpException('That lecturer does not exist');
         }
 
         $jwtManager = $this->get('lexik_jwt_authentication.jwt_manager');
         $jwtTransformer = $this->get('viettut_api.service.jwt_response_transformer');
 
-        $tokenString = $jwtManager->create($broker);
+        $tokenString = $jwtManager->create($lecturer);
 
-        return $jwtTransformer->transform(['token' => $tokenString], $broker);
+        return $jwtTransformer->transform(['token' => $tokenString], $lecturer);
     }
 
     /**

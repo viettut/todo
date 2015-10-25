@@ -1,0 +1,5 @@
+services:
+    viettut_user_system_lecturer.set_lecturer_role_listener:
+        class: Viettut\Bundles\UserSystem\LecturerBundle\EventListener\SetLecturerRoleListener
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }

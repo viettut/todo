@@ -9,9 +9,7 @@
 namespace Viettut\DomainManager;
 
 
-use Viettut\Model\User\Role\BrokerInterface;
 
 interface CommentManagerInterface extends ManagerInterface
 {
-
 }

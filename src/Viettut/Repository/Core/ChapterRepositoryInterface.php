@@ -8,15 +8,15 @@
 
 namespace Viettut\Repository\Core;
 use Doctrine\Common\Persistence\ObjectRepository;
-use Viettut\Model\User\Role\BrokerInterface;
+use Viettut\Model\User\Role\LecturerInterface;
 
 interface ChapterRepositoryInterface extends ObjectRepository
 {
     /**
-     * @param BrokerInterface $broker
+     * @param LecturerInterface $lecturer
      * @param null $limit
      * @param null $offset
      * @return mixed
      */
-    public function getChapterByBroker(BrokerInterface $broker, $limit = null, $offset = null);
+    public function getChapterByLecturer(LecturerInterface $lecturer, $limit = null, $offset = null);
 }

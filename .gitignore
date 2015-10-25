@@ -2,3 +2,4 @@ add
 web/
 vendor/
 bin/
+.idea

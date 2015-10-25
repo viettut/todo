@@ -47,8 +47,8 @@ services:
         parent: viettut.handler.handlers.comment.abstract
         public: false
 
-    viettut.handler.handlers.comment.broker:
-        class: Viettut\Handler\Handlers\Core\Broker\CommentHandler
+    viettut.handler.handlers.comment.lecturer:
+        class: Viettut\Handler\Handlers\Core\Lecturer\CommentHandler
         parent: viettut.handler.handlers.comment.abstract
         public: false
 
@@ -58,6 +58,6 @@ services:
             - %viettut.entity.core.comment.class%
             -
                 - @viettut.handler.handlers.comment.admin
-                - @viettut.handler.handlers.comment.broker
+                - @viettut.handler.handlers.comment.lecturer
 
     # end comment #####################################################

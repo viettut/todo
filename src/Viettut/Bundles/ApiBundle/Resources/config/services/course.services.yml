@@ -47,8 +47,8 @@ services:
         parent: viettut.handler.handlers.course.abstract
         public: false
 
-    viettut.handler.handlers.course.broker:
-        class: Viettut\Handler\Handlers\Core\Broker\CourseHandler
+    viettut.handler.handlers.course.lecturer:
+        class: Viettut\Handler\Handlers\Core\Lecturer\CourseHandler
         parent: viettut.handler.handlers.course.abstract
         public: false
 
@@ -58,6 +58,6 @@ services:
             - %viettut.entity.core.course.class%
             -
                 - @viettut.handler.handlers.course.admin
-                - @viettut.handler.handlers.course.broker
+                - @viettut.handler.handlers.course.lecturer
 
     # end course #####################################################

@@ -1,7 +1,7 @@
 parameters:
     viettut.bundle.user.entity.user.class: Viettut\Bundles\UserBundle\Entity\User
     # define user systems
-    viettut.user_system.broker: viettut_user_system_broker
+    viettut.user_system.lecturer: viettut_user_system_lecturer
     viettut.user_system.admin: viettut_user_system_admin
     # event dispatched on login success
     viettut_user.events.login_success: viettut_user.events.login_success
@@ -20,10 +20,10 @@ services:
         factory_service: viettut.token
         factory_method: getUser
 
-    viettut_user.domain_manager.broker:
-        class: Viettut\Bundles\UserBundle\DomainManager\BrokerManager
+    viettut_user.domain_manager.lecturer:
+        class: Viettut\Bundles\UserBundle\DomainManager\LecturerManager
         arguments:
-            - @viettut_user_system_broker.user_manager
+            - @viettut_user_system_lecturer.user_manager
 
     viettut_user.handler.authentication_success:
         class: Viettut\Bundles\UserBundle\Handler\AuthenticationSuccessHandler

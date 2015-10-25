@@ -2,7 +2,7 @@
 
 namespace Viettut\Bundles\AdminApiBundle\Handler;
 
-use Viettut\Bundles\UserBundle\DomainManager\BrokerManagerInterface;
+use Viettut\Bundles\UserBundle\DomainManager\LecturerManagerInterface;
 use Viettut\Handler\HandlerAbstract;
 
 /**
@@ -16,7 +16,7 @@ class UserHandler extends HandlerAbstract implements UserHandlerInterface
      *
      * Auto complete helper method
      *
-     * @return BrokerManagerInterface
+     * @return LecturerManagerInterface
      */
     protected function getDomainManager()
     {
@@ -26,8 +26,8 @@ class UserHandler extends HandlerAbstract implements UserHandlerInterface
     /**
      * @inheritdoc
      */
-    public function allBrokers()
+    public function allLecturers()
     {
-        return $this->getDomainManager()->allBrokers();
+        return $this->getDomainManager()->allLecturers();
     }
 }

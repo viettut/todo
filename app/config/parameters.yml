@@ -13,8 +13,4 @@ parameters:
     mailer_sender: tagcade.dev@gmail.com
     mailer_sender_name: Tagcade.dev
     secret: ThisTokenIsNotSoSecretChangeIt
-
-    mailer_port: 1025
-    mailer_sender: tagcade.dev@gmail.com
-    mailer_sender_name: Tagcade.dev
     password_resetting_link: http://localhost:9010/#/reset/changePassword

@@ -1,0 +1,9 @@
+
+viettut_user_system_lecturer_profile_show:
+    path: /
+    defaults: { _controller: "FOSUserBundle:Profile:show" }
+    methods: "GET"
+
+viettut_user_system_lecturer_profile_edit:
+    path: /edit
+    defaults: { _controller: "FOSUserBundle:Profile:edit" }

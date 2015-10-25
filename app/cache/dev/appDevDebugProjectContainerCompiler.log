@@ -36,6 +36,19 @@ Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: R
 Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "nelmio_api_doc.formatter.simple_formatter" (parent: nelmio_api_doc.formatter.abstract_formatter).
 Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "nelmio_api_doc.formatter.html_formatter" (parent: nelmio_api_doc.formatter.abstract_formatter).
 Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "viettut_admin_api.handler.user" (parent: viettut.handler.handler_abstract).
+Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "viettut.handler.role_handler_abstract" (parent: viettut.handler.handler_abstract).
+Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "viettut.handler.handlers.course.abstract" (parent: viettut.handler.role_handler_abstract).
+Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "viettut.handler.handlers.course.admin" (parent: viettut.handler.handlers.course.abstract).
+Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "viettut.handler.handlers.course.lecturer" (parent: viettut.handler.handlers.course.abstract).
+Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "viettut.handler.handlers.chapter.abstract" (parent: viettut.handler.role_handler_abstract).
+Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "viettut.handler.handlers.chapter.admin" (parent: viettut.handler.handlers.chapter.abstract).
+Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "viettut.handler.handlers.chapter.lecturer" (parent: viettut.handler.handlers.chapter.abstract).
+Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "viettut.handler.handlers.tutorial.abstract" (parent: viettut.handler.role_handler_abstract).
+Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "viettut.handler.handlers.tutorial.admin" (parent: viettut.handler.handlers.tutorial.abstract).
+Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "viettut.handler.handlers.tutorial.lecturer" (parent: viettut.handler.handlers.tutorial.abstract).
+Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "viettut.handler.handlers.comment.abstract" (parent: viettut.handler.role_handler_abstract).
+Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "viettut.handler.handlers.comment.admin" (parent: viettut.handler.handlers.comment.abstract).
+Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "viettut.handler.handlers.comment.lecturer" (parent: viettut.handler.handlers.comment.abstract).
 Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "viettut_user_system_admin.mailer.default" (parent: fos_user.mailer.default).
 Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "viettut_user_system_admin.user_manager.default" (parent: fos_user.user_manager.default).
 Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "viettut_user_system_admin.user_provider.username" (parent: fos_user.user_provider.username).
@@ -45,15 +58,15 @@ Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: R
 Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "viettut_user_system_admin.profile.form.factory" (parent: rollerworks_multi_user.abstract.form.factory).
 Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "viettut_user_system_admin.registration.form.factory" (parent: rollerworks_multi_user.abstract.form.factory).
 Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "viettut_user_system_admin.change_password.form.factory" (parent: rollerworks_multi_user.abstract.form.factory).
-Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "viettut_user_system_broker.mailer.default" (parent: fos_user.mailer.default).
-Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "viettut_user_system_broker.user_manager.default" (parent: fos_user.user_manager.default).
-Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "viettut_user_system_broker.user_provider.username" (parent: fos_user.user_provider.username).
-Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "viettut_user_system_broker.user_provider.username_email" (parent: fos_user.user_provider.username_email).
-Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "viettut_user_system_broker.user_manipulator" (parent: fos_user.util.user_manipulator).
-Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "viettut_user_system_broker.listener.authentication" (parent: fos_user.listener.authentication).
-Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "viettut_user_system_broker.profile.form.factory" (parent: rollerworks_multi_user.abstract.form.factory).
-Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "viettut_user_system_broker.registration.form.factory" (parent: rollerworks_multi_user.abstract.form.factory).
-Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "viettut_user_system_broker.change_password.form.factory" (parent: rollerworks_multi_user.abstract.form.factory).
+Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "viettut_user_system_lecturer.mailer.default" (parent: fos_user.mailer.default).
+Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "viettut_user_system_lecturer.user_manager.default" (parent: fos_user.user_manager.default).
+Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "viettut_user_system_lecturer.user_provider.username" (parent: fos_user.user_provider.username).
+Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "viettut_user_system_lecturer.user_provider.username_email" (parent: fos_user.user_provider.username_email).
+Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "viettut_user_system_lecturer.user_manipulator" (parent: fos_user.util.user_manipulator).
+Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "viettut_user_system_lecturer.listener.authentication" (parent: fos_user.listener.authentication).
+Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "viettut_user_system_lecturer.profile.form.factory" (parent: rollerworks_multi_user.abstract.form.factory).
+Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "viettut_user_system_lecturer.registration.form.factory" (parent: rollerworks_multi_user.abstract.form.factory).
+Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "viettut_user_system_lecturer.change_password.form.factory" (parent: rollerworks_multi_user.abstract.form.factory).
 Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "monolog.logger.request" (parent: monolog.logger_prototype).
 Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "monolog.logger.translation" (parent: monolog.logger_prototype).
 Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "monolog.logger.security" (parent: monolog.logger_prototype).
@@ -69,7 +82,7 @@ Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: R
 Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "fos_rest.request_matcher.0dfc4cce134bee15f08405cb5cea4845b13ff7d8c8f779004218432a2c552bd0cd9f9d27" (parent: fos_rest.request_matcher).
 Symfony\Component\DependencyInjection\Compiler\RemovePrivateAliasesPass: Removed service "form.property_accessor"; reason: private alias
 Symfony\Component\DependencyInjection\Compiler\RemovePrivateAliasesPass: Removed service "validator.mapping.class_metadata_factory"; reason: private alias
-Symfony\Component\DependencyInjection\Compiler\RemovePrivateAliasesPass: Removed service "security.user.provider.concrete.viettut_user_broker"; reason: private alias
+Symfony\Component\DependencyInjection\Compiler\RemovePrivateAliasesPass: Removed service "security.user.provider.concrete.viettut_user_lecturer"; reason: private alias
 Symfony\Component\DependencyInjection\Compiler\RemovePrivateAliasesPass: Removed service "security.user.provider.concrete.viettut_user_admin"; reason: private alias
 Symfony\Component\DependencyInjection\Compiler\RemovePrivateAliasesPass: Removed service "security.user.provider.concrete.fos_userbundle"; reason: private alias
 Symfony\Component\DependencyInjection\Compiler\RemovePrivateAliasesPass: Removed service "assetic.value_supplier"; reason: private alias
@@ -164,13 +177,17 @@ Symfony\Component\DependencyInjection\Compiler\RemoveAbstractDefinitionsPass: Re
 Symfony\Component\DependencyInjection\Compiler\RemoveAbstractDefinitionsPass: Removed service "rollerworks_multi_user.abstract.form.factory"; reason: abstract
 Symfony\Component\DependencyInjection\Compiler\RemoveAbstractDefinitionsPass: Removed service "jms_serializer.version_exclusion_strategy"; reason: abstract
 Symfony\Component\DependencyInjection\Compiler\RemoveAbstractDefinitionsPass: Removed service "gfreeau_get_jwt.security.authentication.listener"; reason: abstract
+Symfony\Component\DependencyInjection\Compiler\RemoveAbstractDefinitionsPass: Removed service "viettut.handler.handlers.course.abstract"; reason: abstract
+Symfony\Component\DependencyInjection\Compiler\RemoveAbstractDefinitionsPass: Removed service "viettut.handler.handlers.chapter.abstract"; reason: abstract
+Symfony\Component\DependencyInjection\Compiler\RemoveAbstractDefinitionsPass: Removed service "viettut.handler.handlers.tutorial.abstract"; reason: abstract
+Symfony\Component\DependencyInjection\Compiler\RemoveAbstractDefinitionsPass: Removed service "viettut.handler.handlers.comment.abstract"; reason: abstract
 Symfony\Component\DependencyInjection\Compiler\RemoveAbstractDefinitionsPass: Removed service "viettut.handler.role_handler_abstract"; reason: abstract
 Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "assetic.twig_directory_resource.kernel" previously pointing to "templating.loader.filesystem" to "templating.loader".
 Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "fos_user.mailer.default" previously pointing to "templating.engine.twig" to "templating".
 Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "nelmio_api_doc.formatter.html_formatter" previously pointing to "templating.engine.twig" to "templating".
 Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "viettut_api.mailer.mailer" previously pointing to "templating.engine.twig" to "templating".
 Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "viettut_user_system_admin.mailer.default" previously pointing to "templating.engine.twig" to "templating".
-Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "viettut_user_system_broker.mailer.default" previously pointing to "templating.engine.twig" to "templating".
+Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "viettut_user_system_lecturer.mailer.default" previously pointing to "templating.engine.twig" to "templating".
 Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "translator_listener" previously pointing to "translator.data_collector" to "translator".
 Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "validator.builder" previously pointing to "translator.data_collector" to "translator".
 Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "data_collector.translation" previously pointing to "translator.data_collector" to "translator".
@@ -222,7 +239,7 @@ Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPas
 Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "security.authentication.provider.get.jwt.gettoken" previously pointing to "security.encoder_factory.generic" to "security.encoder_factory".
 Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "fos_user.user_manager.default" previously pointing to "security.encoder_factory.generic" to "security.encoder_factory".
 Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "viettut_user_system_admin.user_manager.default" previously pointing to "security.encoder_factory.generic" to "security.encoder_factory".
-Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "viettut_user_system_broker.user_manager.default" previously pointing to "security.encoder_factory.generic" to "security.encoder_factory".
+Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "viettut_user_system_lecturer.user_manager.default" previously pointing to "security.encoder_factory.generic" to "security.encoder_factory".
 Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "twig" previously pointing to "twig.loader.filesystem" to "twig.loader".
 Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "swiftmailer.email_sender.listener" previously pointing to "monolog.logger" to "logger".
 Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "fos_user.util.token_generator.default" previously pointing to "monolog.logger" to "logger".
@@ -233,8 +250,8 @@ Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPas
 Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "fos_user.user_manager.default" previously pointing to "fos_user.util.canonicalizer.default" to "fos_user.util.email_canonicalizer".
 Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "viettut_user_system_admin.user_manager.default" previously pointing to "fos_user.util.canonicalizer.default" to "fos_user.util.email_canonicalizer".
 Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "viettut_user_system_admin.user_manager.default" previously pointing to "fos_user.util.canonicalizer.default" to "fos_user.util.email_canonicalizer".
-Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "viettut_user_system_broker.user_manager.default" previously pointing to "fos_user.util.canonicalizer.default" to "fos_user.util.email_canonicalizer".
-Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "viettut_user_system_broker.user_manager.default" previously pointing to "fos_user.util.canonicalizer.default" to "fos_user.util.email_canonicalizer".
+Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "viettut_user_system_lecturer.user_manager.default" previously pointing to "fos_user.util.canonicalizer.default" to "fos_user.util.email_canonicalizer".
+Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "viettut_user_system_lecturer.user_manager.default" previously pointing to "fos_user.util.canonicalizer.default" to "fos_user.util.email_canonicalizer".
 Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "rollerworks_multi_user.listener.email_confirmation" previously pointing to "fos_user.util.token_generator.default" to "fos_user.util.token_generator".
 Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "security.context_listener" previously pointing to "rollerworks_multi_user.user_manager.delegating" to "fos_user.user_manager".
 Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "fos_user.validator.initializer" previously pointing to "rollerworks_multi_user.user_manager.delegating" to "fos_user.user_manager".
@@ -257,12 +274,12 @@ Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPas
 Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "viettut_user_system_admin.user_provider.username_email" previously pointing to "viettut_user_system_admin.user_manager.default" to "viettut_user_system_admin.user_manager".
 Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "viettut_user_system_admin.user_manipulator" previously pointing to "viettut_user_system_admin.user_manager.default" to "viettut_user_system_admin.user_manager".
 Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "rollerworks_multi_user.user_system.viettut_user_system_admin" previously pointing to "rollerworks_multi_user.group_manager.noop" to "viettut_user_system_admin.group_manager".
-Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "rollerworks_multi_user.user_system.viettut_user_system_broker" previously pointing to "rollerworks_multi_user.group_manager.noop" to "viettut_user_system_admin.group_manager".
-Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "viettut_user.domain_manager.broker" previously pointing to "viettut_user_system_broker.user_manager.default" to "viettut_user_system_broker.user_manager".
-Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "rollerworks_multi_user.user_system.viettut_user_system_broker" previously pointing to "viettut_user_system_broker.user_manager.default" to "viettut_user_system_broker.user_manager".
-Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "viettut_user_system_broker.user_provider.username" previously pointing to "viettut_user_system_broker.user_manager.default" to "viettut_user_system_broker.user_manager".
-Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "viettut_user_system_broker.user_provider.username_email" previously pointing to "viettut_user_system_broker.user_manager.default" to "viettut_user_system_broker.user_manager".
-Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "viettut_user_system_broker.user_manipulator" previously pointing to "viettut_user_system_broker.user_manager.default" to "viettut_user_system_broker.user_manager".
+Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "rollerworks_multi_user.user_system.viettut_user_system_lecturer" previously pointing to "rollerworks_multi_user.group_manager.noop" to "viettut_user_system_admin.group_manager".
+Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "viettut_user.domain_manager.lecturer" previously pointing to "viettut_user_system_lecturer.user_manager.default" to "viettut_user_system_lecturer.user_manager".
+Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "rollerworks_multi_user.user_system.viettut_user_system_lecturer" previously pointing to "viettut_user_system_lecturer.user_manager.default" to "viettut_user_system_lecturer.user_manager".
+Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "viettut_user_system_lecturer.user_provider.username" previously pointing to "viettut_user_system_lecturer.user_manager.default" to "viettut_user_system_lecturer.user_manager".
+Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "viettut_user_system_lecturer.user_provider.username_email" previously pointing to "viettut_user_system_lecturer.user_manager.default" to "viettut_user_system_lecturer.user_manager".
+Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "viettut_user_system_lecturer.user_manipulator" previously pointing to "viettut_user_system_lecturer.user_manager.default" to "viettut_user_system_lecturer.user_manager".
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "templating.cache_warmer.template_paths" to "cache_warmer".
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "assetic.asset_manager_cache_warmer" to "cache_warmer".
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "translation.warmer" to "cache_warmer".
@@ -390,6 +407,14 @@ Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inl
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "nelmio_api_doc.extractor.handler.jms_security" to "nelmio_api_doc.extractor.api_doc_extractor".
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "nelmio_api_doc.extractor.handler.sensio_framework_extra" to "nelmio_api_doc.extractor.api_doc_extractor".
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "nelmio_api_doc.extractor.handler.phpdoc" to "nelmio_api_doc.extractor.api_doc_extractor".
+Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "viettut.handler.handlers.course.admin" to "viettut.handler.handler_manager.course".
+Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "viettut.handler.handlers.course.lecturer" to "viettut.handler.handler_manager.course".
+Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "viettut.handler.handlers.chapter.admin" to "viettut.handler.handler_manager.chapter".
+Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "viettut.handler.handlers.chapter.lecturer" to "viettut.handler.handler_manager.chapter".
+Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "viettut.handler.handlers.tutorial.admin" to "viettut.handler.handler_manager.tutorial".
+Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "viettut.handler.handlers.tutorial.lecturer" to "viettut.handler.handler_manager.tutorial".
+Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "viettut.handler.handlers.comment.admin" to "viettut.handler.handler_manager.comment".
+Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "viettut.handler.handlers.comment.lecturer" to "viettut.handler.handler_manager.comment".
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "sensio_distribution.webconfigurator.doctrine_step" to "sensio_distribution.webconfigurator".
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "sensio_distribution.webconfigurator.secret_step" to "sensio_distribution.webconfigurator".
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "translator.logging" to "translator".
@@ -398,7 +423,7 @@ Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inl
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "jms_serializer.serialized_name_annotation_strategy" to "jms_serializer.naming_strategy".
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "jms_serializer.event_dispatcher" to "jms_serializer".
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "rollerworks_multi_user.viettut_user_system_admin.model_manager" to "viettut_user_system_admin.user_manager".
-Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "rollerworks_multi_user.viettut_user_system_broker.model_manager" to "viettut_user_system_broker.user_manager".
+Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "rollerworks_multi_user.viettut_user_system_lecturer.model_manager" to "viettut_user_system_lecturer.user_manager".
 Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "controller_resolver"; reason: unused
 Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "translator.logging"; reason: unused
 Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "translator.selector"; reason: unused
@@ -583,11 +608,19 @@ Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Remo
 Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "nelmio_api_doc.extractor.handler.jms_security"; reason: unused
 Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "nelmio_api_doc.extractor.handler.sensio_framework_extra"; reason: unused
 Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "nelmio_api_doc.extractor.handler.phpdoc"; reason: unused
+Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "viettut.handler.handlers.course.admin"; reason: unused
+Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "viettut.handler.handlers.course.lecturer"; reason: unused
+Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "viettut.handler.handlers.chapter.admin"; reason: unused
+Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "viettut.handler.handlers.chapter.lecturer"; reason: unused
+Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "viettut.handler.handlers.tutorial.admin"; reason: unused
+Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "viettut.handler.handlers.tutorial.lecturer"; reason: unused
+Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "viettut.handler.handlers.comment.admin"; reason: unused
+Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "viettut.handler.handlers.comment.lecturer"; reason: unused
 Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "rollerworks_multi_user.viettut_user_system_admin.model_manager"; reason: unused
 Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "rollerworks_multi_user.orm.user_listener"; reason: unused
 Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "viettut_user_system_admin.user_provider.username_email"; reason: unused
-Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "rollerworks_multi_user.viettut_user_system_broker.model_manager"; reason: unused
-Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "viettut_user_system_broker.user_provider.username_email"; reason: unused
+Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "rollerworks_multi_user.viettut_user_system_lecturer.model_manager"; reason: unused
+Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "viettut_user_system_lecturer.user_provider.username_email"; reason: unused
 Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "twig.extension.dump"; reason: unused
 Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "twig.extension.webprofiler"; reason: unused
 Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "sensio_distribution.webconfigurator.doctrine_step"; reason: unused
@@ -600,7 +633,7 @@ Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inl
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "sensio_framework_extra.routing.loader.annot_class" to "routing.loader".
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "security.user.provider.concrete.viettut_user" to "security.authentication.manager".
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "security.user.provider.concrete.viettut_user" to "security.authentication.manager".
-Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "viettut_user_system_broker.user_provider.username" to "security.user.provider.concrete.viettut_user".
+Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "viettut_user_system_lecturer.user_provider.username" to "security.user.provider.concrete.viettut_user".
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "viettut_user_system_admin.user_provider.username" to "security.user.provider.concrete.viettut_user".
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "twig.extension.httpfoundation" to "twig".
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "twig.extension.httpfoundation" to "twig".
@@ -619,4 +652,4 @@ Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Remo
 Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "jms_serializer.metadata.file_locator"; reason: unused
 Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "jms_serializer.metadata.chain_driver"; reason: unused
 Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "viettut_user_system_admin.user_provider.username"; reason: unused
-Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "viettut_user_system_broker.user_provider.username"; reason: unused
+Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "viettut_user_system_lecturer.user_provider.username"; reason: unused

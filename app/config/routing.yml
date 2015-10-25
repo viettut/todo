@@ -3,10 +3,10 @@ viettut_admin_api:
     type:   rest
     prefix: /api/admin/v1
 
-viettut_broker_api:
-    resource: "@ViettutUserSystemBrokerBundle/Resources/config/routing.yml"
+viettut_lecturer_api:
+    resource: "@ViettutUserSystemLecturerBundle/Resources/config/routing.yml"
     type:   rest
-    prefix: /api/broker/v1
+    prefix: /api/lecturer/v1
 
 viettut_api:
     resource: "@ViettutApiBundle/Resources/config/routing.yml"

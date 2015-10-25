@@ -5,7 +5,7 @@ namespace Viettut\Bundles\AdminApiBundle\Event;
 use ReflectionClass;
 use Viettut\Model\ModelInterface;
 use Viettut\Model\User\Role\AdminInterface;
-use Viettut\Model\User\Role\BrokerInterface;
+use Viettut\Model\User\Role\LecturerInterface;
 use Viettut\Model\User\UserEntityInterface;
 
 class HandlerEventLog extends HandlerEventLogAbstract implements HandlerEventLogInterface
@@ -87,8 +87,8 @@ class HandlerEventLog extends HandlerEventLogAbstract implements HandlerEventLog
         }
 
         //detect manually because multi user
-        if ($entity instanceof BrokerInterface) {
-            return 'Broker';
+        if ($entity instanceof LecturerInterface) {
+            return 'Lecturer';
         } elseif ($entity instanceof AdminInterface) {
             return 'Admin';
         } else {

@@ -4,7 +4,7 @@
     <parameter key="kernel.root_dir">/var/www/api.server.dev/app</parameter>
     <parameter key="kernel.environment">dev</parameter>
     <parameter key="kernel.debug">true</parameter>
-    <parameter key="kernel.name">ap_</parameter>
+    <parameter key="kernel.name">app</parameter>
     <parameter key="kernel.cache_dir">/var/www/api.server.dev/app/cache/dev</parameter>
     <parameter key="kernel.logs_dir">/var/www/api.server.dev/app/logs</parameter>
     <parameter key="kernel.bundles" type="collection">
@@ -30,7 +30,7 @@
       <parameter key="ViettutApiBundle">Viettut\Bundles\ApiBundle\ViettutApiBundle</parameter>
       <parameter key="ViettutUserBundle">Viettut\Bundles\UserBundle\ViettutUserBundle</parameter>
       <parameter key="ViettutUserSystemAdminBundle">Viettut\Bundles\UserSystem\AdminBundle\ViettutUserSystemAdminBundle</parameter>
-      <parameter key="ViettutUserSystemBrokerBundle">Viettut\Bundles\UserSystem\BrokerBundle\ViettutUserSystemBrokerBundle</parameter>
+      <parameter key="ViettutUserSystemLecturerBundle">Viettut\Bundles\UserSystem\LecturerBundle\ViettutUserSystemLecturerBundle</parameter>
       <parameter key="DebugBundle">Symfony\Bundle\DebugBundle\DebugBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
@@ -287,7 +287,7 @@
     <parameter key="security.access.always_authenticate_before_granting">false</parameter>
     <parameter key="security.authentication.hide_user_not_found">true</parameter>
     <parameter key="security.role_hierarchy.roles" type="collection">
-      <parameter key="ROLE_BROKER" type="collection">
+      <parameter key="ROLE_LECTURER" type="collection">
         <parameter>ROLE_USER</parameter>
       </parameter>
       <parameter key="ROLE_ADMIN" type="collection">
@@ -834,11 +834,19 @@
     <parameter key="nelmio_api_doc.extractor.handler.phpdoc.class">Nelmio\ApiDocBundle\Extractor\Handler\PhpDocHandler</parameter>
     <parameter key="nelmio_api_doc.request_listener.parameter">_doc</parameter>
     <parameter key="nelmio_api_doc.event_listener.request.class">Nelmio\ApiDocBundle\EventListener\RequestListener</parameter>
+    <parameter key="viettut.entity.core.course.class">Viettut\Entity\Core\Course</parameter>
+    <parameter key="viettut.form.type.course.class">Viettut\Form\Type\CourseFormType</parameter>
+    <parameter key="viettut.entity.core.chapter.class">Viettut\Entity\Core\Chapter</parameter>
+    <parameter key="viettut.form.type.chapter.class">Viettut\Form\Type\ChapterFormType</parameter>
+    <parameter key="viettut.entity.core.tutorial.class">Viettut\Entity\Core\Tutorial</parameter>
+    <parameter key="viettut.form.type.tutorial.class">Viettut\Form\Type\TutorialFormType</parameter>
+    <parameter key="viettut.entity.core.comment.class">Viettut\Entity\Core\Comment</parameter>
+    <parameter key="viettut.form.type.comment.class">Viettut\Form\Type\CommentFormType</parameter>
     <parameter key="viettut_api.service.jwt_response_transformer.class">Viettut\Bundles\ApiBundle\Service\JWTResponseTransformer</parameter>
     <parameter key="viettut.event.authentication_success_listener.class">Viettut\Bundles\ApiBundle\EventListener\AuthenticationSuccessListener</parameter>
     <parameter key="viettut.event.jwt_created_listener.class">Viettut\Bundles\ApiBundle\EventListener\JWTCreatedListener</parameter>
     <parameter key="viettut.bundle.user.entity.user.class">Viettut\Bundles\UserBundle\Entity\User</parameter>
-    <parameter key="viettut.user_system.broker">viettut_user_system_broker</parameter>
+    <parameter key="viettut.user_system.lecturer">viettut_user_system_lecturer</parameter>
     <parameter key="viettut.user_system.admin">viettut_user_system_admin</parameter>
     <parameter key="viettut_user.events.login_success">viettut_user.events.login_success</parameter>
     <parameter key="viettut_user.request.user_system.authentication_listener.class">Viettut\Bundles\UserBundle\Request\UserSystem\AuthenticationListener</parameter>
@@ -902,66 +910,66 @@
     <parameter key="viettut_user_system_admin.resetting.password_already_requested.template">RollerworksMultiUserBundle:UserBundle/Resetting:passwordAlreadyRequested.html.twig</parameter>
     <parameter key="viettut_user_system_admin.resetting.request.template">RollerworksMultiUserBundle:UserBundle/Resetting:request.html.twig</parameter>
     <parameter key="viettut_user_system_admin.resetting.reset.template">RollerworksMultiUserBundle:UserBundle/Resetting:reset.html.twig</parameter>
-    <parameter key="viettut_user_system_broker.firewall_name">api</parameter>
-    <parameter key="viettut_user_system_broker.model_manager_name">default</parameter>
-    <parameter key="viettut_user_system_broker.model.user.class">Viettut\Bundles\UserSystem\BrokerBundle\Entity\User</parameter>
-    <parameter key="viettut_user_system_broker.template.layout">RollerworksMultiUserBundle::layout.html.twig</parameter>
-    <parameter key="viettut_user_system_broker.template.engine">twig</parameter>
-    <parameter key="viettut_user_system_broker.backend_type_orm">true</parameter>
-    <parameter key="viettut_user_system_broker.profile.form.class">null</parameter>
-    <parameter key="viettut_user_system_broker.profile.form.type">viettut_user_system_broker_profile</parameter>
-    <parameter key="viettut_user_system_broker.profile.form.name">viettut_user_system_broker_profile_form</parameter>
-    <parameter key="viettut_user_system_broker.profile.form.validation_groups" type="collection">
+    <parameter key="viettut_user_system_lecturer.firewall_name">api</parameter>
+    <parameter key="viettut_user_system_lecturer.model_manager_name">default</parameter>
+    <parameter key="viettut_user_system_lecturer.model.user.class">Viettut\Bundles\UserSystem\LecturerBundle\Entity\User</parameter>
+    <parameter key="viettut_user_system_lecturer.template.layout">RollerworksMultiUserBundle::layout.html.twig</parameter>
+    <parameter key="viettut_user_system_lecturer.template.engine">twig</parameter>
+    <parameter key="viettut_user_system_lecturer.backend_type_orm">true</parameter>
+    <parameter key="viettut_user_system_lecturer.profile.form.class">null</parameter>
+    <parameter key="viettut_user_system_lecturer.profile.form.type">viettut_user_system_lecturer_profile</parameter>
+    <parameter key="viettut_user_system_lecturer.profile.form.name">viettut_user_system_lecturer_profile_form</parameter>
+    <parameter key="viettut_user_system_lecturer.profile.form.validation_groups" type="collection">
       <parameter>Profile</parameter>
       <parameter>Default</parameter>
     </parameter>
-    <parameter key="viettut_user_system_broker.profile.edit.template">RollerworksMultiUserBundle:UserBundle/Profile:edit.html.twig</parameter>
-    <parameter key="viettut_user_system_broker.profile.show.template">RollerworksMultiUserBundle:UserBundle/Profile:show.html.twig</parameter>
-    <parameter key="viettut_user_system_broker.security.login.template">RollerworksMultiUserBundle:UserBundle/Security:login.html.twig</parameter>
-    <parameter key="viettut_user_system_broker.registration.confirmation.from_email" type="collection">
+    <parameter key="viettut_user_system_lecturer.profile.edit.template">RollerworksMultiUserBundle:UserBundle/Profile:edit.html.twig</parameter>
+    <parameter key="viettut_user_system_lecturer.profile.show.template">RollerworksMultiUserBundle:UserBundle/Profile:show.html.twig</parameter>
+    <parameter key="viettut_user_system_lecturer.security.login.template">RollerworksMultiUserBundle:UserBundle/Security:login.html.twig</parameter>
+    <parameter key="viettut_user_system_lecturer.registration.confirmation.from_email" type="collection">
       <parameter key="">null</parameter>
     </parameter>
-    <parameter key="viettut_user_system_broker.registration.confirmation.enabled">false</parameter>
-    <parameter key="viettut_user_system_broker.registration.confirmation.template" type="collection">
+    <parameter key="viettut_user_system_lecturer.registration.confirmation.enabled">false</parameter>
+    <parameter key="viettut_user_system_lecturer.registration.confirmation.template" type="collection">
       <parameter key="email">RollerworksMultiUserBundle:UserBundle/Registration:email.txt.twig</parameter>
       <parameter key="confirmed">RollerworksMultiUserBundle:UserBundle/Registration:confirmed.html.twig</parameter>
     </parameter>
-    <parameter key="viettut_user_system_broker.registration.form.class">null</parameter>
-    <parameter key="viettut_user_system_broker.registration.form.type">viettut_user_system_broker_registration</parameter>
-    <parameter key="viettut_user_system_broker.registration.form.name">viettut_user_system_broker_registration_form</parameter>
-    <parameter key="viettut_user_system_broker.registration.form.validation_groups" type="collection">
+    <parameter key="viettut_user_system_lecturer.registration.form.class">null</parameter>
+    <parameter key="viettut_user_system_lecturer.registration.form.type">viettut_user_system_lecturer_registration</parameter>
+    <parameter key="viettut_user_system_lecturer.registration.form.name">viettut_user_system_lecturer_registration_form</parameter>
+    <parameter key="viettut_user_system_lecturer.registration.form.validation_groups" type="collection">
       <parameter>Registration</parameter>
       <parameter>Default</parameter>
     </parameter>
-    <parameter key="viettut_user_system_broker.registration.register.template">RollerworksMultiUserBundle:UserBundle/Registration:register.html.twig</parameter>
-    <parameter key="viettut_user_system_broker.registration.check_email.template">RollerworksMultiUserBundle:UserBundle/Registration:checkEmail.html.twig</parameter>
-    <parameter key="viettut_user_system_broker.registration.confirmation.email.template">RollerworksMultiUserBundle:UserBundle/Registration:email.txt.twig</parameter>
-    <parameter key="viettut_user_system_broker.registration.confirmation.confirmed.template">RollerworksMultiUserBundle:UserBundle/Registration:confirmed.html.twig</parameter>
-    <parameter key="viettut_user_system_broker.change_password.form.class">null</parameter>
-    <parameter key="viettut_user_system_broker.change_password.form.type">viettut_user_system_broker_change_password</parameter>
-    <parameter key="viettut_user_system_broker.change_password.form.name">viettut_user_system_broker_change_password_form</parameter>
-    <parameter key="viettut_user_system_broker.change_password.form.validation_groups" type="collection">
+    <parameter key="viettut_user_system_lecturer.registration.register.template">RollerworksMultiUserBundle:UserBundle/Registration:register.html.twig</parameter>
+    <parameter key="viettut_user_system_lecturer.registration.check_email.template">RollerworksMultiUserBundle:UserBundle/Registration:checkEmail.html.twig</parameter>
+    <parameter key="viettut_user_system_lecturer.registration.confirmation.email.template">RollerworksMultiUserBundle:UserBundle/Registration:email.txt.twig</parameter>
+    <parameter key="viettut_user_system_lecturer.registration.confirmation.confirmed.template">RollerworksMultiUserBundle:UserBundle/Registration:confirmed.html.twig</parameter>
+    <parameter key="viettut_user_system_lecturer.change_password.form.class">null</parameter>
+    <parameter key="viettut_user_system_lecturer.change_password.form.type">viettut_user_system_lecturer_change_password</parameter>
+    <parameter key="viettut_user_system_lecturer.change_password.form.name">viettut_user_system_lecturer_change_password_form</parameter>
+    <parameter key="viettut_user_system_lecturer.change_password.form.validation_groups" type="collection">
       <parameter>ChangePassword</parameter>
       <parameter>Default</parameter>
     </parameter>
-    <parameter key="viettut_user_system_broker.change_password.change_password.template">RollerworksMultiUserBundle:UserBundle/ChangePassword:changePassword.html.twig</parameter>
-    <parameter key="viettut_user_system_broker.resetting.email.from_email" type="collection">
+    <parameter key="viettut_user_system_lecturer.change_password.change_password.template">RollerworksMultiUserBundle:UserBundle/ChangePassword:changePassword.html.twig</parameter>
+    <parameter key="viettut_user_system_lecturer.resetting.email.from_email" type="collection">
       <parameter key="tagcade.dev@gmail.com">Tagcade.dev</parameter>
     </parameter>
-    <parameter key="viettut_user_system_broker.resetting.token_ttl">86400</parameter>
-    <parameter key="viettut_user_system_broker.resetting.form.template">null</parameter>
-    <parameter key="viettut_user_system_broker.resetting.form.class">null</parameter>
-    <parameter key="viettut_user_system_broker.resetting.form.type">viettut_user_system_broker_resetting</parameter>
-    <parameter key="viettut_user_system_broker.resetting.form.name">viettut_user_system_broker_resetting_form</parameter>
-    <parameter key="viettut_user_system_broker.resetting.form.validation_groups" type="collection">
+    <parameter key="viettut_user_system_lecturer.resetting.token_ttl">86400</parameter>
+    <parameter key="viettut_user_system_lecturer.resetting.form.template">null</parameter>
+    <parameter key="viettut_user_system_lecturer.resetting.form.class">null</parameter>
+    <parameter key="viettut_user_system_lecturer.resetting.form.type">viettut_user_system_lecturer_resetting</parameter>
+    <parameter key="viettut_user_system_lecturer.resetting.form.name">viettut_user_system_lecturer_resetting_form</parameter>
+    <parameter key="viettut_user_system_lecturer.resetting.form.validation_groups" type="collection">
       <parameter>ResetPassword</parameter>
       <parameter>Default</parameter>
     </parameter>
-    <parameter key="viettut_user_system_broker.resetting.check_email.template">RollerworksMultiUserBundle:UserBundle/Resetting:checkEmail.html.twig</parameter>
-    <parameter key="viettut_user_system_broker.resetting.email.template">ViettutApiBundle:Resetting:email.txt.twig</parameter>
-    <parameter key="viettut_user_system_broker.resetting.password_already_requested.template">RollerworksMultiUserBundle:UserBundle/Resetting:passwordAlreadyRequested.html.twig</parameter>
-    <parameter key="viettut_user_system_broker.resetting.request.template">RollerworksMultiUserBundle:UserBundle/Resetting:request.html.twig</parameter>
-    <parameter key="viettut_user_system_broker.resetting.reset.template">RollerworksMultiUserBundle:UserBundle/Resetting:reset.html.twig</parameter>
+    <parameter key="viettut_user_system_lecturer.resetting.check_email.template">RollerworksMultiUserBundle:UserBundle/Resetting:checkEmail.html.twig</parameter>
+    <parameter key="viettut_user_system_lecturer.resetting.email.template">ViettutApiBundle:Resetting:email.txt.twig</parameter>
+    <parameter key="viettut_user_system_lecturer.resetting.password_already_requested.template">RollerworksMultiUserBundle:UserBundle/Resetting:passwordAlreadyRequested.html.twig</parameter>
+    <parameter key="viettut_user_system_lecturer.resetting.request.template">RollerworksMultiUserBundle:UserBundle/Resetting:request.html.twig</parameter>
+    <parameter key="viettut_user_system_lecturer.resetting.reset.template">RollerworksMultiUserBundle:UserBundle/Resetting:reset.html.twig</parameter>
     <parameter key="web_profiler.controller.profiler.class">Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController</parameter>
     <parameter key="web_profiler.controller.router.class">Symfony\Bundle\WebProfilerBundle\Controller\RouterController</parameter>
     <parameter key="web_profiler.controller.exception.class">Symfony\Bundle\WebProfilerBundle\Controller\ExceptionController</parameter>
@@ -1821,14 +1829,18 @@
               <argument key="fos_user_resetting">fos_user.resetting.form.type</argument>
               <argument key="fos_user_group">fos_user.group.form.type</argument>
               <argument key="viettut_form_admin_api_user">viettut_admin_api.form.type.user</argument>
+              <argument key="tagcade_form_course">viettut.form.type.course</argument>
+              <argument key="tagcade_form_chapter">viettut.form.type.chapter</argument>
+              <argument key="tagcade_form_tutorial">viettut.form.type.tutorial</argument>
+              <argument key="tagcade_form_comment">viettut.form.type.comment</argument>
               <argument key="viettut_user_system_admin_profile">viettut_user_system_admin.profile.form.type</argument>
               <argument key="viettut_user_system_admin_registration">viettut_user_system_admin.registration.form.type</argument>
               <argument key="viettut_user_system_admin_change_password">viettut_user_system_admin.change_password.form.type</argument>
               <argument key="viettut_user_system_admin_resetting">viettut_user_system_admin.resetting.form.type</argument>
-              <argument key="viettut_user_system_broker_profile">viettut_user_system_broker.profile.form.type</argument>
-              <argument key="viettut_user_system_broker_registration">viettut_user_system_broker.registration.form.type</argument>
-              <argument key="viettut_user_system_broker_change_password">viettut_user_system_broker.change_password.form.type</argument>
-              <argument key="viettut_user_system_broker_resetting">viettut_user_system_broker.resetting.form.type</argument>
+              <argument key="viettut_user_system_lecturer_profile">viettut_user_system_lecturer.profile.form.type</argument>
+              <argument key="viettut_user_system_lecturer_registration">viettut_user_system_lecturer.registration.form.type</argument>
+              <argument key="viettut_user_system_lecturer_change_password">viettut_user_system_lecturer.change_password.form.type</argument>
+              <argument key="viettut_user_system_lecturer_resetting">viettut_user_system_lecturer.resetting.form.type</argument>
             </argument>
             <argument type="collection">
               <argument key="form" type="collection">
@@ -2582,7 +2594,7 @@
         <argument>FOS\UserBundle\EventListener\AuthenticationListener</argument>
       </call>
       <call method="addSubscriberService">
-        <argument>viettut_user_system_broker.listener.authentication</argument>
+        <argument>viettut_user_system_lecturer.listener.authentication</argument>
         <argument>FOS\UserBundle\EventListener\AuthenticationListener</argument>
       </call>
       <call method="addSubscriberService">
@@ -2625,7 +2637,7 @@
                 <argument type="collection">
                   <argument type="service">
                     <service class="FOS\UserBundle\Security\UserProvider" public="false">
-                      <argument type="service" id="viettut_user_system_broker.user_manager"/>
+                      <argument type="service" id="viettut_user_system_lecturer.user_manager"/>
                     </service>
                   </argument>
                   <argument type="service">
@@ -2649,7 +2661,7 @@
                 <argument type="collection">
                   <argument type="service">
                     <service class="FOS\UserBundle\Security\UserProvider" public="false">
-                      <argument type="service" id="viettut_user_system_broker.user_manager"/>
+                      <argument type="service" id="viettut_user_system_lecturer.user_manager"/>
                     </service>
                   </argument>
                   <argument type="service">
@@ -2712,7 +2724,7 @@
     </service>
     <service id="security.role_hierarchy" class="Symfony\Component\Security\Core\Role\RoleHierarchy" public="false">
       <argument type="collection">
-        <argument key="ROLE_BROKER" type="collection">
+        <argument key="ROLE_LECTURER" type="collection">
           <argument>ROLE_USER</argument>
         </argument>
         <argument key="ROLE_ADMIN" type="collection">
@@ -3390,7 +3402,7 @@
             <argument type="collection">
               <argument>prePersist</argument>
             </argument>
-            <argument type="service" id="viettut_user_system_broker.set_broker_role_listener"/>
+            <argument type="service" id="viettut_user_system_lecturer.set_lecturer_role_listener"/>
           </call>
         </service>
       </argument>
@@ -3443,7 +3455,7 @@
             <argument type="collection">
               <argument key="ViettutUserBundle">Viettut\Bundles\UserBundle\Entity</argument>
               <argument key="ViettutUserSystemAdminBundle">Viettut\Bundles\UserSystem\AdminBundle\Entity</argument>
-              <argument key="ViettutUserSystemBrokerBundle">Viettut\Bundles\UserSystem\BrokerBundle\Entity</argument>
+              <argument key="ViettutUserSystemLecturerBundle">Viettut\Bundles\UserSystem\LecturerBundle\Entity</argument>
               <argument key="ViettutCoreEntity">Viettut\Entity\Core</argument>
             </argument>
           </call>
@@ -3465,7 +3477,7 @@
                       <argument type="collection">
                         <argument key="/var/www/api.server.dev/src/Viettut/Bundles/UserBundle/Resources/config/doctrine">Viettut\Bundles\UserBundle\Entity</argument>
                         <argument key="/var/www/api.server.dev/src/Viettut/Bundles/UserSystem/AdminBundle/Resources/config/doctrine">Viettut\Bundles\UserSystem\AdminBundle\Entity</argument>
-                        <argument key="/var/www/api.server.dev/src/Viettut/Bundles/UserSystem/BrokerBundle/Resources/config/doctrine">Viettut\Bundles\UserSystem\BrokerBundle\Entity</argument>
+                        <argument key="/var/www/api.server.dev/src/Viettut/Bundles/UserSystem/LecturerBundle/Resources/config/doctrine">Viettut\Bundles\UserSystem\LecturerBundle\Entity</argument>
                         <argument key="/var/www/api.server.dev/src/Viettut/Resources/config/doctrine/Core">Viettut\Entity\Core</argument>
                       </argument>
                       <call method="setGlobalBasename">
@@ -3481,7 +3493,7 @@
                       <argument type="collection">
                         <argument key="/var/www/api.server.dev/src/Viettut/Bundles/UserBundle/Resources/config/doctrine">Viettut\Bundles\UserBundle\Entity</argument>
                         <argument key="/var/www/api.server.dev/src/Viettut/Bundles/UserSystem/AdminBundle/Resources/config/doctrine">Viettut\Bundles\UserSystem\AdminBundle\Entity</argument>
-                        <argument key="/var/www/api.server.dev/src/Viettut/Bundles/UserSystem/BrokerBundle/Resources/config/doctrine">Viettut\Bundles\UserSystem\BrokerBundle\Entity</argument>
+                        <argument key="/var/www/api.server.dev/src/Viettut/Bundles/UserSystem/LecturerBundle/Resources/config/doctrine">Viettut\Bundles\UserSystem\LecturerBundle\Entity</argument>
                         <argument key="/var/www/api.server.dev/src/Viettut/Resources/config/doctrine/Core">Viettut\Entity\Core</argument>
                       </argument>
                       <call method="setGlobalBasename">
@@ -3497,7 +3509,7 @@
                       <argument type="collection">
                         <argument key="/var/www/api.server.dev/src/Viettut/Bundles/UserBundle/Resources/config/doctrine">Viettut\Bundles\UserBundle\Entity</argument>
                         <argument key="/var/www/api.server.dev/src/Viettut/Bundles/UserSystem/AdminBundle/Resources/config/doctrine">Viettut\Bundles\UserSystem\AdminBundle\Entity</argument>
-                        <argument key="/var/www/api.server.dev/src/Viettut/Bundles/UserSystem/BrokerBundle/Resources/config/doctrine">Viettut\Bundles\UserSystem\BrokerBundle\Entity</argument>
+                        <argument key="/var/www/api.server.dev/src/Viettut/Bundles/UserSystem/LecturerBundle/Resources/config/doctrine">Viettut\Bundles\UserSystem\LecturerBundle\Entity</argument>
                         <argument key="/var/www/api.server.dev/src/Viettut/Resources/config/doctrine/Core">Viettut\Entity\Core</argument>
                       </argument>
                       <call method="setGlobalBasename">
@@ -3505,7 +3517,7 @@
                       </call>
                     </service>
                   </argument>
-                  <argument>Viettut\Bundles\UserSystem\BrokerBundle\Entity</argument>
+                  <argument>Viettut\Bundles\UserSystem\LecturerBundle\Entity</argument>
                 </call>
                 <call method="addDriver">
                   <argument type="service">
@@ -3513,7 +3525,7 @@
                       <argument type="collection">
                         <argument key="/var/www/api.server.dev/src/Viettut/Bundles/UserBundle/Resources/config/doctrine">Viettut\Bundles\UserBundle\Entity</argument>
                         <argument key="/var/www/api.server.dev/src/Viettut/Bundles/UserSystem/AdminBundle/Resources/config/doctrine">Viettut\Bundles\UserSystem\AdminBundle\Entity</argument>
-                        <argument key="/var/www/api.server.dev/src/Viettut/Bundles/UserSystem/BrokerBundle/Resources/config/doctrine">Viettut\Bundles\UserSystem\BrokerBundle\Entity</argument>
+                        <argument key="/var/www/api.server.dev/src/Viettut/Bundles/UserSystem/LecturerBundle/Resources/config/doctrine">Viettut\Bundles\UserSystem\LecturerBundle\Entity</argument>
                         <argument key="/var/www/api.server.dev/src/Viettut/Resources/config/doctrine/Core">Viettut\Entity\Core</argument>
                       </argument>
                       <call method="setGlobalBasename">
@@ -3690,8 +3702,8 @@
         <argument type="service" id="rollerworks_multi_user.user_system.viettut_user_system_admin"/>
       </call>
       <call method="addUser">
-        <argument>viettut_user_system_broker</argument>
-        <argument type="service" id="rollerworks_multi_user.user_system.viettut_user_system_broker"/>
+        <argument>viettut_user_system_lecturer</argument>
+        <argument type="service" id="rollerworks_multi_user.user_system.viettut_user_system_lecturer"/>
       </call>
     </service>
     <service id="rollerworks_multi_user.service_container_injector" class="Rollerworks\Component\SfContainerInjector\ContainerInjector">
@@ -3742,7 +3754,7 @@
         <argument type="service" id="viettut_user.request.user_system.request_matcher"/>
       </call>
       <call method="addUser">
-        <argument>viettut_user_system_broker</argument>
+        <argument>viettut_user_system_lecturer</argument>
         <argument type="service" id="viettut_user.request.user_system.request_matcher"/>
       </call>
     </service>
@@ -3754,8 +3766,8 @@
         <argument>Viettut\Bundles\UserSystem\AdminBundle\Entity\User</argument>
       </call>
       <call method="addUser">
-        <argument>viettut_user_system_broker</argument>
-        <argument>Viettut\Bundles\UserSystem\BrokerBundle\Entity\User</argument>
+        <argument>viettut_user_system_lecturer</argument>
+        <argument>Viettut\Bundles\UserSystem\LecturerBundle\Entity\User</argument>
       </call>
     </service>
     <service id="rollerworks_multi_user.listener.events" class="Rollerworks\Bundle\MultiUserBundle\EventListener\EventDiscriminator">
@@ -4560,7 +4572,7 @@
     <service id="viettut_admin_api.handler.user" class="Viettut\Bundles\AdminApiBundle\Handler\UserHandler">
       <argument type="service" id="form.factory"/>
       <argument type="service" id="viettut_admin_api.form.type.user"/>
-      <argument type="service" id="viettut_user.domain_manager.broker"/>
+      <argument type="service" id="viettut_user.domain_manager.lecturer"/>
       <call method="setEventDispatcher">
         <argument type="service" id="debug.event_dispatcher"/>
       </call>
@@ -4571,6 +4583,186 @@
     <service id="viettut_admin_api.form.type.user" class="Viettut\Bundles\AdminApiBundle\Form\Type\UserFormType">
       <tag name="form.type" alias="viettut_form_admin_api_user"/>
       <argument type="expression">service('security.context').getToken().getUser()</argument>
+    </service>
+    <service id="viettut_api.handler.course" class="Viettut\Handler\HandlerInterface" factory-method="getHandler" factory-service="viettut.handler.handler_manager.course">
+      <argument type="service" id="viettut.user_role"/>
+    </service>
+    <service id="viettut.repository.course" class="Viettut\Repository\Core\CourseRepositoryInterface" factory-method="getRepository" factory-service="doctrine.orm.entity_manager">
+      <argument>Viettut\Entity\Core\Course</argument>
+    </service>
+    <service id="viettut.domain_manager.course" class="Viettut\DomainManager\CourseManager">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument type="service" id="viettut.repository.course"/>
+    </service>
+    <service id="viettut.form.type.course" class="Viettut\Form\Type\CourseFormType">
+      <tag name="form.type" alias="tagcade_form_course"/>
+      <argument type="service" id="viettut.repository.course"/>
+    </service>
+    <service id="viettut.handler.handler_manager.course" class="Viettut\Handler\HandlerManager">
+      <argument>Viettut\Entity\Core\Course</argument>
+      <argument type="collection">
+        <argument type="service">
+          <service class="Viettut\Handler\Handlers\Core\Admin\CourseHandler" public="false">
+            <argument type="service" id="form.factory"/>
+            <argument type="service" id="viettut.form.type.course"/>
+            <argument type="service" id="viettut.domain_manager.course"/>
+            <call method="setEventDispatcher">
+              <argument type="service" id="debug.event_dispatcher"/>
+            </call>
+            <call method="setEvent">
+              <argument>viettut.events.handler_event</argument>
+            </call>
+          </service>
+        </argument>
+        <argument type="service">
+          <service class="Viettut\Handler\Handlers\Core\Lecturer\CourseHandler" public="false">
+            <argument type="service" id="form.factory"/>
+            <argument type="service" id="viettut.form.type.course"/>
+            <argument type="service" id="viettut.domain_manager.course"/>
+            <call method="setEventDispatcher">
+              <argument type="service" id="debug.event_dispatcher"/>
+            </call>
+            <call method="setEvent">
+              <argument>viettut.events.handler_event</argument>
+            </call>
+          </service>
+        </argument>
+      </argument>
+    </service>
+    <service id="viettut_api.handler.chapter" class="Viettut\Handler\HandlerInterface" factory-method="getHandler" factory-service="viettut.handler.handler_manager.chapter">
+      <argument type="service" id="viettut.user_role"/>
+    </service>
+    <service id="viettut.repository.chapter" class="Viettut\Repository\Core\ChapterRepositoryInterface" factory-method="getRepository" factory-service="doctrine.orm.entity_manager">
+      <argument>Viettut\Entity\Core\Chapter</argument>
+    </service>
+    <service id="viettut.domain_manager.chapter" class="Viettut\DomainManager\ChapterManager">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument type="service" id="viettut.repository.chapter"/>
+    </service>
+    <service id="viettut.form.type.chapter" class="Viettut\Form\Type\ChapterFormType">
+      <tag name="form.type" alias="tagcade_form_chapter"/>
+      <argument type="service" id="viettut.repository.chapter"/>
+    </service>
+    <service id="viettut.handler.handler_manager.chapter" class="Viettut\Handler\HandlerManager">
+      <argument>Viettut\Entity\Core\Chapter</argument>
+      <argument type="collection">
+        <argument type="service">
+          <service class="Viettut\Handler\Handlers\Core\Admin\ChapterHandler" public="false">
+            <argument type="service" id="form.factory"/>
+            <argument type="service" id="viettut.form.type.chapter"/>
+            <argument type="service" id="viettut.domain_manager.chapter"/>
+            <call method="setEventDispatcher">
+              <argument type="service" id="debug.event_dispatcher"/>
+            </call>
+            <call method="setEvent">
+              <argument>viettut.events.handler_event</argument>
+            </call>
+          </service>
+        </argument>
+        <argument type="service">
+          <service class="Viettut\Handler\Handlers\Core\Lecturer\ChapterHandler" public="false">
+            <argument type="service" id="form.factory"/>
+            <argument type="service" id="viettut.form.type.chapter"/>
+            <argument type="service" id="viettut.domain_manager.chapter"/>
+            <call method="setEventDispatcher">
+              <argument type="service" id="debug.event_dispatcher"/>
+            </call>
+            <call method="setEvent">
+              <argument>viettut.events.handler_event</argument>
+            </call>
+          </service>
+        </argument>
+      </argument>
+    </service>
+    <service id="viettut_api.handler.tutorial" class="Viettut\Handler\HandlerInterface" factory-method="getHandler" factory-service="viettut.handler.handler_manager.tutorial">
+      <argument type="service" id="viettut.user_role"/>
+    </service>
+    <service id="viettut.repository.tutorial" class="Viettut\Repository\Core\TutorialRepositoryInterface" factory-method="getRepository" factory-service="doctrine.orm.entity_manager">
+      <argument>Viettut\Entity\Core\Tutorial</argument>
+    </service>
+    <service id="viettut.domain_manager.tutorial" class="Viettut\DomainManager\TutorialManager">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument type="service" id="viettut.repository.tutorial"/>
+    </service>
+    <service id="viettut.form.type.tutorial" class="Viettut\Form\Type\TutorialFormType">
+      <tag name="form.type" alias="tagcade_form_tutorial"/>
+      <argument type="service" id="viettut.repository.tutorial"/>
+    </service>
+    <service id="viettut.handler.handler_manager.tutorial" class="Viettut\Handler\HandlerManager">
+      <argument>Viettut\Entity\Core\Tutorial</argument>
+      <argument type="collection">
+        <argument type="service">
+          <service class="Viettut\Handler\Handlers\Core\Admin\TutorialHandler" public="false">
+            <argument type="service" id="form.factory"/>
+            <argument type="service" id="viettut.form.type.tutorial"/>
+            <argument type="service" id="viettut.domain_manager.tutorial"/>
+            <call method="setEventDispatcher">
+              <argument type="service" id="debug.event_dispatcher"/>
+            </call>
+            <call method="setEvent">
+              <argument>viettut.events.handler_event</argument>
+            </call>
+          </service>
+        </argument>
+        <argument type="service">
+          <service class="Viettut\Handler\Handlers\Core\Lecturer\TutorialHandler" public="false">
+            <argument type="service" id="form.factory"/>
+            <argument type="service" id="viettut.form.type.tutorial"/>
+            <argument type="service" id="viettut.domain_manager.tutorial"/>
+            <call method="setEventDispatcher">
+              <argument type="service" id="debug.event_dispatcher"/>
+            </call>
+            <call method="setEvent">
+              <argument>viettut.events.handler_event</argument>
+            </call>
+          </service>
+        </argument>
+      </argument>
+    </service>
+    <service id="viettut_api.handler.comment" class="Viettut\Handler\HandlerInterface" factory-method="getHandler" factory-service="viettut.handler.handler_manager.comment">
+      <argument type="service" id="viettut.user_role"/>
+    </service>
+    <service id="viettut.repository.comment" class="Viettut\Repository\Core\CommentRepositoryInterface" factory-method="getRepository" factory-service="doctrine.orm.entity_manager">
+      <argument>Viettut\Entity\Core\Comment</argument>
+    </service>
+    <service id="viettut.domain_manager.comment" class="Viettut\DomainManager\CommentManager">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument type="service" id="viettut.repository.comment"/>
+    </service>
+    <service id="viettut.form.type.comment" class="Viettut\Form\Type\CommentFormType">
+      <tag name="form.type" alias="tagcade_form_comment"/>
+      <argument type="service" id="viettut.repository.comment"/>
+    </service>
+    <service id="viettut.handler.handler_manager.comment" class="Viettut\Handler\HandlerManager">
+      <argument>Viettut\Entity\Core\Comment</argument>
+      <argument type="collection">
+        <argument type="service">
+          <service class="Viettut\Handler\Handlers\Core\Admin\CommentHandler" public="false">
+            <argument type="service" id="form.factory"/>
+            <argument type="service" id="viettut.form.type.comment"/>
+            <argument type="service" id="viettut.domain_manager.comment"/>
+            <call method="setEventDispatcher">
+              <argument type="service" id="debug.event_dispatcher"/>
+            </call>
+            <call method="setEvent">
+              <argument>viettut.events.handler_event</argument>
+            </call>
+          </service>
+        </argument>
+        <argument type="service">
+          <service class="Viettut\Handler\Handlers\Core\Lecturer\CommentHandler" public="false">
+            <argument type="service" id="form.factory"/>
+            <argument type="service" id="viettut.form.type.comment"/>
+            <argument type="service" id="viettut.domain_manager.comment"/>
+            <call method="setEventDispatcher">
+              <argument type="service" id="debug.event_dispatcher"/>
+            </call>
+            <call method="setEvent">
+              <argument>viettut.events.handler_event</argument>
+            </call>
+          </service>
+        </argument>
+      </argument>
     </service>
     <service id="viettut_api.service.jwt_response_transformer" class="Viettut\Bundles\ApiBundle\Service\JWTResponseTransformer"/>
     <service id="viettut.event.authentication_success_listener" class="Viettut\Bundles\ApiBundle\EventListener\AuthenticationSuccessListener">
@@ -4597,8 +4789,8 @@
     </service>
     <service id="viettut.token" class="Symfony\Component\Security\Core\Authentication\Token\TokenInterface" factory-method="getToken" factory-service="security.context"/>
     <service id="viettut.user_role" class="Viettut\Model\User\Role\UserRoleInterface" factory-method="getUser" factory-service="viettut.token"/>
-    <service id="viettut_user.domain_manager.broker" class="Viettut\Bundles\UserBundle\DomainManager\BrokerManager">
-      <argument type="service" id="viettut_user_system_broker.user_manager"/>
+    <service id="viettut_user.domain_manager.lecturer" class="Viettut\Bundles\UserBundle\DomainManager\LecturerManager">
+      <argument type="service" id="viettut_user_system_lecturer.user_manager"/>
     </service>
     <service id="viettut_user.handler.authentication_success" class="Viettut\Bundles\UserBundle\Handler\AuthenticationSuccessHandler">
       <argument type="service" id="lexik_jwt_authentication.handler.authentication_success"/>
@@ -4790,11 +4982,11 @@
       <argument>Viettut\Bundles\UserSystem\AdminBundle\Entity\User</argument>
       <argument>viettut_user_system_admin_resetting</argument>
     </service>
-    <service id="rollerworks_multi_user.user_system.viettut_user_system_broker" class="Rollerworks\Bundle\MultiUserBundle\Model\UserConfig" public="false" lazy="true">
-      <tag name="rollerworks_multi_user.user_system" alias="viettut_user_system_broker" class="Viettut\Bundles\UserSystem\BrokerBundle\Entity\User" path="^/" host="" db_driver="orm" request_matcher="viettut_user.request.user_system.request_matcher"/>
-      <argument>viettut_user_system_broker</argument>
-      <argument>viettut_user_system_broker</argument>
-      <argument type="service" id="viettut_user_system_broker.user_manager"/>
+    <service id="rollerworks_multi_user.user_system.viettut_user_system_lecturer" class="Rollerworks\Bundle\MultiUserBundle\Model\UserConfig" public="false" lazy="true">
+      <tag name="rollerworks_multi_user.user_system" alias="viettut_user_system_lecturer" class="Viettut\Bundles\UserSystem\LecturerBundle\Entity\User" path="^/" host="" db_driver="orm" request_matcher="viettut_user.request.user_system.request_matcher"/>
+      <argument>viettut_user_system_lecturer</argument>
+      <argument>viettut_user_system_lecturer</argument>
+      <argument type="service" id="viettut_user_system_lecturer.user_manager"/>
       <argument type="service" id="viettut_user_system_admin.group_manager"/>
       <call method="setConfig">
         <argument>use_listener</argument>
@@ -4806,8 +4998,8 @@
       </call>
       <call method="setForm">
         <argument>profile</argument>
-        <argument>viettut_user_system_broker_profile_form</argument>
-        <argument>viettut_user_system_broker_profile</argument>
+        <argument>viettut_user_system_lecturer_profile_form</argument>
+        <argument>viettut_user_system_lecturer_profile</argument>
         <argument type="collection">
           <argument>Profile</argument>
           <argument>Default</argument>
@@ -4827,8 +5019,8 @@
       </call>
       <call method="setForm">
         <argument>registration</argument>
-        <argument>viettut_user_system_broker_registration_form</argument>
-        <argument>viettut_user_system_broker_registration</argument>
+        <argument>viettut_user_system_lecturer_registration_form</argument>
+        <argument>viettut_user_system_lecturer_registration</argument>
         <argument type="collection">
           <argument>Registration</argument>
           <argument>Default</argument>
@@ -4856,8 +5048,8 @@
       </call>
       <call method="setForm">
         <argument>change_password</argument>
-        <argument>viettut_user_system_broker_change_password_form</argument>
-        <argument>viettut_user_system_broker_change_password</argument>
+        <argument>viettut_user_system_lecturer_change_password_form</argument>
+        <argument>viettut_user_system_lecturer_change_password</argument>
         <argument type="collection">
           <argument>ChangePassword</argument>
           <argument>Default</argument>
@@ -4869,8 +5061,8 @@
       </call>
       <call method="setForm">
         <argument>resetting</argument>
-        <argument>viettut_user_system_broker_resetting_form</argument>
-        <argument>viettut_user_system_broker_resetting</argument>
+        <argument>viettut_user_system_lecturer_resetting_form</argument>
+        <argument>viettut_user_system_lecturer_resetting</argument>
         <argument type="collection">
           <argument>ResetPassword</argument>
           <argument>Default</argument>
@@ -4901,23 +5093,23 @@
         <argument>86400</argument>
       </call>
     </service>
-    <service id="viettut_user_system_broker.user_manipulator" class="FOS\UserBundle\Util\UserManipulator">
-      <argument type="service" id="viettut_user_system_broker.user_manager"/>
+    <service id="viettut_user_system_lecturer.user_manipulator" class="FOS\UserBundle\Util\UserManipulator">
+      <argument type="service" id="viettut_user_system_lecturer.user_manager"/>
     </service>
-    <service id="viettut_user_system_broker.listener.authentication" class="FOS\UserBundle\EventListener\AuthenticationListener">
+    <service id="viettut_user_system_lecturer.listener.authentication" class="FOS\UserBundle\EventListener\AuthenticationListener">
       <tag name="kernel.event_subscriber"/>
       <argument type="service" id="fos_user.security.login_manager"/>
       <argument>api</argument>
     </service>
-    <service id="viettut_user_system_broker.profile.form.type" class="Rollerworks\Bundle\MultiUserBundle\Form\Type\ProfileFormType">
-      <tag name="form.type" alias="viettut_user_system_broker_profile"/>
-      <argument>Viettut\Bundles\UserSystem\BrokerBundle\Entity\User</argument>
-      <argument>viettut_user_system_broker_profile</argument>
+    <service id="viettut_user_system_lecturer.profile.form.type" class="Rollerworks\Bundle\MultiUserBundle\Form\Type\ProfileFormType">
+      <tag name="form.type" alias="viettut_user_system_lecturer_profile"/>
+      <argument>Viettut\Bundles\UserSystem\LecturerBundle\Entity\User</argument>
+      <argument>viettut_user_system_lecturer_profile</argument>
     </service>
-    <service id="viettut_user_system_broker.profile.form.factory" class="FOS\UserBundle\Form\Factory\FormFactory">
+    <service id="viettut_user_system_lecturer.profile.form.factory" class="FOS\UserBundle\Form\Factory\FormFactory">
       <argument type="service" id="form.factory"/>
-      <argument>viettut_user_system_broker_profile_form</argument>
-      <argument>viettut_user_system_broker_profile</argument>
+      <argument>viettut_user_system_lecturer_profile_form</argument>
+      <argument>viettut_user_system_lecturer_profile</argument>
       <argument type="collection">
         <argument>Profile</argument>
         <argument>Default</argument>
@@ -4926,15 +5118,15 @@
         <argument type="service" id="rollerworks_multi_user.user_discriminator"/>
       </call>
     </service>
-    <service id="viettut_user_system_broker.registration.form.type" class="Rollerworks\Bundle\MultiUserBundle\Form\Type\RegistrationFormType">
-      <tag name="form.type" alias="viettut_user_system_broker_registration"/>
-      <argument>Viettut\Bundles\UserSystem\BrokerBundle\Entity\User</argument>
-      <argument>viettut_user_system_broker_registration</argument>
+    <service id="viettut_user_system_lecturer.registration.form.type" class="Rollerworks\Bundle\MultiUserBundle\Form\Type\RegistrationFormType">
+      <tag name="form.type" alias="viettut_user_system_lecturer_registration"/>
+      <argument>Viettut\Bundles\UserSystem\LecturerBundle\Entity\User</argument>
+      <argument>viettut_user_system_lecturer_registration</argument>
     </service>
-    <service id="viettut_user_system_broker.registration.form.factory" class="FOS\UserBundle\Form\Factory\FormFactory">
+    <service id="viettut_user_system_lecturer.registration.form.factory" class="FOS\UserBundle\Form\Factory\FormFactory">
       <argument type="service" id="form.factory"/>
-      <argument>viettut_user_system_broker_registration_form</argument>
-      <argument>viettut_user_system_broker_registration</argument>
+      <argument>viettut_user_system_lecturer_registration_form</argument>
+      <argument>viettut_user_system_lecturer_registration</argument>
       <argument type="collection">
         <argument>Registration</argument>
         <argument>Default</argument>
@@ -4943,15 +5135,15 @@
         <argument type="service" id="rollerworks_multi_user.user_discriminator"/>
       </call>
     </service>
-    <service id="viettut_user_system_broker.change_password.form.type" class="Rollerworks\Bundle\MultiUserBundle\Form\Type\ChangePasswordFormType">
-      <tag name="form.type" alias="viettut_user_system_broker_change_password"/>
-      <argument>Viettut\Bundles\UserSystem\BrokerBundle\Entity\User</argument>
-      <argument>viettut_user_system_broker_change_password</argument>
+    <service id="viettut_user_system_lecturer.change_password.form.type" class="Rollerworks\Bundle\MultiUserBundle\Form\Type\ChangePasswordFormType">
+      <tag name="form.type" alias="viettut_user_system_lecturer_change_password"/>
+      <argument>Viettut\Bundles\UserSystem\LecturerBundle\Entity\User</argument>
+      <argument>viettut_user_system_lecturer_change_password</argument>
     </service>
-    <service id="viettut_user_system_broker.change_password.form.factory" class="FOS\UserBundle\Form\Factory\FormFactory">
+    <service id="viettut_user_system_lecturer.change_password.form.factory" class="FOS\UserBundle\Form\Factory\FormFactory">
       <argument type="service" id="form.factory"/>
-      <argument>viettut_user_system_broker_change_password_form</argument>
-      <argument>viettut_user_system_broker_change_password</argument>
+      <argument>viettut_user_system_lecturer_change_password_form</argument>
+      <argument>viettut_user_system_lecturer_change_password</argument>
       <argument type="collection">
         <argument>ChangePassword</argument>
         <argument>Default</argument>
@@ -4960,12 +5152,12 @@
         <argument type="service" id="rollerworks_multi_user.user_discriminator"/>
       </call>
     </service>
-    <service id="viettut_user_system_broker.resetting.form.type" class="Rollerworks\Bundle\MultiUserBundle\Form\Type\ResettingFormType">
-      <tag name="form.type" alias="viettut_user_system_broker_resetting"/>
-      <argument>Viettut\Bundles\UserSystem\BrokerBundle\Entity\User</argument>
-      <argument>viettut_user_system_broker_resetting</argument>
+    <service id="viettut_user_system_lecturer.resetting.form.type" class="Rollerworks\Bundle\MultiUserBundle\Form\Type\ResettingFormType">
+      <tag name="form.type" alias="viettut_user_system_lecturer_resetting"/>
+      <argument>Viettut\Bundles\UserSystem\LecturerBundle\Entity\User</argument>
+      <argument>viettut_user_system_lecturer_resetting</argument>
     </service>
-    <service id="viettut_user_system_broker.set_broker_role_listener" class="Viettut\Bundles\UserSystem\BrokerBundle\EventListener\SetBrokerRoleListener">
+    <service id="viettut_user_system_lecturer.set_lecturer_role_listener" class="Viettut\Bundles\UserSystem\LecturerBundle\EventListener\SetLecturerRoleListener">
       <tag name="doctrine.event_listener" event="prePersist"/>
     </service>
     <service id="data_collector.dump" class="Symfony\Component\HttpKernel\DataCollector\DumpDataCollector">
@@ -5414,8 +5606,8 @@
         <argument>ViettutUserSystemAdmin</argument>
       </call>
       <call method="addPath">
-        <argument>/var/www/api.server.dev/src/Viettut/Bundles/UserSystem/BrokerBundle/Resources/views</argument>
-        <argument>ViettutUserSystemBroker</argument>
+        <argument>/var/www/api.server.dev/src/Viettut/Bundles/UserSystem/LecturerBundle/Resources/views</argument>
+        <argument>ViettutUserSystemLecturer</argument>
       </call>
       <call method="addPath">
         <argument>/var/www/api.server.dev/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views</argument>
@@ -5578,7 +5770,7 @@
                       <argument key="Viettut\Bundles\ApiBundle">/var/www/api.server.dev/src/Viettut/Bundles/ApiBundle/Resources/config/serializer</argument>
                       <argument key="Viettut\Bundles\UserBundle">/var/www/api.server.dev/src/Viettut/Bundles/UserBundle/Resources/config/serializer</argument>
                       <argument key="Viettut\Bundles\UserSystem\AdminBundle">/var/www/api.server.dev/src/Viettut/Bundles/UserSystem/AdminBundle/Resources/config/serializer</argument>
-                      <argument key="Viettut\Bundles\UserSystem\BrokerBundle">/var/www/api.server.dev/src/Viettut/Bundles/UserSystem/BrokerBundle/Resources/config/serializer</argument>
+                      <argument key="Viettut\Bundles\UserSystem\LecturerBundle">/var/www/api.server.dev/src/Viettut/Bundles/UserSystem/LecturerBundle/Resources/config/serializer</argument>
                       <argument key="Symfony\Bundle\DebugBundle">/var/www/api.server.dev/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/config/serializer</argument>
                       <argument key="Symfony\Bundle\WebProfilerBundle">/var/www/api.server.dev/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/config/serializer</argument>
                       <argument key="Sensio\Bundle\DistributionBundle">/var/www/api.server.dev/vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle/Resources/config/serializer</argument>
@@ -5616,7 +5808,7 @@
                       <argument key="Viettut\Bundles\ApiBundle">/var/www/api.server.dev/src/Viettut/Bundles/ApiBundle/Resources/config/serializer</argument>
                       <argument key="Viettut\Bundles\UserBundle">/var/www/api.server.dev/src/Viettut/Bundles/UserBundle/Resources/config/serializer</argument>
                       <argument key="Viettut\Bundles\UserSystem\AdminBundle">/var/www/api.server.dev/src/Viettut/Bundles/UserSystem/AdminBundle/Resources/config/serializer</argument>
-                      <argument key="Viettut\Bundles\UserSystem\BrokerBundle">/var/www/api.server.dev/src/Viettut/Bundles/UserSystem/BrokerBundle/Resources/config/serializer</argument>
+                      <argument key="Viettut\Bundles\UserSystem\LecturerBundle">/var/www/api.server.dev/src/Viettut/Bundles/UserSystem/LecturerBundle/Resources/config/serializer</argument>
                       <argument key="Symfony\Bundle\DebugBundle">/var/www/api.server.dev/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/config/serializer</argument>
                       <argument key="Symfony\Bundle\WebProfilerBundle">/var/www/api.server.dev/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/config/serializer</argument>
                       <argument key="Sensio\Bundle\DistributionBundle">/var/www/api.server.dev/vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle/Resources/config/serializer</argument>
@@ -5654,7 +5846,7 @@
                       <argument key="Viettut\Bundles\ApiBundle">/var/www/api.server.dev/src/Viettut/Bundles/ApiBundle/Resources/config/serializer</argument>
                       <argument key="Viettut\Bundles\UserBundle">/var/www/api.server.dev/src/Viettut/Bundles/UserBundle/Resources/config/serializer</argument>
                       <argument key="Viettut\Bundles\UserSystem\AdminBundle">/var/www/api.server.dev/src/Viettut/Bundles/UserSystem/AdminBundle/Resources/config/serializer</argument>
-                      <argument key="Viettut\Bundles\UserSystem\BrokerBundle">/var/www/api.server.dev/src/Viettut/Bundles/UserSystem/BrokerBundle/Resources/config/serializer</argument>
+                      <argument key="Viettut\Bundles\UserSystem\LecturerBundle">/var/www/api.server.dev/src/Viettut/Bundles/UserSystem/LecturerBundle/Resources/config/serializer</argument>
                       <argument key="Symfony\Bundle\DebugBundle">/var/www/api.server.dev/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/config/serializer</argument>
                       <argument key="Symfony\Bundle\WebProfilerBundle">/var/www/api.server.dev/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/config/serializer</argument>
                       <argument key="Sensio\Bundle\DistributionBundle">/var/www/api.server.dev/vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle/Resources/config/serializer</argument>
@@ -5779,7 +5971,7 @@
       <argument>Viettut\Bundles\UserSystem\AdminBundle\Entity\User</argument>
     </service>
     <service id="viettut_user_system_admin.group_manager" class="Rollerworks\Bundle\MultiUserBundle\Model\NoopGroupManager"/>
-    <service id="viettut_user_system_broker.mailer" class="FOS\UserBundle\Mailer\Mailer">
+    <service id="viettut_user_system_lecturer.mailer" class="FOS\UserBundle\Mailer\Mailer">
       <argument type="service" id="swiftmailer.mailer.default"/>
       <argument type="service" id="rollerworks_multi_user.routing.user_discriminator_url_generator"/>
       <argument type="service" id="templating"/>
@@ -5796,7 +5988,7 @@
         </argument>
       </argument>
     </service>
-    <service id="viettut_user_system_broker.user_manager" class="FOS\UserBundle\Doctrine\UserManager">
+    <service id="viettut_user_system_lecturer.user_manager" class="FOS\UserBundle\Doctrine\UserManager">
       <argument type="service" id="security.encoder_factory"/>
       <argument type="service" id="fos_user.util.email_canonicalizer"/>
       <argument type="service" id="fos_user.util.email_canonicalizer"/>
@@ -5805,7 +5997,7 @@
           <argument>default</argument>
         </service>
       </argument>
-      <argument>Viettut\Bundles\UserSystem\BrokerBundle\Entity\User</argument>
+      <argument>Viettut\Bundles\UserSystem\LecturerBundle\Entity\User</argument>
     </service>
     <service id="session.storage" alias="session.storage.native"/>
     <service id="event_dispatcher" alias="debug.event_dispatcher"/>
@@ -5827,7 +6019,7 @@
     <service id="fos_rest.inflector" alias="fos_rest.inflector.doctrine"/>
     <service id="serializer" alias="jms_serializer"/>
     <service id="lexik_jwt_authentication.encoder" alias="lexik_jwt_authentication.jwt_encoder"/>
-    <service id="viettut_user_system_broker.group_manager" alias="viettut_user_system_admin.group_manager"/>
+    <service id="viettut_user_system_lecturer.group_manager" alias="viettut_user_system_admin.group_manager"/>
     <service id="sensio.distribution.webconfigurator" alias="sensio_distribution.webconfigurator"/>
     <service id="console.command.sensiolabs_security_command_securitycheckercommand" alias="sensio_distribution.security_checker.command"/>
     <service id="fos_rest.serializer" alias="jms_serializer"/>

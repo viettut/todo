@@ -27,8 +27,8 @@ class ResetPasswordController extends FOSRestController
     {
         $username = $request->request->get('username');
         /** @var UserInterface $user */
-        $brokerManager = $this->get('viettut_user.domain_manager.broker');
-        $user = $brokerManager->findUserByUsernameOrEmail($username);
+        $lecturerManager = $this->get('viettut_user.domain_manager.lecturer');
+        $user = $lecturerManager->findUserByUsernameOrEmail($username);
 
         // check existed user
         if (null === $user) {
@@ -36,7 +36,7 @@ class ResetPasswordController extends FOSRestController
         }
 
         // check passwordRequest expired?
-        $ttl = $this->container->getParameter('viettut_user_system_publisher.resetting.token_ttl');
+        $ttl = $this->container->getParameter('viettut_user_system_lecturer.resetting.token_ttl');
 
         if ($user->isPasswordRequestNonExpired($ttl)) {
             return $this->view('passwordAlreadyRequested', Codes::HTTP_ALREADY_REPORTED);
@@ -54,7 +54,7 @@ class ResetPasswordController extends FOSRestController
         // update user
         $user->setPasswordRequestedAt(new \DateTime());
 
-        $brokerManager->updateUser($user);
+        $lecturerManager->updateUser($user);
 
         return $this->view(null, Codes::HTTP_CREATED);
     }
@@ -69,24 +69,24 @@ class ResetPasswordController extends FOSRestController
     public function resetAction(Request $request, $token)
     {
         //get user manager as publisher
-        $brokerManager = $this->get('viettut_user.domain_manager.broker');
+        $lecturerManager = $this->get('viettut_user.domain_manager.lecturer');
 
         //find user by token
-        $broker = $brokerManager->findUserByConfirmationToken($token);
-        if (null === $broker) {
+        $lecturer = $lecturerManager->findUserByConfirmationToken($token);
+        if (null === $lecturer) {
             return $this->view(null, Codes::HTTP_NOT_FOUND);
         }
 
         //check if token expired
         $ttl = $this->container->getParameter('viettut_user_system_broker.resetting.token_ttl');
-        if (!$broker->isPasswordRequestNonExpired($ttl)) {
+        if (!$lecturer->isPasswordRequestNonExpired($ttl)) {
             return $this->view(null, Codes::HTTP_REQUEST_TIMEOUT);
         }
 
         //using an event FOSUserEvents::SECURITY_IMPLICIT_LOGIN for RollerWorks auto setting user system as user_system_publisher (userDiscriminator->setCurrentUser(...))
         /** @var $dispatcher \Symfony\Component\EventDispatcher\EventDispatcherInterface */
         $dispatcher = $this->get('event_dispatcher');
-        $dispatcher->dispatch(FOSUserEvents::SECURITY_IMPLICIT_LOGIN, new UserEvent($broker, $request));
+        $dispatcher->dispatch(FOSUserEvents::SECURITY_IMPLICIT_LOGIN, new UserEvent($lecturer, $request));
 
         //create form factory, set user discriminator as tagcade_user_system_publisher
         $formFactory = $this->get('rollerworks_multi_user.resetting.form.factory');
@@ -94,18 +94,18 @@ class ResetPasswordController extends FOSRestController
         //create form
         /** @var FormInterface $form */
         $form = $formFactory->createForm();
-        $form->setData($broker);
+        $form->setData($lecturer);
 
         //form handling request
         $form->handleRequest($request);
 
         //validate form and then update to db for publisher
         if ($form->isValid()) {
-            $brokerManager->updateCanonicalFields($broker);
-            $broker->setConfirmationToken(null);
-            $broker->setPasswordRequestedAt(null);
-            $broker->setEnabled(true);
-            $brokerManager->updateUser($broker);
+            $lecturerManager->updateCanonicalFields($lecturer);
+            $lecturer->setConfirmationToken(null);
+            $lecturer->setPasswordRequestedAt(null);
+            $lecturer->setEnabled(true);
+            $lecturerManager->updateUser($lecturer);
 
             return $this->view(null, Codes::HTTP_ACCEPTED);
         }

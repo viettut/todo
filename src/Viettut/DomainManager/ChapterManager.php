@@ -14,7 +14,7 @@ use ReflectionClass;
 use Viettut\Exception\InvalidArgumentException;
 use Viettut\Model\Core\ChapterInterface;
 use Viettut\Model\ModelInterface;
-use Viettut\Model\User\Role\BrokerInterface;
+use Viettut\Model\User\Role\LecturerInterface;
 use Viettut\Repository\Core\ChapterRepositoryInterface;
 
 class ChapterManager implements ChapterManagerInterface
@@ -100,13 +100,13 @@ class ChapterManager implements ChapterManagerInterface
     }
 
     /**
-     * @param BrokerInterface $broker
+     * @param LecturerInterface $lecturer
      * @param null $limit
      * @param null $offset
      * @return mixed
      */
-    public function getChapterByBroker(BrokerInterface $broker, $limit = null, $offset = null)
+    public function getChapterByLecturer(LecturerInterface $lecturer, $limit = null, $offset = null)
     {
-        return $this->repository->getChapterByBroker($broker, $limit, $offset);
+        return $this->repository->getChapterByLecturer($lecturer, $limit, $offset);
     }
 }
