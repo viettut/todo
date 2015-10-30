@@ -5,7 +5,6 @@ namespace Viettut\Bundles\UserBundle\DomainManager;
 use FOS\UserBundle\Model\UserInterface as FOSUserInterface;
 use FOS\UserBundle\Model\UserInterface;
 use Viettut\Exception\InvalidUserRoleException;
-use Viettut\Model\User\Role\BrokerInterface;
 use Viettut\Model\User\Role\LecturerInterface;
 use Viettut\Model\User\UserEntityInterface;
 

@@ -1,0 +1,40 @@
+Viettut\Bundles\UserSystem\LecturerBundle\Entity\User:
+    exclusion_policy: ALL
+    accessor_order: custom
+    custom_accessor_order:
+        - id
+        - firstName
+        - lastName
+        - company
+        - phone
+        - city
+        - state
+        - address
+        - postalCode
+        - country
+        - settings
+    properties:
+        id:
+            expose: true
+            groups: [user.summary]
+        firstName:
+            expose: true
+        lastName:
+            expose: true
+        company:
+            expose: true
+            groups: [user.summary]
+        phone:
+            expose: true
+        city:
+            expose: true
+        state:
+            expose: true
+        address:
+            expose: true
+        postalCode:
+            expose: true
+        country:
+            expose: true
+        settings:
+            expose: true

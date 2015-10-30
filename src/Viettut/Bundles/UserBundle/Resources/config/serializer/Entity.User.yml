@@ -6,13 +6,9 @@ Viettut\Bundles\UserBundle\Entity\User:
         - username
         - email
         - roles
-        - enabledModules
         - userRoles # camel case without get i.e getUserRoles becomes userRoles
         - last_login
         - enabled
-    virtual_properties:
-#        getUserRoles: ~
-        getEnabledModules: ~
     properties:
         id:
             expose: true

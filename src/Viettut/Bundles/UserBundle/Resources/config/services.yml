@@ -9,6 +9,22 @@ parameters:
     viettut_user.request.user_system.authentication_listener.class: Viettut\Bundles\UserBundle\Request\UserSystem\AuthenticationListener
 
 services:
+    # main public services
+    viettut_user_api.handler.user:
+        class: Viettut\Bundles\UserBundle\Handler\UserHandler
+        parent: viettut.handler.handler_abstract
+        public: true
+        arguments:
+            - @form.factory
+            - @viettut_user_api.form.type.user
+            - @viettut_user.domain_manager.lecturer
+    # forms
+    viettut_user_api.form.type.user:
+        class: Viettut\Bundles\UserBundle\Form\Type\UserFormType
+        tags:
+            - { name: form.type, alias: viettut_form_user_api_user }
+
+
     # returns our role model class for the current authenticated user entity
     viettut.token:
         class: Symfony\Component\Security\Core\Authentication\Token\TokenInterface

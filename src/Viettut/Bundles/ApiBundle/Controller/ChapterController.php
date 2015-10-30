@@ -9,11 +9,12 @@
 namespace Viettut\Bundles\ApiBundle\Controller;
 
 
+use FOS\RestBundle\Controller\Annotations\RouteResource;
 use FOS\RestBundle\Routing\ClassResourceInterface;
 use Viettut\Handler\HandlerInterface;
 
 /**
- * @Rest\RouteResource("Chapter")
+ * @RouteResource("Chapter")
  */
 class ChapterController extends RestControllerAbstract implements ClassResourceInterface
 {

@@ -7,6 +7,7 @@ use FOS\UserBundle\Model\User as BaseUser;
 use Viettut\Exception\InvalidArgumentException;
 use Viettut\Model\User\UserEntityInterface;
 
+
 abstract class User extends BaseUser implements UserEntityInterface
 {
     const USER_ROLE_PREFIX = 'ROLE_';

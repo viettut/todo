@@ -281,7 +281,87 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
                 }
 
+                if (0 === strpos($pathinfo, '/api/v1/courses')) {
+                    // api_1_get_courses
+                    if ($pathinfo === '/api/v1/courses') {
+                        if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                            $allow = array_merge($allow, array('GET', 'HEAD'));
+                            goto not_api_1_get_courses;
+                        }
+
+                        return array (  '_controller' => 'Viettut\\Bundles\\ApiBundle\\Controller\\CourseController::cgetAction',  '_format' => 'json',  '_route' => 'api_1_get_courses',);
+                    }
+                    not_api_1_get_courses:
+
+                    // api_1_get_course
+                    if (preg_match('#^/api/v1/courses/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                        if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                            $allow = array_merge($allow, array('GET', 'HEAD'));
+                            goto not_api_1_get_course;
+                        }
+
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_1_get_course')), array (  '_controller' => 'Viettut\\Bundles\\ApiBundle\\Controller\\CourseController::getAction',  '_format' => 'json',));
+                    }
+                    not_api_1_get_course:
+
+                    // api_1_post_course
+                    if ($pathinfo === '/api/v1/courses') {
+                        if ($this->context->getMethod() != 'POST') {
+                            $allow[] = 'POST';
+                            goto not_api_1_post_course;
+                        }
+
+                        return array (  '_controller' => 'Viettut\\Bundles\\ApiBundle\\Controller\\CourseController::postAction',  '_format' => 'json',  '_route' => 'api_1_post_course',);
+                    }
+                    not_api_1_post_course:
+
+                    // api_1_put_course
+                    if (preg_match('#^/api/v1/courses/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                        if ($this->context->getMethod() != 'PUT') {
+                            $allow[] = 'PUT';
+                            goto not_api_1_put_course;
+                        }
+
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_1_put_course')), array (  '_controller' => 'Viettut\\Bundles\\ApiBundle\\Controller\\CourseController::putAction',  '_format' => 'json',));
+                    }
+                    not_api_1_put_course:
+
+                    // api_1_patch_course
+                    if (preg_match('#^/api/v1/courses/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                        if ($this->context->getMethod() != 'PATCH') {
+                            $allow[] = 'PATCH';
+                            goto not_api_1_patch_course;
+                        }
+
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_1_patch_course')), array (  '_controller' => 'Viettut\\Bundles\\ApiBundle\\Controller\\CourseController::patchAction',  '_format' => 'json',));
+                    }
+                    not_api_1_patch_course:
+
+                    // api_1_delete_course
+                    if (preg_match('#^/api/v1/courses/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                        if ($this->context->getMethod() != 'DELETE') {
+                            $allow[] = 'DELETE';
+                            goto not_api_1_delete_course;
+                        }
+
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_1_delete_course')), array (  '_controller' => 'Viettut\\Bundles\\ApiBundle\\Controller\\CourseController::deleteAction',  '_format' => 'json',));
+                    }
+                    not_api_1_delete_course:
+
+                }
+
             }
+
+            // api_1_post_user
+            if ($pathinfo === '/api/user/v1/users') {
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_api_1_post_user;
+                }
+
+                return array (  '_controller' => 'Viettut\\Bundles\\UserBundle\\Controller\\UserController::postAction',  '_format' => 'json',  '_route' => 'api_1_post_user',);
+            }
+            not_api_1_post_user:
 
         }
 

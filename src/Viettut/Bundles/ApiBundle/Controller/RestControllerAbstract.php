@@ -51,11 +51,12 @@ abstract class RestControllerAbstract extends FOSRestController
                 $request->request->all()
             );
 
-            $routeOptions = array(
-                '_format' => $request->get('_format')
-            );
-
-            return $this->addRedirectToResource($newEntity, Codes::HTTP_CREATED, $routeOptions);
+            return $newEntity;
+//            $routeOptions = array(
+//                '_format' => $request->get('_format')
+//            );
+//
+//            return $this->addRedirectToResource($newEntity, Codes::HTTP_CREATED, $routeOptions);
         } catch (InvalidFormException $exception) {
             return $exception->getForm();
         }
@@ -84,11 +85,13 @@ abstract class RestControllerAbstract extends FOSRestController
                 );
             }
 
-            $routeOptions = array(
-                '_format' => $request->get('_format')
-            );
+            return $this->createResponse($entity, $statusCode);
 
-            return $this->addRedirectToResource($entity, $statusCode, $routeOptions);
+//            $routeOptions = array(
+//                '_format' => $request->get('_format')
+//            );
+//
+//            return $this->addRedirectToResource($entity, $statusCode, $routeOptions);
         } catch (InvalidFormException $exception) {
             return $exception->getForm();
         }
@@ -110,11 +113,13 @@ abstract class RestControllerAbstract extends FOSRestController
                 $request->request->all()
             );
 
-            $routeOptions = array(
-                '_format' => $request->get('_format')
-            );
+            return $this->createResponse($entity, Codes::HTTP_NO_CONTENT);
 
-            return $this->addRedirectToResource($entity, Codes::HTTP_NO_CONTENT, $routeOptions);
+//            $routeOptions = array(
+//                '_format' => $request->get('_format')
+//            );
+//
+//            return $this->addRedirectToResource($entity, Codes::HTTP_NO_CONTENT, $routeOptions);
         } catch (InvalidFormException $exception) {
             return $exception->getForm();
         }
@@ -174,6 +179,16 @@ abstract class RestControllerAbstract extends FOSRestController
         $routeOptions['id'] = $id;
 
         return $this->routeRedirectView($this->getGETRouteName(), $routeOptions, $statusCode);
+    }
+
+    protected function createResponse(ModelInterface $entity, $statusCode)
+    {
+        $routeOptions = array(
+            '_format' => 'json'
+        )   ;
+
+        $view = $this->view(null, $statusCode);
+        return $this->handleView($view);
     }
 
     /**

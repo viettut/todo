@@ -45,6 +45,12 @@ security:
                 failure_handler:    lexik_jwt_authentication.handler.authentication_failure
             provider: viettut_user
 
+        register:
+            pattern:  ^/api/user/v1/users$
+            stateless: true
+            security: false
+            anonymous: ~
+
         resetting:
             pattern: ^/api/v1/resetting/
             stateless: true

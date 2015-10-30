@@ -26,7 +26,7 @@ class UserHandler extends HandlerAbstract implements UserHandlerInterface
     /**
      * @inheritdoc
      */
-    public function allBrokers()
+    public function allLecturers()
     {
         return $this->getDomainManager()->allLecturers();
     }

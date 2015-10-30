@@ -2,3 +2,5 @@ add
 web/
 vendor/
 bin/
+app/cache/
+app/dev

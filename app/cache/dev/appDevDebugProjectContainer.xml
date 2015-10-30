@@ -1833,6 +1833,7 @@
               <argument key="tagcade_form_chapter">viettut.form.type.chapter</argument>
               <argument key="tagcade_form_tutorial">viettut.form.type.tutorial</argument>
               <argument key="tagcade_form_comment">viettut.form.type.comment</argument>
+              <argument key="viettut_form_user_api_user">viettut_user_api.form.type.user</argument>
               <argument key="viettut_user_system_admin_profile">viettut_user_system_admin.profile.form.type</argument>
               <argument key="viettut_user_system_admin_registration">viettut_user_system_admin.registration.form.type</argument>
               <argument key="viettut_user_system_admin_change_password">viettut_user_system_admin.change_password.form.type</argument>
@@ -2753,6 +2754,11 @@
                 <argument>^/api/v1/getToken$</argument>
               </service>
             </argument>
+            <argument key="security.firewall.map.context.register" type="service">
+              <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+                <argument>^/api/user/v1/users$</argument>
+              </service>
+            </argument>
             <argument key="security.firewall.map.context.resetting" type="service">
               <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
                 <argument>^/api/v1/resetting/</argument>
@@ -2880,6 +2886,10 @@
           <argument>true</argument>
         </service>
       </argument>
+    </service>
+    <service id="security.firewall.map.context.register" class="Symfony\Bundle\SecurityBundle\Security\FirewallContext">
+      <argument type="collection"/>
+      <argument>null</argument>
     </service>
     <service id="security.firewall.map.context.resetting" class="Symfony\Bundle\SecurityBundle\Security\FirewallContext">
       <argument type="collection"/>
@@ -4786,6 +4796,20 @@
         </argument>
         <argument key="password_resetting_link">http://localhost:9010/#/reset/changePassword</argument>
       </argument>
+    </service>
+    <service id="viettut_user_api.handler.user" class="Viettut\Bundles\UserBundle\Handler\UserHandler">
+      <argument type="service" id="form.factory"/>
+      <argument type="service" id="viettut_user_api.form.type.user"/>
+      <argument type="service" id="viettut_user.domain_manager.lecturer"/>
+      <call method="setEventDispatcher">
+        <argument type="service" id="debug.event_dispatcher"/>
+      </call>
+      <call method="setEvent">
+        <argument>viettut.events.handler_event</argument>
+      </call>
+    </service>
+    <service id="viettut_user_api.form.type.user" class="Viettut\Bundles\UserBundle\Form\Type\UserFormType">
+      <tag name="form.type" alias="viettut_form_user_api_user"/>
     </service>
     <service id="viettut.token" class="Symfony\Component\Security\Core\Authentication\Token\TokenInterface" factory-method="getToken" factory-service="security.context"/>
     <service id="viettut.user_role" class="Viettut\Model\User\Role\UserRoleInterface" factory-method="getUser" factory-service="viettut.token"/>

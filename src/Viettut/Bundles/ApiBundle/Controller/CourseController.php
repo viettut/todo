@@ -9,8 +9,10 @@
 namespace Viettut\Bundles\ApiBundle\Controller;
 
 
+use FOS\RestBundle\Controller\Annotations\RouteResource;
 use FOS\RestBundle\Routing\ClassResourceInterface;
 use FOS\RestBundle\View\View;
+use FOS\RestBundle\Controller\Annotations as Rest;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 use Symfony\Component\Form\FormTypeInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -19,7 +21,7 @@ use Viettut\Handler\HandlerInterface;
 use Viettut\Model\Core\CourseInterface;
 
 /**
- * @Rest\RouteResource("Course")
+ * @RouteResource("Course")
  */
 class CourseController extends RestControllerAbstract implements ClassResourceInterface
 {

@@ -13,3 +13,7 @@ viettut_api:
     type:   rest
     prefix: /api/v1
 
+viettut_user:
+    resource: "@ViettutUserBundle/Resources/config/routing.yml"
+    type:   rest
+    prefix: /api/user/v1
