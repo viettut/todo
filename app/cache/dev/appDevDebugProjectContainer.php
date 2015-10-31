@@ -2434,7 +2434,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getJmsSerializer_MetadataDriverService()
     {
-        $a = new \Metadata\Driver\FileLocator(array('Symfony\\Bundle\\FrameworkBundle' => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Resources/config/serializer'), 'Symfony\\Bundle\\SecurityBundle' => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle/Resources/config/serializer'), 'Symfony\\Bundle\\TwigBundle' => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/Resources/config/serializer'), 'Symfony\\Bundle\\MonologBundle' => ($this->targetDirs[3].'/vendor/symfony/monolog-bundle/Resources/config/serializer'), 'Symfony\\Bundle\\SwiftmailerBundle' => ($this->targetDirs[3].'/vendor/symfony/swiftmailer-bundle/Resources/config/serializer'), 'Symfony\\Bundle\\AsseticBundle' => ($this->targetDirs[3].'/vendor/symfony/assetic-bundle/Resources/config/serializer'), 'Doctrine\\Bundle\\DoctrineBundle' => ($this->targetDirs[3].'/vendor/doctrine/doctrine-bundle/Resources/config/serializer'), 'Sensio\\Bundle\\FrameworkExtraBundle' => ($this->targetDirs[3].'/vendor/sensio/framework-extra-bundle/Resources/config/serializer'), 'FOS\\UserBundle' => ($this->targetDirs[3].'/src/Viettut/Bundles/UserBundle/Resources/config/serializer/fos'), 'Rollerworks\\Bundle\\MultiUserBundle' => ($this->targetDirs[3].'/vendor/rollerworks/multi-user-bundle/src/Resources/config/serializer'), 'FOS\\RestBundle' => ($this->targetDirs[3].'/vendor/friendsofsymfony/rest-bundle/FOS/RestBundle/Resources/config/serializer'), 'JMS\\SerializerBundle' => ($this->targetDirs[3].'/vendor/jms/serializer-bundle/JMS/SerializerBundle/Resources/config/serializer'), 'Lexik\\Bundle\\JWTAuthenticationBundle' => ($this->targetDirs[3].'/vendor/lexik/jwt-authentication-bundle/Lexik/Bundle/JWTAuthenticationBundle/Resources/config/serializer'), 'Gfreeau\\Bundle\\GetJWTBundle' => ($this->targetDirs[3].'/vendor/gfreeau/get-jwt-bundle/Gfreeau/Bundle/GetJWTBundle/Resources/config/serializer'), 'Gfreeau\\Bundle\\CustomValidationPathBundle' => ($this->targetDirs[3].'/vendor/gfreeau/custom-validation-path-bundle/Gfreeau/Bundle/CustomValidationPathBundle/Resources/config/serializer'), 'Stof\\DoctrineExtensionsBundle' => ($this->targetDirs[3].'/vendor/stof/doctrine-extensions-bundle/Resources/config/serializer'), 'Nelmio\\CorsBundle' => ($this->targetDirs[3].'/vendor/nelmio/cors-bundle/Nelmio/CorsBundle/Resources/config/serializer'), 'Nelmio\\ApiDocBundle' => ($this->targetDirs[3].'/vendor/nelmio/api-doc-bundle/Nelmio/ApiDocBundle/Resources/config/serializer'), 'Viettut\\Bundles\\AdminApiBundle' => ($this->targetDirs[3].'/src/Viettut/Bundles/AdminApiBundle/Resources/config/serializer'), 'Viettut\\Bundles\\ApiBundle' => ($this->targetDirs[3].'/src/Viettut/Bundles/ApiBundle/Resources/config/serializer'), 'Viettut\\Bundles\\UserBundle' => ($this->targetDirs[3].'/src/Viettut/Bundles/UserBundle/Resources/config/serializer'), 'Viettut\\Bundles\\UserSystem\\AdminBundle' => ($this->targetDirs[3].'/src/Viettut/Bundles/UserSystem/AdminBundle/Resources/config/serializer'), 'Viettut\\Bundles\\UserSystem\\LecturerBundle' => ($this->targetDirs[3].'/src/Viettut/Bundles/UserSystem/LecturerBundle/Resources/config/serializer'), 'Symfony\\Bundle\\DebugBundle' => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/config/serializer'), 'Symfony\\Bundle\\WebProfilerBundle' => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/config/serializer'), 'Sensio\\Bundle\\DistributionBundle' => ($this->targetDirs[3].'/vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle/Resources/config/serializer'), 'Sensio\\Bundle\\GeneratorBundle' => ($this->targetDirs[3].'/vendor/sensio/generator-bundle/Sensio/Bundle/GeneratorBundle/Resources/config/serializer'), 'Viettut' => ($this->targetDirs[2].'/../src/Viettut/Resources/config/serializer')));
+        $a = new \Metadata\Driver\FileLocator(array('Symfony\\Bundle\\FrameworkBundle' => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Resources/config/serializer'), 'Symfony\\Bundle\\SecurityBundle' => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle/Resources/config/serializer'), 'Symfony\\Bundle\\TwigBundle' => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/Resources/config/serializer'), 'Symfony\\Bundle\\MonologBundle' => ($this->targetDirs[3].'/vendor/symfony/monolog-bundle/Resources/config/serializer'), 'Symfony\\Bundle\\SwiftmailerBundle' => ($this->targetDirs[3].'/vendor/symfony/swiftmailer-bundle/Resources/config/serializer'), 'Symfony\\Bundle\\AsseticBundle' => ($this->targetDirs[3].'/vendor/symfony/assetic-bundle/Resources/config/serializer'), 'Doctrine\\Bundle\\DoctrineBundle' => ($this->targetDirs[3].'/vendor/doctrine/doctrine-bundle/Resources/config/serializer'), 'Sensio\\Bundle\\FrameworkExtraBundle' => ($this->targetDirs[3].'/vendor/sensio/framework-extra-bundle/Resources/config/serializer'), 'FOS\\UserBundle' => ($this->targetDirs[3].'/src/Viettut/Bundles/UserBundle/Resources/config/serializer/fos'), 'Rollerworks\\Bundle\\MultiUserBundle' => ($this->targetDirs[3].'/vendor/rollerworks/multi-user-bundle/src/Resources/config/serializer'), 'FOS\\RestBundle' => ($this->targetDirs[3].'/vendor/friendsofsymfony/rest-bundle/FOS/RestBundle/Resources/config/serializer'), 'JMS\\SerializerBundle' => ($this->targetDirs[3].'/vendor/jms/serializer-bundle/JMS/SerializerBundle/Resources/config/serializer'), 'Lexik\\Bundle\\JWTAuthenticationBundle' => ($this->targetDirs[3].'/vendor/lexik/jwt-authentication-bundle/Lexik/Bundle/JWTAuthenticationBundle/Resources/config/serializer'), 'Gfreeau\\Bundle\\GetJWTBundle' => ($this->targetDirs[3].'/vendor/gfreeau/get-jwt-bundle/Gfreeau/Bundle/GetJWTBundle/Resources/config/serializer'), 'Gfreeau\\Bundle\\CustomValidationPathBundle' => ($this->targetDirs[3].'/vendor/gfreeau/custom-validation-path-bundle/Gfreeau/Bundle/CustomValidationPathBundle/Resources/config/serializer'), 'Stof\\DoctrineExtensionsBundle' => ($this->targetDirs[3].'/vendor/stof/doctrine-extensions-bundle/Resources/config/serializer'), 'Nelmio\\CorsBundle' => ($this->targetDirs[3].'/vendor/nelmio/cors-bundle/Nelmio/CorsBundle/Resources/config/serializer'), 'Nelmio\\ApiDocBundle' => ($this->targetDirs[3].'/vendor/nelmio/api-doc-bundle/Nelmio/ApiDocBundle/Resources/config/serializer'), 'Viettut\\Bundles\\AdminApiBundle' => ($this->targetDirs[3].'/src/Viettut/Bundles/AdminApiBundle/Resources/config/serializer'), 'Viettut\\Bundles\\ApiBundle' => ($this->targetDirs[3].'/src/Viettut/Bundles/ApiBundle/Resources/config/serializer'), 'Viettut\\Bundles\\UserBundle' => ($this->targetDirs[3].'/src/Viettut/Bundles/UserBundle/Resources/config/serializer'), 'Viettut\\Bundles\\UserSystem\\AdminBundle' => ($this->targetDirs[3].'/src/Viettut/Bundles/UserSystem/AdminBundle/Resources/config/serializer'), 'Viettut\\Bundles\\UserSystem\\LecturerBundle' => ($this->targetDirs[3].'/src/Viettut/Bundles/UserSystem/LecturerBundle/Resources/config/serializer'), 'Viettut\\Bundles\\WebBundle' => ($this->targetDirs[3].'/src/Viettut/Bundles/WebBundle/Resources/config/serializer'), 'Symfony\\Bundle\\DebugBundle' => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/config/serializer'), 'Symfony\\Bundle\\WebProfilerBundle' => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/config/serializer'), 'Sensio\\Bundle\\DistributionBundle' => ($this->targetDirs[3].'/vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle/Resources/config/serializer'), 'Sensio\\Bundle\\GeneratorBundle' => ($this->targetDirs[3].'/vendor/sensio/generator-bundle/Sensio/Bundle/GeneratorBundle/Resources/config/serializer'), 'Viettut' => ($this->targetDirs[2].'/../src/Viettut/Resources/config/serializer')));
 
         return $this->services['jms_serializer.metadata_driver'] = new \JMS\Serializer\Metadata\Driver\DoctrineTypeDriver(new \Metadata\Driver\DriverChain(array(0 => new \JMS\Serializer\Metadata\Driver\YamlDriver($a), 1 => new \JMS\Serializer\Metadata\Driver\XmlDriver($a), 2 => new \JMS\Serializer\Metadata\Driver\PhpDriver($a), 3 => new \JMS\Serializer\Metadata\Driver\AnnotationDriver($this->get('annotation_reader')))), $this->get('doctrine'));
     }
@@ -4733,6 +4733,7 @@ class appDevDebugProjectContainer extends Container
         $instance->addPath(($this->targetDirs[3].'/src/Viettut/Bundles/UserBundle/Resources/views'), 'ViettutUser');
         $instance->addPath(($this->targetDirs[3].'/src/Viettut/Bundles/UserSystem/AdminBundle/Resources/views'), 'ViettutUserSystemAdmin');
         $instance->addPath(($this->targetDirs[3].'/src/Viettut/Bundles/UserSystem/LecturerBundle/Resources/views'), 'ViettutUserSystemLecturer');
+        $instance->addPath(($this->targetDirs[3].'/src/Viettut/Bundles/WebBundle/Resources/views'), 'ViettutWeb');
         $instance->addPath(($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views'), 'Debug');
         $instance->addPath(($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views'), 'WebProfiler');
         $instance->addPath(($this->targetDirs[3].'/vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle/Resources/views'), 'SensioDistribution');
@@ -5949,7 +5950,7 @@ class appDevDebugProjectContainer extends Container
         if ($lazyLoad) {
             $container = $this;
 
-            return $this->services['rollerworks_multi_user.user_system.viettut_user_system_admin'] = new RollerworksBundleMultiUserBundleModelUserConfig_000000005d9eb3d10000000045143ffec0c75094f995231bf6ce0f9b276f0fc3(
+            return $this->services['rollerworks_multi_user.user_system.viettut_user_system_admin'] = new RollerworksBundleMultiUserBundleModelUserConfig_000000004c47a1b0000000001e519a85c0c75094f995231bf6ce0f9b276f0fc3(
                 function (&$wrappedInstance, \ProxyManager\Proxy\LazyLoadingInterface $proxy) use ($container) {
                     $wrappedInstance = $container->getRollerworksMultiUser_UserSystem_ViettutUserSystemAdminService(false);
 
@@ -6006,7 +6007,7 @@ class appDevDebugProjectContainer extends Container
         if ($lazyLoad) {
             $container = $this;
 
-            return $this->services['rollerworks_multi_user.user_system.viettut_user_system_lecturer'] = new RollerworksBundleMultiUserBundleModelUserConfig_000000005d9ea24f0000000045143ffec0c75094f995231bf6ce0f9b276f0fc3(
+            return $this->services['rollerworks_multi_user.user_system.viettut_user_system_lecturer'] = new RollerworksBundleMultiUserBundleModelUserConfig_000000004c47b194000000001e519a85c0c75094f995231bf6ce0f9b276f0fc3(
                 function (&$wrappedInstance, \ProxyManager\Proxy\LazyLoadingInterface $proxy) use ($container) {
                     $wrappedInstance = $container->getRollerworksMultiUser_UserSystem_ViettutUserSystemLecturerService(false);
 
@@ -6391,6 +6392,7 @@ class appDevDebugProjectContainer extends Container
                 'ViettutUserBundle' => 'Viettut\\Bundles\\UserBundle\\ViettutUserBundle',
                 'ViettutUserSystemAdminBundle' => 'Viettut\\Bundles\\UserSystem\\AdminBundle\\ViettutUserSystemAdminBundle',
                 'ViettutUserSystemLecturerBundle' => 'Viettut\\Bundles\\UserSystem\\LecturerBundle\\ViettutUserSystemLecturerBundle',
+                'ViettutWebBundle' => 'Viettut\\Bundles\\WebBundle\\ViettutWebBundle',
                 'DebugBundle' => 'Symfony\\Bundle\\DebugBundle\\DebugBundle',
                 'WebProfilerBundle' => 'Symfony\\Bundle\\WebProfilerBundle\\WebProfilerBundle',
                 'SensioDistributionBundle' => 'Sensio\\Bundle\\DistributionBundle\\SensioDistributionBundle',
@@ -7449,23 +7451,23 @@ class appDevDebugProjectContainer extends Container
     }
 }
 
-class RollerworksBundleMultiUserBundleModelUserConfig_000000005d9eb3d10000000045143ffec0c75094f995231bf6ce0f9b276f0fc3 extends \Rollerworks\Bundle\MultiUserBundle\Model\UserConfig implements \ProxyManager\Proxy\VirtualProxyInterface
+class RollerworksBundleMultiUserBundleModelUserConfig_000000004c47a1b0000000001e519a85c0c75094f995231bf6ce0f9b276f0fc3 extends \Rollerworks\Bundle\MultiUserBundle\Model\UserConfig implements \ProxyManager\Proxy\VirtualProxyInterface
 {
 
     /**
      * @var \Closure|null initializer responsible for generating the wrapped object
      */
-    private $valueHolder563392b54d3c5549288361 = null;
+    private $valueHolder5634e658a0a17944596982 = null;
 
     /**
      * @var \Closure|null initializer responsible for generating the wrapped object
      */
-    private $initializer563392b54d3e1221221837 = null;
+    private $initializer5634e658a0a59689355088 = null;
 
     /**
      * @var bool[] map of public properties of the parent class
      */
-    private static $publicProperties563392b54d378228358295 = array(
+    private static $publicProperties5634e658a0735362453981 = array(
         
     );
 
@@ -7474,9 +7476,9 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000005d9eb3d10000000045
      */
     public function setConfig($name, $value)
     {
-        $this->initializer563392b54d3e1221221837 && $this->initializer563392b54d3e1221221837->__invoke($this->valueHolder563392b54d3c5549288361, $this, 'setConfig', array('name' => $name, 'value' => $value), $this->initializer563392b54d3e1221221837);
+        $this->initializer5634e658a0a59689355088 && $this->initializer5634e658a0a59689355088->__invoke($this->valueHolder5634e658a0a17944596982, $this, 'setConfig', array('name' => $name, 'value' => $value), $this->initializer5634e658a0a59689355088);
 
-        return $this->valueHolder563392b54d3c5549288361->setConfig($name, $value);
+        return $this->valueHolder5634e658a0a17944596982->setConfig($name, $value);
     }
 
     /**
@@ -7484,9 +7486,9 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000005d9eb3d10000000045
      */
     public function getConfig($name, $defaultValue = null)
     {
-        $this->initializer563392b54d3e1221221837 && $this->initializer563392b54d3e1221221837->__invoke($this->valueHolder563392b54d3c5549288361, $this, 'getConfig', array('name' => $name, 'defaultValue' => $defaultValue), $this->initializer563392b54d3e1221221837);
+        $this->initializer5634e658a0a59689355088 && $this->initializer5634e658a0a59689355088->__invoke($this->valueHolder5634e658a0a17944596982, $this, 'getConfig', array('name' => $name, 'defaultValue' => $defaultValue), $this->initializer5634e658a0a59689355088);
 
-        return $this->valueHolder563392b54d3c5549288361->getConfig($name, $defaultValue);
+        return $this->valueHolder5634e658a0a17944596982->getConfig($name, $defaultValue);
     }
 
     /**
@@ -7494,9 +7496,9 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000005d9eb3d10000000045
      */
     public function setForm($name, $formName, $type, array $validationGroups)
     {
-        $this->initializer563392b54d3e1221221837 && $this->initializer563392b54d3e1221221837->__invoke($this->valueHolder563392b54d3c5549288361, $this, 'setForm', array('name' => $name, 'formName' => $formName, 'type' => $type, 'validationGroups' => $validationGroups), $this->initializer563392b54d3e1221221837);
+        $this->initializer5634e658a0a59689355088 && $this->initializer5634e658a0a59689355088->__invoke($this->valueHolder5634e658a0a17944596982, $this, 'setForm', array('name' => $name, 'formName' => $formName, 'type' => $type, 'validationGroups' => $validationGroups), $this->initializer5634e658a0a59689355088);
 
-        return $this->valueHolder563392b54d3c5549288361->setForm($name, $formName, $type, $validationGroups);
+        return $this->valueHolder5634e658a0a17944596982->setForm($name, $formName, $type, $validationGroups);
     }
 
     /**
@@ -7504,9 +7506,9 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000005d9eb3d10000000045
      */
     public function setTemplate($name, $resource)
     {
-        $this->initializer563392b54d3e1221221837 && $this->initializer563392b54d3e1221221837->__invoke($this->valueHolder563392b54d3c5549288361, $this, 'setTemplate', array('name' => $name, 'resource' => $resource), $this->initializer563392b54d3e1221221837);
+        $this->initializer5634e658a0a59689355088 && $this->initializer5634e658a0a59689355088->__invoke($this->valueHolder5634e658a0a17944596982, $this, 'setTemplate', array('name' => $name, 'resource' => $resource), $this->initializer5634e658a0a59689355088);
 
-        return $this->valueHolder563392b54d3c5549288361->setTemplate($name, $resource);
+        return $this->valueHolder5634e658a0a17944596982->setTemplate($name, $resource);
     }
 
     /**
@@ -7514,9 +7516,9 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000005d9eb3d10000000045
      */
     public function getFormType($name)
     {
-        $this->initializer563392b54d3e1221221837 && $this->initializer563392b54d3e1221221837->__invoke($this->valueHolder563392b54d3c5549288361, $this, 'getFormType', array('name' => $name), $this->initializer563392b54d3e1221221837);
+        $this->initializer5634e658a0a59689355088 && $this->initializer5634e658a0a59689355088->__invoke($this->valueHolder5634e658a0a17944596982, $this, 'getFormType', array('name' => $name), $this->initializer5634e658a0a59689355088);
 
-        return $this->valueHolder563392b54d3c5549288361->getFormType($name);
+        return $this->valueHolder5634e658a0a17944596982->getFormType($name);
     }
 
     /**
@@ -7524,9 +7526,9 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000005d9eb3d10000000045
      */
     public function getFormName($name)
     {
-        $this->initializer563392b54d3e1221221837 && $this->initializer563392b54d3e1221221837->__invoke($this->valueHolder563392b54d3c5549288361, $this, 'getFormName', array('name' => $name), $this->initializer563392b54d3e1221221837);
+        $this->initializer5634e658a0a59689355088 && $this->initializer5634e658a0a59689355088->__invoke($this->valueHolder5634e658a0a17944596982, $this, 'getFormName', array('name' => $name), $this->initializer5634e658a0a59689355088);
 
-        return $this->valueHolder563392b54d3c5549288361->getFormName($name);
+        return $this->valueHolder5634e658a0a17944596982->getFormName($name);
     }
 
     /**
@@ -7534,9 +7536,9 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000005d9eb3d10000000045
      */
     public function getFormValidationGroups($name)
     {
-        $this->initializer563392b54d3e1221221837 && $this->initializer563392b54d3e1221221837->__invoke($this->valueHolder563392b54d3c5549288361, $this, 'getFormValidationGroups', array('name' => $name), $this->initializer563392b54d3e1221221837);
+        $this->initializer5634e658a0a59689355088 && $this->initializer5634e658a0a59689355088->__invoke($this->valueHolder5634e658a0a17944596982, $this, 'getFormValidationGroups', array('name' => $name), $this->initializer5634e658a0a59689355088);
 
-        return $this->valueHolder563392b54d3c5549288361->getFormValidationGroups($name);
+        return $this->valueHolder5634e658a0a17944596982->getFormValidationGroups($name);
     }
 
     /**
@@ -7544,9 +7546,9 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000005d9eb3d10000000045
      */
     public function getTemplate($name)
     {
-        $this->initializer563392b54d3e1221221837 && $this->initializer563392b54d3e1221221837->__invoke($this->valueHolder563392b54d3c5549288361, $this, 'getTemplate', array('name' => $name), $this->initializer563392b54d3e1221221837);
+        $this->initializer5634e658a0a59689355088 && $this->initializer5634e658a0a59689355088->__invoke($this->valueHolder5634e658a0a17944596982, $this, 'getTemplate', array('name' => $name), $this->initializer5634e658a0a59689355088);
 
-        return $this->valueHolder563392b54d3c5549288361->getTemplate($name);
+        return $this->valueHolder5634e658a0a17944596982->getTemplate($name);
     }
 
     /**
@@ -7554,9 +7556,9 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000005d9eb3d10000000045
      */
     public function getUserManager()
     {
-        $this->initializer563392b54d3e1221221837 && $this->initializer563392b54d3e1221221837->__invoke($this->valueHolder563392b54d3c5549288361, $this, 'getUserManager', array(), $this->initializer563392b54d3e1221221837);
+        $this->initializer5634e658a0a59689355088 && $this->initializer5634e658a0a59689355088->__invoke($this->valueHolder5634e658a0a17944596982, $this, 'getUserManager', array(), $this->initializer5634e658a0a59689355088);
 
-        return $this->valueHolder563392b54d3c5549288361->getUserManager();
+        return $this->valueHolder5634e658a0a17944596982->getUserManager();
     }
 
     /**
@@ -7564,9 +7566,9 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000005d9eb3d10000000045
      */
     public function getGroupManager()
     {
-        $this->initializer563392b54d3e1221221837 && $this->initializer563392b54d3e1221221837->__invoke($this->valueHolder563392b54d3c5549288361, $this, 'getGroupManager', array(), $this->initializer563392b54d3e1221221837);
+        $this->initializer5634e658a0a59689355088 && $this->initializer5634e658a0a59689355088->__invoke($this->valueHolder5634e658a0a17944596982, $this, 'getGroupManager', array(), $this->initializer5634e658a0a59689355088);
 
-        return $this->valueHolder563392b54d3c5549288361->getGroupManager();
+        return $this->valueHolder5634e658a0a17944596982->getGroupManager();
     }
 
     /**
@@ -7574,9 +7576,9 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000005d9eb3d10000000045
      */
     public function getServicePrefix()
     {
-        $this->initializer563392b54d3e1221221837 && $this->initializer563392b54d3e1221221837->__invoke($this->valueHolder563392b54d3c5549288361, $this, 'getServicePrefix', array(), $this->initializer563392b54d3e1221221837);
+        $this->initializer5634e658a0a59689355088 && $this->initializer5634e658a0a59689355088->__invoke($this->valueHolder5634e658a0a17944596982, $this, 'getServicePrefix', array(), $this->initializer5634e658a0a59689355088);
 
-        return $this->valueHolder563392b54d3c5549288361->getServicePrefix();
+        return $this->valueHolder5634e658a0a17944596982->getServicePrefix();
     }
 
     /**
@@ -7584,9 +7586,9 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000005d9eb3d10000000045
      */
     public function getRoutePrefix()
     {
-        $this->initializer563392b54d3e1221221837 && $this->initializer563392b54d3e1221221837->__invoke($this->valueHolder563392b54d3c5549288361, $this, 'getRoutePrefix', array(), $this->initializer563392b54d3e1221221837);
+        $this->initializer5634e658a0a59689355088 && $this->initializer5634e658a0a59689355088->__invoke($this->valueHolder5634e658a0a17944596982, $this, 'getRoutePrefix', array(), $this->initializer5634e658a0a59689355088);
 
-        return $this->valueHolder563392b54d3c5549288361->getRoutePrefix();
+        return $this->valueHolder5634e658a0a17944596982->getRoutePrefix();
     }
 
     /**
@@ -7596,7 +7598,7 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000005d9eb3d10000000045
      */
     public function __construct($initializer)
     {
-        $this->initializer563392b54d3e1221221837 = $initializer;
+        $this->initializer5634e658a0a59689355088 = $initializer;
     }
 
     /**
@@ -7604,16 +7606,16 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000005d9eb3d10000000045
      */
     public function & __get($name)
     {
-        $this->initializer563392b54d3e1221221837 && $this->initializer563392b54d3e1221221837->__invoke($this->valueHolder563392b54d3c5549288361, $this, '__get', array('name' => $name), $this->initializer563392b54d3e1221221837);
+        $this->initializer5634e658a0a59689355088 && $this->initializer5634e658a0a59689355088->__invoke($this->valueHolder5634e658a0a17944596982, $this, '__get', array('name' => $name), $this->initializer5634e658a0a59689355088);
 
-        if (isset(self::$publicProperties563392b54d378228358295[$name])) {
-            return $this->valueHolder563392b54d3c5549288361->$name;
+        if (isset(self::$publicProperties5634e658a0735362453981[$name])) {
+            return $this->valueHolder5634e658a0a17944596982->$name;
         }
 
         $realInstanceReflection = new \ReflectionClass(get_parent_class($this));
 
         if (! $realInstanceReflection->hasProperty($name)) {
-            $targetObject = $this->valueHolder563392b54d3c5549288361;
+            $targetObject = $this->valueHolder5634e658a0a17944596982;
 
             $backtrace = debug_backtrace(false);
             trigger_error('Undefined property: ' . get_parent_class($this) . '::$' . $name . ' in ' . $backtrace[0]['file'] . ' on line ' . $backtrace[0]['line'], \E_USER_NOTICE);
@@ -7621,7 +7623,7 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000005d9eb3d10000000045
             return;
         }
 
-        $targetObject = $this->valueHolder563392b54d3c5549288361;
+        $targetObject = $this->valueHolder5634e658a0a17944596982;
         $accessor = function & () use ($targetObject, $name) {
             return $targetObject->$name;
         };
@@ -7639,18 +7641,18 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000005d9eb3d10000000045
      */
     public function __set($name, $value)
     {
-        $this->initializer563392b54d3e1221221837 && $this->initializer563392b54d3e1221221837->__invoke($this->valueHolder563392b54d3c5549288361, $this, '__set', array('name' => $name, 'value' => $value), $this->initializer563392b54d3e1221221837);
+        $this->initializer5634e658a0a59689355088 && $this->initializer5634e658a0a59689355088->__invoke($this->valueHolder5634e658a0a17944596982, $this, '__set', array('name' => $name, 'value' => $value), $this->initializer5634e658a0a59689355088);
 
         $realInstanceReflection = new \ReflectionClass(get_parent_class($this));
 
         if (! $realInstanceReflection->hasProperty($name)) {
-            $targetObject = $this->valueHolder563392b54d3c5549288361;
+            $targetObject = $this->valueHolder5634e658a0a17944596982;
 
             return $targetObject->$name = $value;;
             return;
         }
 
-        $targetObject = $this->valueHolder563392b54d3c5549288361;
+        $targetObject = $this->valueHolder5634e658a0a17944596982;
         $accessor = function & () use ($targetObject, $name, $value) {
             return $targetObject->$name = $value;
         };
@@ -7667,18 +7669,18 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000005d9eb3d10000000045
      */
     public function __isset($name)
     {
-        $this->initializer563392b54d3e1221221837 && $this->initializer563392b54d3e1221221837->__invoke($this->valueHolder563392b54d3c5549288361, $this, '__isset', array('name' => $name), $this->initializer563392b54d3e1221221837);
+        $this->initializer5634e658a0a59689355088 && $this->initializer5634e658a0a59689355088->__invoke($this->valueHolder5634e658a0a17944596982, $this, '__isset', array('name' => $name), $this->initializer5634e658a0a59689355088);
 
         $realInstanceReflection = new \ReflectionClass(get_parent_class($this));
 
         if (! $realInstanceReflection->hasProperty($name)) {
-            $targetObject = $this->valueHolder563392b54d3c5549288361;
+            $targetObject = $this->valueHolder5634e658a0a17944596982;
 
             return isset($targetObject->$name);;
             return;
         }
 
-        $targetObject = $this->valueHolder563392b54d3c5549288361;
+        $targetObject = $this->valueHolder5634e658a0a17944596982;
         $accessor = function () use ($targetObject, $name) {
             return isset($targetObject->$name);
         };
@@ -7695,18 +7697,18 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000005d9eb3d10000000045
      */
     public function __unset($name)
     {
-        $this->initializer563392b54d3e1221221837 && $this->initializer563392b54d3e1221221837->__invoke($this->valueHolder563392b54d3c5549288361, $this, '__unset', array('name' => $name), $this->initializer563392b54d3e1221221837);
+        $this->initializer5634e658a0a59689355088 && $this->initializer5634e658a0a59689355088->__invoke($this->valueHolder5634e658a0a17944596982, $this, '__unset', array('name' => $name), $this->initializer5634e658a0a59689355088);
 
         $realInstanceReflection = new \ReflectionClass(get_parent_class($this));
 
         if (! $realInstanceReflection->hasProperty($name)) {
-            $targetObject = $this->valueHolder563392b54d3c5549288361;
+            $targetObject = $this->valueHolder5634e658a0a17944596982;
 
             unset($targetObject->$name);;
             return;
         }
 
-        $targetObject = $this->valueHolder563392b54d3c5549288361;
+        $targetObject = $this->valueHolder5634e658a0a17944596982;
         $accessor = function () use ($targetObject, $name) {
             unset($targetObject->$name);
         };
@@ -7720,16 +7722,16 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000005d9eb3d10000000045
 
     public function __clone()
     {
-        $this->initializer563392b54d3e1221221837 && $this->initializer563392b54d3e1221221837->__invoke($this->valueHolder563392b54d3c5549288361, $this, '__clone', array(), $this->initializer563392b54d3e1221221837);
+        $this->initializer5634e658a0a59689355088 && $this->initializer5634e658a0a59689355088->__invoke($this->valueHolder5634e658a0a17944596982, $this, '__clone', array(), $this->initializer5634e658a0a59689355088);
 
-        $this->valueHolder563392b54d3c5549288361 = clone $this->valueHolder563392b54d3c5549288361;
+        $this->valueHolder5634e658a0a17944596982 = clone $this->valueHolder5634e658a0a17944596982;
     }
 
     public function __sleep()
     {
-        $this->initializer563392b54d3e1221221837 && $this->initializer563392b54d3e1221221837->__invoke($this->valueHolder563392b54d3c5549288361, $this, '__sleep', array(), $this->initializer563392b54d3e1221221837);
+        $this->initializer5634e658a0a59689355088 && $this->initializer5634e658a0a59689355088->__invoke($this->valueHolder5634e658a0a17944596982, $this, '__sleep', array(), $this->initializer5634e658a0a59689355088);
 
-        return array('valueHolder563392b54d3c5549288361');
+        return array('valueHolder5634e658a0a17944596982');
     }
 
     public function __wakeup()
@@ -7741,7 +7743,7 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000005d9eb3d10000000045
      */
     public function setProxyInitializer(\Closure $initializer = null)
     {
-        $this->initializer563392b54d3e1221221837 = $initializer;
+        $this->initializer5634e658a0a59689355088 = $initializer;
     }
 
     /**
@@ -7749,7 +7751,7 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000005d9eb3d10000000045
      */
     public function getProxyInitializer()
     {
-        return $this->initializer563392b54d3e1221221837;
+        return $this->initializer5634e658a0a59689355088;
     }
 
     /**
@@ -7757,7 +7759,7 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000005d9eb3d10000000045
      */
     public function initializeProxy()
     {
-        return $this->initializer563392b54d3e1221221837 && $this->initializer563392b54d3e1221221837->__invoke($this->valueHolder563392b54d3c5549288361, $this, 'initializeProxy', array(), $this->initializer563392b54d3e1221221837);
+        return $this->initializer5634e658a0a59689355088 && $this->initializer5634e658a0a59689355088->__invoke($this->valueHolder5634e658a0a17944596982, $this, 'initializeProxy', array(), $this->initializer5634e658a0a59689355088);
     }
 
     /**
@@ -7765,7 +7767,7 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000005d9eb3d10000000045
      */
     public function isProxyInitialized()
     {
-        return null !== $this->valueHolder563392b54d3c5549288361;
+        return null !== $this->valueHolder5634e658a0a17944596982;
     }
 
     /**
@@ -7773,29 +7775,29 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000005d9eb3d10000000045
      */
     public function getWrappedValueHolderValue()
     {
-        return $this->valueHolder563392b54d3c5549288361;
+        return $this->valueHolder5634e658a0a17944596982;
     }
 
 
 }
 
-class RollerworksBundleMultiUserBundleModelUserConfig_000000005d9ea24f0000000045143ffec0c75094f995231bf6ce0f9b276f0fc3 extends \Rollerworks\Bundle\MultiUserBundle\Model\UserConfig implements \ProxyManager\Proxy\VirtualProxyInterface
+class RollerworksBundleMultiUserBundleModelUserConfig_000000004c47b194000000001e519a85c0c75094f995231bf6ce0f9b276f0fc3 extends \Rollerworks\Bundle\MultiUserBundle\Model\UserConfig implements \ProxyManager\Proxy\VirtualProxyInterface
 {
 
     /**
      * @var \Closure|null initializer responsible for generating the wrapped object
      */
-    private $valueHolder563392b552305023693299 = null;
+    private $valueHolder5634e658a5ae5643680183 = null;
 
     /**
      * @var \Closure|null initializer responsible for generating the wrapped object
      */
-    private $initializer563392b55231c216227649 = null;
+    private $initializer5634e658a5b0a482718282 = null;
 
     /**
      * @var bool[] map of public properties of the parent class
      */
-    private static $publicProperties563392b5522ce942433208 = array(
+    private static $publicProperties5634e658a5a9b378421176 = array(
         
     );
 
@@ -7804,9 +7806,9 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000005d9ea24f0000000045
      */
     public function setConfig($name, $value)
     {
-        $this->initializer563392b55231c216227649 && $this->initializer563392b55231c216227649->__invoke($this->valueHolder563392b552305023693299, $this, 'setConfig', array('name' => $name, 'value' => $value), $this->initializer563392b55231c216227649);
+        $this->initializer5634e658a5b0a482718282 && $this->initializer5634e658a5b0a482718282->__invoke($this->valueHolder5634e658a5ae5643680183, $this, 'setConfig', array('name' => $name, 'value' => $value), $this->initializer5634e658a5b0a482718282);
 
-        return $this->valueHolder563392b552305023693299->setConfig($name, $value);
+        return $this->valueHolder5634e658a5ae5643680183->setConfig($name, $value);
     }
 
     /**
@@ -7814,9 +7816,9 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000005d9ea24f0000000045
      */
     public function getConfig($name, $defaultValue = null)
     {
-        $this->initializer563392b55231c216227649 && $this->initializer563392b55231c216227649->__invoke($this->valueHolder563392b552305023693299, $this, 'getConfig', array('name' => $name, 'defaultValue' => $defaultValue), $this->initializer563392b55231c216227649);
+        $this->initializer5634e658a5b0a482718282 && $this->initializer5634e658a5b0a482718282->__invoke($this->valueHolder5634e658a5ae5643680183, $this, 'getConfig', array('name' => $name, 'defaultValue' => $defaultValue), $this->initializer5634e658a5b0a482718282);
 
-        return $this->valueHolder563392b552305023693299->getConfig($name, $defaultValue);
+        return $this->valueHolder5634e658a5ae5643680183->getConfig($name, $defaultValue);
     }
 
     /**
@@ -7824,9 +7826,9 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000005d9ea24f0000000045
      */
     public function setForm($name, $formName, $type, array $validationGroups)
     {
-        $this->initializer563392b55231c216227649 && $this->initializer563392b55231c216227649->__invoke($this->valueHolder563392b552305023693299, $this, 'setForm', array('name' => $name, 'formName' => $formName, 'type' => $type, 'validationGroups' => $validationGroups), $this->initializer563392b55231c216227649);
+        $this->initializer5634e658a5b0a482718282 && $this->initializer5634e658a5b0a482718282->__invoke($this->valueHolder5634e658a5ae5643680183, $this, 'setForm', array('name' => $name, 'formName' => $formName, 'type' => $type, 'validationGroups' => $validationGroups), $this->initializer5634e658a5b0a482718282);
 
-        return $this->valueHolder563392b552305023693299->setForm($name, $formName, $type, $validationGroups);
+        return $this->valueHolder5634e658a5ae5643680183->setForm($name, $formName, $type, $validationGroups);
     }
 
     /**
@@ -7834,9 +7836,9 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000005d9ea24f0000000045
      */
     public function setTemplate($name, $resource)
     {
-        $this->initializer563392b55231c216227649 && $this->initializer563392b55231c216227649->__invoke($this->valueHolder563392b552305023693299, $this, 'setTemplate', array('name' => $name, 'resource' => $resource), $this->initializer563392b55231c216227649);
+        $this->initializer5634e658a5b0a482718282 && $this->initializer5634e658a5b0a482718282->__invoke($this->valueHolder5634e658a5ae5643680183, $this, 'setTemplate', array('name' => $name, 'resource' => $resource), $this->initializer5634e658a5b0a482718282);
 
-        return $this->valueHolder563392b552305023693299->setTemplate($name, $resource);
+        return $this->valueHolder5634e658a5ae5643680183->setTemplate($name, $resource);
     }
 
     /**
@@ -7844,9 +7846,9 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000005d9ea24f0000000045
      */
     public function getFormType($name)
     {
-        $this->initializer563392b55231c216227649 && $this->initializer563392b55231c216227649->__invoke($this->valueHolder563392b552305023693299, $this, 'getFormType', array('name' => $name), $this->initializer563392b55231c216227649);
+        $this->initializer5634e658a5b0a482718282 && $this->initializer5634e658a5b0a482718282->__invoke($this->valueHolder5634e658a5ae5643680183, $this, 'getFormType', array('name' => $name), $this->initializer5634e658a5b0a482718282);
 
-        return $this->valueHolder563392b552305023693299->getFormType($name);
+        return $this->valueHolder5634e658a5ae5643680183->getFormType($name);
     }
 
     /**
@@ -7854,9 +7856,9 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000005d9ea24f0000000045
      */
     public function getFormName($name)
     {
-        $this->initializer563392b55231c216227649 && $this->initializer563392b55231c216227649->__invoke($this->valueHolder563392b552305023693299, $this, 'getFormName', array('name' => $name), $this->initializer563392b55231c216227649);
+        $this->initializer5634e658a5b0a482718282 && $this->initializer5634e658a5b0a482718282->__invoke($this->valueHolder5634e658a5ae5643680183, $this, 'getFormName', array('name' => $name), $this->initializer5634e658a5b0a482718282);
 
-        return $this->valueHolder563392b552305023693299->getFormName($name);
+        return $this->valueHolder5634e658a5ae5643680183->getFormName($name);
     }
 
     /**
@@ -7864,9 +7866,9 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000005d9ea24f0000000045
      */
     public function getFormValidationGroups($name)
     {
-        $this->initializer563392b55231c216227649 && $this->initializer563392b55231c216227649->__invoke($this->valueHolder563392b552305023693299, $this, 'getFormValidationGroups', array('name' => $name), $this->initializer563392b55231c216227649);
+        $this->initializer5634e658a5b0a482718282 && $this->initializer5634e658a5b0a482718282->__invoke($this->valueHolder5634e658a5ae5643680183, $this, 'getFormValidationGroups', array('name' => $name), $this->initializer5634e658a5b0a482718282);
 
-        return $this->valueHolder563392b552305023693299->getFormValidationGroups($name);
+        return $this->valueHolder5634e658a5ae5643680183->getFormValidationGroups($name);
     }
 
     /**
@@ -7874,9 +7876,9 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000005d9ea24f0000000045
      */
     public function getTemplate($name)
     {
-        $this->initializer563392b55231c216227649 && $this->initializer563392b55231c216227649->__invoke($this->valueHolder563392b552305023693299, $this, 'getTemplate', array('name' => $name), $this->initializer563392b55231c216227649);
+        $this->initializer5634e658a5b0a482718282 && $this->initializer5634e658a5b0a482718282->__invoke($this->valueHolder5634e658a5ae5643680183, $this, 'getTemplate', array('name' => $name), $this->initializer5634e658a5b0a482718282);
 
-        return $this->valueHolder563392b552305023693299->getTemplate($name);
+        return $this->valueHolder5634e658a5ae5643680183->getTemplate($name);
     }
 
     /**
@@ -7884,9 +7886,9 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000005d9ea24f0000000045
      */
     public function getUserManager()
     {
-        $this->initializer563392b55231c216227649 && $this->initializer563392b55231c216227649->__invoke($this->valueHolder563392b552305023693299, $this, 'getUserManager', array(), $this->initializer563392b55231c216227649);
+        $this->initializer5634e658a5b0a482718282 && $this->initializer5634e658a5b0a482718282->__invoke($this->valueHolder5634e658a5ae5643680183, $this, 'getUserManager', array(), $this->initializer5634e658a5b0a482718282);
 
-        return $this->valueHolder563392b552305023693299->getUserManager();
+        return $this->valueHolder5634e658a5ae5643680183->getUserManager();
     }
 
     /**
@@ -7894,9 +7896,9 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000005d9ea24f0000000045
      */
     public function getGroupManager()
     {
-        $this->initializer563392b55231c216227649 && $this->initializer563392b55231c216227649->__invoke($this->valueHolder563392b552305023693299, $this, 'getGroupManager', array(), $this->initializer563392b55231c216227649);
+        $this->initializer5634e658a5b0a482718282 && $this->initializer5634e658a5b0a482718282->__invoke($this->valueHolder5634e658a5ae5643680183, $this, 'getGroupManager', array(), $this->initializer5634e658a5b0a482718282);
 
-        return $this->valueHolder563392b552305023693299->getGroupManager();
+        return $this->valueHolder5634e658a5ae5643680183->getGroupManager();
     }
 
     /**
@@ -7904,9 +7906,9 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000005d9ea24f0000000045
      */
     public function getServicePrefix()
     {
-        $this->initializer563392b55231c216227649 && $this->initializer563392b55231c216227649->__invoke($this->valueHolder563392b552305023693299, $this, 'getServicePrefix', array(), $this->initializer563392b55231c216227649);
+        $this->initializer5634e658a5b0a482718282 && $this->initializer5634e658a5b0a482718282->__invoke($this->valueHolder5634e658a5ae5643680183, $this, 'getServicePrefix', array(), $this->initializer5634e658a5b0a482718282);
 
-        return $this->valueHolder563392b552305023693299->getServicePrefix();
+        return $this->valueHolder5634e658a5ae5643680183->getServicePrefix();
     }
 
     /**
@@ -7914,9 +7916,9 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000005d9ea24f0000000045
      */
     public function getRoutePrefix()
     {
-        $this->initializer563392b55231c216227649 && $this->initializer563392b55231c216227649->__invoke($this->valueHolder563392b552305023693299, $this, 'getRoutePrefix', array(), $this->initializer563392b55231c216227649);
+        $this->initializer5634e658a5b0a482718282 && $this->initializer5634e658a5b0a482718282->__invoke($this->valueHolder5634e658a5ae5643680183, $this, 'getRoutePrefix', array(), $this->initializer5634e658a5b0a482718282);
 
-        return $this->valueHolder563392b552305023693299->getRoutePrefix();
+        return $this->valueHolder5634e658a5ae5643680183->getRoutePrefix();
     }
 
     /**
@@ -7926,7 +7928,7 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000005d9ea24f0000000045
      */
     public function __construct($initializer)
     {
-        $this->initializer563392b55231c216227649 = $initializer;
+        $this->initializer5634e658a5b0a482718282 = $initializer;
     }
 
     /**
@@ -7934,16 +7936,16 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000005d9ea24f0000000045
      */
     public function & __get($name)
     {
-        $this->initializer563392b55231c216227649 && $this->initializer563392b55231c216227649->__invoke($this->valueHolder563392b552305023693299, $this, '__get', array('name' => $name), $this->initializer563392b55231c216227649);
+        $this->initializer5634e658a5b0a482718282 && $this->initializer5634e658a5b0a482718282->__invoke($this->valueHolder5634e658a5ae5643680183, $this, '__get', array('name' => $name), $this->initializer5634e658a5b0a482718282);
 
-        if (isset(self::$publicProperties563392b5522ce942433208[$name])) {
-            return $this->valueHolder563392b552305023693299->$name;
+        if (isset(self::$publicProperties5634e658a5a9b378421176[$name])) {
+            return $this->valueHolder5634e658a5ae5643680183->$name;
         }
 
         $realInstanceReflection = new \ReflectionClass(get_parent_class($this));
 
         if (! $realInstanceReflection->hasProperty($name)) {
-            $targetObject = $this->valueHolder563392b552305023693299;
+            $targetObject = $this->valueHolder5634e658a5ae5643680183;
 
             $backtrace = debug_backtrace(false);
             trigger_error('Undefined property: ' . get_parent_class($this) . '::$' . $name . ' in ' . $backtrace[0]['file'] . ' on line ' . $backtrace[0]['line'], \E_USER_NOTICE);
@@ -7951,7 +7953,7 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000005d9ea24f0000000045
             return;
         }
 
-        $targetObject = $this->valueHolder563392b552305023693299;
+        $targetObject = $this->valueHolder5634e658a5ae5643680183;
         $accessor = function & () use ($targetObject, $name) {
             return $targetObject->$name;
         };
@@ -7969,18 +7971,18 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000005d9ea24f0000000045
      */
     public function __set($name, $value)
     {
-        $this->initializer563392b55231c216227649 && $this->initializer563392b55231c216227649->__invoke($this->valueHolder563392b552305023693299, $this, '__set', array('name' => $name, 'value' => $value), $this->initializer563392b55231c216227649);
+        $this->initializer5634e658a5b0a482718282 && $this->initializer5634e658a5b0a482718282->__invoke($this->valueHolder5634e658a5ae5643680183, $this, '__set', array('name' => $name, 'value' => $value), $this->initializer5634e658a5b0a482718282);
 
         $realInstanceReflection = new \ReflectionClass(get_parent_class($this));
 
         if (! $realInstanceReflection->hasProperty($name)) {
-            $targetObject = $this->valueHolder563392b552305023693299;
+            $targetObject = $this->valueHolder5634e658a5ae5643680183;
 
             return $targetObject->$name = $value;;
             return;
         }
 
-        $targetObject = $this->valueHolder563392b552305023693299;
+        $targetObject = $this->valueHolder5634e658a5ae5643680183;
         $accessor = function & () use ($targetObject, $name, $value) {
             return $targetObject->$name = $value;
         };
@@ -7997,18 +7999,18 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000005d9ea24f0000000045
      */
     public function __isset($name)
     {
-        $this->initializer563392b55231c216227649 && $this->initializer563392b55231c216227649->__invoke($this->valueHolder563392b552305023693299, $this, '__isset', array('name' => $name), $this->initializer563392b55231c216227649);
+        $this->initializer5634e658a5b0a482718282 && $this->initializer5634e658a5b0a482718282->__invoke($this->valueHolder5634e658a5ae5643680183, $this, '__isset', array('name' => $name), $this->initializer5634e658a5b0a482718282);
 
         $realInstanceReflection = new \ReflectionClass(get_parent_class($this));
 
         if (! $realInstanceReflection->hasProperty($name)) {
-            $targetObject = $this->valueHolder563392b552305023693299;
+            $targetObject = $this->valueHolder5634e658a5ae5643680183;
 
             return isset($targetObject->$name);;
             return;
         }
 
-        $targetObject = $this->valueHolder563392b552305023693299;
+        $targetObject = $this->valueHolder5634e658a5ae5643680183;
         $accessor = function () use ($targetObject, $name) {
             return isset($targetObject->$name);
         };
@@ -8025,18 +8027,18 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000005d9ea24f0000000045
      */
     public function __unset($name)
     {
-        $this->initializer563392b55231c216227649 && $this->initializer563392b55231c216227649->__invoke($this->valueHolder563392b552305023693299, $this, '__unset', array('name' => $name), $this->initializer563392b55231c216227649);
+        $this->initializer5634e658a5b0a482718282 && $this->initializer5634e658a5b0a482718282->__invoke($this->valueHolder5634e658a5ae5643680183, $this, '__unset', array('name' => $name), $this->initializer5634e658a5b0a482718282);
 
         $realInstanceReflection = new \ReflectionClass(get_parent_class($this));
 
         if (! $realInstanceReflection->hasProperty($name)) {
-            $targetObject = $this->valueHolder563392b552305023693299;
+            $targetObject = $this->valueHolder5634e658a5ae5643680183;
 
             unset($targetObject->$name);;
             return;
         }
 
-        $targetObject = $this->valueHolder563392b552305023693299;
+        $targetObject = $this->valueHolder5634e658a5ae5643680183;
         $accessor = function () use ($targetObject, $name) {
             unset($targetObject->$name);
         };
@@ -8050,16 +8052,16 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000005d9ea24f0000000045
 
     public function __clone()
     {
-        $this->initializer563392b55231c216227649 && $this->initializer563392b55231c216227649->__invoke($this->valueHolder563392b552305023693299, $this, '__clone', array(), $this->initializer563392b55231c216227649);
+        $this->initializer5634e658a5b0a482718282 && $this->initializer5634e658a5b0a482718282->__invoke($this->valueHolder5634e658a5ae5643680183, $this, '__clone', array(), $this->initializer5634e658a5b0a482718282);
 
-        $this->valueHolder563392b552305023693299 = clone $this->valueHolder563392b552305023693299;
+        $this->valueHolder5634e658a5ae5643680183 = clone $this->valueHolder5634e658a5ae5643680183;
     }
 
     public function __sleep()
     {
-        $this->initializer563392b55231c216227649 && $this->initializer563392b55231c216227649->__invoke($this->valueHolder563392b552305023693299, $this, '__sleep', array(), $this->initializer563392b55231c216227649);
+        $this->initializer5634e658a5b0a482718282 && $this->initializer5634e658a5b0a482718282->__invoke($this->valueHolder5634e658a5ae5643680183, $this, '__sleep', array(), $this->initializer5634e658a5b0a482718282);
 
-        return array('valueHolder563392b552305023693299');
+        return array('valueHolder5634e658a5ae5643680183');
     }
 
     public function __wakeup()
@@ -8071,7 +8073,7 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000005d9ea24f0000000045
      */
     public function setProxyInitializer(\Closure $initializer = null)
     {
-        $this->initializer563392b55231c216227649 = $initializer;
+        $this->initializer5634e658a5b0a482718282 = $initializer;
     }
 
     /**
@@ -8079,7 +8081,7 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000005d9ea24f0000000045
      */
     public function getProxyInitializer()
     {
-        return $this->initializer563392b55231c216227649;
+        return $this->initializer5634e658a5b0a482718282;
     }
 
     /**
@@ -8087,7 +8089,7 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000005d9ea24f0000000045
      */
     public function initializeProxy()
     {
-        return $this->initializer563392b55231c216227649 && $this->initializer563392b55231c216227649->__invoke($this->valueHolder563392b552305023693299, $this, 'initializeProxy', array(), $this->initializer563392b55231c216227649);
+        return $this->initializer5634e658a5b0a482718282 && $this->initializer5634e658a5b0a482718282->__invoke($this->valueHolder5634e658a5ae5643680183, $this, 'initializeProxy', array(), $this->initializer5634e658a5b0a482718282);
     }
 
     /**
@@ -8095,7 +8097,7 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000005d9ea24f0000000045
      */
     public function isProxyInitialized()
     {
-        return null !== $this->valueHolder563392b552305023693299;
+        return null !== $this->valueHolder5634e658a5ae5643680183;
     }
 
     /**
@@ -8103,7 +8105,7 @@ class RollerworksBundleMultiUserBundleModelUserConfig_000000005d9ea24f0000000045
      */
     public function getWrappedValueHolderValue()
     {
-        return $this->valueHolder563392b552305023693299;
+        return $this->valueHolder5634e658a5ae5643680183;
     }
 
 

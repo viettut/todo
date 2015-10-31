@@ -157,4 +157,15 @@ interface CourseInterface extends ModelInterface
      * @return \DateTime
      */
     public function getUpdatedAt();
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getCourseTags();
+
+    /**
+     * @param $courseTags
+     * @return self
+     */
+    public function setCourseTags($courseTags);
 }

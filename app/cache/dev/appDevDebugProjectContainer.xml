@@ -31,6 +31,7 @@
       <parameter key="ViettutUserBundle">Viettut\Bundles\UserBundle\ViettutUserBundle</parameter>
       <parameter key="ViettutUserSystemAdminBundle">Viettut\Bundles\UserSystem\AdminBundle\ViettutUserSystemAdminBundle</parameter>
       <parameter key="ViettutUserSystemLecturerBundle">Viettut\Bundles\UserSystem\LecturerBundle\ViettutUserSystemLecturerBundle</parameter>
+      <parameter key="ViettutWebBundle">Viettut\Bundles\WebBundle\ViettutWebBundle</parameter>
       <parameter key="DebugBundle">Symfony\Bundle\DebugBundle\DebugBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
@@ -5634,6 +5635,10 @@
         <argument>ViettutUserSystemLecturer</argument>
       </call>
       <call method="addPath">
+        <argument>/var/www/api.server.dev/src/Viettut/Bundles/WebBundle/Resources/views</argument>
+        <argument>ViettutWeb</argument>
+      </call>
+      <call method="addPath">
         <argument>/var/www/api.server.dev/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views</argument>
         <argument>Debug</argument>
       </call>
@@ -5795,6 +5800,7 @@
                       <argument key="Viettut\Bundles\UserBundle">/var/www/api.server.dev/src/Viettut/Bundles/UserBundle/Resources/config/serializer</argument>
                       <argument key="Viettut\Bundles\UserSystem\AdminBundle">/var/www/api.server.dev/src/Viettut/Bundles/UserSystem/AdminBundle/Resources/config/serializer</argument>
                       <argument key="Viettut\Bundles\UserSystem\LecturerBundle">/var/www/api.server.dev/src/Viettut/Bundles/UserSystem/LecturerBundle/Resources/config/serializer</argument>
+                      <argument key="Viettut\Bundles\WebBundle">/var/www/api.server.dev/src/Viettut/Bundles/WebBundle/Resources/config/serializer</argument>
                       <argument key="Symfony\Bundle\DebugBundle">/var/www/api.server.dev/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/config/serializer</argument>
                       <argument key="Symfony\Bundle\WebProfilerBundle">/var/www/api.server.dev/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/config/serializer</argument>
                       <argument key="Sensio\Bundle\DistributionBundle">/var/www/api.server.dev/vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle/Resources/config/serializer</argument>
@@ -5833,6 +5839,7 @@
                       <argument key="Viettut\Bundles\UserBundle">/var/www/api.server.dev/src/Viettut/Bundles/UserBundle/Resources/config/serializer</argument>
                       <argument key="Viettut\Bundles\UserSystem\AdminBundle">/var/www/api.server.dev/src/Viettut/Bundles/UserSystem/AdminBundle/Resources/config/serializer</argument>
                       <argument key="Viettut\Bundles\UserSystem\LecturerBundle">/var/www/api.server.dev/src/Viettut/Bundles/UserSystem/LecturerBundle/Resources/config/serializer</argument>
+                      <argument key="Viettut\Bundles\WebBundle">/var/www/api.server.dev/src/Viettut/Bundles/WebBundle/Resources/config/serializer</argument>
                       <argument key="Symfony\Bundle\DebugBundle">/var/www/api.server.dev/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/config/serializer</argument>
                       <argument key="Symfony\Bundle\WebProfilerBundle">/var/www/api.server.dev/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/config/serializer</argument>
                       <argument key="Sensio\Bundle\DistributionBundle">/var/www/api.server.dev/vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle/Resources/config/serializer</argument>
@@ -5871,6 +5878,7 @@
                       <argument key="Viettut\Bundles\UserBundle">/var/www/api.server.dev/src/Viettut/Bundles/UserBundle/Resources/config/serializer</argument>
                       <argument key="Viettut\Bundles\UserSystem\AdminBundle">/var/www/api.server.dev/src/Viettut/Bundles/UserSystem/AdminBundle/Resources/config/serializer</argument>
                       <argument key="Viettut\Bundles\UserSystem\LecturerBundle">/var/www/api.server.dev/src/Viettut/Bundles/UserSystem/LecturerBundle/Resources/config/serializer</argument>
+                      <argument key="Viettut\Bundles\WebBundle">/var/www/api.server.dev/src/Viettut/Bundles/WebBundle/Resources/config/serializer</argument>
                       <argument key="Symfony\Bundle\DebugBundle">/var/www/api.server.dev/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/config/serializer</argument>
                       <argument key="Symfony\Bundle\WebProfilerBundle">/var/www/api.server.dev/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/config/serializer</argument>
                       <argument key="Sensio\Bundle\DistributionBundle">/var/www/api.server.dev/vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle/Resources/config/serializer</argument>

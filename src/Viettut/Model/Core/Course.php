@@ -38,6 +38,11 @@ class Course implements CourseInterface
     protected $chapters;
 
     /**
+     * @var CourseTagInterface[]
+     */
+    protected $courseTags;
+
+    /**
      * @var string
      */
     protected $imagePath;
@@ -80,10 +85,6 @@ class Course implements CourseInterface
 
     function __construct()
     {
-        $this->chapters = new ArrayCollection();
-        $this->active = true;
-        $this->view = 0;
-        $this->enroll = 0;
     }
 
 
@@ -314,5 +315,27 @@ class Course implements CourseInterface
     public function getDeletedAt()
     {
         return $this->deletedAt;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getCourseTags()
+    {
+        if ($this->courseTags === null) {
+            $this->courseTags = new ArrayCollection();
+        }
+
+        return $this->courseTags;
+    }
+
+    /**
+     * @param $courseTags
+     * @return self
+     */
+    public function setCourseTags($courseTags)
+    {
+        $this->courseTags = $courseTags;
+        return $this;
     }
 }

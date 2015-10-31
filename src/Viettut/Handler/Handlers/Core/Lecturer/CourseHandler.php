@@ -10,7 +10,9 @@ namespace Viettut\Handler\Handlers\Core\Lecturer;
 
 
 use Viettut\Handler\Handlers\Core\CourseHandlerAbstract;
-use Viettut\Model\User\Role\BrokerInterface;
+use Viettut\Model\Core\CourseInterface;
+use Viettut\Model\ModelInterface;
+use Viettut\Model\User\Role\LecturerInterface;
 use Viettut\Model\User\Role\UserRoleInterface;
 
 class CourseHandler extends CourseHandlerAbstract{
@@ -21,7 +23,7 @@ class CourseHandler extends CourseHandlerAbstract{
      */
     public function supportsRole(UserRoleInterface $role)
     {
-        return $role instanceof BrokerInterface;
+        return $role instanceof LecturerInterface;
     }
 
     /**
@@ -29,8 +31,20 @@ class CourseHandler extends CourseHandlerAbstract{
      */
     public function all($limit = null, $offset = null)
     {
-        /** @var BrokerInterface $broker */
-        $broker = $this->getUserRole();
-        return $this->getDomainManager()->getCourseByBroker($broker, $limit, $offset);
+        /** @var LecturerInterface $lecturer */
+        $lecturer = $this->getUserRole();
+        return $this->getDomainManager()->getCourseByLecturer($lecturer, $limit, $offset);
+    }
+
+    protected function processForm(ModelInterface $entity, array $parameters, $method = 'PUT')
+    {
+        /**
+         * @var CourseInterface $entity
+         */
+        if (null === $entity->getAuthor()) {
+            $entity->setAuthor($this->getUserRole());
+        }
+
+        return parent::processForm($entity, $parameters, $method);
     }
 }

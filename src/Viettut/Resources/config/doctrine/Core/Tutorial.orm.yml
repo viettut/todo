@@ -51,6 +51,10 @@ Viettut\Entity\Core\Tutorial:
             mappedBy: tutorial
             cascade: ['persist', 'remove', 'detach']
             orphanRemoval: true
+        tutorialTags:
+            targetEntity: Viettut\Entity\Core\TutorialTag
+            mappedBy: tutorial
+            cascade: ['remove']
     manyToOne:
         author:
             targetEntity: Viettut\Bundles\UserBundle\Entity\User

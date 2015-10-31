@@ -1,0 +1,149 @@
+{% extends 'base.html.twig' %}
+{% block controller %}HomeController{% endblock %}
+{% block main %}
+    <section class="page-top custom-product">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-7">
+                    <h1>Introducing the new <strong>product</strong>.</h1>
+                    <p class="lead">
+                        The fastest way to grow your business with the leader in <em>Technology</em>
+                        <span>Check out our options and features included.</span>
+                    </p>
+                    <a href="#" class="btn btn-default btn-lg push-bottom">Buy Now!</a> <span class="arrow hlt" style="top: 10px;"></span>
+                </div>
+                <div class="col-sm-5">
+                    <img class="pull-right responsive" alt="" src="{{ asset('bundles/viettutweb/img/custom-header.png') }}">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="row center">
+            <div class="col-md-12">
+                <h1 class="short word-rotator-title">
+                    Porto is
+                    <strong class="inverted">
+                        extremely
+                    </strong>
+                    beautiful and fully responsive.
+                </h1>
+                <p class="featured lead">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce elementum, nulla vel pellentesque consequat, ante nulla hendrerit arcu, ac tincidunt mauris lacus sed leo. vamus suscipit molestie vestibulum.
+                </p>
+            </div>
+        </div>
+
+        <div class="row push-top">
+            <div class="col-md-4">
+                <div class="feature-box">
+                    <div class="feature-box-icon">
+                        <i class="fa fa-group"></i>
+                    </div>
+                    <div class="feature-box-info">
+                        <h4 class="shorter">Customer Support</h4>
+                        <p class="tall">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur imperdiet hendrerit volutpat.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-box">
+                    <div class="feature-box-icon">
+                        <i class="fa fa-file"></i>
+                    </div>
+                    <div class="feature-box-info">
+                        <h4 class="shorter">HTML5 / CSS3 / JS</h4>
+                        <p class="tall">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur imperdiet hendrerit volutpat.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-box">
+                    <div class="feature-box-icon">
+                        <i class="fa fa-google-plus"></i>
+                    </div>
+                    <div class="feature-box-info">
+                        <h4 class="shorter">500+ Google Fonts</h4>
+                        <p class="tall">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur imperdiet hendrerit volutpat.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="feature-box">
+                    <div class="feature-box-icon">
+                        <i class="fa fa-user"></i>
+                    </div>
+                    <div class="feature-box-info">
+                        <h4 class="shorter">Icons</h4>
+                        <p class="tall">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur imperdiet hendrerit volutpat.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-box">
+                    <div class="feature-box-icon">
+                        <i class="fa fa-bars"></i>
+                    </div>
+                    <div class="feature-box-info">
+                        <h4 class="shorter">Buttons</h4>
+                        <p class="tall">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur imperdiet hendrerit volutpat.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-box">
+                    <div class="feature-box-icon">
+                        <i class="fa fa-desktop"></i>
+                    </div>
+                    <div class="feature-box-info">
+                        <h4 class="shorter">Lightbox</h4>
+                        <p class="tall">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur imperdiet hendrerit volutpat.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="container">
+        <h2>Meet the <strong>Team</strong></h2>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="btn-group" opt-kind ok-key="filter" >
+                    <button type='button' class='btn btn-default active' ok-sel="*">Show All</button>
+                    <button type='button' class='btn btn-default' ok-sel=".ceo">Leadership</button>
+                    <button type='button' class='btn btn-default' ok-sel=".marketing">Marketing</button>
+                    <button type='button' class='btn btn-default' ok-sel=".developer">Developer</button>
+                    <button type='button' class='btn btn-default' ok-sel=".designer">Designer</button>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <ul class="team-list sort-destination"  isotope-container="isotope-container">
+                <li class="col-md-3 col-sm-6 col-xs-12" isotope-item="isotope-item" ng-class="member.position" ng-repeat="member in team">
+                    <div class="team-item thumbnail">
+                        <a href="about-me.html" class="thumb-info team">
+                            <img class="img-responsive" alt="" ng-src="<{ member.image }>">
+                        <span class="thumb-info-title">
+                            <span class="thumb-info-inner"><{ member.name }></span>
+                            <span class="thumb-info-type"><{ member.position | uppercase }></span>
+                        </span>
+                        </a>
+                    <span class="thumb-info-caption">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac ligula mi, non suscipitaccumsan.</p>
+                        <span class="thumb-info-social-icons">
+                            <a data-tooltip data-placement="bottom" target="_blank" href="http://www.facebook.com" data-original-title="Facebook"><i class="fa fa-facebook"></i><span>Facebook</span></a>
+                            <a data-tooltip data-placement="bottom" href="http://www.twitter.com" data-original-title="Twitter"><i class="fa fa-twitter"></i><span>Twitter</span></a>
+                            <a data-tooltip data-placement="bottom" href="http://www.linkedin.com" data-original-title="Linkedin"><i class="fa fa-linkedin"></i><span>Linkedin</span></a>
+                        </span>
+                    </span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}

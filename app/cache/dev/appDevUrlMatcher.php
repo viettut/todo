@@ -127,6 +127,66 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        // viettut_bundles_web_authen_login
+        if ($pathinfo === '/login') {
+            return array (  '_controller' => 'Viettut\\Bundles\\WebBundle\\Controller\\AuthenController::loginAction',  '_route' => 'viettut_bundles_web_authen_login',);
+        }
+
+        // viettut_bundles_web_authen_register
+        if ($pathinfo === '/register') {
+            return array (  '_controller' => 'Viettut\\Bundles\\WebBundle\\Controller\\AuthenController::registerAction',  '_route' => 'viettut_bundles_web_authen_register',);
+        }
+
+        if (0 === strpos($pathinfo, '/lecturer/courses')) {
+            // viettut_bundles_web_course_create
+            if ($pathinfo === '/lecturer/courses/create') {
+                return array (  '_controller' => 'Viettut\\Bundles\\WebBundle\\Controller\\CourseController::createAction',  '_route' => 'viettut_bundles_web_course_create',);
+            }
+
+            // viettut_bundles_web_course_addchapter
+            if (preg_match('#^/lecturer/courses/(?P<cid>[^/]++)/add\\-chapter$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'viettut_bundles_web_course_addchapter')), array (  '_controller' => 'Viettut\\Bundles\\WebBundle\\Controller\\CourseController::addChapterAction',));
+            }
+
+        }
+
+        // viettut_bundles_web_course_index
+        if ($pathinfo === '/courses') {
+            return array (  '_controller' => 'Viettut\\Bundles\\WebBundle\\Controller\\CourseController::indexAction',  '_route' => 'viettut_bundles_web_course_index',);
+        }
+
+        // viettut_bundles_web_course_mycourses
+        if ($pathinfo === '/lecturer/courses/mycourses') {
+            return array (  '_controller' => 'Viettut\\Bundles\\WebBundle\\Controller\\CourseController::myCoursesAction',  '_route' => 'viettut_bundles_web_course_mycourses',);
+        }
+
+        if (0 === strpos($pathinfo, '/courses')) {
+            // viettut_bundles_web_course_detail
+            if (preg_match('#^/courses/(?P<hash>[^/]++)/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'viettut_bundles_web_course_detail')), array (  '_controller' => 'Viettut\\Bundles\\WebBundle\\Controller\\CourseController::detailAction',));
+            }
+
+            // viettut_bundles_web_course_uploadimage
+            if ($pathinfo === '/courses/upload') {
+                return array (  '_controller' => 'Viettut\\Bundles\\WebBundle\\Controller\\CourseController::uploadImage',  '_route' => 'viettut_bundles_web_course_uploadimage',);
+            }
+
+        }
+
+        // viettut_bundles_web_default_index
+        if (0 === strpos($pathinfo, '/hello') && preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'viettut_bundles_web_default_index')), array (  '_controller' => 'Viettut\\Bundles\\WebBundle\\Controller\\DefaultController::indexAction',));
+        }
+
+        // viettut_bundles_web_home_index
+        if (rtrim($pathinfo, '/') === '') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'viettut_bundles_web_home_index');
+            }
+
+            return array (  '_controller' => 'Viettut\\Bundles\\WebBundle\\Controller\\HomeController::indexAction',  '_route' => 'viettut_bundles_web_home_index',);
+        }
+
         if (0 === strpos($pathinfo, '/api')) {
             if (0 === strpos($pathinfo, '/api/admin/v1/users')) {
                 // admin_api_1_get_users

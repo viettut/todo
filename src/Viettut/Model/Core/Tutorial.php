@@ -45,6 +45,11 @@ class Tutorial implements TutorialInterface
     protected $author;
 
     /**
+     * @var TutorialTagInterface[]
+     */
+    protected $tutorialTags;
+
+    /**
      * @var CommentInterface[]
      */
     protected $comments;
@@ -76,9 +81,6 @@ class Tutorial implements TutorialInterface
 
     function __construct()
     {
-        $this->comments = new ArrayCollection();
-        $this->view = 0;
-        $this->like = 0;
     }
 
 
@@ -282,6 +284,28 @@ class Tutorial implements TutorialInterface
     public function setTitle($title)
     {
         $this->title = $title;
+        return $this;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getTutorialTags()
+    {
+        if ($this->tutorialTags === null) {
+            $this->tutorialTags = new ArrayCollection();
+        }
+
+        return $this->tutorialTags;
+    }
+
+    /**
+     * @param $tutorialTags
+     * @return self
+     */
+    public function setTutorialTags($tutorialTags)
+    {
+        $this->tutorialTags = $tutorialTags;
         return $this;
     }
 }

@@ -8,6 +8,7 @@
 
 namespace Viettut\Model\Core;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Viettut\Model\ModelInterface;
 use Viettut\Model\User\UserEntityInterface;
 
@@ -136,4 +137,15 @@ interface TutorialInterface extends ModelInterface
      * @return self
      */
     public function setTitle($title);
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getTutorialTags();
+
+    /**
+     * @param $tutorialTags
+     * @return self
+     */
+    public function setTutorialTags($tutorialTags);
 }

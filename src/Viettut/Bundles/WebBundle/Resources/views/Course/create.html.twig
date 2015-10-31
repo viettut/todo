@@ -1,0 +1,219 @@
+a{% extends 'base.html.twig' %}
+{% block controller %}CourseController{% endblock %}
+{% block main %}
+    <style>
+        textarea {
+            width: 100%;
+            height: 90%;
+        }
+    </style>
+    <section class="page-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="breadcrumb">
+                        <li><a href="/">Home</a></li>
+                        <li class="active">Courses</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Create course</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-9">
+
+                <h2>Right <strong>Sidebar</strong> Page</h2>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="lead">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rutrum pellentesque imperdiet. Nulla lacinia iaculis nulla non pulvinar. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut eu risus enim, ut pulvinar lectus. Sed hendrerit nibh metus.
+                        </p>
+                    </div>
+                </div>
+
+                <hr class="tall">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <form class="form-horizontal" role="form" name="createGuide">
+                            <div class="form-group">
+                                <label for="title">Title <span ng-show="titleValid">*</span></label>
+                                <input type="text" value="" class="form-control" name="title" id="title" ng-model="title" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="image">Image *</label><br>
+                                <button type="file" ngf-select="uploadFiles($file)" accept="image/*" ngf-max-height="1000" ngf-max-size="1MB" class="btn btn-primary">Select File</button>
+                                <div class="alert alert-danger" ng-if="uploadError">
+                                    <strong>Error !</strong> <{ uploadErrorMsg }>
+                                </div>
+                                <input type="hidden" name="image" id="image" ng-model="image">
+                                <div ng-if="uploaded">
+                                    <img class="img-thumbnail" ng-src="<{ image }>" width="304">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Introduce *</label>
+                                <fieldset ng-if="showPreview">
+                                    <legend>Preview</legend>
+                                    <wiz-markdown content="introduce"></wiz-markdown>
+                                </fieldset>
+                                <hr>
+                                <wiz-markdown-editor content="introduce" maxlength="5000" rows="10" class="form-control" style="height: 300px;width: 100%;">
+                                    <wiz-toolbar-button command="bold"><i class="fa fa-bold" data-toggle="tooltip" data-placement="top" title="Bold"></i></wiz-toolbar-button>
+                                    <wiz-toolbar-button command="italic"><i class="fa fa-italic" data-toggle="tooltip" data-placement="top" title="Italic"></i></wiz-toolbar-button>
+                                    <wiz-toolbar-button command="heading"><i class="fa fa-header" data-toggle="tooltip" data-placement="top" title="Header"></i></wiz-toolbar-button>
+                                    <wiz-toolbar-button command="link"><i class="fa fa-link" data-toggle="tooltip" data-placement="top" title="Add Link"></i></wiz-toolbar-button>
+                                    <wiz-toolbar-button command="img"><i class="fa fa-picture-o" data-toggle="tooltip" data-placement="top" title="Add Picture"></i></wiz-toolbar-button>
+                                    <wiz-toolbar-button command="hr"><i class="fa fa-arrow-down" data-toggle="tooltip" data-placement="top" title="New Line"></i></wiz-toolbar-button>
+                                    <wiz-toolbar-button command="ullist"><i class="fa fa-list-ul" data-toggle="tooltip" data-placement="top" title="Ul List"></i></wiz-toolbar-button>
+                                    <wiz-toolbar-button command="ollist"><i class="fa fa-list-ol" data-toggle="tooltip" data-placement="top" title="Ol List"></i></wiz-toolbar-button>
+                                    <wiz-toolbar-button command="code"><i class="fa fa-code" data-toggle="tooltip" data-placement="top" title="Code"></i></wiz-toolbar-button>
+                                    <wiz-toolbar-button command="undo"><i class="fa fa-undo" data-toggle="tooltip" data-placement="top" title="Undo"></i></wiz-toolbar-button>
+                                    <wiz-toolbar-button command="redo"><i class="fa fa-repeat" data-toggle="tooltip" data-placement="top" title="Redo"></i></wiz-toolbar-button>
+                                </wiz-markdown-editor>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button ladda-button="laddaLoading" data-style="slide-right" ng-disabled="!isAuthenticated && createGuide.$valid" ng-click="upload()" class="ladda-button btn-primary" style="border-radius: 5px;">Create</button>
+                                    <button ng-click="preview()" class="ladda-button btn-primary" style="border-radius: 5px;"><{ previewText }></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+                <aside class="sidebar">
+
+                    <h4>Categories</h4>
+                    <ul class="nav nav-list primary push-bottom">
+                        <li><a href="#">Design</a></li>
+                        <li><a href="#">Photos</a></li>
+                        <li><a href="#">Videos</a></li>
+                        <li><a href="#">Lifestyle</a></li>
+                        <li><a href="#">Technology</a></li>
+                    </ul>
+
+                    <div class="tabs">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#popularPosts" data-toggle="tab"><i class="fa fa-star"></i> Popular</a></li>
+                            <li><a href="#recentPosts" data-toggle="tab">Recent</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="popularPosts">
+                                <ul class="simple-post-list">
+                                    <li>
+                                        <div class="post-image">
+                                            <div class="img-thumbnail">
+                                                <a href="blog-post.html">
+                                                    <img src="{{ asset('bundles/viettutweb/img/blog/blog-thumb-1.jpg') }}" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="post-info">
+                                            <a href="blog-post.html">Nullam Vitae Nibh Un Odiosters</a>
+                                            <div class="post-meta">
+                                                Jan 10, 2013
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="post-image">
+                                            <div class="img-thumbnail">
+                                                <a href="blog-post.html">
+                                                    <img src="{{ asset('bundles/viettutweb/img/blog/blog-thumb-2.jpg') }} " alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="post-info">
+                                            <a href="blog-post.html">Vitae Nibh Un Odiosters</a>
+                                            <div class="post-meta">
+                                                Jan 10, 2013
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="post-image">
+                                            <div class="img-thumbnail">
+                                                <a href="blog-post.html">
+                                                    <img src="{{ asset('bundles/viettutweb/img/blog/blog-thumb-3.jpg') }}" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="post-info">
+                                            <a href="blog-post.html">Odiosters Nullam Vitae</a>
+                                            <div class="post-meta">
+                                                Jan 10, 2013
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="tab-pane" id="recentPosts">
+                                <ul class="simple-post-list">
+                                    <li>
+                                        <div class="post-image">
+                                            <div class="img-thumbnail">
+                                                <a href="blog-post.html">
+                                                    <img src="{{ asset('bundles/viettutweb/img/blog/blog-thumb-2.jpg') }}" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="post-info">
+                                            <a href="blog-post.html">Vitae Nibh Un Odiosters</a>
+                                            <div class="post-meta">
+                                                Jan 10, 2013
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="post-image">
+                                            <div class="img-thumbnail">
+                                                <a href="blog-post.html">
+                                                    <img src="{{ asset('bundles/viettutweb/img/blog/blog-thumb-3.jpg') }}" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="post-info">
+                                            <a href="blog-post.html">Odiosters Nullam Vitae</a>
+                                            <div class="post-meta">
+                                                Jan 10, 2013
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="post-image">
+                                            <div class="img-thumbnail">
+                                                <a href="blog-post.html">
+                                                    <img src="{{ asset('bundles/viettutweb/img/blog/blog-thumb-1.jpg') }}" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="post-info">
+                                            <a href="blog-post.html">Nullam Vitae Nibh Un Odiosters</a>
+                                            <div class="post-meta">
+                                                Jan 10, 2013
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

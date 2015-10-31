@@ -31,7 +31,6 @@ class ChapterFormType extends AbstractRoleSpecificFormType
         $builder
             ->add('header')
             ->add('content')
-            ->add('author')
             ->add('course')
         ;
 
@@ -65,8 +64,7 @@ class ChapterFormType extends AbstractRoleSpecificFormType
     {
         $resolver
             ->setDefaults([
-                'data_class' => Chapter::class,
-                'cascade_validation' => true,
+                'data_class' => Chapter::class
             ]);
     }
     /**

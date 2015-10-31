@@ -1,13 +1,320 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<head>
+
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <title>Viettut - Learn programming from the best</title>
+    <meta name="keywords" content="HTML5 Template" />
+    <meta name="description" content="Viettut - Learn programming from the best">
+    <meta name="author" content="viettut.com">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Web Fonts  -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light" rel="stylesheet" type="text/css">
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="{{ asset('bundles/viettutweb/vendor/bootstrap/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/viettutweb/bower_components/ladda/dist/ladda.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/viettutweb/bower_components/highlightjs/styles/github.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/viettutweb/bower_components/angular-bootstrap/ui-bootstrap-csp.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/viettutweb/vendor/fontawesome/css/font-awesome.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/viettutweb/vendor/owlcarousel/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/viettutweb/vendor/owlcarousel/owl.theme.default.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/viettutweb/vendor/magnific-popup/magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/viettutweb/vendor/markdown-editpreview-ng.js/lib/codemwnci/bootstrap-markdown.min.css') }}">
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="{{ asset('bundles/viettutweb/css/theme.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/viettutweb/css/theme-elements.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/viettutweb/css/theme-blog.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/viettutweb/css/theme-animate.css') }}">
+
+    <!-- Current Page CSS -->
+    <link rel="stylesheet" href="{{ asset('bundles/viettutweb/vendor/rs-plugin/css/settings.css') }}" media="screen">
+    <link rel="stylesheet" href="{{ asset('bundles/viettutweb/vendor/circle-flip-slideshow/css/component.css') }}" media="screen">
+
+    <!-- Skin CSS -->
+    <link rel="stylesheet" href="{{ asset('bundles/viettutweb/css/skins/default.css') }}">
+
+    <!-- Theme Custom CSS -->
+    <link rel="stylesheet" href="{{ asset('bundles/viettutweb/css/custom.css') }}">
+
+    <!-- Head Libs -->
+    <script src="{{ asset('bundles/viettutweb/vendor/modernizr/modernizr.js') }}"></script>
+
+    <!--[if IE]>
+    <script src="{{ asset('bundles/viettutweb/css/ie.css') }}"></script>
+    <![endif]-->
+
+    <!--[if lte IE 8]>
+    <script src="{{ asset('bundles/viettutweb/vendor/respond/respond.js') }}"></script>
+    <script src="{{ asset('bundles/viettutweb/vendor/excanvas/excanvas.js') }}"></script>
+    <![endif]-->
+
+</head>
+<body ng-app="viettut">
+<div class="body">
+    <header id="header" ng-controller="NavBarController">
+        <div class="container">
+            <div class="logo">
+                <a href="{{ path('viettut_bundles_web_home_index') }}">
+                    <img alt="Porto" width="111" height="54" data-sticky-width="82" data-sticky-height="40" src="{{ asset('bundles/viettutweb/img/logo.png') }}">
+                </a>
+            </div>
+            <div class="search">
+                <form id="searchForm" action="page-search-results.html" method="get">
+                    <div class="input-group">
+                        <input type="text" class="form-control search" name="q" id="q" placeholder="Search..." required>
+								<span class="input-group-btn">
+									<button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+								</span>
+                    </div>
+                </form>
+            </div>
+            <nav>
+                <ul class="nav nav-pills nav-top">
+                    <li>
+                        <a href="about-us.html"><i class="fa fa-angle-right"></i>About Us</a>
+                    </li>
+                    <li>
+                        <a href="contact-us.html"><i class="fa fa-angle-right"></i>Contact Us</a>
+                    </li>
+                    <li class="phone">
+                        <span><i class="fa fa-phone"></i>(123) 456-7890</span>
+                    </li>
+                </ul>
+            </nav>
+            <button class="btn btn-responsive-nav btn-inverse" data-toggle="collapse" data-target=".nav-main-collapse">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+        <div class="navbar-collapse nav-main-collapse collapse">
+            <div class="container">
+                <ul class="social-icons">
+                    <li class="facebook"><a href="http://www.facebook.com/" target="_blank" title="Facebook">Facebook</a></li>
+                    <li class="twitter"><a href="http://www.twitter.com/" target="_blank" title="Twitter">Twitter</a></li>
+                    <li class="linkedin"><a href="http://www.linkedin.com/" target="_blank" title="Linkedin">Linkedin</a></li>
+                </ul>
+                <nav class="nav-main mega-menu">
+                    <ul class="nav nav-pills nav-main" id="mainMenu">
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" href="#">
+                                Course
+                                <i class="fa fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ path('viettut_bundles_web_course_index') }}">All courses</a></li>
+                                <li><a href="{{ path('viettut_bundles_web_course_create') }}">Create a course <span class="tip">hot</span></a></li>
+                                <li><a href="#">Search</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" href="#">
+                                Tutorial
+                                <i class="fa fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/tutorials">All tutorials</a></li>
+                                <li><a href="/tutorials/create">Write a tutorial</a></li>
+                                <li><a href="#">Search</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" href="#">
+                                Answer & Question
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" href="#">
+                                Challenges
+                                <i class="fa fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="page-custom-header.html">All challenges</a></li>
+                                <li><a href="page-team.html">Search</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" href="#">
+                                Contact Us
+                            </a>
+                        </li>
+                        <li ng-show="!isAuthenticated()" ng-if="!isOnUserPage()">
+                            <a class="dropdown-toggle" ng-click="login()" href="javascript:;">
+                                <i class="fa fa-user"></i> LogIn
+                            </a>
+                        </li>
+                        <li class="dropdown mega-menu-item mega-menu-signin signin logged" ng-show="isAuthenticated()" ng-if="!isOnUserPage()">
+                            <a class="dropdown-toggle">
+                                <i class="fa fa-user"></i> <{ name }>
+                                <i class="fa fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <div class="mega-menu-content">
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                                <div class="user-avatar">
+                                                    <div class="img-thumbnail">
+                                                        <img src="{{ asset('bundles/viettutweb/img/clients/client-1.jpg') }}" alt="">
+                                                    </div>
+                                                    <p><strong>John Smith</strong><span>CEO & Founder - Okler</span></p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <ul class="list-account-options">
+                                                    <li>
+                                                        <a href="javascript:;">My Account</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="{{ path('viettut_bundles_web_course_mycourses') }}">My Courses</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:;" ng-click="logout()">Log Out</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div role="main" class="main" ng-controller="{% block controller %}{% endblock %}">
+        {% block main %}
+        {% endblock %}
+    </div>
+
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-ribbon">
+                    <span>Get in Touch</span>
+                </div>
+                <div class="col-md-3">
+                    <div class="newsletter">
+                        <h4>Newsletter</h4>
+                        <p>Keep up on our always evolving product features and technology. Enter your e-mail and subscribe to our newsletter.</p>
+
+                        <div class="alert alert-success hidden" id="newsletterSuccess">
+                            <strong>Success!</strong> You've been added to our email list.
+                        </div>
+
+                        <div class="alert alert-danger hidden" id="newsletterError"></div>
+
+                        <form id="newsletterForm" action="php/newsletter-subscribe.php" method="POST">
+                            <div class="input-group">
+                                <input class="form-control" placeholder="Email Address" name="newsletterEmail" id="newsletterEmail" type="text">
+										<span class="input-group-btn">
+											<button class="btn btn-default" type="submit">Go!</button>
+										</span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <h4>Latest Tweets</h4>
+                    <div id="tweet" class="twitter" data-plugin-tweets data-plugin-options='{"username": "", "count": 2}'>
+                        <p>Please wait...</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="contact-details">
+                        <h4>Contact Us</h4>
+                        <ul class="contact">
+                            <li><p><i class="fa fa-map-marker"></i> <strong>Address:</strong> 1234 Street Name, City Name, United States</p></li>
+                            <li><p><i class="fa fa-phone"></i> <strong>Phone:</strong> (123) 456-7890</p></li>
+                            <li><p><i class="fa fa-envelope"></i> <strong>Email:</strong> <a href="mailto:mail@example.com">mail@example.com</a></p></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <ul class="social-icons">
+                            <li class="facebook"><a href="http://www.facebook.com/" target="_blank" data-placement="bottom" data-tooltip title="Facebook">Facebook</a></li>
+                            <li class="twitter"><a href="http://www.twitter.com/" target="_blank" data-placement="bottom" data-tooltip title="Twitter">Twitter</a></li>
+                            <li class="linkedin"><a href="http://www.linkedin.com/" target="_blank" data-placement="bottom" data-tooltip title="Linkedin">Linkedin</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-1">
+                        <a href="index.html" class="logo">
+                            <img alt="Porto Website Template" class="img-responsive" src="{{ asset('bundles/viettutweb/img/logo-footer.png') }}">
+                        </a>
+                    </div>
+                    <div class="col-md-7">
+                        <p>© Copyright 2015. All Rights Reserved.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <nav id="sub-menu">
+                            <ul>
+                                <li><a href="page-faq.html">FAQ's</a></li>
+                                <li><a href="sitemap.html">Sitemap</a></li>
+                                <li><a href="contact-us.html">Contact</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+<script src="{{ asset('bundles/viettutweb/bower_components/jquery/dist/jquery.min.js') }}"></script>
+<script src="{{ asset('bundles/viettutweb/bower_components/angular/angular.min.js') }}"></script>
+<script src="{{ asset('bundles/viettutweb/bower_components/angular-bootstrap/ui-bootstrap.min.js') }}"></script>
+<script src="{{ asset('bundles/viettutweb/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js') }}"></script>
+<script src="{{ asset('bundles/viettutweb/bower_components/angular-animate/angular-animate.min.js') }}"></script>
+<script src="{{ asset('bundles/viettutweb/bower_components/angular-sanitize/angular-sanitize.min.js') }}"></script>
+<script src="{{ asset('bundles/viettutweb/bower_components/wiz-markdown/wizMarkdown/wizMarkdown.min.js') }}"></script>
+<script src="{{ asset('bundles/viettutweb/bower_components/ng-file-upload/ng-file-upload.min.js') }}"></script>
+<script src="{{ asset('bundles/viettutweb/bower_components/ng-file-upload-shim/ng-file-upload-shim.min.js') }}"></script>
+<script src="{{ asset('bundles/viettutweb/bower_components/ngprogress/build/ngprogress.min.js') }}"></script>
+<script src="{{ asset('bundles/viettutweb/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('bundles/viettutweb/bower_components/satellizer/satellizer.min.js') }}"></script>
+<script src="{{ asset('bundles/viettutweb/bower_components/angular-toastr/dist/angular-toastr.tpls.min.js') }}"></script>
+<script src="{{ asset('bundles/viettutweb/bower_components/angularUtils-pagination/dirPagination.js') }}"></script>
+<script src="{{ asset('bundles/viettutweb/bower_components/marked/lib/marked.js') }}"></script>
+<script src="{{ asset('bundles/viettutweb/bower_components/angular-marked/angular-marked.min.js') }}"></script>
+<script src="{{ asset('bundles/viettutweb/bower_components/highlightjs/highlight.pack.min.js') }}"></script>
+<script src="{{ asset('bundles/viettutweb/bower_components/ngUpload/ng-upload.min.js') }}"></script>
+<script src="{{ asset('bundles/viettutweb/bower_components/ngstorage/ngStorage.min.js') }}"></script>
+<script src="{{ asset('bundles/viettutweb/bower_components/ladda/dist/spin.min.js') }}"></script>
+<script src="{{ asset('bundles/viettutweb/bower_components/ladda/dist/ladda.min.js') }}"></script>
+<script src="{{ asset('bundles/viettutweb/bower_components/ladda-angular/dist/ladda-angular.min.js') }}"></script>
+<script src="{{ asset('bundles/viettutweb/bower_components/angular-isotope/demo/scripts/vendor/jquery.isotope.min.js') }}"></script>
+<script src="{{ asset('bundles/viettutweb/bower_components/angular-isotope/dist/angular-isotope.min.js') }}"></script>
+
+<script src="{{ asset('bundles/viettutweb/js/app.js') }}"></script>
+<script src="{{ asset('bundles/viettutweb/js/controller/home.js') }}"></script>
+<script src="{{ asset('bundles/viettutweb/js/controller/course.js') }}"></script>
+<script src="{{ asset('bundles/viettutweb/js/controller/login.js') }}"></script>
+<script src="{{ asset('bundles/viettutweb/js/controller/register.js') }}"></script>
+<script src="{{ asset('bundles/viettutweb/js/controller/navbar.js') }}"></script>
+
+<!-- Vendor -->
+<script src="{{ asset('bundles/viettutweb/vendor/jquery.appear/jquery.appear.js') }}"></script>
+<script src="{{ asset('bundles/viettutweb/vendor/jquery.easing/jquery.easing.js') }}"></script>
+<script src="{{ asset('bundles/viettutweb/vendor/common/common.js') }}"></script>
+<script src="{{ asset('bundles/viettutweb/vendor/isotope/jquery.isotope.js') }}"></script>
+
+<!-- Theme Base, Components and Settings -->
+<script src="{{ asset('bundles/viettutweb/js/theme.js') }}"></script>
+<script src="{{ asset('bundles/viettutweb/js/theme.init.js') }}"></script>
+<script src="{{ asset('bundles/viettutweb/js/custom.js') }}"></script>
+{% block custom %}{% endblock %}
+</body>
 </html>

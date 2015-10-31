@@ -14,6 +14,7 @@ use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Viettut\Entity\Core\Course;
+use Viettut\Entity\Core\CourseTag;
 use Viettut\Model\Core\CourseInterface;
 use Viettut\Utilities\StringFactory;
 
@@ -28,17 +29,14 @@ class CourseFormType extends AbstractRoleSpecificFormType
     {
         $builder
             ->add('title')
-            ->add('author')
             ->add('introduce')
             ->add('imagePath')
-            ->add('active')
-            ->add('chapters', 'collection',  array(
-                    'mapped' => true,
-                    'type' => new ChapterFormType(),
-                    'allow_add' => true,
-                    'allow_delete' => true,
-                )
-            )
+            ->add('courseTags', 'collection', array(
+                'mapped' => true,
+                'allow_add' => true,
+                'allow_delete' => true,
+                'type' => new CourseTagFormType()
+            ))
         ;
 
         $builder->addEventListener(
@@ -47,6 +45,8 @@ class CourseFormType extends AbstractRoleSpecificFormType
                 /** @var CourseInterface $course */
                 $course = $event->getData();
                 if($course->getId() === null){
+                    $course->setView(0);
+                    $course->setEnroll(0);
                     $course->setActive(false);
                 }
                 $course->setHashTag($this->getUrlFriendlyString($course->getTitle()));
@@ -58,8 +58,7 @@ class CourseFormType extends AbstractRoleSpecificFormType
     {
         $resolver
             ->setDefaults([
-                'data_class' => Course::class,
-                'cascade_validation' => true,
+                'data_class' => Course::class
             ]);
     }
 

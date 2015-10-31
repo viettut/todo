@@ -28,7 +28,7 @@ Class RoleToUserEntityTransformer implements DataTransformerInterface
         }
         catch (InvalidUserRoleException $e) {
             throw new TransformationFailedException(sprintf(
-                'The user could not be converted to a publisher role'
+                'The user could not be converted to a lecturer role'
             ));
         }
     }

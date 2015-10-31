@@ -1,3 +1,8 @@
+viettut_web:
+    resource: "@ViettutWebBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 viettut_admin_api:
     resource: "@ViettutAdminApiBundle/Resources/config/routing.yml"
     type:   rest
