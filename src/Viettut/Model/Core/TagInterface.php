@@ -23,13 +23,13 @@ interface TagInterface extends ModelInterface
     /**
      * @return string
      */
-    public function getName();
+    public function getText();
 
     /**
-     * @param string $name
+     * @param string $text
      * @return self
      */
-    public function setName($name);
+    public function setText($text);
 
     /**
      * @return string

@@ -1,4 +1,4 @@
-a{% extends 'base.html.twig' %}
+{% extends 'base.html.twig' %}
 {% block controller %}CourseController{% endblock %}
 {% block main %}
     <style>
@@ -12,7 +12,7 @@ a{% extends 'base.html.twig' %}
             <div class="row">
                 <div class="col-md-12">
                     <ul class="breadcrumb">
-                        <li><a href="/">Home</a></li>
+                        <li><a href="{{ path('viettut_bundles_web_home_index') }}">Home</a></li>
                         <li class="active">Courses</li>
                     </ul>
                 </div>
@@ -30,17 +30,17 @@ a{% extends 'base.html.twig' %}
         <div class="row">
             <div class="col-md-9">
 
-                <h2>Right <strong>Sidebar</strong> Page</h2>
+                {#<h2>Right <strong>Sidebar</strong> Page</h2>#}
 
-                <div class="row">
-                    <div class="col-md-12">
-                        <p class="lead">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rutrum pellentesque imperdiet. Nulla lacinia iaculis nulla non pulvinar. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut eu risus enim, ut pulvinar lectus. Sed hendrerit nibh metus.
-                        </p>
-                    </div>
-                </div>
+                {#<div class="row">#}
+                    {#<div class="col-md-12">#}
+                        {#<p class="lead">#}
+                            {#Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rutrum pellentesque imperdiet. Nulla lacinia iaculis nulla non pulvinar. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut eu risus enim, ut pulvinar lectus. Sed hendrerit nibh metus.#}
+                        {#</p>#}
+                    {#</div>#}
+                {#</div>#}
 
-                <hr class="tall">
+                {#<hr class="tall">#}
 
                 <div class="row">
                     <div class="col-md-12">
@@ -66,7 +66,6 @@ a{% extends 'base.html.twig' %}
                                     <legend>Preview</legend>
                                     <wiz-markdown content="introduce"></wiz-markdown>
                                 </fieldset>
-                                <hr>
                                 <wiz-markdown-editor content="introduce" maxlength="5000" rows="10" class="form-control" style="height: 300px;width: 100%;">
                                     <wiz-toolbar-button command="bold"><i class="fa fa-bold" data-toggle="tooltip" data-placement="top" title="Bold"></i></wiz-toolbar-button>
                                     <wiz-toolbar-button command="italic"><i class="fa fa-italic" data-toggle="tooltip" data-placement="top" title="Italic"></i></wiz-toolbar-button>

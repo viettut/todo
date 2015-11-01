@@ -213,7 +213,7 @@ class Tutorial implements TutorialInterface
     }
 
     /**
-     * @return CommentInterface[]
+     * @return ArrayCollection
      */
     public function getComments()
     {
@@ -224,7 +224,7 @@ class Tutorial implements TutorialInterface
     }
 
     /**
-     * @param CommentInterface[] $comments
+     * @param $comments
      * @return self
      */
     public function setComments($comments)

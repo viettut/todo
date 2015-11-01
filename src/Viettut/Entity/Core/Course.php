@@ -20,6 +20,7 @@ class Course extends CourseModel
     protected $imagePath;
     protected $active;
     protected $hashTag;
+    protected $comments;
     protected $view;
     protected $enroll;
     protected $createdAt;

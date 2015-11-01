@@ -63,7 +63,7 @@ class CourseController extends Controller
      */
     public function indexAction()
     {
-        $courses = $this->get('viettut.repository.course')->all();
+        $courses = $this->get('viettut.repository.course')->findAll();
         return $this->render('ViettutWebBundle:Course:index.html.twig', array('courses' => $courses));
     }
 
@@ -84,17 +84,19 @@ class CourseController extends Controller
         return $this->render('ViettutWebBundle:Course:index.html.twig', array('courses' => $courses));
     }
 
+
     /**
      * present a specific guide
      *
-     * @Route("/courses/{hash}")
+     * @Route("/courses/{hash}/{id}")
      * @Template()
      *
      * @param $hash
+     * @param $id
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function detailAction($hash){
-        $course = $this->get('viettut.repository.course')->getCourseByHashTag($hash);
+    public function detailAction($hash, $id){
+        $course = $this->get('viettut.repository.course')->find($id);
 
         if(!$course instanceof CourseInterface) {
             throw new NotFoundHttpException('');

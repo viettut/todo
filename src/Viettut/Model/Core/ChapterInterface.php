@@ -9,6 +9,7 @@
 namespace Viettut\Model\Core;
 
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Viettut\Model\User\UserEntityInterface;
 use Viettut\Model\ModelInterface;
 
@@ -123,4 +124,15 @@ interface ChapterInterface extends ModelInterface
      * @return self
      */
     public function setCourse(CourseInterface $course);
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getComments();
+
+    /**
+     * @param $comments
+     * @return self
+     */
+    public function setComments($comments);
 }

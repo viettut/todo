@@ -12,7 +12,7 @@ Viettut\Entity\Core\Tag:
             generator:
                 strategy: AUTO
     fields:
-        name:
+        text:
             type: string
             length: 255
             nullable: false

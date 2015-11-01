@@ -39,5 +39,8 @@ Viettut\Entity\Core\Comment:
         tutorial:
             targetEntity: Viettut\Entity\Core\Tutorial
             inversedBy: comments
+        chapter:
+            targetEntity: Viettut\Entity\Core\Tutorial
+            inversedBy: comments
             
     lifecycleCallbacks: {  }

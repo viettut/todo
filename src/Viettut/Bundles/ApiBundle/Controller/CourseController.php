@@ -26,10 +26,12 @@ use Viettut\Model\Core\CourseInterface;
 class CourseController extends RestControllerAbstract implements ClassResourceInterface
 {
     /**
-     * Get all ad tags
+     * Get all ad course
+     *
      * @Rest\View(
-     *      serializerGroups={}
+     *      serializerGroups={"course.summary", "user.summary"}
      * )
+     *
      * @ApiDoc(
      *  resource = true,
      *  statusCodes = {
@@ -43,13 +45,13 @@ class CourseController extends RestControllerAbstract implements ClassResourceIn
     {
         return $this->all();
     }
+
     /**
-     * @Rest\View(
-     *      serializerGroups={}
-     * )
-     *
      * Get a single adTag for the given id
      *
+     * @Rest\View(
+     *      serializerGroups={"course.detail", "user.summary"}
+     * )
      * @ApiDoc(
      *  resource = true,
      *  statusCodes = {
@@ -67,6 +69,7 @@ class CourseController extends RestControllerAbstract implements ClassResourceIn
     {
         return $this->one($id);
     }
+
     /**
      * Create a adTag from the submitted data
      *
@@ -86,6 +89,7 @@ class CourseController extends RestControllerAbstract implements ClassResourceIn
     {
         return $this->post($request);
     }
+
     /**
      * Update an existing adTag from the submitted data or create a new adTag
      *

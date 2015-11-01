@@ -48,4 +48,10 @@ Viettut\Entity\Core\Chapter:
             inversedBy: chapters
         author:
             targetEntity: Viettut\Bundles\UserBundle\Entity\User
+    oneToMany:
+        comments:
+            targetEntity: Viettut\Entity\Core\Comment
+            mappedBy: chapter
+            cascade: ['remove']
+            orphanRemoval: true
     lifecycleCallbacks: {  }

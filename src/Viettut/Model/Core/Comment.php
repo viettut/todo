@@ -44,6 +44,11 @@ class Comment implements CommentInterface
     protected $tutorial;
 
     /**
+     * @var ChapterInterface
+     */
+    protected $chapter;
+
+    /**
      * @var integer
      */
     protected $like;
@@ -177,5 +182,59 @@ class Comment implements CommentInterface
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @return CourseInterface
+     */
+    public function getCourse()
+    {
+        return $this->course;
+    }
+
+    /**
+     * @param CourseInterface $course
+     * @return self
+     */
+    public function setCourse($course)
+    {
+        $this->course = $course;
+        return $this;
+    }
+
+    /**
+     * @return ChapterInterface
+     */
+    public function getChapter()
+    {
+        return $this->chapter;
+    }
+
+    /**
+     * @param ChapterInterface $chapter
+     * @return self
+     */
+    public function setChapter($chapter)
+    {
+        $this->chapter = $chapter;
+        return $this;
+    }
+
+    /**
+     * @return TutorialInterface
+     */
+    public function getTutorial()
+    {
+        return $this->tutorial;
+    }
+
+    /**
+     * @param TutorialInterface $tutorial
+     * @return self
+     */
+    public function setTutorial($tutorial)
+    {
+        $this->tutorial = $tutorial;
+        return $this;
     }
 }

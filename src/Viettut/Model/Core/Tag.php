@@ -19,7 +19,7 @@ class Tag implements TagInterface
     /**
      * @var string
      */
-    protected $name;
+    protected $text;
 
     /**
      * @var string
@@ -71,18 +71,18 @@ class Tag implements TagInterface
     /**
      * @return string
      */
-    public function getName()
+    public function getText()
     {
-        return $this->name;
+        return $this->text;
     }
 
     /**
-     * @param string $name
+     * @param string $text
      * @return self
      */
-    public function setName($name)
+    public function setText($text)
     {
-        $this->name = $name;
+        $this->text = $text;
         return $this;
     }
 

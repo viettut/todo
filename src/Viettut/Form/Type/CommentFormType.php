@@ -16,6 +16,7 @@ use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Viettut\Entity\Core\Chapter;
 use Viettut\Model\Core\ChapterInterface;
+use Viettut\Model\Core\CommentInterface;
 use Viettut\Model\Core\CourseInterface;
 use Viettut\Utilities\StringFactory;
 
@@ -29,34 +30,30 @@ class CommentFormType extends AbstractRoleSpecificFormType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('header')
             ->add('content')
             ->add('author')
             ->add('course')
+            ->add('chapter')
+            ->add('tutorial')
         ;
 
         $builder->addEventListener(
             FormEvents::POST_SUBMIT,
             function (FormEvent $event) {
-                /** @var ChapterInterface $chapter */
-                $chapter = $event->getData();
+                /** @var CommentInterface $comment */
+                $comment = $event->getData();
 
-                /** @var CourseInterface $course */
-                $course = $chapter->getCourse();
-
-                if(!$course instanceof CourseInterface) {
-                    $event->getForm()->get('course')->addError(new FormError('course can not be blank'));
+                if ($comment->getCourse() === null &&
+                    $comment->getTutorial() === null &&
+                    $comment->getChapter() === null) {
+                    $event->getForm()->get('course')->addError(new FormError('invalid argument'));
+                    $event->getForm()->get('chapter')->addError(new FormError('invalid argument'));
+                    $event->getForm()->get('tutorial')->addError(new FormError('invalid argument'));
                     return;
                 }
-                else {
-                    $course->getChapters()->add($chapter);
-                }
 
-                if($chapter->getId() === null){
-                    $chapter->setActive(true);
-                    $chapter->setHashTag($this->getUrlFriendlyString($chapter->getHeader()));
-                    $chapter->setPosition(count($course->getChapters()));
-                }
+                $comment->setActive(true);
+                $comment->setLike(0);
             }
         );
     }

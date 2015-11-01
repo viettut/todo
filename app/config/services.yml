@@ -5,6 +5,9 @@ parameters:
     # event dispatched on user action such as add, remove, delete
     viettut.events.handler_event: 'viettut.events.handler_event'
     jms_serializer.cache_naming_strategy.class: JMS\Serializer\Naming\IdenticalPropertyNamingStrategy
+
+    # voter
+    viettut.security.auth.voter.course.class: Viettut\Security\Authorization\Voter\CourseVoter
 services:
 #    service_name:
 #        class: AppBundle\Directory\ClassName
@@ -28,3 +31,16 @@ services:
         arguments:
             - ""
             - @cache.apc.jms_serializer
+
+    viettut.paragraph_extension:
+        class: Viettut\Bundles\WebBundle\Twig\ParagraphExtension
+        public: false
+        tags:
+            - { name: twig.extension }
+
+    # voter
+    viettut.security.auth.voter.course:
+        class:  %viettut.security.auth.voter.course.class%
+        public: false
+        tags:
+            - { name: security.voter }

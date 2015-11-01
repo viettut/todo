@@ -43,6 +43,11 @@ class Course implements CourseInterface
     protected $courseTags;
 
     /**
+     * @var CommentInterface[]
+     */
+    protected $comments;
+
+    /**
      * @var string
      */
     protected $imagePath;
@@ -336,6 +341,24 @@ class Course implements CourseInterface
     public function setCourseTags($courseTags)
     {
         $this->courseTags = $courseTags;
+        return $this;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getComments()
+    {
+        return $this->comments;
+    }
+
+    /**
+     * @param $comments
+     * @return self
+     */
+    public function setComments($comments)
+    {
+        $this->comments = $comments;
         return $this;
     }
 }

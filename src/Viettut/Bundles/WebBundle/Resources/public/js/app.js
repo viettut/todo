@@ -10,7 +10,7 @@
      * Main module of the application.
      */
     angular
-        .module('viettut', ['ngSanitize', 'ngFileUpload', 'wiz.markdown', 'ladda', 'ngStorage', 'ngUpload', 'satellizer', 'ngProgress', 'ngAnimate', 'toastr', 'angularUtils.directives.dirPagination', 'hc.marked', 'iso.directives', 'ui.bootstrap'])
+        .module('viettut', ['ngTagsInput', 'ngSanitize', 'ngFileUpload', 'wiz.markdown', 'ladda', 'ngStorage', 'ngUpload', 'satellizer', 'ngProgress', 'ngAnimate', 'toastr', 'angularUtils.directives.dirPagination', 'hc.marked', 'iso.directives', 'ui.bootstrap'])
         .config(function ($authProvider, markedProvider, $interpolateProvider) {
             $interpolateProvider.startSymbol('<{');
             $interpolateProvider.endSymbol('}>');

@@ -95,12 +95,12 @@ interface TutorialInterface extends ModelInterface
     public function getUpdatedAt();
 
     /**
-     * @return CommentInterface[]
+     * @return ArrayCollection
      */
     public function getComments();
 
     /**
-     * @param CommentInterface[] $comments
+     * @param $comments
      * @return self
      */
     public function setComments($comments);

@@ -9,6 +9,7 @@
 namespace Viettut\Model\Core;
 
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Viettut\Model\User\UserEntityInterface;
 
 class Chapter implements ChapterInterface
@@ -52,6 +53,11 @@ class Chapter implements ChapterInterface
      * @var CourseInterface
      */
     protected $course;
+
+    /**
+     * @var CommentInterface[]
+     */
+    protected $comments;
 
     /**
      * @var \DateTime
@@ -245,5 +251,23 @@ class Chapter implements ChapterInterface
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getComments()
+    {
+        return $this->comments;
+    }
+
+    /**
+     * @param $comments
+     * @return self
+     */
+    public function setComments($comments)
+    {
+        $this->comments = $comments;
+        return $this;
     }
 }

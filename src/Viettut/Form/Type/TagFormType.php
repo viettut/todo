@@ -25,7 +25,7 @@ class TagFormType extends AbstractRoleSpecificFormType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
+            ->add('text')
             ->add('icon')
         ;
 

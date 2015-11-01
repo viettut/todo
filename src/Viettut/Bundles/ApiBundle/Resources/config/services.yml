@@ -2,6 +2,7 @@ imports:
     - { resource: services/course.services.yml }
     - { resource: services/chapter.services.yml }
     - { resource: services/tutorial.services.yml }
+    - { resource: services/tag.services.yml }
     - { resource: services/comment.services.yml }
 
 parameters:

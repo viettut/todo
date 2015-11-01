@@ -12,7 +12,7 @@ use Viettut\Model\Core\Tag as TagModel;
 class Tag extends TagModel
 {
     protected $id;
-    protected $name;
+    protected $text;
     protected $icon;
     protected $count;
     protected $courseTags;

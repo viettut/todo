@@ -103,7 +103,7 @@ interface CourseInterface extends ModelInterface
     public function getChapters();
 
     /**
-     * @param ChapterInterface[] $chapters
+     * @param $chapters
      * @return self
      */
     public function setChapters($chapters);
@@ -168,4 +168,15 @@ interface CourseInterface extends ModelInterface
      * @return self
      */
     public function setCourseTags($courseTags);
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getComments();
+
+    /**
+     * @param $comments
+     * @return self
+     */
+    public function setComments($comments);
 }

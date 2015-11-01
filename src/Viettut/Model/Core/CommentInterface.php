@@ -83,4 +83,37 @@ interface CommentInterface extends ModelInterface
      * @return self
      */
     public function setLike($like);
+
+    /**
+     * @return CourseInterface
+     */
+    public function getCourse();
+
+    /**
+     * @param CourseInterface $course
+     * @return self
+     */
+    public function setCourse($course);
+
+    /**
+     * @return ChapterInterface
+     */
+    public function getChapter();
+
+    /**
+     * @param ChapterInterface $chapter
+     * @return self
+     */
+    public function setChapter($chapter);
+
+    /**
+     * @return TutorialInterface
+     */
+    public function getTutorial();
+
+    /**
+     * @param TutorialInterface $tutorial
+     * @return self
+     */
+    public function setTutorial($tutorial);
 }
