@@ -9,6 +9,7 @@
 namespace Viettut\Repository\Core;
 use Doctrine\DBAL\Types\Type;
 use Doctrine\ORM\EntityRepository;
+use Viettut\Model\Core\CourseInterface;
 use Viettut\Model\User\Role\LecturerInterface;
 
 class CourseRepository extends EntityRepository implements CourseRepositoryInterface
@@ -34,5 +35,17 @@ class CourseRepository extends EntityRepository implements CourseRepositoryInter
         }
 
         return $qb->getQuery()->getResult();
+    }
+
+    /**
+     * @param $hashTag
+     * @return null|CourseInterface
+     */
+    public function getCourseByHashTag($hashTag)
+    {
+        return $this->createQueryBuilder('c')
+            ->where('c.hashTag = :hashTag')
+            ->setParameter('hashTag', $hashTag, Type::STRING)
+            ->getQuery()->getOneOrNullResult();
     }
 }

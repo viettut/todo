@@ -14,8 +14,8 @@ use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Viettut\Entity\Core\Course;
-use Viettut\Entity\Core\CourseTag;
 use Viettut\Model\Core\CourseInterface;
+use Viettut\Model\Core\CourseTagInterface;
 use Viettut\Utilities\StringFactory;
 
 class CourseFormType extends AbstractRoleSpecificFormType
@@ -50,6 +50,13 @@ class CourseFormType extends AbstractRoleSpecificFormType
                     $course->setActive(false);
                 }
                 $course->setHashTag($this->getUrlFriendlyString($course->getTitle()));
+
+                $courseTags = $course->getCourseTags();
+
+                /** @var CourseTagInterface $courseTag */
+                foreach($courseTags as $courseTag) {
+                    $courseTag->setCourse($course);
+                }
             }
         );
     }

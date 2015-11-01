@@ -41,7 +41,7 @@ class CourseController extends Controller
     {
         $user = $this->getUser();
         if (!$user instanceof UserEntityInterface) {
-            $this->redirectToRoute('viettut_bundles_web_user_login');
+            $this->redirectToRoute('viettut_bundles_web_authen_login');
         }
 
         $course = $this->get('viettut.repository.course')->find($cid);
@@ -63,7 +63,7 @@ class CourseController extends Controller
      */
     public function indexAction()
     {
-        $courses = $this->get('viettut_api.handler.course')->all();
+        $courses = $this->get('viettut.repository.course')->all();
         return $this->render('ViettutWebBundle:Course:index.html.twig', array('courses' => $courses));
     }
 
@@ -77,25 +77,24 @@ class CourseController extends Controller
         $user = $this->getUser();
 
         if (!$user instanceof UserEntityInterface) {
-            $this->redirectToRoute('viettut_bundles_web_user_login');
+            $this->redirectToRoute('viettut_bundles_web_authen_login');
         }
 
-        $courses = $this->get('viettut.domain_manager.course')->getCourseByLecturer($user);
+        $courses = $this->get('viettut.repository.course')->getCourseByLecturer($user);
         return $this->render('ViettutWebBundle:Course:index.html.twig', array('courses' => $courses));
     }
 
     /**
      * present a specific guide
      *
-     * @Route("/courses/{hash}/{id}")
+     * @Route("/courses/{hash}")
      * @Template()
      *
      * @param $hash
-     * @param $id
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function detailAction($hash, $id){
-        $course = $this->get('viettut_api.handler.course')->get($id);
+    public function detailAction($hash){
+        $course = $this->get('viettut.repository.course')->getCourseByHashTag($hash);
 
         if(!$course instanceof CourseInterface) {
             throw new NotFoundHttpException('');

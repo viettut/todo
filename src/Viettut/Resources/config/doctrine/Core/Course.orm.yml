@@ -62,5 +62,5 @@ Viettut\Entity\Core\Course:
         courseTags:
             targetEntity: Viettut\Entity\Core\CourseTag
             mappedBy: course
-            cascade: ['remove']
+            cascade: ['remove', 'persist']
     lifecycleCallbacks: {  }

@@ -8,6 +8,7 @@
 
 namespace Viettut\Repository\Core;
 use Doctrine\Common\Persistence\ObjectRepository;
+use Viettut\Model\Core\CourseInterface;
 use Viettut\Model\User\Role\LecturerInterface;
 
 interface CourseRepositoryInterface extends ObjectRepository
@@ -19,4 +20,10 @@ interface CourseRepositoryInterface extends ObjectRepository
      * @return mixed
      */
     public function getCourseByLecturer(LecturerInterface $lecturer, $limit = null, $offset = null);
+
+    /**
+     * @param $hashTag
+     * @return null|CourseInterface
+     */
+    public function getCourseByHashTag($hashTag);
 }

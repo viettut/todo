@@ -10,18 +10,14 @@ namespace Viettut\Form\Type;
 
 
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\FormError;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use Viettut\Entity\Core\Chapter;
-use Viettut\Model\Core\ChapterInterface;
-use Viettut\Model\Core\CourseInterface;
-use Viettut\Utilities\StringFactory;
+use Viettut\Entity\Core\CourseTag;
+use Viettut\Entity\Core\Tag;
 
 class CourseTagFormType extends AbstractRoleSpecificFormType
 {
-    use StringFactory;
     /**
      * @param FormBuilderInterface $builder
      * @param array $options
@@ -29,24 +25,34 @@ class CourseTagFormType extends AbstractRoleSpecificFormType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title')
-            ->add('hashTag')
-            ->add('content')
-            ->add('author')
-            ->add('active')
-            ->add('view')
-            ->add('like')
+            ->add('tag', 'entity', array(
+                    'class' => Tag::class
+                )
+            )
         ;
+
+        $builder->addEventListener(
+            FormEvents::PRE_SUBMIT,
+            function(FormEvent $event){
+                $form = $event->getForm();
+                $tag = $event->getData();
+
+                if (is_array($tag)) {
+                    $form->remove('tag');
+                    $form->add('tag', new TagFormType());
+                }
+            });
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver
             ->setDefaults([
-                'data_class' => Chapter::class,
+                'data_class' => CourseTag::class,
                 'cascade_validation' => true,
             ]);
     }
+
     /**
      * Returns the name of this type.
      *
@@ -54,6 +60,6 @@ class CourseTagFormType extends AbstractRoleSpecificFormType
      */
     public function getName()
     {
-        return 'viettut_form_chapter';
+        return 'viettut_form_course_tag';
     }
 }
