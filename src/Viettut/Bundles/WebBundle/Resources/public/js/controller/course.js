@@ -20,6 +20,9 @@
         $scope.error = '';
         $scope.showError = false;
         $scope.title = '';
+        $scope.courseTags = [];
+        $scope.selectedTags = [];
+        $scope.allTags = [];
         $scope.introduce = angular.element($('#introduce')).text() === 'undefined' ? '' : angular.element($('#introduce')).text();
         $scope.image = '';
         $scope.chapter = '';
@@ -33,6 +36,14 @@
         $scope.showPreview = false;
 
 
+
+        $scope.initTag = function() {
+            $http.defaults.headers.common.Authorization = "Bearer " + $auth.getToken();
+            $scope.allTags = $http.get('/app_dev.php/api/v1/tags');
+        };
+        //initialize
+        $scope.initTag();
+
         $scope.preview = function(){
             $scope.showPreview = !$scope.showPreview;
 
@@ -40,6 +51,19 @@
                 $scope.previewText = 'Hide Preview';
             }
             else $scope.previewText = 'Show Preview';
+        };
+
+        $scope.loadTags = function() {
+            return $scope.allTags;
+        };
+
+        $scope.addTag = function(tag) {
+            if (typeof tag.id == 'undefined') {
+                $scope.courseTags.push({'tag': tag})
+            }
+            else {
+                $scope.courseTags.push({'tag': tag.id})
+            }
         };
 
         $scope.add = function(){
@@ -82,7 +106,8 @@
             var data = {
                 title: $scope.title,
                 imagePath: $scope.image,
-                introduce: $scope.introduce
+                introduce: $scope.introduce,
+                courseTags: $scope.courseTags
             };
 
             // start progress
@@ -93,7 +118,7 @@
                 function(response){
                     $scope.laddaLoading = false;
                     if(response.status == 201) {
-                        $window.location.href = '/app_dev.php/courses/' + response.data + '/add-chapter';
+                        $window.location.href = '/app_dev.php/courses/' + response.data.id + '/add-chapter';
                     }
                 },
                 function(response){

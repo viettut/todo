@@ -50,6 +50,20 @@
                                 <input type="text" value="" class="form-control" name="title" id="title" ng-model="title" required>
                             </div>
                             <div class="form-group">
+                                <tags-input ng-model="selectedTags" on-tag-added="addTag($tag)">
+                                    <auto-complete
+                                            source="loadTags()"
+                                            min-length="1"
+                                            select-first-match="false">
+                                    </auto-complete>
+                                </tags-input>
+                                {#<tags#}
+                                    {#model="courseTags"#}
+                                    {#data-options="{addable: true, classes: {white: 'black', red: 'red'}}"#}
+                                    {#data-src="s as s.name for s in sourceTags"#}
+                                {#></tags>#}
+                            </div>
+                            <div class="form-group">
                                 <label for="image">Image *</label><br>
                                 <button type="file" ngf-select="uploadFiles($file)" accept="image/*" ngf-max-height="1000" ngf-max-size="1MB" class="btn btn-primary">Select File</button>
                                 <div class="alert alert-danger" ng-if="uploadError">

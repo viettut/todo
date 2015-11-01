@@ -36,8 +36,7 @@ class CourseTagFormType extends AbstractRoleSpecificFormType
             function(FormEvent $event){
                 $form = $event->getForm();
                 $tag = $event->getData();
-
-                if (is_array($tag)) {
+                if (is_array($tag['tag'])) {
                     $form->remove('tag');
                     $form->add('tag', new TagFormType());
                 }

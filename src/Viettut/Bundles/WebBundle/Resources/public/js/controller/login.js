@@ -31,8 +31,8 @@
             };
 
             $auth.login(credentials).then(function(response) {
-                $localStorage.username = response.data.data.username;
-                $localStorage.name = response.data.data.name;
+                $localStorage.username = response.data.username;
+                $localStorage.name = response.data.username;
 
                 $window.location.href = '/app_dev.php/';
                 $scope.laddaLoading = false;

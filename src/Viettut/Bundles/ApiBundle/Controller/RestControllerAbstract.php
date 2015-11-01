@@ -51,12 +51,12 @@ abstract class RestControllerAbstract extends FOSRestController
                 $request->request->all()
             );
 
-            return $newEntity;
+//            return $newEntity;
 //            $routeOptions = array(
 //                '_format' => $request->get('_format')
 //            );
 //
-//            return $this->addRedirectToResource($newEntity, Codes::HTTP_CREATED, $routeOptions);
+            return $this->addRedirectToResource($newEntity, Codes::HTTP_CREATED);
         } catch (InvalidFormException $exception) {
             return $exception->getForm();
         }
@@ -85,13 +85,13 @@ abstract class RestControllerAbstract extends FOSRestController
                 );
             }
 
-            return $this->createResponse($entity, $statusCode);
+//            return $this->createResponse($entity, $statusCode);
 
 //            $routeOptions = array(
 //                '_format' => $request->get('_format')
 //            );
 //
-//            return $this->addRedirectToResource($entity, $statusCode, $routeOptions);
+            return $this->addRedirectToResource($entity, $statusCode);
         } catch (InvalidFormException $exception) {
             return $exception->getForm();
         }
@@ -113,13 +113,13 @@ abstract class RestControllerAbstract extends FOSRestController
                 $request->request->all()
             );
 
-            return $this->createResponse($entity, Codes::HTTP_NO_CONTENT);
+//            return $this->createResponse($entity, Codes::HTTP_NO_CONTENT);
 
 //            $routeOptions = array(
 //                '_format' => $request->get('_format')
 //            );
 //
-//            return $this->addRedirectToResource($entity, Codes::HTTP_NO_CONTENT, $routeOptions);
+            return $this->addRedirectToResource($entity, Codes::HTTP_NO_CONTENT);
         } catch (InvalidFormException $exception) {
             return $exception->getForm();
         }
@@ -163,32 +163,22 @@ abstract class RestControllerAbstract extends FOSRestController
      *
      * @param int|ModelInterface $id
      * @param $statusCode
-     * @param array $routeOptions
      * @return View
      */
-    protected function addRedirectToResource($id, $statusCode, array $routeOptions)
+    protected function addRedirectToResource($id, $statusCode)
     {
-        if ($id instanceof ModelInterface) {
-            $id = $id->getId();
-        }
+//        if ($id instanceof ModelInterface) {
+//            $id = $id->getId();
+//        }
 
-        $routeOptions += array(
+        $routeOptions = array(
             '_format' => 'json'
         );
 
-        $routeOptions['id'] = $id;
+//        $routeOptions['id'] = $id;
 
-        return $this->routeRedirectView($this->getGETRouteName(), $routeOptions, $statusCode);
-    }
-
-    protected function createResponse(ModelInterface $entity, $statusCode)
-    {
-        $routeOptions = array(
-            '_format' => 'json'
-        )   ;
-
-        $view = $this->view(null, $statusCode);
-        return $this->handleView($view);
+        return $this->view($id, $statusCode, $routeOptions);
+//        return $this->routeRedirectView($this->getGETRouteName(), $routeOptions, $statusCode);
     }
 
     /**
