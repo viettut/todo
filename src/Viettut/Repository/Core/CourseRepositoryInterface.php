@@ -26,4 +26,16 @@ interface CourseRepositoryInterface extends ObjectRepository
      * @return null|CourseInterface
      */
     public function getCourseByHashTag($hashTag);
+
+    /**
+     * @param int $maxResult
+     * @return array
+     */
+    public function getPopularCourse($maxResult);
+
+    /**
+     * @param int $maxResult
+     * @return array
+     */
+    public function getRecentCourse($maxResult);
 }

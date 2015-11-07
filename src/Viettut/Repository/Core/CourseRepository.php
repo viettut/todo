@@ -48,4 +48,40 @@ class CourseRepository extends EntityRepository implements CourseRepositoryInter
             ->setParameter('hashTag', $hashTag, Type::STRING)
             ->getQuery()->getOneOrNullResult();
     }
+
+    /**
+     * @param $maxResult
+     * @return array
+     */
+    public function getPopularCourse($maxResult)
+    {
+        $qb = $this->createQueryBuilder('c')
+            ->addOrderBy('c.view', 'desc');
+
+        if (is_int($maxResult)) {
+            $qb->setMaxResults($maxResult);
+        }
+        else {
+            $qb->setMaxResults(3);
+        }
+        return $qb->getQuery()->getResult();
+    }
+
+    /**
+     * @param $maxResult
+     * @return array
+     */
+    public function getRecentCourse($maxResult)
+    {
+        $qb = $this->createQueryBuilder('c')
+            ->addOrderBy('c.createdAt', 'desc');
+
+        if (is_int($maxResult)) {
+            $qb->setMaxResults($maxResult);
+        }
+        else {
+            $qb->setMaxResults(3);
+        }
+        return $qb->getQuery()->getResult();
+    }
 }
