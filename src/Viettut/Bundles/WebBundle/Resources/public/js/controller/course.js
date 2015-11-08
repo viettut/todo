@@ -15,7 +15,7 @@
         .module('viettut')
         .controller('CourseController', GuideController);
 
-    function GuideController($auth, $http, $scope, $window, Upload, $timeout, $sce) {
+    function GuideController($auth, $http, $scope, $window, Upload, $timeout, $state) {
         $scope.laddaLoading = false;
         $scope.error = '';
         $scope.showError = false;
@@ -35,7 +35,7 @@
         $scope.previewText = 'Show Preview';
         $scope.showPreview = false;
 
-
+        $scope.course = {};
 
         $scope.initTag = function() {
             $http.defaults.headers.common.Authorization = "Bearer " + $auth.getToken();
@@ -71,7 +71,7 @@
             var data = {
                 header: $scope.chapter,
                 content: $scope.content,
-                course: $scope.course
+                course: $scope.course.id
             };
 
             // start progress
@@ -118,7 +118,9 @@
                 function(response){
                     $scope.laddaLoading = false;
                     if(response.status == 201) {
-                        $window.location.href = '/app_dev.php/courses/' + response.data.id + '/add-chapter';
+                        $scope.course = response.data;
+                        console.log(JSON.stringify($scope.course));
+                        $state.go('add-chapter');
                     }
                 },
                 function(response){

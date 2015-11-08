@@ -10,17 +10,11 @@
      * Main module of the application.
      */
     angular
-        .module('viettut', ['decipher.tags', 'ui.bootstrap.typeahead', 'ngTagsInput', 'ngSanitize', 'ngFileUpload', 'wiz.markdown', 'ladda', 'ngStorage', 'ngUpload', 'satellizer', 'ngProgress', 'ngAnimate', 'toastr', 'angularUtils.directives.dirPagination', 'hc.marked', 'iso.directives', 'ui.bootstrap'])
-        .config(function ($authProvider, markedProvider, $interpolateProvider) {
+        .module('viettut', ['ui.router', 'ngTagsInput', 'ngSanitize', 'ngFileUpload', 'wiz.markdown', 'ladda', 'ngStorage', 'satellizer', 'ngAnimate', 'angularUtils.directives.dirPagination', 'iso.directives', 'ui.bootstrap'])
+        .config(function ($authProvider, $interpolateProvider) {
             $interpolateProvider.startSymbol('<{');
             $interpolateProvider.endSymbol('}>');
-            markedProvider.setOptions({
-                gfm: true,
-                tables: true,
-                highlight: function (code) {
-                    return hljs.highlightAuto(code).value;
-                }
-            });
+
             // Satellizer configuration that specifies which API
             // route the JWT should be retrieved from
             $authProvider.loginUrl = '/app_dev.php/api/v1/getToken';

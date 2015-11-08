@@ -12,4 +12,4 @@ Viettut\Entity\Core\Tag:
             groups: [tag.detail, tag.summary]
         deletedAt:
             expose: true
-            groups: [tag.detail, tag.summary]
+            groups: [tag.detail]

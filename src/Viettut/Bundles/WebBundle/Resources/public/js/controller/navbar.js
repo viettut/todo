@@ -15,7 +15,7 @@
         .module('viettut')
         .controller('NavBarController', NavBarController);
 
-        function NavBarController($scope, $auth, $window, toastr, $localStorage) {
+        function NavBarController($scope, $auth, $window, $localStorage) {
             //console.log('isAuthenticated -> ' + )
             $scope.username = $localStorage.username;
             $scope.name = $localStorage.name;
@@ -33,7 +33,6 @@
                     .logout()
                     .then(function() {
                         $window.location.href = '/app_dev.php/';
-                        toastr.info('You are now logged out!', 'Information!');
                     });
             };
 
@@ -44,6 +43,5 @@
             $scope.isOnUserPage = function(){
                 return ($window.location.href.toString().match('/\/register') || $window.location.href.toString().match('/\/login'));
             };
-        };
-
+        }
 })();

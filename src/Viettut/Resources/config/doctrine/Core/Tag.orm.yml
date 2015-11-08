@@ -6,6 +6,10 @@ Viettut\Entity\Core\Tag:
         soft_deleteable:
             field_name: deletedAt
             time_aware: false
+    uniqueConstraints:
+        tag_name_unique:
+            columns:
+                - text
     id:
         id:
             type: integer
