@@ -19,6 +19,8 @@ class Comment extends CommentModel
     protected $tutorial;
     protected $chapter;
     protected $like;
+    protected $children;
+    protected $parent;
     protected $createdAt;
     protected $deletedAt;
 

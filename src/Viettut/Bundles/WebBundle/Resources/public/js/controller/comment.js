@@ -1,0 +1,94 @@
+/**
+ * Created by giang on 8/23/15.
+ */
+(function() {
+    'use strict';
+
+    /**
+     * @ngdoc function
+     * @name viettut.controller:ChapterController
+     * @description
+     * # ChapterController
+     * Controller of the viettut
+     */
+    angular
+        .module('viettut')
+        .controller('CommentController', CommentController);
+
+    function CommentController($auth, $http, $scope, $window) {
+        $scope.content = '';
+        $scope.laddaLoading = false;
+        $scope.error = '';
+        $scope.showError = false;
+
+        $scope.showReplyForm = function() {
+
+        };
+
+        $scope.reply = function() {
+            $http.defaults.headers.common.Authorization = "Bearer " + $auth.getToken();
+            var data = {
+                header: $scope.header,
+                content: $scope.content,
+                course: $scope.course.id
+            };
+
+            // start progress
+            $scope.laddaLoading = true;
+
+            $http.post('/app_dev.php/api/v1/chapters', data).
+                then(
+                function(response){
+                    $scope.laddaLoading = false;
+                    if(response.status == 201) {
+                        $window.location.reload();
+                    }
+                },
+                function(response){
+                    if(response.status == 401) {
+                        if($auth.isAuthenticated()) {
+                            $auth.logout();
+                        }
+                        // re-login
+                        $window.location.href = '/app_dev.php/login';
+                    }
+
+                    $scope.laddaLoading = false;
+                    $scope.error = response.data;
+                    $scope.showError = true;
+                });
+        };
+
+        $scope.addComment = function() {
+            $http.defaults.headers.common.Authorization = "Bearer " + $auth.getToken();
+
+            var data = {
+                content: $scope.content
+            };
+
+            $http.post('/app_dev.php/api/v1/comments', data).
+                then(
+                function(response){
+                    $scope.laddaLoading = false;
+                    if(response.status == 201) {
+                        $window.location.reload();
+                    }
+                },
+                function(response){
+                    if(response.status == 401) {
+                        if($auth.isAuthenticated()) {
+                            $auth.logout();
+                        }
+                        // re-login
+                        $window.location.href = '/app_dev.php/login';
+                    }
+
+                    $scope.laddaLoading = false;
+                    $scope.error = response.data;
+                    $scope.showError = true;
+                });
+        };
+
+        $scope.isAuthenticated = $auth.isAuthenticated();
+    }
+})();

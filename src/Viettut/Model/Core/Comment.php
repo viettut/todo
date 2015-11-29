@@ -9,6 +9,7 @@
 namespace Viettut\Model\Core;
 
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Viettut\Model\User\UserEntityInterface;
 
 class Comment implements CommentInterface
@@ -52,6 +53,16 @@ class Comment implements CommentInterface
      * @var integer
      */
     protected $like;
+
+    /**
+     * @var ArrayCollection
+     */
+    protected $children;
+
+    /**
+     * @var CommentInterface
+     */
+    protected $parent;
 
     /**
      * @var \DateTime
@@ -236,5 +247,65 @@ class Comment implements CommentInterface
     {
         $this->tutorial = $tutorial;
         return $this;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getChildren()
+    {
+        return $this->children;
+    }
+
+    /**
+     * @param ArrayCollection $children
+     * @return self
+     */
+    public function setChildren($children)
+    {
+        $this->children = $children;
+
+        return $this;
+    }
+
+
+    /**
+     * @param CommentInterface $child
+     * @return self
+     */
+    public function addChildren(CommentInterface $child)
+    {
+        if ($this->children === null) {
+            $this->children = new ArrayCollection();
+        }
+
+        $this->children->add($child);
+
+        return $this;
+    }
+
+    /**
+     * @return CommentInterface
+     */
+    public function getParent()
+    {
+        return $this->parent;
+    }
+
+    /**
+     * @param CommentInterface $parent
+     * @return self
+     */
+    public function setParent($parent)
+    {
+        $this->parent = $parent;
+
+        return $this;
+    }
+
+
+    function __toString()
+    {
+        return 'comment_' . $this->id;
     }
 }

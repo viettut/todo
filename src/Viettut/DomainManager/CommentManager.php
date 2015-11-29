@@ -14,6 +14,8 @@ use ReflectionClass;
 use Viettut\Exception\InvalidArgumentException;
 use Viettut\Model\Core\ChapterInterface;
 use Viettut\Model\Core\CommentInterface;
+use Viettut\Model\Core\CourseInterface;
+use Viettut\Model\Core\TutorialInterface;
 use Viettut\Model\ModelInterface;
 use Viettut\Repository\Core\ChapterRepositoryInterface;
 use Viettut\Repository\Core\CommentRepositoryInterface;
@@ -98,5 +100,38 @@ class CommentManager implements CommentManagerInterface
     public function all($limit = null, $offset = null)
     {
         return $this->repository->findBy($criteria = [], $orderBy = null, $limit, $offset);
+    }
+
+    /**
+     * @param CourseInterface $course
+     * @param null $limit
+     * @param null $offset
+     * @return mixed
+     */
+    public function getByCourse(CourseInterface $course, $limit = null, $offset = null)
+    {
+        return $this->repository->getByCourse($course, $limit, $offset);
+    }
+
+    /**
+     * @param ChapterInterface $chapter
+     * @param null $limit
+     * @param null $offset
+     * @return mixed
+     */
+    public function getByChapter(ChapterInterface $chapter, $limit = null, $offset = null)
+    {
+        return $this->repository->getByChapter($chapter, $limit, $offset);
+    }
+
+    /**
+     * @param TutorialInterface $tutorial
+     * @param null $limit
+     * @param null $offset
+     * @return mixed
+     */
+    public function getByTutorial(TutorialInterface $tutorial, $limit = null, $offset = null)
+    {
+        return $this->repository->getByTutorial($tutorial, $limit, $offset);
     }
 }

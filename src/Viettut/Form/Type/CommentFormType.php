@@ -35,6 +35,7 @@ class CommentFormType extends AbstractRoleSpecificFormType
             ->add('course')
             ->add('chapter')
             ->add('tutorial')
+            ->add('parent')
         ;
 
         $builder->addEventListener(
@@ -45,12 +46,17 @@ class CommentFormType extends AbstractRoleSpecificFormType
 
                 if ($comment->getCourse() === null &&
                     $comment->getTutorial() === null &&
-                    $comment->getChapter() === null) {
+                    $comment->getParent() === null &&
+                    $comment->getChapter() === null ) {
                     $event->getForm()->get('course')->addError(new FormError('invalid argument'));
                     $event->getForm()->get('chapter')->addError(new FormError('invalid argument'));
                     $event->getForm()->get('tutorial')->addError(new FormError('invalid argument'));
+                    $event->getForm()->get('parent')->addError(new FormError('invalid argument'));
                     return;
                 }
+
+                $parent = $comment->getParent();
+                $parent->addChildren($comment);
 
                 $comment->setActive(true);
                 $comment->setLike(0);

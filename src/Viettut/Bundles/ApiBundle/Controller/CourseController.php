@@ -50,7 +50,7 @@ class CourseController extends RestControllerAbstract implements ClassResourceIn
      * Get a single adTag for the given id
      *
      * @Rest\View(
-     *      serializerGroups={"course.detail", "user.summary"}
+     *      serializerGroups={"course.detail", "user.summary", "chapter.detail", "comment.summary"}
      * )
      * @ApiDoc(
      *  resource = true,
@@ -72,6 +72,10 @@ class CourseController extends RestControllerAbstract implements ClassResourceIn
 
 
     /**
+     *
+     * @Rest\View(
+     *      serializerGroups={"course.detail", "user.summary", "chapter.detail"}
+     * )
      * get all chapter that belong to the given course
      * @param $id
      * @return mixed
@@ -82,6 +86,23 @@ class CourseController extends RestControllerAbstract implements ClassResourceIn
 
         $chapterManager = $this->get('viettut.domain_manager.chapter');
         return $chapterManager->getChaptersByCourse($course);
+    }
+
+    /**
+     *
+     * @Rest\View(
+     *      serializerGroups={"course.summary", "user.summary", "comment.detail"}
+     * )
+     *
+     * @param $id
+     * @return mixed
+     */
+    public function cgetCommentsAction($id)
+    {
+        $course = $this->one($id);
+
+        $commentManager = $this->get('viettut.domain_manager.comment');
+        return $commentManager->getByCourse($course);
     }
 
     /**

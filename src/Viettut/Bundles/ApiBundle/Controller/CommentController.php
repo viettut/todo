@@ -19,19 +19,20 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Viettut\Handler\HandlerInterface;
 use Viettut\Model\Core\ChapterInterface;
+use Viettut\Model\Core\CommentInterface;
 use Viettut\Model\Core\CourseInterface;
 
 /**
- * @RouteResource("Chapter")
+ * @RouteResource("Comment")
  */
-class ChapterController extends RestControllerAbstract implements ClassResourceInterface
+class CommentController extends RestControllerAbstract implements ClassResourceInterface
 {
 
     /**
-     * Get all chapter
+     * Get all comment
      *
      * @Rest\View(
-     *      serializerGroups={"chapter.summary", "user.summary"}
+     *      serializerGroups={"chapter.summary", "user.summary", "course.summary", "tutorial.summary"}
      * )
      *
      * @ApiDoc(
@@ -41,7 +42,7 @@ class ChapterController extends RestControllerAbstract implements ClassResourceI
      *  }
      * )
      *
-     * @return ChapterInterface[]
+     * @return CommentInterface[]
      */
     public function cgetAction()
     {
@@ -49,10 +50,10 @@ class ChapterController extends RestControllerAbstract implements ClassResourceI
     }
 
     /**
-     * Get a single chapter for the given id
+     * Get a single comment for the given id
      *
      * @Rest\View(
-     *      serializerGroups={"chapter.detail", "user.summary", "comment.summary"}
+     *      serializerGroups={"chapter.summary", "user.summary", "course.summary", "tutorial.summary"}
      * )
      * @ApiDoc(
      *  resource = true,
@@ -74,24 +75,7 @@ class ChapterController extends RestControllerAbstract implements ClassResourceI
 
 
     /**
-     *
-     * @Rest\View(
-     *      serializerGroups={"chapter.summary", "user.summary", "comment.detail"}
-     * )
-     * @param $id
-     * @return mixed
-     */
-    public function cgetCommentsAction($id)
-    {
-        $chapter = $this->one($id);
-
-        $commentManager = $this->get('viettut.domain_manager.comment');
-        return $commentManager->getByChapter($chapter);
-    }
-
-
-    /**
-     * Create a chapter from the submitted data
+     * Create a comment from the submitted data
      *
      * @ApiDoc(
      *  resource = true,
@@ -115,7 +99,7 @@ class ChapterController extends RestControllerAbstract implements ClassResourceI
      */
     protected function getResourceName()
     {
-        return 'chapter';
+        return 'comment';
     }
 
     /**
@@ -125,7 +109,7 @@ class ChapterController extends RestControllerAbstract implements ClassResourceI
      */
     protected function getGETRouteName()
     {
-        return 'api_1_get_chapter';
+        return 'api_1_get_comment';
     }
 
     /**
@@ -133,6 +117,6 @@ class ChapterController extends RestControllerAbstract implements ClassResourceI
      */
     protected function getHandler()
     {
-        return $this->container->get('viettut_api.handler.chapter');
+        return $this->container->get('viettut_api.handler.comment');
     }
 }

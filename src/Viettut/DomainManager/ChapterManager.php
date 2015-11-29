@@ -121,6 +121,4 @@ class ChapterManager implements ChapterManagerInterface
     {
         return $this->repository->getChaptersByCourse($course, $limit, $offset);
     }
-
-
 }

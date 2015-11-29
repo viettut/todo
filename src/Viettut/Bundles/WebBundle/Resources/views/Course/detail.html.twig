@@ -42,142 +42,82 @@
                                 <span class="month">{{ course.createdAt | date('F') | slice(0, 3) }}</span>
                             </div>
                             <div class="post-content">
-                                <h2 class="text-center"><a href="blog-post.html">{{ course.title }}</a></h2>
+                                <h2 class="text-center"><a href="#">{{ course.title }}</a></h2>
                                 <div ng-model="introduce" id="introduce" ng-hide="true">{{ course.introduce }} </div>
                                 <div ng-init="course={{ course.id }}"></div>
                                 <wiz-markdown content="introduce"></wiz-markdown>
                                 <button class="btn btn-primary btn-lg pull-left">Previous Chapter</button>
                                 <button class="btn btn-primary btn-lg pull-right">Next Chapter</button>
-                                <div class="post-block post-comments clearfix">
-                                    <h3><i class="fa fa-comments"></i>Comments (3)</h3>
-
-                                    <ul class="comments">
-                                        <li>
-                                            <div class="comment">
-                                                <div class="img-thumbnail">
-                                                    <img class="avatar" alt="" src="{{ asset('bundles/viettutweb/img/avatar-2.jpg') }}">
-                                                </div>
-                                                <div class="comment-block">
-                                                    <div class="comment-arrow"></div>
-															<span class="comment-by">
-																<strong>John Doe</strong>
-																<span class="pull-right">
-																	<span> <a href="#"><i class="fa fa-reply"></i> Reply</a></span>
-																</span>
-															</span>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae, gravida pellentesque urna varius vitae. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim ornare nisi, vitae mattis nulla ante id dui.</p>
-                                                    <span class="date pull-right">January 12, 2013 at 1:38 pm</span>
-                                                </div>
-                                            </div>
-
-                                            <ul class="comments reply">
+                                <div ng-controller="CommentController">
+                                    <div class="post-block post-comments clearfix">
+                                        <h3><i class="fa fa-comments"></i>Comments ({{ count(comments) }})</h3>
+                                        <ul class="comments">
+                                            {% for comment in comments %}
                                                 <li>
                                                     <div class="comment">
                                                         <div class="img-thumbnail">
-                                                            <img class="avatar" alt="" src="{{ asset('bundles/viettutweb/img/avatar-3.jpg') }}">
+                                                            <img class="avatar" alt="" src="{{ asset('bundles/viettutweb/img/avatar-2.jpg') }}">
                                                         </div>
                                                         <div class="comment-block">
                                                             <div class="comment-arrow"></div>
-																	<span class="comment-by">
-																		<strong>John Doe</strong>
-																		<span class="pull-right">
-																			<span> <a href="#"><i class="fa fa-reply"></i> Reply</a></span>
-																		</span>
-																	</span>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae, gravida pellentesque urna varius vitae.</p>
-                                                            <span class="date pull-right">January 12, 2013 at 1:38 pm</span>
+                                                                <span class="comment-by">
+                                                                    <strong>{{ comment.author.username }}</strong>
+                                                                    <span class="pull-right">
+                                                                        <span> <a href="#"><i class="fa fa-reply"></i> Reply</a></span>
+                                                                    </span>
+                                                                </span>
+                                                            <p>{{ comment.content }}</p>
+                                                            <span class="date pull-right">{{ comment.createdAt | date('h:M d/m/Y') }}</span>
                                                         </div>
                                                     </div>
+                                                    <ul class="comments reply">
+                                                        <li>
+                                                            {% for reply in comment.replies %}
+                                                                <div class="comment">
+                                                                    <div class="img-thumbnail">
+                                                                        <img class="avatar" alt="" src="{{ asset('bundles/viettutweb/img/avatar-3.jpg') }}">
+                                                                    </div>
+                                                                    <div class="comment-block">
+                                                                        <div class="comment-arrow"></div>
+                                                                            <span class="comment-by">
+                                                                                <strong>{{ reply.author.username }}</strong>
+                                                                            </span>
+                                                                        <p>{{ reply.content }}</p>
+                                                                        <span class="date pull-right">{{ reply.createdAt | date('h:M d/m/Y') }}</span>
+                                                                    </div>
+                                                                </div>
+                                                            {% endfor %}
+                                                        </li>
+                                                    </ul>
                                                 </li>
-                                                <li>
-                                                    <div class="comment">
-                                                        <div class="img-thumbnail">
-                                                            <img class="avatar" alt="" src="{{ asset('bundles/viettutweb/img/avatar-4.jpg') }}">
-                                                        </div>
-                                                        <div class="comment-block">
-                                                            <div class="comment-arrow"></div>
-																	<span class="comment-by">
-																		<strong>John Doe</strong>
-																		<span class="pull-right">
-																			<span> <a href="#"><i class="fa fa-reply"></i> Reply</a></span>
-																		</span>
-																	</span>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae, gravida pellentesque urna varius vitae.</p>
-                                                            <span class="date pull-right">January 12, 2013 at 1:38 pm</span>
-                                                        </div>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+
+                                    <div class="post-block post-leave-comment">
+                                        <h3>Leave a comment</h3>
+                                        <form>
+                                            <div class="row">
+                                                <div class="form-group">
+                                                    <div class="col-md-12">
+                                                        <label>Comment *</label>
+                                                        <textarea maxlength="5000" rows="10" ng-model="content" class="form-control" name="comment"></textarea>
                                                     </div>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <div class="comment">
-                                                <div class="img-thumbnail">
-                                                    <img class="avatar" alt="" src="{{ asset('bundles/viettutweb/img/avatar.jpg') }}">
-                                                </div>
-                                                <div class="comment-block">
-                                                    <div class="comment-arrow"></div>
-															<span class="comment-by">
-																<strong>John Doe</strong>
-																<span class="pull-right">
-																	<span> <a href="#"><i class="fa fa-reply"></i> Reply</a></span>
-																</span>
-															</span>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                                    <span class="date pull-right">January 12, 2013 at 1:38 pm</span>
                                                 </div>
                                             </div>
-                                        </li>
-                                        <li>
-                                            <div class="comment">
-                                                <div class="img-thumbnail">
-                                                    <img class="avatar" alt="" src="{{ asset('bundles/viettutweb/img/avatar.jpg') }}">
-                                                </div>
-                                                <div class="comment-block">
-                                                    <div class="comment-arrow"></div>
-															<span class="comment-by">
-																<strong>John Doe</strong>
-																<span class="pull-right">
-																	<span> <a href="#"><i class="fa fa-reply"></i> Reply</a></span>
-																</span>
-															</span>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                                    <span class="date pull-right">January 12, 2013 at 1:38 pm</span>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-
-                                </div>
-                                <div class="post-block post-leave-comment">
-                                    <h3>Leave a comment</h3>
-
-                                    <form action="" method="post">
-                                        <div class="row">
-                                            <div class="form-group">
-                                                <div class="col-md-6">
-                                                    <label>Your name *</label>
-                                                    <input type="text" value="" maxlength="100" class="form-control" name="name" id="name">
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <label>Your email address *</label>
-                                                    <input type="email" value="" maxlength="100" class="form-control" name="email" id="email">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="form-group">
+                                            <div class="row">
                                                 <div class="col-md-12">
-                                                    <label>Comment *</label>
-                                                    <textarea maxlength="5000" rows="10" class="form-control" name="comment" id="comment"></textarea>
+                                                    <button
+                                                            ladda-button="laddaLoading"
+                                                            data-style="slide-right"
+                                                            ng-disabled="!isAuthenticated"
+                                                            ng-click="addComment()"
+                                                            class="ladda-button btn-primary"
+                                                            style="border-radius: 5px;">Post Comment</button>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <input type="submit" value="Post Comment" class="btn btn-primary btn-lg" data-loading-text="Loading...">
-                                            </div>
-                                        </div>
-                                    </form>
+                                        </form>
+                                    </div>
                                 </div>
 
                             </div>

@@ -12,6 +12,7 @@ namespace Viettut\Bundles\ApiBundle\Controller;
 use FOS\RestBundle\Controller\Annotations\RouteResource;
 use FOS\RestBundle\Routing\ClassResourceInterface;
 use Viettut\Handler\HandlerInterface;
+use FOS\RestBundle\Controller\Annotations as Rest;
 
 /**
  * @RouteResource("Tutorial")
@@ -19,7 +20,22 @@ use Viettut\Handler\HandlerInterface;
 class TutorialController extends RestControllerAbstract implements ClassResourceInterface
 {
 
-    
+    /**
+     *
+     * @Rest\View(
+     *      serializerGroups={"tutorial.summary", "user.summary", "comment.detail"}
+     * )
+     * @param $id
+     * @return mixed
+     */
+    public function cgetCommentsAction($id)
+    {
+        $tutorial = $this->one($id);
+
+        $commentManager = $this->get('viettut.domain_manager.comment');
+        return $commentManager->getByTutorial($tutorial);
+    }
+
     /**
      * @return string
      */

@@ -37,3 +37,8 @@ api_tag:
     type: rest
     resource: Viettut\Bundles\ApiBundle\Controller\TagController
     name_prefix:  api_1_
+
+api_comment:
+    type: rest
+    resource: Viettut\Bundles\ApiBundle\Controller\CommentController
+    name_prefix:  api_1_

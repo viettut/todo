@@ -95,14 +95,16 @@ class CourseController extends Controller
      * @param $id
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function detailAction($hash, $id){
+    public function detailAction($hash, $id)
+    {
         $course = $this->get('viettut.repository.course')->find($id);
+        $comments = $this->get('viettut.domain_manager.comment')->getByCourse($course);
 
         if(!$course instanceof CourseInterface) {
             throw new NotFoundHttpException('');
         }
 
-        return $this->render('ViettutWebBundle:Course:detail.html.twig', array('course' => $course));
+        return $this->render('ViettutWebBundle:Course:detail.html.twig', array('course' => $course, "comments" => $comments));
     }
 
     /**

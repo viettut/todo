@@ -9,6 +9,7 @@
 namespace Viettut\Model\Core;
 
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Viettut\Model\User\UserEntityInterface;
 use Viettut\Model\ModelInterface;
 
@@ -116,4 +117,32 @@ interface CommentInterface extends ModelInterface
      * @return self
      */
     public function setTutorial($tutorial);
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getChildren();
+
+    /**
+     * @param ArrayCollection $children
+     * @return self
+     */
+    public function setChildren($children);
+
+    /**
+     * @param CommentInterface $child
+     * @return self
+     */
+    public function addChildren(CommentInterface $child);
+
+    /**
+     * @return CommentInterface
+     */
+    public function getParent();
+
+    /**
+     * @param CommentInterface $parent
+     * @return self
+     */
+    public function setParent($parent);
 }

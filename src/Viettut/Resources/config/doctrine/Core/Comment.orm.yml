@@ -42,5 +42,12 @@ Viettut\Entity\Core\Comment:
         chapter:
             targetEntity: Viettut\Entity\Core\Tutorial
             inversedBy: comments
-            
+        parent:
+            targetEntity: Viettut\Entity\Core\Comment
+            inversedBy: children
+    oneToMany:
+        children:
+            targetEntity: Viettut\Entity\Core\Comment
+            mappedBy: parent
+
     lifecycleCallbacks: {  }
