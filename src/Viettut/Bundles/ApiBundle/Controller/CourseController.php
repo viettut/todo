@@ -70,6 +70,20 @@ class CourseController extends RestControllerAbstract implements ClassResourceIn
         return $this->one($id);
     }
 
+
+    /**
+     * get all chapter that belong to the given course
+     * @param $id
+     * @return mixed
+     */
+    public function cgetChaptersAction($id)
+    {
+        $course = $this->one($id);
+
+        $chapterManager = $this->get('viettut.domain_manager.chapter');
+        return $chapterManager->getChaptersByCourse($course);
+    }
+
     /**
      * Create a adTag from the submitted data
      *

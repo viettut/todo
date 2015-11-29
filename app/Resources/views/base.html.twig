@@ -190,7 +190,7 @@
         </div>
     </header>
 
-    <div role="main" class="main" ng-controller="{% block controller %}{% endblock %}">
+    <div role="main" class="main" {% block controller %}{% endblock %}>
         {% block main %}
         {% endblock %}
     </div>
@@ -300,7 +300,10 @@
 
 <script src="{{ asset('bundles/viettutweb/js/app.js') }}"></script>
 <script src="{{ asset('bundles/viettutweb/js/controller/home.js') }}"></script>
+<script src="{{ asset('bundles/viettutweb/js/services/course.js') }}"></script>
+<script src="{{ asset('bundles/viettutweb/js/services/chapter.js') }}"></script>
 <script src="{{ asset('bundles/viettutweb/js/controller/course.js') }}"></script>
+<script src="{{ asset('bundles/viettutweb/js/controller/chapter.js') }}"></script>
 <script src="{{ asset('bundles/viettutweb/js/controller/login.js') }}"></script>
 <script src="{{ asset('bundles/viettutweb/js/controller/register.js') }}"></script>
 <script src="{{ asset('bundles/viettutweb/js/controller/navbar.js') }}"></script>

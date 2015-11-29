@@ -37,6 +37,6 @@ Viettut\Entity\Core\Course:
         enroll:
             expose: true
             groups: [course.detail]
-        deletedAt:
+        createdAt:
             expose: true
             groups: [course.detail, course.summary]

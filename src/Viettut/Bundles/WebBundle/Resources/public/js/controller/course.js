@@ -119,8 +119,7 @@
                     $scope.laddaLoading = false;
                     if(response.status == 201) {
                         $scope.course = response.data;
-                        console.log(JSON.stringify($scope.course));
-                        $state.go('add-chapter');
+                        $state.go('add-chapter', {cid: response.data.id});
                     }
                 },
                 function(response){

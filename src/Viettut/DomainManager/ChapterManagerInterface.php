@@ -9,6 +9,7 @@
 namespace Viettut\DomainManager;
 
 
+use Viettut\Model\Core\CourseInterface;
 use Viettut\Model\User\Role\LecturerInterface;
 
 interface ChapterManagerInterface extends ManagerInterface
@@ -20,4 +21,12 @@ interface ChapterManagerInterface extends ManagerInterface
      * @return mixed
      */
     public function getChapterByLecturer(LecturerInterface $lecturer, $limit = null, $offset = null);
+
+    /**
+     * @param CourseInterface $course
+     * @param null $limit
+     * @param null $offset
+     * @return mixed
+     */
+    public function getChaptersByCourse(CourseInterface $course, $limit = null, $offset = null);
 }

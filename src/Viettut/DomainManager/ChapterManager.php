@@ -13,6 +13,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use ReflectionClass;
 use Viettut\Exception\InvalidArgumentException;
 use Viettut\Model\Core\ChapterInterface;
+use Viettut\Model\Core\CourseInterface;
 use Viettut\Model\ModelInterface;
 use Viettut\Model\User\Role\LecturerInterface;
 use Viettut\Repository\Core\ChapterRepositoryInterface;
@@ -109,4 +110,17 @@ class ChapterManager implements ChapterManagerInterface
     {
         return $this->repository->getChapterByLecturer($lecturer, $limit, $offset);
     }
+
+    /**
+     * @param CourseInterface $course
+     * @param null $limit
+     * @param null $offset
+     * @return mixed
+     */
+    public function getChaptersByCourse(CourseInterface $course, $limit = null, $offset = null)
+    {
+        return $this->repository->getChaptersByCourse($course, $limit, $offset);
+    }
+
+
 }

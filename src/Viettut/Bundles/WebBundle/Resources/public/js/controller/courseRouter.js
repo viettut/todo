@@ -18,9 +18,17 @@
 
             $stateProvider
                 .state('add-chapter', {
-                    url: '/add-chapter',
+                    url: '/{cid}/add-chapter',
                     templateUrl: '/bundles/viettutweb/js/views/add-chapter.html',
-                    controller: 'CourseController'
+                    controller: 'ChapterController',
+                    params: {
+                        cid: null
+                    },
+                    resolve: {
+                        initialCourse: function (CourseService, $stateParams) {
+                            return CourseService.getCourse($stateParams.cid);
+                        }
+                    }
                 })
                 .state('create-course', {
                     url: '/',
