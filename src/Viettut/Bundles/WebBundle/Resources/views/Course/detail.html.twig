@@ -50,7 +50,7 @@
                                 <button class="btn btn-primary btn-lg pull-right">Next Chapter</button>
                                 <div ng-controller="CommentController">
                                     <div class="post-block post-comments clearfix">
-                                        <h3><i class="fa fa-comments"></i>Comments ({{ count(comments) }})</h3>
+                                        <h3><i class="fa fa-comments"></i>Comments ({{ comments | length }})</h3>
                                         <ul class="comments">
                                             {% for comment in comments %}
                                                 <li>

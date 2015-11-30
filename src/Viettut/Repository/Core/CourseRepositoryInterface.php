@@ -38,4 +38,11 @@ interface CourseRepositoryInterface extends ObjectRepository
      * @return array
      */
     public function getRecentCourse($maxResult);
+
+    /**
+     * @param LecturerInterface $lecturer
+     * @param $hash
+     * @return CourseInterface | null
+     */
+    public function getByLecturerAndHash(LecturerInterface $lecturer, $hash);
 }

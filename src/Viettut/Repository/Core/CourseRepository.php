@@ -84,4 +84,21 @@ class CourseRepository extends EntityRepository implements CourseRepositoryInter
         }
         return $qb->getQuery()->getResult();
     }
+
+    /**
+     * @param LecturerInterface $lecturer
+     * @param $hashTag
+     * @return mixed
+     */
+    public function getByLecturerAndHash(LecturerInterface $lecturer, $hashTag)
+    {
+        $qb = $this->createQueryBuilder('c')
+            ->where('c.author = :author_id')
+            ->andWhere('c.hashTag = :hashTag')
+            ->setParameter('author_id', $lecturer->getId(), TYPE::INTEGER)
+            ->setParameter('hashTag', $hashTag, Type::STRING)
+        ;
+
+        return $qb->getQuery()->getOneOrNullResult();
+    }
 }

@@ -18,6 +18,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Viettut\Exception\InvalidArgumentException;
 use Viettut\Model\Core\CourseInterface;
+use Viettut\Model\User\Role\LecturerInterface;
 use Viettut\Model\User\UserEntityInterface;
 
 class CourseController extends Controller
@@ -88,16 +89,23 @@ class CourseController extends Controller
     /**
      * present a specific guide
      *
-     * @Route("/courses/{hash}/{id}")
+     * @Route("/{username}/courses/{hash}")
      * @Template()
      *
+     * @param $username
      * @param $hash
-     * @param $id
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function detailAction($hash, $id)
+    public function detailAction($username, $hash)
     {
-        $course = $this->get('viettut.repository.course')->find($id);
+        $lecturer = $this->get('viettut_user.domain_manager.lecturer')->findUserByUsernameOrEmail($username);
+        if (!$lecturer instanceof LecturerInterface) {
+            throw new NotFoundHttpException(
+                sprintf("The resource was not found or you do not have access")
+            );
+        }
+
+        $course = $this->get('viettut.repository.course')->getByLecturerAndHash($lecturer, $hash);
         $comments = $this->get('viettut.domain_manager.comment')->getByCourse($course);
 
         if(!$course instanceof CourseInterface) {

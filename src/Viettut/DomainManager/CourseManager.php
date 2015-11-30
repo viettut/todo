@@ -53,6 +53,13 @@ class CourseManager implements CourseManagerInterface
             throw new InvalidArgumentException('expect an CourseInterface object');
         }
 
+        $hashTag = $entity->getHashTag();
+        $course = $this->repository->getCourseByHashTag($hashTag);
+
+        if ($course instanceof CourseInterface) {
+            $entity->setHashTag($hashTag . uniqid("", true));
+        }
+        
         $this->em->persist($entity);
         $this->em->flush();
     }

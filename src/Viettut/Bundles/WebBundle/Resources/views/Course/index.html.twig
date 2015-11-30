@@ -42,7 +42,7 @@
                                 </div>
                                 <div class="col-md-7">
                                     <div class="post-content">
-                                        <h2><a href="{{ path('viettut_bundles_web_course_detail', {'hash' : course.hashTag, 'id' : course.id}) }}">{{ course.title }}</a></h2>
+                                        <h2><a href="{{ path('viettut_bundles_web_course_detail', {'hash' : course.hashTag, 'username' : course.author.username}) }}">{{ course.title }}</a></h2>
                                         <p>{{ course.introduce | first_para }}</p>
                                     </div>
                                 </div>
