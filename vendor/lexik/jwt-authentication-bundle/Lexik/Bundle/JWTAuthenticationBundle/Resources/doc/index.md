@@ -31,6 +31,7 @@ public function registerBundles()
 Generate the SSH keys :
 
 ``` bash
+$ mkdir -p app/var/jwt
 $ openssl genrsa -out app/var/jwt/private.pem -aes256 4096
 $ openssl rsa -pubout -in app/var/jwt/private.pem -out app/var/jwt/public.pem
 ```
@@ -148,7 +149,9 @@ Notes
 #### About token expiration
 
 Each request after token expiration will result in a 401 response.
-Redo the authentication process to obtain a new token.
+Redo the authentication process to obtain a new token. 
+
+Maybe you want to use a **refresh token** to renew your JWT. In this case you can check [JWTRefreshTokenBundle](https://github.com/gesdinet/JWTRefreshTokenBundle).
 
 #### Working with CORS requests
 

@@ -16,7 +16,6 @@ class AppKernel extends Kernel
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-
             new FOS\UserBundle\FOSUserBundle(),
             new Rollerworks\Bundle\MultiUserBundle\RollerworksMultiUserBundle(),
             new FOS\RestBundle\FOSRestBundle(),
@@ -27,6 +26,8 @@ class AppKernel extends Kernel
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new Nelmio\CorsBundle\NelmioCorsBundle(),
             new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
+            new \Raphy\Symfony\MarkdownBundle\RaphyMarkdownBundle(),
+
             new Viettut\Bundles\AdminApiBundle\ViettutAdminApiBundle(),
             new Viettut\Bundles\ApiBundle\ViettutApiBundle(),
             new Viettut\Bundles\UserBundle\ViettutUserBundle(),

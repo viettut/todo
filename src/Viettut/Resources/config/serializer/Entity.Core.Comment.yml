@@ -4,6 +4,9 @@ Viettut\Entity\Core\Comment:
         id:
             expose: true
             groups: [comment.detail, comment.summary]
+        content:
+            expose: true
+            groups: [comment.detail, comment.summary]
         author:
             expose: true
             groups: [comment.detail, comment.summary]
@@ -19,7 +22,7 @@ Viettut\Entity\Core\Comment:
         children:
             expose: true
             groups: [comment.detail, comment.summary]
-        parent:
+        replyFor:
             expose: true
             groups: [comment.detail, comment.summary]
         createdAt:

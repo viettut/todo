@@ -18,10 +18,6 @@ Viettut\Entity\Core\Comment:
             nullable: false
         active:
             type: boolean
-        like:
-            type: integer
-            options:
-                default: 0
         createdAt:
             type: datetime
             gedmo:
@@ -42,12 +38,12 @@ Viettut\Entity\Core\Comment:
         chapter:
             targetEntity: Viettut\Entity\Core\Tutorial
             inversedBy: comments
-        parent:
+        replyFor:
             targetEntity: Viettut\Entity\Core\Comment
-            inversedBy: children
+            inversedBy: replies
     oneToMany:
-        children:
+        replies:
             targetEntity: Viettut\Entity\Core\Comment
-            mappedBy: parent
+            mappedBy: replyFor
 
     lifecycleCallbacks: {  }

@@ -256,30 +256,36 @@ class SortableListener extends MappedEventSubscriber
             $groupHasChanged = true;
         }
 
-        if (array_key_exists($config['position'], $changeSet)) {
-            // position was manually updated
-            $oldPosition = $changeSet[$config['position']][0];
-            $newPosition = $changeSet[$config['position']][1];
-            $changed = $changed || $oldPosition != $newPosition;
-        } elseif ($changed) {
-            // group has changed, so position has to be recalculated
-            $oldPosition = -1;
-            $newPosition = -1;
-            // specific case
-        }
-        if ($groupHasChanged) {
-            $oldPosition = -1;
-        }
-        if (!$changed) {
-            return;
-        }
-
         // Get hash
         $hash = $this->getHash($groups, $config);
 
         // Get max position
         if (!isset($this->maxPositions[$hash])) {
             $this->maxPositions[$hash] = $this->getMaxPosition($ea, $meta, $config, $object);
+        }
+
+        if (array_key_exists($config['position'], $changeSet)) {
+            if ($changed && -1 === $this->maxPositions[$hash]) {
+                // position has changed
+                // the group of element has changed
+                // and the target group has no children before
+                $oldPosition = -1;
+                $newPosition = -1;
+            } else {
+                // position was manually updated
+                $oldPosition = $changeSet[$config['position']][0];
+                $newPosition = $changeSet[$config['position']][1];
+                $changed = $changed || $oldPosition != $newPosition;
+            }
+        } elseif ($changed) {
+            $newPosition = $oldPosition;
+        }
+
+        if ($groupHasChanged) {
+            $oldPosition = -1;
+        }
+        if (!$changed) {
+            return;
         }
 
         // Compute position if it is negative
@@ -292,6 +298,12 @@ class SortableListener extends MappedEventSubscriber
 
             if ($newPosition < 0) {
                 $newPosition = 0;
+            }
+        } elseif ($newPosition > $this->maxPositions[$hash]) {
+            if ($groupHasChanged) {
+                $newPosition = $this->maxPositions[$hash] + 1;
+            } else {
+                $newPosition = $this->maxPositions[$hash];
             }
         } else {
             $newPosition = min(array($this->maxPositions[$hash], $newPosition));
@@ -423,9 +435,19 @@ class SortableListener extends MappedEventSubscriber
                             continue;
                         }
 
+                        $changeSet = $ea->getObjectChangeSet($uow, $object);
+
                         // if the entity's position is already changed, stop now
-                        if (array_key_exists($config['position'], $ea->getObjectChangeSet($uow, $object))) {
+                        if (array_key_exists($config['position'], $changeSet)) {
                             continue;
+                        }
+
+                        // if the entity's group has changed, we stop now
+                        $groups = $this->getGroups($meta, $config, $object);
+                        foreach (array_keys($groups) as $group) {
+                            if (array_key_exists($group, $changeSet)) {
+                                continue 2;
+                            }
                         }
 
                         $oid = spl_object_hash($object);
@@ -437,6 +459,9 @@ class SortableListener extends MappedEventSubscriber
                             $gr = $meta->getReflectionProperty($group)->getValue($object);
                             if (null === $value) {
                                 $matches = $gr === null;
+                            } elseif (is_object($gr) && is_object($value) && $gr !== $value) {
+                                // Special case for equal objects but different instances.
+                                $matches = $gr == $value;
                             } else {
                                 $matches = $gr === $value;
                             }

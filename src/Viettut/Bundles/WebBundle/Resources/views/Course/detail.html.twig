@@ -26,7 +26,6 @@
     </section>
 
     <div class="container">
-
         <div class="row">
             <div class="col-md-9">
                 <div class="row">
@@ -43,15 +42,20 @@
                             </div>
                             <div class="post-content">
                                 <h2 class="text-center"><a href="#">{{ course.title }}</a></h2>
-                                <div ng-model="introduce" id="introduce" ng-hide="true">{{ course.introduce }} </div>
-                                <div ng-init="course={{ course.id }}"></div>
-                                <wiz-markdown content="introduce"></wiz-markdown>
-                                <button class="btn btn-primary btn-lg pull-left">Previous Chapter</button>
-                                <button class="btn btn-primary btn-lg pull-right">Next Chapter</button>
-                                <div ng-controller="CommentController">
-                                    <div class="post-block post-comments clearfix">
+                                <div class="post-meta">
+                                    <span><i class="fa fa-user"></i> By <a href="#">John Doe</a> </span>
+                                    <span><i class="fa fa-tag"></i> <a href="#">Duis</a>, <a href="#">News</a> </span>
+                                    <span><i class="fa fa-comments"></i> <a href="#">{{ comments | length }} Comments</a></span>
+                                </div>
+                                <div>{{ course.introduce | markdown }} </div>
+                                <div class="row">
+                                    <button class="btn btn-primary btn-lg pull-left">Previous Chapter</button>
+                                    <button class="btn btn-primary btn-lg pull-right">Next Chapter</button>
+                                </div>
+                                <div ng-controller="CommentController" class="row col-md-12" ng-init="currentCourse='{{ course.id }}'">
+                                    <div class="post-block post-comments clearfix row col-md-12">
                                         <h3><i class="fa fa-comments"></i>Comments ({{ comments | length }})</h3>
-                                        <ul class="comments">
+                                        <ul class="comments" ng-hide="commentToggle">
                                             {% for comment in comments %}
                                                 <li>
                                                     <div class="comment">
@@ -91,11 +95,49 @@
                                                     </ul>
                                                 </li>
                                             {% endfor %}
+                                            </ul>
+                                        <ul class="comments" ng-hide="!commentToggle">
+                                            <li ng-repeat="comment in comments">
+                                                <div class="comment">
+                                                    <div class="img-thumbnail">
+                                                        <img class="avatar" alt="" src="{{ asset('bundles/viettutweb/img/avatar-2.jpg') }}">
+                                                    </div>
+                                                    <div class="comment-block">
+                                                        <div class="comment-arrow"></div>
+                                                                <span class="comment-by">
+                                                                    <strong><{ comment.author.username }></strong>
+                                                                    <span class="pull-right">
+                                                                        <span> <a href="#"><i class="fa fa-reply"></i> Reply</a></span>
+                                                                    </span>
+                                                                </span>
+                                                        <p><{ comment.content }></p>
+                                                        <span class="date pull-right"><{ comment.createdAt | date:'yyyy-MM-dd HH:mm:ss' }></span>
+                                                    </div>
+                                                </div>
+                                                <ul class="comments reply">
+                                                    <li ng-repeat="reply in comment.replies">
+                                                        <div class="comment">
+                                                            <div class="img-thumbnail">
+                                                                <img class="avatar" alt="" src="{{ asset('bundles/viettutweb/img/avatar-3.jpg') }}">
+                                                            </div>
+                                                            <div class="comment-block">
+                                                                <div class="comment-arrow"></div>
+                                                                        <span class="comment-by">
+                                                                            <strong><{ reply.author.username }></strong>
+                                                                        </span>
+                                                                <p><{ reply.content }></p>
+                                                                <span class="date pull-right"><{ reply.createdAt | date:'yyyy-MM-dd HH:mm:ss' }></span>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </li>
                                         </ul>
                                     </div>
 
                                     <div class="post-block post-leave-comment">
                                         <h3>Leave a comment</h3>
+                                        <div ng-init="currentCourse={{ course.id }}"></div>
                                         <form>
                                             <div class="row">
                                                 <div class="form-group">
@@ -124,9 +166,7 @@
                         </article>
                     </div>
                 </div>
-
             </div>
-
             <div class="col-md-3">
                 <aside class="sidebar">
                     <div class="tabs">
@@ -238,18 +278,18 @@
                     <div class="sticky">
                         <h4>Chapters</h4>
                         <div class="list-group">
-                            <a href="#" class="list-group-item active"> Introduce </a>
+                            <a href="#" class="list-group-item active">Introduce</a>
                             {% for chapter in course.chapters %}
-                                <a href="#" class="list-group-item">Chapter {{ chapter.position }} : {{ chapter.header }}</a>
+                                <a href="{{ path('chapter_detail', {'username': username, 'hash': course.hashTag, 'cHash': chapter.hashTag}) }}" class="list-group-item">Chapter {{ chapter.position }} : {{ chapter.header }}</a>
                             {% endfor %}
                         </div>
                     </div>
                 </aside>
             </div>
         </div>
-
     </div>
 {% endblock %}
 {% block custom %}
     <script src="{{ asset('bundles/viettutweb/js/sticky_sidebar.js') }}"></script>
+    <script src="{{ asset('bundles/viettutweb/js/controller/comment.js') }}"></script>
 {% endblock %}

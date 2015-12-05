@@ -1,0 +1,278 @@
+{% extends 'base.html.twig' %}
+{% block controller %}CourseController{% endblock %}
+{% block main %}
+    <style>
+        textarea {
+            width: 100%;
+            height: 90%;
+        }
+    </style>
+    <section class="page-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="breadcrumb">
+                        <li><a href="#">Home</a></li>
+                        <li class="active">Pages</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Right Sidebar</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="row">
+                    <div class="blog-posts single-post">
+                        <article class="post post-large blog-single-post">
+                            <div class="post-image">
+                                <div class="img-thumbnail">
+                                    <img class="img-responsive" src="{{ course.imagePath }}" alt="image path">
+                                </div>
+                            </div>
+                            <div class="post-date">
+                                <span class="day">{{ course.createdAt | date('d') }}</span>
+                                <span class="month">{{ course.createdAt | date('F') | slice(0, 3) }}</span>
+                            </div>
+                            <div class="post-content">
+                                <h2 class="text-center"><a href="#">Chapter {{ chapter.position }}: {{ chapter.header }}</a></h2>
+                                <div>{{ chapter.content | markdown }} </div>
+                                <div ng-init="course={{ course.id }}"></div>
+                                <div>
+                                    <button class="btn btn-primary btn-lg pull-left">Previous Chapter</button>
+                                    <button class="btn btn-primary btn-lg pull-right">Next Chapter</button>
+                                </div>
+                                <div ng-controller="CommentController">
+                                    <div class="post-block post-comments clearfix">
+                                        <h3><i class="fa fa-comments"></i>Comments ({{ comments | length }})</h3>
+                                        <ul class="comments">
+                                            {% for comment in comments %}
+                                                <li>
+                                                    <div class="comment">
+                                                        <div class="img-thumbnail">
+                                                            <img class="avatar" alt="" src="{{ asset('bundles/viettutweb/img/avatar-2.jpg') }}">
+                                                        </div>
+                                                        <div class="comment-block">
+                                                            <div class="comment-arrow"></div>
+                                                                <span class="comment-by">
+                                                                    <strong>{{ comment.author.username }}</strong>
+                                                                    <span class="pull-right">
+                                                                        <span> <a href="#"><i class="fa fa-reply"></i> Reply</a></span>
+                                                                    </span>
+                                                                </span>
+                                                            <p>{{ comment.content }}</p>
+                                                            <span class="date pull-right">{{ comment.createdAt | date('h:M d/m/Y') }}</span>
+                                                        </div>
+                                                    </div>
+                                                    <ul class="comments reply">
+                                                        <li>
+                                                            {% for reply in comment.replies %}
+                                                                <div class="comment">
+                                                                    <div class="img-thumbnail">
+                                                                        <img class="avatar" alt="" src="{{ asset('bundles/viettutweb/img/avatar-3.jpg') }}">
+                                                                    </div>
+                                                                    <div class="comment-block">
+                                                                        <div class="comment-arrow"></div>
+                                                                            <span class="comment-by">
+                                                                                <strong>{{ reply.author.username }}</strong>
+                                                                            </span>
+                                                                        <p>{{ reply.content }}</p>
+                                                                        <span class="date pull-right">{{ reply.createdAt | date('h:M d/m/Y') }}</span>
+                                                                    </div>
+                                                                </div>
+                                                            {% endfor %}
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            {% endfor %}
+                                            <li ng-repeat="comment in comments">
+                                                <div class="comment">
+                                                    <div class="img-thumbnail">
+                                                        <img class="avatar" alt="" src="{{ asset('bundles/viettutweb/img/avatar-2.jpg') }}">
+                                                    </div>
+                                                    <div class="comment-block">
+                                                        <div class="comment-arrow"></div>
+                                                                <span class="comment-by">
+                                                                    <strong><{ comment.author.username }></strong>
+                                                                    <span class="pull-right">
+                                                                        <span> <a href="#"><i class="fa fa-reply"></i> Reply</a></span>
+                                                                    </span>
+                                                                </span>
+                                                        <p><{ comment.content }></p>
+                                                        <span class="date pull-right"><{ comment.createdAt | date:'yyyy-MM-dd HH:mm:ss' }></span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="post-block post-leave-comment">
+                                        <h3>Leave a comment</h3>
+                                        <div ng-init="currentCourse={{ course.id }}"></div>
+                                        <form>
+                                            <div class="row">
+                                                <div class="form-group">
+                                                    <div class="col-md-12">
+                                                        <label>Comment *</label>
+                                                        <textarea maxlength="5000" rows="10" ng-model="content" class="form-control" name="comment"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <button
+                                                            ladda-button="laddaLoading"
+                                                            data-style="slide-right"
+                                                            ng-disabled="!isAuthenticated"
+                                                            ng-click="addComment()"
+                                                            class="ladda-button btn-primary"
+                                                            style="border-radius: 5px;">Post Comment</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <aside class="sidebar">
+                    <div class="tabs">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#popularPosts" data-toggle="tab"><i class="fa fa-star"></i> Popular</a></li>
+                            <li><a href="#recentPosts" data-toggle="tab">Recent</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="popularPosts">
+                                <ul class="simple-post-list">
+                                    <li>
+                                        <div class="post-image">
+                                            <div class="img-thumbnail">
+                                                <a href="blog-post.html">
+                                                    <img src="{{ asset('bundles/viettutweb/img/blog/blog-thumb-1.jpg') }}" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="post-info">
+                                            <a href="blog-post.html">Nullam Vitae Nibh Un Odiosters</a>
+                                            <div class="post-meta">
+                                                Jan 10, 2013
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="post-image">
+                                            <div class="img-thumbnail">
+                                                <a href="blog-post.html">
+                                                    <img src="{{ asset('bundles/viettutweb/img/blog/blog-thumb-2.jpg') }} " alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="post-info">
+                                            <a href="blog-post.html">Vitae Nibh Un Odiosters</a>
+                                            <div class="post-meta">
+                                                Jan 10, 2013
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="post-image">
+                                            <div class="img-thumbnail">
+                                                <a href="blog-post.html">
+                                                    <img src="{{ asset('bundles/viettutweb/img/blog/blog-thumb-3.jpg') }}" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="post-info">
+                                            <a href="blog-post.html">Odiosters Nullam Vitae</a>
+                                            <div class="post-meta">
+                                                Jan 10, 2013
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="tab-pane" id="recentPosts">
+                                <ul class="simple-post-list">
+                                    <li>
+                                        <div class="post-image">
+                                            <div class="img-thumbnail">
+                                                <a href="blog-post.html">
+                                                    <img src="{{ asset('bundles/viettutweb/img/blog/blog-thumb-2.jpg') }}" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="post-info">
+                                            <a href="blog-post.html">Vitae Nibh Un Odiosters</a>
+                                            <div class="post-meta">
+                                                Jan 10, 2013
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="post-image">
+                                            <div class="img-thumbnail">
+                                                <a href="blog-post.html">
+                                                    <img src="{{ asset('bundles/viettutweb/img/blog/blog-thumb-3.jpg') }}" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="post-info">
+                                            <a href="blog-post.html">Odiosters Nullam Vitae</a>
+                                            <div class="post-meta">
+                                                Jan 10, 2013
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="post-image">
+                                            <div class="img-thumbnail">
+                                                <a href="blog-post.html">
+                                                    <img src="{{ asset('bundles/viettutweb/img/blog/blog-thumb-1.jpg') }}" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="post-info">
+                                            <a href="blog-post.html">Nullam Vitae Nibh Un Odiosters</a>
+                                            <div class="post-meta">
+                                                Jan 10, 2013
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sticky">
+                        <h4>Chapters</h4>
+                        <div class="list-group">
+                            <a href="{{ path('course_detail', {'hash' : course.hashTag, 'username' : course.author.username}) }}" class="list-group-item">Introduce</a>
+                            {% for chapt in course.chapters %}
+                                {% if chapt.hashTag == chapter.hashTag %}
+                                    <a href="#" class="list-group-item active">Chapter {{ chapt.position }} : {{ chapt.header }}</a>
+                                {% else %}
+                                    <a href="{{ path('chapter_detail', {'username': username, 'hash': course.hashTag, 'cHash': chapt.hashTag}) }}" class="list-group-item">Chapter {{ chapt.position }} : {{ chapt.header }}</a>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block custom %}
+    <script src="{{ asset('bundles/viettutweb/js/sticky_sidebar.js') }}"></script>
+    <script src="{{ asset('bundles/viettutweb/js/controller/comment.js') }}"></script>
+    <script src="{{ asset('bundles/viettutweb/js/controller/comment.js') }}"></script>
+    <script src="{{ asset('bundles/viettutweb/js/controller/comment.js') }}"></script>
+{% endblock %}

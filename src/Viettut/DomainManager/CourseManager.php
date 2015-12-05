@@ -59,7 +59,7 @@ class CourseManager implements CourseManagerInterface
         if ($course instanceof CourseInterface) {
             $entity->setHashTag($hashTag . uniqid("", true));
         }
-        
+
         $this->em->persist($entity);
         $this->em->flush();
     }

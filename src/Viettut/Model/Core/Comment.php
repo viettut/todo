@@ -50,19 +50,14 @@ class Comment implements CommentInterface
     protected $chapter;
 
     /**
-     * @var integer
-     */
-    protected $like;
-
-    /**
      * @var ArrayCollection
      */
-    protected $children;
+    protected $replies;
 
     /**
      * @var CommentInterface
      */
-    protected $parent;
+    protected $replyFor;
 
     /**
      * @var \DateTime
@@ -170,24 +165,6 @@ class Comment implements CommentInterface
     }
 
     /**
-     * @return int
-     */
-    public function getLike()
-    {
-        return $this->like;
-    }
-
-    /**
-     * @param int $like
-     * @return self
-     */
-    public function setLike($like)
-    {
-        $this->like = $like;
-        return $this;
-    }
-
-    /**
      * @return integer
      */
     public function getId()
@@ -252,53 +229,46 @@ class Comment implements CommentInterface
     /**
      * @return ArrayCollection
      */
-    public function getChildren()
+    public function getReplies()
     {
-        return $this->children;
+        return $this->replies;
     }
 
     /**
-     * @param ArrayCollection $children
-     * @return self
+     * @param ArrayCollection $replies
      */
-    public function setChildren($children)
+    public function setReplies($replies)
     {
-        $this->children = $children;
-
-        return $this;
-    }
-
-
-    /**
-     * @param CommentInterface $child
-     * @return self
-     */
-    public function addChildren(CommentInterface $child)
-    {
-        if ($this->children === null) {
-            $this->children = new ArrayCollection();
-        }
-
-        $this->children->add($child);
-
-        return $this;
+        $this->replies = $replies;
     }
 
     /**
      * @return CommentInterface
      */
-    public function getParent()
+    public function getReplyFor()
     {
-        return $this->parent;
+        return $this->replyFor;
     }
 
     /**
-     * @param CommentInterface $parent
+     * @param CommentInterface $replyFor
+     */
+    public function setReplyFor($replyFor)
+    {
+        $this->replyFor = $replyFor;
+    }
+
+    /**
+     * @param CommentInterface $reply
      * @return self
      */
-    public function setParent($parent)
+    public function addReply(CommentInterface $reply)
     {
-        $this->parent = $parent;
+        if ($this->replies === null) {
+            $this->replies = new ArrayCollection();
+        }
+
+        $this->replies->add($reply);
 
         return $this;
     }

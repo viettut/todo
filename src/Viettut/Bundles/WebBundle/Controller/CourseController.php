@@ -89,7 +89,7 @@ class CourseController extends Controller
     /**
      * present a specific guide
      *
-     * @Route("/{username}/courses/{hash}")
+     * @Route("/{username}/courses/{hash}", name="course_detail")
      * @Template()
      *
      * @param $username
@@ -112,7 +112,7 @@ class CourseController extends Controller
             throw new NotFoundHttpException('');
         }
 
-        return $this->render('ViettutWebBundle:Course:detail.html.twig', array('course' => $course, "comments" => $comments));
+        return $this->render('ViettutWebBundle:Course:detail.html.twig', array('username' => $username, 'course' => $course, "comments" => $comments));
     }
 
     /**

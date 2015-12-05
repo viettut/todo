@@ -14,10 +14,8 @@ use Symfony\Component\Form\FormError;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use Viettut\Entity\Core\Chapter;
-use Viettut\Model\Core\ChapterInterface;
+use Viettut\Entity\Core\Comment;
 use Viettut\Model\Core\CommentInterface;
-use Viettut\Model\Core\CourseInterface;
 use Viettut\Utilities\StringFactory;
 
 class CommentFormType extends AbstractRoleSpecificFormType
@@ -31,11 +29,10 @@ class CommentFormType extends AbstractRoleSpecificFormType
     {
         $builder
             ->add('content')
-            ->add('author')
             ->add('course')
             ->add('chapter')
             ->add('tutorial')
-            ->add('parent')
+            ->add('replyFor')
         ;
 
         $builder->addEventListener(
@@ -46,20 +43,21 @@ class CommentFormType extends AbstractRoleSpecificFormType
 
                 if ($comment->getCourse() === null &&
                     $comment->getTutorial() === null &&
-                    $comment->getParent() === null &&
+                    $comment->getReplyFor() === null &&
                     $comment->getChapter() === null ) {
                     $event->getForm()->get('course')->addError(new FormError('invalid argument'));
                     $event->getForm()->get('chapter')->addError(new FormError('invalid argument'));
                     $event->getForm()->get('tutorial')->addError(new FormError('invalid argument'));
-                    $event->getForm()->get('parent')->addError(new FormError('invalid argument'));
+                    $event->getForm()->get('replyFor')->addError(new FormError('invalid argument'));
                     return;
                 }
 
-                $parent = $comment->getParent();
-                $parent->addChildren($comment);
+                $parent = $comment->getReplyFor();
+                if ($parent instanceof CommentInterface) {
+                    $parent->addReply($comment);
+                }
 
                 $comment->setActive(true);
-                $comment->setLike(0);
             }
         );
     }
@@ -68,8 +66,7 @@ class CommentFormType extends AbstractRoleSpecificFormType
     {
         $resolver
             ->setDefaults([
-                'data_class' => Chapter::class,
-                'cascade_validation' => true,
+                'data_class' => Comment::class
             ]);
     }
     /**

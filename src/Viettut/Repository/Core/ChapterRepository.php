@@ -59,4 +59,20 @@ class ChapterRepository extends EntityRepository implements ChapterRepositoryInt
 
         return $qb->getQuery()->getResult();
     }
+
+    /**
+     * @param CourseInterface $course
+     * @param $hash
+     * @return mixed
+     */
+    public function getChapterByCourseAndHash(CourseInterface $course, $hash)
+    {
+        $qb = $this->createQueryBuilder('ch')
+            ->where('ch.course = :course_id')
+            ->andWhere('ch.hashTag = :hash')
+            ->setParameter('hash', $hash, Type::STRING)
+            ->setParameter('course_id', $course->getId(), TYPE::INTEGER);
+
+        return $qb->getQuery()->getOneOrNullResult();
+    }
 }

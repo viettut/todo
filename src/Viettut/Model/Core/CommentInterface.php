@@ -75,17 +75,6 @@ interface CommentInterface extends ModelInterface
     public function getCreatedAt();
 
     /**
-     * @return int
-     */
-    public function getLike();
-
-    /**
-     * @param int $like
-     * @return self
-     */
-    public function setLike($like);
-
-    /**
      * @return CourseInterface
      */
     public function getCourse();
@@ -121,28 +110,26 @@ interface CommentInterface extends ModelInterface
     /**
      * @return ArrayCollection
      */
-    public function getChildren();
+    public function getReplies();
 
     /**
-     * @param ArrayCollection $children
-     * @return self
+     * @param ArrayCollection $replies
      */
-    public function setChildren($children);
-
-    /**
-     * @param CommentInterface $child
-     * @return self
-     */
-    public function addChildren(CommentInterface $child);
+    public function setReplies($replies);
 
     /**
      * @return CommentInterface
      */
-    public function getParent();
+    public function getReplyFor();
 
     /**
-     * @param CommentInterface $parent
+     * @param CommentInterface $replyFor
+     */
+    public function setReplyFor($replyFor);
+
+    /**
+     * @param CommentInterface $reply
      * @return self
      */
-    public function setParent($parent);
+    public function addReply(CommentInterface $reply);
 }
