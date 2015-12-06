@@ -35,4 +35,48 @@ class TutorialRepository extends EntityRepository implements TutorialRepositoryI
 
         return $qb->getQuery()->getResult();
     }
+
+    /**
+     * @param LecturerInterface $lecturer
+     * @param $hash
+     * @return mixed
+     */
+    public function getByLecturerAndHash(LecturerInterface $lecturer, $hash)
+    {
+        $qb = $this->createQueryBuilder('t')
+            ->where('t.author = :author_id')
+            ->andWhere('t.hashTag = :hash')
+            ->setParameter('hash', $hash, TYPE::STRING)
+            ->setParameter('author_id', $lecturer->getId(), TYPE::INTEGER);
+
+        return $qb->getQuery()->getOneOrNullResult();
+    }
+
+    /**
+     * @param $maxResult
+     * @return array
+     */
+    public function getPopularTutorial($maxResult)
+    {
+        $qb = $this->createQueryBuilder('t')
+            ->addOrderBy('t.view', 'desc');
+
+        if (is_int($maxResult)) {
+            $qb->setMaxResults($maxResult);
+        }
+        else {
+            $qb->setMaxResults(3);
+        }
+        return $qb->getQuery()->getResult();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAllTutorialQuery()
+    {
+        return $this->createQueryBuilder('t')->getQuery();
+    }
+
+
 }

@@ -30,7 +30,8 @@
         "nelmio/api-doc-bundle": "~2.5.1",
         "rollerworks/multi-user-bundle": "1.0.*@dev",
         "stof/doctrine-extensions-bundle": "~1.1@dev",
-        "raphy/markdown-bundle": "@stable"
+        "raphy/markdown-bundle": "@stable",
+        "knplabs/knp-paginator-bundle": "^2.5"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

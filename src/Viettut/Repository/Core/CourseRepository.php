@@ -101,4 +101,14 @@ class CourseRepository extends EntityRepository implements CourseRepositoryInter
 
         return $qb->getQuery()->getOneOrNullResult();
     }
+
+    /**
+     * @return mixed
+     */
+    public function getAllCourseQuery()
+    {
+        return $this->createQueryBuilder('c')->getQuery();
+    }
+
+
 }

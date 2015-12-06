@@ -45,4 +45,9 @@ interface CourseRepositoryInterface extends ObjectRepository
      * @return CourseInterface | null
      */
     public function getByLecturerAndHash(LecturerInterface $lecturer, $hash);
+
+    /**
+     * @return mixed
+     */
+    public function getAllCourseQuery();
 }

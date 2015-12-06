@@ -62,7 +62,7 @@
     <header id="header" ng-controller="NavBarController">
         <div class="container">
             <div class="logo">
-                <a href="{{ path('viettut_bundles_web_home_index') }}">
+                <a href="{{ path('home_page') }}">
                     <img alt="Porto" width="111" height="54" data-sticky-width="82" data-sticky-height="40" src="{{ asset('bundles/viettutweb/img/logo.png') }}">
                 </a>
             </div>
@@ -108,7 +108,7 @@
                                 <i class="fa fa-angle-down"></i>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="{{ path('viettut_bundles_web_course_index') }}">All courses</a></li>
+                                <li><a href="{{ path('course_index') }}">All courses</a></li>
                                 <li><a href="{{ path('viettut_bundles_web_course_create') }}">Create a course <span class="tip">hot</span></a></li>
                                 <li><a href="#">Search</a></li>
                             </ul>

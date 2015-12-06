@@ -19,4 +19,22 @@ interface TutorialRepositoryInterface extends ObjectRepository
      * @return mixed
      */
     public function getTutorialByLecturer(LecturerInterface $lecturer, $limit = null, $offset = null);
+
+    /**
+     * @param LecturerInterface $lecturer
+     * @param $hash
+     * @return mixed
+     */
+    public function getByLecturerAndHash(LecturerInterface $lecturer, $hash);
+
+    /**
+     * @param $maxResult
+     * @return mixed
+     */
+    public function getPopularTutorial($maxResult);
+
+    /**
+     * @return mixed
+     */
+    public function getAllTutorialQuery();
 }

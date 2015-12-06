@@ -54,7 +54,16 @@ class ChapterController extends Controller
         }
 
         $comments = $this->get('viettut.domain_manager.comment')->getByChapter($chapter);
+        $popularCourses = $this->get('viettut.repository.course')->getPopularCourse(intval($popularSize));
+        $popularTutorials = $this->get('viettut.repository.tutorial')->getPopularTutorial(intval($popularSize));
 
-        return $this->render('ViettutWebBundle:Chapter:detail.html.twig', array('username' => $username, 'chapter' => $chapter, 'course' => $course, "comments" => $comments));
+        return $this->render('ViettutWebBundle:Chapter:detail.html.twig', array(
+            'username' => $username,
+            'chapter' => $chapter,
+            'course' => $course,
+            "comments" => $comments,
+            "popularCourses" => $popularCourses,
+            "popularTutorials" => $popularTutorials
+        ));
     }
 }

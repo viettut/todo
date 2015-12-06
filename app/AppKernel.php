@@ -27,6 +27,7 @@ class AppKernel extends Kernel
             new Nelmio\CorsBundle\NelmioCorsBundle(),
             new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
             new \Raphy\Symfony\MarkdownBundle\RaphyMarkdownBundle(),
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
 
             new Viettut\Bundles\AdminApiBundle\ViettutAdminApiBundle(),
             new Viettut\Bundles\ApiBundle\ViettutApiBundle(),

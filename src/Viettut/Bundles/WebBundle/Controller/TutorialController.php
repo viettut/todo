@@ -16,71 +16,40 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Viettut\Entity\Core\Course;
 use Viettut\Exception\InvalidArgumentException;
 use Viettut\Model\Core\CourseInterface;
+use Viettut\Model\Core\TutorialInterface;
 use Viettut\Model\User\Role\LecturerInterface;
 use Viettut\Model\User\UserEntityInterface;
 
-class CourseController extends Controller
+class TutorialController extends Controller
 {
     /**
-     * @Route("/lecturer/courses/create")
+     * @Route("/lecturer/tutorials/create")
      * @Template()
      */
     public function createAction()
     {
-        return $this->render('ViettutWebBundle:Course:create.html.twig');
+        return $this->render('ViettutWebBundle:Tutorial:create.html.twig');
     }
 
     /**
-     * @Route("/lecturer/courses/{cid}/add-chapter")
-     * @param int $cid
+     * @Route("/tutorials")
      * @return \Symfony\Component\HttpFoundation\Response
      * @Template()
      */
-    public function addChapterAction($cid)
+    public function indexAction()
     {
-        $user = $this->getUser();
-        if (!$user instanceof UserEntityInterface) {
-            $this->redirectToRoute('viettut_bundles_web_authen_login');
-        }
-
-        $course = $this->get('viettut.repository.course')->find($cid);
-        if(!$course instanceof CourseInterface) {
-            throw new NotFoundHttpException('Not found');
-        }
-
-        if ($course->getAuthor()->getId() !== $user->getId()) {
-            throw new NotFoundHttpException('Not found');
-        }
-
-        return $this->render('ViettutWebBundle:Course:addChapter.html.twig', array('course' => $course));
+        $tutorials = $this->get('viettut.repository.tutorial')->findAll();
+        return $this->render('ViettutWebBundle:Tutorial:index.html.twig', array('tutorials' => $tutorials));
     }
 
     /**
-     * @Route("/courses", name="course_index")
-     * @param $request
+     * @Route("/lecturer/tutorials/mytutorials")
      * @return \Symfony\Component\HttpFoundation\Response
      * @Template()
      */
-    public function indexAction(Request $request)
-    {
-        $pagination = $this->get('knp_paginator')->paginate(
-            $this->get('viettut.repository.course')->getAllCourseQuery(),
-            $request->query->getInt('page', 1)/*page number*/
-        );
-        return $this->render('ViettutWebBundle:Course:index.html.twig', array(
-            "pagination" => $pagination
-        ));
-    }
-
-    /**
-     * @Route("/lecturer/courses/mycourses")
-     * @return \Symfony\Component\HttpFoundation\Response
-     * @Template()
-     */
-    public function myCoursesAction()
+    public function myTutorialsAction()
     {
         $user = $this->getUser();
 
@@ -96,7 +65,7 @@ class CourseController extends Controller
     /**
      * present a specific guide
      *
-     * @Route("/{username}/courses/{hash}", name="course_detail")
+     * @Route("/{username}/tutorials/{hash}", name="tutorial_detail")
      * @Template()
      *
      * @param $username
@@ -105,7 +74,6 @@ class CourseController extends Controller
      */
     public function detailAction($username, $hash)
     {
-        $popularSize = $this->container->getParameter('popularSize');
         $lecturer = $this->get('viettut_user.domain_manager.lecturer')->findUserByUsernameOrEmail($username);
         if (!$lecturer instanceof LecturerInterface) {
             throw new NotFoundHttpException(
@@ -113,23 +81,14 @@ class CourseController extends Controller
             );
         }
 
-        $course = $this->get('viettut.repository.course')->getByLecturerAndHash($lecturer, $hash);
-        $comments = $this->get('viettut.domain_manager.comment')->getByCourse($course);
-
-        if(!$course instanceof CourseInterface) {
+        $tutorial = $this->get('viettut.repository.tutorial')->getByLecturerAndHash($lecturer, $hash);
+        if(!$tutorial instanceof TutorialInterface) {
             throw new NotFoundHttpException('');
         }
 
-        $popularCourses = $this->get('viettut.repository.course')->getPopularCourse(intval($popularSize));
-        $popularTutorials = $this->get('viettut.repository.tutorial')->getPopularTutorial(intval($popularSize));
+        $comments = $this->get('viettut.domain_manager.comment')->getByTutorial($tutorial);
 
-        return $this->render('ViettutWebBundle:Course:detail.html.twig', array(
-            'username' => $username,
-            'course' => $course,
-            "comments" => $comments,
-            "popularCourses" => $popularCourses,
-            "popularTutorials" => $popularTutorials
-        ));
+        return $this->render('ViettutWebBundle:Tutorial:detail.html.twig', array('username' => $username, 'tutorial' => $tutorial, "comments" => $comments));
     }
 
     /**

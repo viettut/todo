@@ -42,8 +42,10 @@
                         <i class="fa fa-group"></i>
                     </div>
                     <div class="feature-box-info">
-                        <h4 class="shorter">Customer Support</h4>
-                        <p class="tall">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur imperdiet hendrerit volutpat.</p>
+                        <h4 class="shorter">Hỗ trợ từ cộng đồng</h4>
+                        <p class="tall">
+                            Nhận được sự trợ giúp từ cộng đồng các lập trình viên ở hầu hết các nền tảng và ngôn ngữ thông dụng nhất hiện nay.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -53,8 +55,10 @@
                         <i class="fa fa-file"></i>
                     </div>
                     <div class="feature-box-info">
-                        <h4 class="shorter">HTML5 / CSS3 / JS</h4>
-                        <p class="tall">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur imperdiet hendrerit volutpat.</p>
+                        <h4 class="shorter">Các khóa học miễn phí</h4>
+                        <p class="tall">
+                            Tham gia các khóa học miễn phí được biên soạn, sưu tập bởi các lập trình viên giàu kinh nghiệm
+                        </p>
                     </div>
                 </div>
             </div>
@@ -64,8 +68,10 @@
                         <i class="fa fa-google-plus"></i>
                     </div>
                     <div class="feature-box-info">
-                        <h4 class="shorter">500+ Google Fonts</h4>
-                        <p class="tall">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur imperdiet hendrerit volutpat.</p>
+                        <h4 class="shorter">Nhật ký lập trình</h4>
+                        <p class="tall">
+                            Trang cá nhân là nơi lập trình viên lưu giữ vấn đề và cách giải quyết, những thủ thuật tâm đắc và chia sẻ với cộng đồng.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -78,8 +84,10 @@
                         <i class="fa fa-user"></i>
                     </div>
                     <div class="feature-box-info">
-                        <h4 class="shorter">Icons</h4>
-                        <p class="tall">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur imperdiet hendrerit volutpat.</p>
+                        <h4 class="shorter">Lưu giữ code</h4>
+                        <p class="tall">
+                            Lập trình viên có thể lưu giữ các đoạn code đẹp, hay dùng cho riêng mình hoặc có thể chia sẻ với cộng đồng.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -89,8 +97,10 @@
                         <i class="fa fa-bars"></i>
                     </div>
                     <div class="feature-box-info">
-                        <h4 class="shorter">Buttons</h4>
-                        <p class="tall">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur imperdiet hendrerit volutpat.</p>
+                        <h4 class="shorter">Soạn thảo bằng MarkDown</h4>
+                        <p class="tall">
+                            Các bài hướng dẫn hoặc các khóa học đều được soạn thảo dưới định dạng MarkDown giúp người đọc dễ theo dõi.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -100,14 +110,76 @@
                         <i class="fa fa-desktop"></i>
                     </div>
                     <div class="feature-box-info">
-                        <h4 class="shorter">Lightbox</h4>
-                        <p class="tall">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur imperdiet hendrerit volutpat.</p>
+                        <h4 class="shorter">Công cụ test online</h4>
+                        <p class="tall">
+                            Bạn có thể sử dụng công cụ test online trong quá trình tham gia khóa học theo phương pháp "learn by doing".
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
 
     </div>
+    <div class="container">
+        <h2>Thử xem qua <strong>các khóa học</strong> của chúng tôi</h2>
+        <div class="row">
+            <div class="tabs">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#courses" data-toggle="tab"><i class="fa fa-star"></i>Khóa học</a>
+                    </li>
+                    <li>
+                        <a href="#tutorials" data-toggle="tab">Bài hướng dẫn</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div id="courses" class="tab-pane active">
+                        <h3>Khóa học tiêu biểu</h3>
+                        <div class="blog-posts">
+                            {% for course in pagination %}
+                                <article class="post post-medium">
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <div class="post-image">
+                                                <div class="img-thumbnail">
+                                                    <img class="img-responsive" src="{{ course.imagePath }}" alt="post image">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <div class="post-content">
+                                                <h2><a href="{{ path('course_detail', {'hash' : course.hashTag, 'username' : course.author.username}) }}">{{ course.title }}</a></h2>
+                                                <p>{{ course.introduce | first_para }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="post-meta">
+                                                <span><i class="fa fa-calendar"></i>{{ course.createdAt | date("m/d/Y") }}</span>
+                                                <span><i class="fa fa-user"></i> By <a href="#">{{ course.author.username }}</a> </span>
+                                                <span><i class="fa fa-tag"></i> <a href="#">Duis</a>, <a href="#">News</a> </span>
+                                                <span><i class="fa fa-comments"></i> <a href="#">{{ course.chapters | length }} Chapters</a></span>
+                                                <a href="blog-post.html" class="btn btn-xs btn-primary pull-right">Read more...</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+                            {% endfor %}
+                            <ul class="pagination pagination-lg pull-right">
+                                {{ knp_pagination_render(pagination) }}
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="tutorials" class="tab-pane">
+                        <p>Bài hướng dẫn được quan tâm</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="container">
         <h2>Meet the <strong>Team</strong></h2>
         <div class="row">

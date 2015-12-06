@@ -24,6 +24,7 @@ return array(
     'Metadata\\' => array($vendorDir . '/jms/metadata/src'),
     'Math' => array($vendorDir . '/phpseclib/phpseclib/phpseclib'),
     'Lexik\\Bundle\\JWTAuthenticationBundle' => array($vendorDir . '/lexik/jwt-authentication-bundle'),
+    'Knp\\Component' => array($vendorDir . '/knplabs/knp-components/src'),
     'JsonpCallbackValidator' => array($vendorDir . '/willdurand/jsonp-callback-validator/src'),
     'JMS\\SerializerBundle' => array($vendorDir . '/jms/serializer-bundle'),
     'JMS\\Serializer' => array($vendorDir . '/jms/serializer/src'),
