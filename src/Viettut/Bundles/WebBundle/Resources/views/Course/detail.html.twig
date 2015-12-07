@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-{% block controller %}CourseController{% endblock %}
+{% block controller %}ng-controller="CommentController"{% endblock %}
 {% block main %}
     <style>
         textarea {
@@ -47,7 +47,7 @@
                                     <button class="btn btn-primary btn-lg pull-left">Previous Chapter</button>
                                     <button class="btn btn-primary btn-lg pull-right">Next Chapter</button>
                                 </div>
-                                <div ng-controller="CommentController" class="row col-md-12" ng-init="currentCourse='{{ course.id }}'">
+                                <div class="row col-md-12" ng-init="currentCourse='{{ course.id }}'">
                                     <div class="post-block post-comments clearfix row col-md-12">
                                         <h3><i class="fa fa-comments"></i>Comments ({{ comments | length }})</h3>
                                         <ul class="comments" ng-hide="commentToggle">

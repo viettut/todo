@@ -119,13 +119,13 @@ interface TutorialInterface extends ModelInterface
     /**
      * @return int
      */
-    public function getLike();
+    public function getLikes();
 
     /**
-     * @param int $like
+     * @param int $likes
      * @return self
      */
-    public function setLike($like);
+    public function setLikes($likes);
 
     /**
      * @return string

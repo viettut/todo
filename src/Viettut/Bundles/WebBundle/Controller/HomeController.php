@@ -23,11 +23,10 @@ class HomeController extends Controller
      */
     public function indexAction(Request $request)
     {
-        $pagination = $this->get('knp_paginator')->paginate(
-            $this->get('viettut.repository.course')->getAllCourseQuery(),
-            $request->query->getInt('page', 1)/*page number*/
-        );
-
-        return $this->render('ViettutWebBundle:Home:index.html.twig', array('pagination' => $pagination));
+        $popularSize = $this->container->getParameter('popularSize');
+        $popularCourses = $this->get('viettut.repository.course')->getPopularCourse(intval($popularSize));
+        return $this->render('ViettutWebBundle:Home:index.html.twig', array(
+            "popularCourses" => $popularCourses
+        ));
     }
 }

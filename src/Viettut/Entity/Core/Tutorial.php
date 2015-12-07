@@ -19,7 +19,7 @@ class Tutorial extends TutorialModel
     protected $author;
     protected $comments;
     protected $tutorialTags;
-    protected $like;
+    protected $likes;
     protected $view;
     protected $createdAt;
     protected $updatedAt;

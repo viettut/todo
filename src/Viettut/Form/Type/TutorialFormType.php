@@ -15,8 +15,11 @@ use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Viettut\Entity\Core\Chapter;
+use Viettut\Entity\Core\Tutorial;
 use Viettut\Model\Core\ChapterInterface;
 use Viettut\Model\Core\CourseInterface;
+use Viettut\Model\Core\TutorialInterface;
+use Viettut\Model\Core\TutorialTagInterface;
 use Viettut\Utilities\StringFactory;
 
 class TutorialFormType extends AbstractRoleSpecificFormType
@@ -30,20 +33,45 @@ class TutorialFormType extends AbstractRoleSpecificFormType
     {
         $builder
             ->add('title')
-            ->add('hashTag')
             ->add('content')
-            ->add('author')
-            ->add('active')
-            ->add('view')
-            ->add('like')
+            ->add('tutorialTags', 'collection', array(
+                'mapped' => true,
+                'allow_add' => true,
+                'allow_delete' => true,
+                'type' => new TutorialTagFormType()
+            ))
         ;
+
+        $builder->addEventListener(
+            FormEvents::POST_SUBMIT,
+            function(FormEvent $event) {
+                /**
+                 * @var TutorialInterface $tutorial
+                 */
+                $tutorial = $event->getData();
+
+                if ($tutorial->getId() === null) {
+                    $tutorial->setActive(true);
+                    $tutorial->setLikes(0);
+                    $tutorial->setView(0);
+                }
+                $tutorial->setHashTag($this->getUrlFriendlyString($tutorial->getTitle()));
+
+                $tutorialTags = $tutorial->getTutorialTags();
+
+                /** @var TutorialTagInterface $tutorialTag */
+                foreach($tutorialTags as $tutorialTag) {
+                    $tutorialTag->setTutorial($tutorial);
+                }
+            }
+        );
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver
             ->setDefaults([
-                'data_class' => Chapter::class,
+                'data_class' => Tutorial::class,
                 'cascade_validation' => true,
             ]);
     }
@@ -54,6 +82,6 @@ class TutorialFormType extends AbstractRoleSpecificFormType
      */
     public function getName()
     {
-        return 'viettut_form_chapter';
+        return 'viettut_form_tutorial';
     }
 }

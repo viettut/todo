@@ -120,8 +120,11 @@
         </div>
 
     </div>
+    <hr>
     <div class="container">
-        <h2>Thử xem qua <strong>các khóa học</strong> của chúng tôi</h2>
+        <div class="row text-center">
+            <h2>Thử xem qua <strong>các khóa học</strong> của chúng tôi</h2>
+        </div>
         <div class="row">
             <div class="tabs">
                 <ul class="nav nav-tabs">
@@ -135,40 +138,26 @@
                 <div class="tab-content">
                     <div id="courses" class="tab-pane active">
                         <h3>Khóa học tiêu biểu</h3>
-                        <div class="blog-posts">
-                            {% for course in pagination %}
-                                <article class="post post-medium">
-                                    <div class="row">
-                                        <div class="col-md-5">
-                                            <div class="post-image">
-                                                <div class="img-thumbnail">
-                                                    <img class="img-responsive" src="{{ course.imagePath }}" alt="post image">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-7">
-                                            <div class="post-content">
-                                                <h2><a href="{{ path('course_detail', {'hash' : course.hashTag, 'username' : course.author.username}) }}">{{ course.title }}</a></h2>
-                                                <p>{{ course.introduce | first_para }}</p>
-                                            </div>
-                                        </div>
+                        <ul class="portfolio-list sort-destination" data-sort-id="portfolio">
+                            {% for c in popularCourses %}
+                                <li class="col-md-4 col-sm-6 col-xs-12 isotope-item websites">
+                                    <div class="portfolio-item img-thumbnail">
+                                        <a href="{{ path('course_detail', {'hash' : c.hashTag, 'username' : c.author.username}) }}" class="thumb-info">
+                                            <img alt="" class="img-responsive" src="{{ c.imagePath }}">
+                                            <span class="thumb-info-title">
+                                                <span class="thumb-info-inner">{{ c.title }}</span>
+                                                <span class="thumb-info-type">{{ c.author.username }}</span>
+                                            </span>
+                                            <span class="thumb-info-action">
+                                                <span title="Universal" class="thumb-info-action-icon"><i class="fa fa-link"></i></span>
+                                            </span>
+                                        </a>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="post-meta">
-                                                <span><i class="fa fa-calendar"></i>{{ course.createdAt | date("m/d/Y") }}</span>
-                                                <span><i class="fa fa-user"></i> By <a href="#">{{ course.author.username }}</a> </span>
-                                                <span><i class="fa fa-tag"></i> <a href="#">Duis</a>, <a href="#">News</a> </span>
-                                                <span><i class="fa fa-comments"></i> <a href="#">{{ course.chapters | length }} Chapters</a></span>
-                                                <a href="blog-post.html" class="btn btn-xs btn-primary pull-right">Read more...</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </article>
+                                </li>
                             {% endfor %}
-                            <ul class="pagination pagination-lg pull-right">
-                                {{ knp_pagination_render(pagination) }}
-                            </ul>
+                        </ul>
+                        <div class="span12 pagination-centered">
+                            <button class="btn btn-primary btn-lg pull-right">Read more ...</button>
                         </div>
                     </div>
                     <div id="tutorials" class="tab-pane">
@@ -177,45 +166,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <div class="container">
-        <h2>Meet the <strong>Team</strong></h2>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="btn-group" opt-kind ok-key="filter" >
-                    <button type='button' class='btn btn-default active' ok-sel="*">Show All</button>
-                    <button type='button' class='btn btn-default' ok-sel=".ceo">Leadership</button>
-                    <button type='button' class='btn btn-default' ok-sel=".marketing">Marketing</button>
-                    <button type='button' class='btn btn-default' ok-sel=".developer">Developer</button>
-                    <button type='button' class='btn btn-default' ok-sel=".designer">Designer</button>
-                </div>
-            </div>
-        </div>
-        <hr />
-        <div class="row">
-            <ul class="team-list sort-destination"  isotope-container="isotope-container">
-                <li class="col-md-3 col-sm-6 col-xs-12" isotope-item="isotope-item" ng-class="member.position" ng-repeat="member in team">
-                    <div class="team-item thumbnail">
-                        <a href="about-me.html" class="thumb-info team">
-                            <img class="img-responsive" alt="" ng-src="<{ member.image }>">
-                        <span class="thumb-info-title">
-                            <span class="thumb-info-inner"><{ member.name }></span>
-                            <span class="thumb-info-type"><{ member.position | uppercase }></span>
-                        </span>
-                        </a>
-                    <span class="thumb-info-caption">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac ligula mi, non suscipitaccumsan.</p>
-                        <span class="thumb-info-social-icons">
-                            <a data-tooltip data-placement="bottom" target="_blank" href="http://www.facebook.com" data-original-title="Facebook"><i class="fa fa-facebook"></i><span>Facebook</span></a>
-                            <a data-tooltip data-placement="bottom" href="http://www.twitter.com" data-original-title="Twitter"><i class="fa fa-twitter"></i><span>Twitter</span></a>
-                            <a data-tooltip data-placement="bottom" href="http://www.linkedin.com" data-original-title="Linkedin"><i class="fa fa-linkedin"></i><span>Linkedin</span></a>
-                        </span>
-                    </span>
-                    </div>
-                </li>
-            </ul>
         </div>
     </div>
 {% endblock %}

@@ -57,7 +57,7 @@ class Tutorial implements TutorialInterface
     /**
      * @var integer
      */
-    protected $like;
+    protected $likes;
 
     /**
      * @var integer
@@ -254,18 +254,18 @@ class Tutorial implements TutorialInterface
     /**
      * @return int
      */
-    public function getLike()
+    public function getLikes()
     {
-        return $this->like;
+        return $this->likes;
     }
 
     /**
-     * @param int $like
+     * @param int $likes
      * @return self
      */
-    public function setLike($like)
+    public function setLikes($likes)
     {
-        $this->like = $like;
+        $this->likes = $likes;
         return $this;
     }
 

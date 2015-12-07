@@ -25,7 +25,7 @@ use Viettut\Model\User\UserEntityInterface;
 class TutorialController extends Controller
 {
     /**
-     * @Route("/lecturer/tutorials/create")
+     * @Route("/lecturer/tutorials/create", name="create_tutorial")
      * @Template()
      */
     public function createAction()
@@ -34,7 +34,7 @@ class TutorialController extends Controller
     }
 
     /**
-     * @Route("/tutorials")
+     * @Route("/tutorials", name="tutorial_index")
      * @return \Symfony\Component\HttpFoundation\Response
      * @Template()
      */
@@ -89,27 +89,5 @@ class TutorialController extends Controller
         $comments = $this->get('viettut.domain_manager.comment')->getByTutorial($tutorial);
 
         return $this->render('ViettutWebBundle:Tutorial:detail.html.twig', array('username' => $username, 'tutorial' => $tutorial, "comments" => $comments));
-    }
-
-    /**
-     * @Route("/courses/upload")
-     * @param Request $request
-     * @return string
-     */
-    public function uploadImage(Request $request)
-    {
-        $uploadRootDir = $this->container->getParameter('uploadRootDirectory');
-        $uploadDir = $this->container->getParameter('uploadDirectory');
-        foreach ($_FILES as $file) {
-
-            $uploadFile = new UploadedFile($file['tmp_name'], $file['name'], $file['type'], $file['size'], $file['error'], $test = false);
-            $baseName = uniqid('', true);
-            $uploadFile->move($uploadRootDir,
-                $baseName.substr($uploadFile->getClientOriginalName(), -4)
-            );
-
-            return new JsonResponse(join('/', array($uploadDir, $baseName.substr($uploadFile->getClientOriginalName(), -4))));
-        }
-        throw new InvalidArgumentException('Invalid files');
     }
 }

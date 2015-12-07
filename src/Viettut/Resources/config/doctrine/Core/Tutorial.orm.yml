@@ -28,7 +28,7 @@ Viettut\Entity\Core\Tutorial:
             type: integer
             options:
                 default: 0
-        like:
+        likes:
             type: integer
             options:
                 default: 0
@@ -54,7 +54,7 @@ Viettut\Entity\Core\Tutorial:
         tutorialTags:
             targetEntity: Viettut\Entity\Core\TutorialTag
             mappedBy: tutorial
-            cascade: ['remove']
+            cascade: ['remove', 'persist']
     manyToOne:
         author:
             targetEntity: Viettut\Bundles\UserBundle\Entity\User
