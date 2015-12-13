@@ -6,10 +6,10 @@
                 <input type="text" value="" class="form-control" name="title" id="title" ng-model="title" required>
             </div>
             <div class="form-group">
-                <tags-input ng-model="selectedTags" on-tag-added="addTag($tag)">
+                <tags-input ng-model="selectedTags" on-tag-added="addTag($tag)" on-tag-removed="removeTag($tag)">
                     <auto-complete
                             source="loadTags()"
-                            min-length="1"
+                            min-length="2"
                             select-first-match="false">
                     </auto-complete>
                 </tags-input>

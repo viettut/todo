@@ -39,14 +39,14 @@
                                             <a href="#">{{ t.tag.text }}</a>
                                         {% endfor %}
                                     </span>
-                                    <span><i class="fa fa-comments"></i> <a href="#">{{ comments | length }} Comments</a></span>
+                                    <span><i class="fa fa-comments"></i> <a href="#">{{ tutorial.comments | length }} Comments</a></span>
                                 </div>
                                 <div>{{ tutorial.content | markdown }} </div>
                                 <div class="row col-md-12">
                                     <div class="post-block post-comments clearfix row col-md-12">
-                                        <h3><i class="fa fa-comments"></i>Comments ({{ comments | length }})</h3>
+                                        <h3><i class="fa fa-comments"></i>Comments ({{ tutorial.comments | length }})</h3>
                                         <ul class="comments" ng-hide="commentToggle">
-                                            {% for comment in comments %}
+                                            {% for comment in tutorial.comments %}
                                                 <li>
                                                     <div class="comment">
                                                         <div class="img-thumbnail">
@@ -159,17 +159,6 @@
             </div>
             <div class="col-md-3">
                 {% include 'sidebar.html' %}
-                {#<aside class="sidebar">#}
-                    {#<div class="sticky">#}
-                        {#<h4>Chapters</h4>#}
-                        {#<div class="list-group">#}
-                            {#<a href="#" class="list-group-item active">Introduce</a>#}
-                            {#{% for chapter in course.chapters %}#}
-                                {#<a href="{{ path('chapter_detail', {'username': username, 'hash': course.hashTag, 'cHash': chapter.hashTag}) }}" class="list-group-item">Chapter {{ chapter.position }} : {{ chapter.header }}</a>#}
-                            {#{% endfor %}#}
-                        {#</div>#}
-                    {#</div>#}
-                {#</aside>#}
             </div>
         </div>
     </div>

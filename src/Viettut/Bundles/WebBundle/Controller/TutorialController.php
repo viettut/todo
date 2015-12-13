@@ -93,14 +93,12 @@ class TutorialController extends Controller
             throw new NotFoundHttpException('');
         }
 
-        $comments = $this->get('viettut.domain_manager.comment')->getByTutorial($tutorial);
         $popularCourses = $this->get('viettut.repository.course')->getPopularCourse(intval($popularSize));
         $popularTutorials = $this->get('viettut.repository.tutorial')->getPopularTutorial(intval($popularSize));
 
         return $this->render('ViettutWebBundle:Tutorial:detail.html.twig', array(
                 'username' => $username,
                 'tutorial' => $tutorial,
-                "comments" => $comments,
                 "popularCourses" => $popularCourses,
                 "popularTutorials" => $popularTutorials
             )

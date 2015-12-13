@@ -65,6 +65,11 @@
             }
         };
 
+        $scope.removeTag = function(tag) {
+            var index = $scope.courseTags.indexOf(tag);
+            $scope.courseTags.splice(index, 1);
+        };
+
         $scope.create = function () {
             $http.defaults.headers.common.Authorization = "Bearer " + $auth.getToken();
 

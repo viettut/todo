@@ -114,7 +114,6 @@ class CourseController extends Controller
         }
 
         $course = $this->get('viettut.repository.course')->getByLecturerAndHash($lecturer, $hash);
-        $comments = $this->get('viettut.domain_manager.comment')->getByCourse($course);
 
         if(!$course instanceof CourseInterface) {
             throw new NotFoundHttpException('');
@@ -126,7 +125,6 @@ class CourseController extends Controller
         return $this->render('ViettutWebBundle:Course:detail.html.twig', array(
             'username' => $username,
             'course' => $course,
-            "comments" => $comments,
             "popularCourses" => $popularCourses,
             "popularTutorials" => $popularTutorials
         ));

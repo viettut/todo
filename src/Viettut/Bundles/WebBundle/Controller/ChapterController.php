@@ -32,6 +32,7 @@ class ChapterController extends Controller
      */
     public function detailAction($username, $hash, $cHash)
     {
+        $popularSize = $this->container->getParameter('popularSize');
         $lecturer = $this->get('viettut_user.domain_manager.lecturer')->findUserByUsernameOrEmail($username);
         if (!$lecturer instanceof LecturerInterface) {
             throw new NotFoundHttpException(

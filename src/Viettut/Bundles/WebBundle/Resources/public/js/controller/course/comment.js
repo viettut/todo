@@ -23,6 +23,7 @@
         $scope.showError = false;
         $scope.commentToggle = false;
 
+        console.log('dcm -> ' + $scope.currentCourse);
         $scope.showReplyForm = function() {
 
         };

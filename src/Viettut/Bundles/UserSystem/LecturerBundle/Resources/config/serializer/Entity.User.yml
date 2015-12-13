@@ -20,8 +20,10 @@ Viettut\Bundles\UserSystem\LecturerBundle\Entity\User:
             groups: [user.summary]
         firstName:
             expose: true
+            groups: [user.summary]
         lastName:
             expose: true
+            groups: [user.summary]
         company:
             expose: true
             groups: [user.summary]
@@ -39,5 +41,6 @@ Viettut\Bundles\UserSystem\LecturerBundle\Entity\User:
             expose: true
         avatar:
             expose: true
+            groups: [user.summary]
         settings:
             expose: true

@@ -52,7 +52,7 @@
                                                 <a href="#">{{ t.tag.text }}</a>
                                             {% endfor %}
                                         </span>
-                                        <span><i class="fa fa-comments"></i> <a href="#">{{ course.chapters | length }} Chapters</a></span>
+                                        <span><i class="fa fa-book"></i> <a href="#">{{ course.chapters | length }} Chapters</a></span>
                                         <a href="{{ path('course_detail', {'hash' : course.hashTag, 'username' : course.author.username}) }}" class="btn btn-xs btn-primary pull-right">Read more...</a>
                                     </div>
                                 </div>
