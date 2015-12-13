@@ -18,6 +18,7 @@ class User extends BaseUser implements LecturerInterface
     protected $address;
     protected $postalCode;
     protected $country;
+    protected $avatar;
     protected $settings; //json string represent settings
 
     /**
@@ -189,6 +190,26 @@ class User extends BaseUser implements LecturerInterface
         $this->country = $country;
         return $this;
     }
+
+    /**
+     * @return string
+     */
+    public function getAvatar()
+    {
+        return $this->avatar;
+    }
+
+    /**
+     * @param $avatar
+     * @return self
+     */
+    public function setAvatar($avatar)
+    {
+        $this->avatar = $avatar;
+
+        return $this;
+    }
+
 
     /**
      * @return mixed

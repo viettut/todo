@@ -12,6 +12,7 @@ Viettut\Bundles\UserSystem\LecturerBundle\Entity\User:
         - address
         - postalCode
         - country
+        - avatar
         - settings
     properties:
         id:
@@ -35,6 +36,8 @@ Viettut\Bundles\UserSystem\LecturerBundle\Entity\User:
         postalCode:
             expose: true
         country:
+            expose: true
+        avatar:
             expose: true
         settings:
             expose: true

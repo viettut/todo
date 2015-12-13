@@ -59,7 +59,7 @@ class CourseController extends Controller
     }
 
     /**
-     * @Route("/courses", name="course_index")
+     * @Route("/courses/all", name="course_index")
      * @param $request
      * @return \Symfony\Component\HttpFoundation\Response
      * @Template()

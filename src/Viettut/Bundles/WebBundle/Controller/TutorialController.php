@@ -34,14 +34,20 @@ class TutorialController extends Controller
     }
 
     /**
-     * @Route("/tutorials", name="tutorial_index")
+     * @Route("/tutorials/all", name="tutorial_index")
+     * @param $request
      * @return \Symfony\Component\HttpFoundation\Response
      * @Template()
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
-        $tutorials = $this->get('viettut.repository.tutorial')->findAll();
-        return $this->render('ViettutWebBundle:Tutorial:index.html.twig', array('tutorials' => $tutorials));
+        $pagination = $this->get('knp_paginator')->paginate(
+            $this->get('viettut.repository.tutorial')->getAllTutorialQuery(),
+            $request->query->getInt('page', 1)/*page number*/
+        );
+        return $this->render('ViettutWebBundle:Tutorial:index.html.twig', array(
+            "pagination" => $pagination
+        ));
     }
 
     /**
@@ -74,6 +80,7 @@ class TutorialController extends Controller
      */
     public function detailAction($username, $hash)
     {
+        $popularSize = $this->container->getParameter('popularSize');
         $lecturer = $this->get('viettut_user.domain_manager.lecturer')->findUserByUsernameOrEmail($username);
         if (!$lecturer instanceof LecturerInterface) {
             throw new NotFoundHttpException(
@@ -87,7 +94,16 @@ class TutorialController extends Controller
         }
 
         $comments = $this->get('viettut.domain_manager.comment')->getByTutorial($tutorial);
+        $popularCourses = $this->get('viettut.repository.course')->getPopularCourse(intval($popularSize));
+        $popularTutorials = $this->get('viettut.repository.tutorial')->getPopularTutorial(intval($popularSize));
 
-        return $this->render('ViettutWebBundle:Tutorial:detail.html.twig', array('username' => $username, 'tutorial' => $tutorial, "comments" => $comments));
+        return $this->render('ViettutWebBundle:Tutorial:detail.html.twig', array(
+                'username' => $username,
+                'tutorial' => $tutorial,
+                "comments" => $comments,
+                "popularCourses" => $popularCourses,
+                "popularTutorials" => $popularTutorials
+            )
+        );
     }
 }

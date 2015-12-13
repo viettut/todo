@@ -2,7 +2,7 @@
     <div class="tabs">
         <ul class="nav nav-tabs">
             <li class="active"><a href="#popularPosts" data-toggle="tab">Popular Course</a></li>
-            <li><a href="#recentPosts" data-toggle="tab">Popular Tutorial</a></li>
+            <li><a href="#recentPosts" data-toggle="tab">Popular Tut</a></li>
         </ul>
         <div class="tab-content">
             <div class="tab-pane active" id="popularPosts">
@@ -17,9 +17,9 @@
                             </div>
                         </div>
                         <div class="post-info">
-                            <a href="{{ path('course_detail', {'hash' : c.hashTag, 'username' : c.author.username}) }}">{{ course.title }}</a>
+                            <a href="{{ path('course_detail', {'hash' : c.hashTag, 'username' : c.author.username}) }}">{{ c.title }}</a>
                             <div class="post-meta">
-                                {{ c.createdAt | date('F d, yyyy') }}
+                                {{ c.createdAt | date('F d, Y') }}
                             </div>
                         </div>
                     </li>
@@ -34,7 +34,7 @@
                         <div class="post-info">
                             <a href="{{ path('tutorial_detail', {'hash' : tut.hashTag, 'username' : tut.author.username}) }}">{{ tut.title }}</a>
                             <div class="post-meta">
-                                {{ tut.createdAt | date('F d, yyyy') }}
+                                {{ tut.createdAt | date('F d, Y') }}
                             </div>
                         </div>
                     </li>

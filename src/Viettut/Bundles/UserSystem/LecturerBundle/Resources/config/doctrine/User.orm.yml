@@ -30,6 +30,8 @@ Viettut\Bundles\UserSystem\LecturerBundle\Entity\User:
         country:
             type: string
             nullable: true
+        avatar:
+            type: string
         settings:
             type: json_array
             nullable: true

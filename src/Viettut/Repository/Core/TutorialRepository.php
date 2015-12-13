@@ -77,6 +77,4 @@ class TutorialRepository extends EntityRepository implements TutorialRepositoryI
     {
         return $this->createQueryBuilder('t')->getQuery();
     }
-
-
 }

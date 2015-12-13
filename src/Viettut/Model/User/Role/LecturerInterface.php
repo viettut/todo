@@ -109,6 +109,17 @@ interface LecturerInterface extends UserRoleInterface
     public function getEmail();
 
     /**
+     * @return string
+     */
+    public function getAvatar();
+
+    /**
+     * @param $avatar
+     * @return self
+     */
+    public function setAvatar($avatar);
+
+    /**
      * @return mixed
      */
     public function getSettings();
