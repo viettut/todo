@@ -5,6 +5,22 @@
             width: 100%;
             height: 90%;
         }
+
+        .pading-left-5 {
+            padding-left: 5px;
+        }
+
+        .pading-left-10 {
+            padding-left: 10px;
+        }
+
+        .padding-right-5 {
+            padding-right: 5px;
+        }
+
+        .padding-right-10 {
+            padding-right: 10px;
+        }
     </style>
     <section class="page-top">
         <div class="container">
@@ -29,8 +45,9 @@
     </div>
 {% endblock %}
 {% block custom %}
-    <script src="{{ asset('bundles/viettutweb/js/controller/course/create/router.js') }}"></script>
+    <script src="{{ asset('bundles/viettutweb/js/controller/course/router.js') }}"></script>
     <script src="{{ asset('bundles/viettutweb/js/controller/course/create/course.js') }}"></script>
-    <script src="{{ asset('bundles/viettutweb/js/controller/course/create/chapter.js') }}"></script>
+    <script src="{{ asset('bundles/viettutweb/js/controller/course/mycourse/course.js') }}"></script>
+    <script src="{{ asset('bundles/viettutweb/js/controller/course/chapter.js') }}"></script>
     <script src="{{ asset('bundles/viettutweb/js/services/course.js') }}"></script>
 {% endblock %}

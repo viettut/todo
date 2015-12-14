@@ -27,7 +27,7 @@ class ParagraphExtension extends \Twig_Extension
     public function paraFilter($string)
     {
         $string = substr($string,0, strpos($string, "\n"));
-        return $string. '...\n';
+        return $string. '...';
     }
 
 }

@@ -17,8 +17,10 @@ use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 use Symfony\Component\Form\FormTypeInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Viettut\Handler\HandlerInterface;
 use Viettut\Model\Core\CourseInterface;
+use Viettut\Model\User\Role\LecturerInterface;
 
 /**
  * @RouteResource("Course")
@@ -70,6 +72,25 @@ class CourseController extends RestControllerAbstract implements ClassResourceIn
         return $this->one($id);
     }
 
+    /**
+     * @Rest\Get("/mycourses")
+     *
+     * @return mixed
+     */
+    public function getMycourseAction()
+    {
+        $lecturer = $this->getUser();
+        if (!$lecturer instanceof LecturerInterface) {
+            throw new AccessDeniedException(
+                sprintf(
+                    'You do not have permission to view this %s or it does not exist',
+                    $this->getResourceName()
+                )
+            );
+        }
+
+        return $this->get('viettut.domain_manager.course')->getCourseByLecturer($lecturer);
+    }
 
     /**
      *
