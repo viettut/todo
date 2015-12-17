@@ -6,14 +6,13 @@ parameters:
     database_user: viettut
     database_password: 12345678
     mailer_transport: gmail
-    mailer_host: ~
+    mailer_host: null
     mailer_user: tut4vietcoder
     mailer_password: Fuqcjd6j3U@@
-    mailer_port: ~
+    mailer_port: null
     mailer_sender: tut4vietcoder@gmail.com
     mailer_sender_name: VietTut
     secret: ThisTokenIsNotSoSecretChangeIt
     password_resetting_link: 'http://localhost:9010/#/reset/changePassword'
     uploadRootDirectory: /var/www/api.server.dev/web/uploads/images
     uploadDirectory: /uploads/images
-    popularSize: 3
