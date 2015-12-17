@@ -1,10 +1,10 @@
 # This file is auto-generated during the composer install
 parameters:
-    database_host: api.viettut.com
-    database_port: null
-    database_name: viettut
-    database_user: viettut
-    database_password: 12345678
+    database_host: ec2-50-19-208-138.compute-1.amazonaws.com
+    database_port: 5432
+    database_name: dchebemvkbmf4u
+    database_user: kpekrobovjmjfp
+    database_password: GrNhh_jgPUF8Uh8uM0CrpQ4ioJ
     mailer_transport: gmail
     mailer_host: null
     mailer_user: tut4vietcoder
