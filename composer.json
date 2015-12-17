@@ -20,18 +20,18 @@
         "sensio/distribution-bundle": "~4.0",
         "sensio/framework-extra-bundle": "~3.0,>=3.0.2",
         "incenteev/composer-parameter-handler": "~2.0",
-        "friendsofsymfony/user-bundle": "~2.0@dev",
+        "friendsofsymfony/user-bundle": "v2.0.0-alpha3",
         "friendsofsymfony/rest-bundle": "~1.4",
-        "jms/serializer-bundle": "0.13.*@dev",
         "lexik/jwt-authentication-bundle": "@stable",
         "gfreeau/get-jwt-bundle": "~1.0",
         "gfreeau/custom-validation-path-bundle": "dev-master",
         "nelmio/cors-bundle": "~1.0",
         "nelmio/api-doc-bundle": "~2.5.1",
-        "rollerworks/multi-user-bundle": "1.0.*@dev",
-        "stof/doctrine-extensions-bundle": "~1.1@dev",
+        "stof/doctrine-extensions-bundle": "v1.2.1",
         "raphy/markdown-bundle": "@stable",
-        "knplabs/knp-paginator-bundle": "^2.5"
+        "knplabs/knp-paginator-bundle": "^2.5",
+        "rollerworks/multi-user-bundle": "dev-master",
+        "jms/serializer-bundle": "0.13.0"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

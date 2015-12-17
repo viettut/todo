@@ -2,21 +2,21 @@
 # Set parameters here that may be different on each deployment target of the app, e.g. development, staging, production.
 # http://symfony.com/doc/current/best_practices/configuration.html#infrastructure-related-configuration
 parameters:
-    database_host:     127.0.0.1
-    database_port:     ~
-    database_name:     symfony
-    database_user:     root
-    database_password: ~
+    database_host:     ec2-50-19-208-138.compute-1.amazonaws.com
+    database_port:     5432
+    database_name:     dchebemvkbmf4u
+    database_user:     kpekrobovjmjfp
+    database_password: GrNhh_jgPUF8Uh8uM0CrpQ4ioJ
     # You should uncomment this if you want use pdo_sqlite
     # database_path: "%kernel.root_dir%/data.db3"
 
-    mailer_transport:  smtp
-    mailer_host:       127.0.0.1
-    mailer_user:       ~
-    mailer_password:   ~
-    mailer_port: 1025
-    mailer_sender: tagcade.dev@gmail.com
-    mailer_sender_name: Tagcade.dev
+    mailer_transport:  gmail
+    mailer_host:       ~
+    mailer_user:       tut4vietcoder
+    mailer_password:   Fuqcjd6j3U@@
+    mailer_port: ~
+    mailer_sender: tut4vietcoder@gmail.com
+    mailer_sender_name: VietTut
 
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
@@ -24,5 +24,5 @@ parameters:
     mailer_sender: tagcade.dev@gmail.com
     mailer_sender_name: Tagcade.dev
     password_resetting_link: http://localhost:9010/#/reset/changePassword
-    uploadRootDirectory: ~
-    uploadDirectory: ~
+    uploadRootDirectory: /var/www/api.server.dev/web/uploads/images
+    uploadDirectory: /uploads/images
