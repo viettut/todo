@@ -7,3 +7,4 @@ app/dev
 app/logs
 .idea/
 src/Viettut/Bundles/WebBundle/Resources/public/bower_components
+vendor/**/.git
