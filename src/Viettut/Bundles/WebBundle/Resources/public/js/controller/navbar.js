@@ -15,16 +15,18 @@
         .module('viettut')
         .controller('NavBarController', NavBarController);
 
-        function NavBarController($scope, $auth, $window, $localStorage) {
-            //console.log('isAuthenticated -> ' + )
+        function NavBarController($scope, $auth, $window, $localStorage, AuthenService) {
             $scope.username = $localStorage.username;
             $scope.name = $localStorage.name;
+            $scope.avatar = $localStorage.avatar;
+            $scope.professional = '';
+            console.log('avatar -> ' + $scope.avatar);
             $scope.register = function() {
-                $window.location.href = '/app_dev.php/register';
+                AuthenService.register();
             };
 
             $scope.login = function() {
-                $window.location.href = '/app_dev.php/login';
+                AuthenService.login();
             };
 
             $scope.logout = function(){
@@ -32,7 +34,7 @@
                 $auth
                     .logout()
                     .then(function() {
-                        $window.location.href = '/app_dev.php/';
+                        AuthenService.goHome();
                     });
             };
 

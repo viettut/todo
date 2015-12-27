@@ -15,7 +15,7 @@
         .module('viettut')
         .controller('CommentController', CommentController);
 
-    function CommentController($auth, $http, $scope, $window) {
+    function CommentController($auth, $http, $scope, $window, AuthenService, config) {
         $scope.comments = [];
         $scope.content = '';
         $scope.laddaLoading = false;
@@ -23,7 +23,6 @@
         $scope.showError = false;
         $scope.commentToggle = false;
 
-        console.log('dcm -> ' + $scope.currentCourse);
         $scope.showReplyForm = function() {
 
         };
@@ -39,7 +38,7 @@
             // start progress
             $scope.laddaLoading = true;
 
-            $http.post('/app_dev.php/api/v1/chapters', data).
+            $http.post(config.API_URL + 'chapters', data).
                 then(
                 function(response){
                     $scope.laddaLoading = false;
@@ -53,7 +52,7 @@
                             $auth.logout();
                         }
                         // re-login
-                        $window.location.href = '/app_dev.php/login';
+                        AuthenService.login();
                     }
 
                     $scope.laddaLoading = false;
@@ -67,7 +66,7 @@
 
             $http({
                 method: 'GET',
-                url: '/app_dev.php/api/v1/courses/' + $scope.currentCourse + '/comments'
+                url: config.API_URL + 'courses/' + $scope.currentCourse + '/comments'
             }).then(function successCallback(response) {
                 $scope.comments = response.data;
             }, function errorCallback(response) {
@@ -86,7 +85,7 @@
                 course: $scope.currentCourse
             };
 
-            $http.post('/app_dev.php/api/v1/comments', data).
+            $http.post(config.API_URL + 'comments', data).
                 then(
                 function(response){
                     $scope.laddaLoading = false;
@@ -102,7 +101,7 @@
                             $auth.logout();
                         }
                         // re-login
-                        $window.location.href = '/app_dev.php/login';
+                        AuthenService.login();
                     }
 
                     $scope.laddaLoading = false;

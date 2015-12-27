@@ -13,7 +13,7 @@
      */
     angular
         .module('viettut')
-        .config(function ($stateProvider, $urlRouterProvider) {
+        .config(function ($stateProvider, $urlRouterProvider, config) {
             $urlRouterProvider.otherwise('/');
 
             $stateProvider
@@ -57,7 +57,7 @@
                 if ($auth.isAuthenticated()) {
                     deferred.resolve();
                 } else {
-                    $location.path('/app_dev.php/login');
+                    $location.path(config.BASE_URL + 'login');
                 }
                 return deferred.promise;
             }

@@ -40,9 +40,12 @@ class UserController extends FOSRestController
             throw new InvalidArgumentException('email can not be empty');
         }
 
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            throw new InvalidArgumentException('Invalid email');
+        }
+
         $name = $request->request->get('name');
-        $gender = $request->request->get('gender');
-        $birthday = $request->request->get('birthday');
+        $professional = $request->request->get('gender');
 
         $userManager = $this->container->get('viettut_user.domain_manager.lecturer');
 
@@ -59,10 +62,19 @@ class UserController extends FOSRestController
         $userDiscriminator = $this->get('rollerworks_multi_user.user_discriminator');
         $userDiscriminator->setCurrentUser('viettut_user_system_lecturer');
         $user = $userManager->createNew();
+        $activeCode = uniqid('', true);
+        $link = sprintf('http://viettut.com/user/active/%s', $activeCode);
         $user->setEnabled(true)
             ->setPlainPassword($password)
             ->setUsername($username)
-            ->setEmail($email);
+            ->setEmail($email)
+            ->setName($name)
+            ->setProfessional($professional)
+            ->setActive(false)
+            ->setActiveCode($activeCode)
+        ;
+        $hash = md5(trim($email));
+        $user->setAvatar(sprintf('http://gravatar.com/avatar/%s?size=64&d=identicon', $hash));
         $userManager->save($user);
 
         $routeOptions = array(
@@ -70,26 +82,22 @@ class UserController extends FOSRestController
         );
 
         $message = \Swift_Message::newInstance()
-            ->setSubject('Hello Email')
-            ->setFrom('admin@viettut.com')
-            ->setTo('giang.fet.hut@gmail.com')
+            ->setSubject('Welcome aboard !')
+            ->setFrom('noreply@viettut.com')
+            ->setTo($email)
             ->setBody(
-                "<h2>Hello guys !</h2>",
+                $this->renderView(
+                    ':Emails:welcome.html.twig',
+                    array(
+                        'name' => $name,
+                        'link' => $link
+                    )
+                ),
                 'text/html'
             )
-            /*
-             * If you also want to include a plaintext version of the message
-            ->addPart(
-                $this->renderView(
-                    'Emails/registration.txt.twig',
-                    array('name' => $name)
-                ),
-                'text/plain'
-            )
-            */
         ;
-        $this->get('mailer')->send($message);
 
+        $this->get('mailer')->send($message);
         return $this->view($user, Codes::HTTP_CREATED, $routeOptions);
     }
 

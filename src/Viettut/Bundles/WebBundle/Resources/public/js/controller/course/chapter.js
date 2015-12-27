@@ -15,7 +15,7 @@
         .module('viettut')
         .controller('ChapterController', ChapterController);
 
-    function ChapterController($auth, $http, $scope, $stateParams, $window, initialCourse) {
+    function ChapterController($auth, $http, $scope, $stateParams, $window, initialCourse, config, AuthenService) {
         $scope.courseId = $stateParams.cid;
         $scope.course = initialCourse;
         $scope.previewText = 'Show Preview';
@@ -35,7 +35,7 @@
             // start progress
             $scope.laddaLoading = true;
 
-            $http.post('/app_dev.php/api/v1/chapters', data).
+            $http.post(config.BASE_URL + 'chapters', data).
                 then(
                 function(response){
                     $scope.laddaLoading = false;
@@ -49,7 +49,7 @@
                             $auth.logout();
                         }
                         // re-login
-                        $window.location.href = '/app_dev.php/login';
+                        AuthenService.login();
                     }
 
                     $scope.laddaLoading = false;

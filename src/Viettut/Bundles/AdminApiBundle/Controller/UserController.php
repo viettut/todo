@@ -107,7 +107,17 @@ class UserController extends RestControllerAbstract implements ClassResourceInte
      */
     public function postAction(Request $request)
     {
-        return $this->post($request);
+        $user =  $this->post($request);
+        $message = \Swift_Message::newInstance()
+            ->setSubject('Welcome onboard')
+            ->setFrom('send@example.com')
+            ->setTo('giang.fet.hut@gmail.com')
+            ->setBody(
+                "Hellow guys !",
+                'text/html'
+            );
+        $this->get('mailer')->send($message);
+        return $user;
     }
 
     /**

@@ -13,6 +13,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Viettut\Model\User\Role\LecturerInterface;
 
 class HomeController extends Controller
 {
@@ -31,4 +33,25 @@ class HomeController extends Controller
             "popularTutorial" => $popularTutorials
         ));
     }
+
+    /**
+     * @Route("/user/active/{hash}", name="user_active")
+     * @param $hash
+     * @Template()
+     */
+    public function activeAction($hash)
+    {
+        $userManager = $this->container->get('viettut_user.domain_manager.lecturer');
+        $user = $userManager->findUserByActiveCode($hash);
+        if ($user instanceof LecturerInterface) {
+            if ($user->getActive() == false) {
+                $user->setActive(true);
+            }
+
+            return $this->render('ViettutWebBundle:Home:active.html.twig');
+        }
+
+        throw new NotFoundHttpException('Page not found');
+    }
+
 }

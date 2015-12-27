@@ -135,4 +135,9 @@ class LecturerManager implements LecturerManagerInterface
     {
         $this->FOSUserManager->updateCanonicalFields($user);
     }
+
+    public function findUserByActiveCode($code)
+    {
+        return $this->FOSUserManager->findUserBy(['activeCode' => $code]);
+    }
 }

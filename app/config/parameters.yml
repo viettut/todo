@@ -1,18 +1,19 @@
 # This file is auto-generated during the composer install
 parameters:
-    database_host: ec2-50-19-208-138.compute-1.amazonaws.com
-    database_port: 5432
-    database_name: dchebemvkbmf4u
-    database_user: kpekrobovjmjfp
-    database_password: GrNhh_jgPUF8Uh8uM0CrpQ4ioJ
-    mailer_transport: gmail
+    database_host: api.viettut.com
+    database_port: null
+    database_name: viettut
+    database_user: viettut
+    database_password: 12345678
+    mailer_transport: smtp
     mailer_host: null
-    mailer_user: tut4vietcoder
+    mailer_user: tut4vietcoder@gmail.com
     mailer_password: Fuqcjd6j3U@@
     mailer_port: null
     mailer_sender: tut4vietcoder@gmail.com
-    mailer_sender_name: VietTut
+    mailer_sender_name: 'ViettuT Academy'
     secret: ThisTokenIsNotSoSecretChangeIt
     password_resetting_link: 'http://localhost:9010/#/reset/changePassword'
     uploadRootDirectory: /var/www/api.server.dev/web/uploads/images
     uploadDirectory: /uploads/images
+    popularSize: 10

@@ -15,7 +15,7 @@
         .module('viettut')
         .controller('LoginController', LoginController);
 
-    function LoginController($auth, $scope, $localStorage, $window) {
+    function LoginController($auth, $scope, $localStorage, $window, AuthenService, config) {
         $scope.$storage = $localStorage;
         $scope.laddaLoading = false;
         $scope.error = '';
@@ -33,8 +33,9 @@
             $auth.login(credentials).then(function(response) {
                 $localStorage.username = response.data.username;
                 $localStorage.name = response.data.username;
-
-                $window.location.href = '/app_dev.php/';
+                $localStorage.avatar = response.data.avatar;
+                console.log('user -> ' + JSON.stringify(response));
+                $window.location.href = config.BASE_URL;
                 $scope.laddaLoading = false;
             }).catch(function(data) {
                 $scope.error = 'Invalid credentials';
@@ -49,12 +50,12 @@
             }
 
             $auth.logout().then(function() {
-                $window.location.href = '/app_dev.php/';
+                AuthenService.goHome();
             });
         };
 
         $scope.register = function() {
-            $window.location.href = '/app_dev.php/register';
+            AuthenService.register();
         };
 
         $scope.socialLogin = function(provider) {

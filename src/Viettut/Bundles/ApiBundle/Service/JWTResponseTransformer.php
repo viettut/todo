@@ -12,7 +12,7 @@ class JWTResponseTransformer
         $data['id'] = $user->getId();
         $data['username'] = $user->getUsername();
         $data['userRoles'] = $user->getUserRoles();
-
+        $data['avatar'] = $user->getAvatar();
         if($user instanceof LecturerInterface) {
             $data['settings'] = $user->getSettings();
         }

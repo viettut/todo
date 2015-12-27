@@ -13,7 +13,7 @@ angular
                 $http.defaults.headers.common.Authorization = "Bearer " + $auth.getToken();
                 $http({
                     method: 'GET',
-                    url: '/app_dev.php/api/v1/courses/' + cid
+                    url: config.API_URL + 'courses/' + cid
                 }).success(function (data) {
                     deferred.resolve(data);
                 }).error(function (msg) {
@@ -28,7 +28,7 @@ angular
                 $http.defaults.headers.common.Authorization = "Bearer " + $auth.getToken();
                 $http({
                     method: 'GET',
-                    url: '/app_dev.php/api/v1/mycourses'
+                    url: config.API_URL + 'mycourses'
                 }).success(function (data) {
                     deferred.resolve(data);
                 }).error(function (msg) {

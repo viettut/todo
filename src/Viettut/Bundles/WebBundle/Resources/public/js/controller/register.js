@@ -15,7 +15,7 @@
         .module('viettut')
         .controller('RegisterController', RegisterController);
 
-    function RegisterController($scope, $auth) {
+    function RegisterController($scope, $auth, AuthenService) {
         $scope.laddaLoading = false;
         $scope.error = '';
         $scope.showError = false;
@@ -40,7 +40,7 @@
         };
 
         $scope.login = function(){
-            $window.location.href = '/app_dev.php/login';
+            AuthenService.login();
         }
     };
 })();

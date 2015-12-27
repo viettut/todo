@@ -5,15 +5,15 @@
 
 angular
     .module('viettut')
-    .factory('ChapterService', function($auth, $http, $q, config) {
+    .factory('TagService', function($auth, $http, $q, config) {
         return {
-            getChaptersByCourse: function(cid) {
+            getAllTags: function() {
                 var deferred = $q.defer();
 
                 $http.defaults.headers.common.Authorization = "Bearer " + $auth.getToken();
                 $http({
                     method: 'GET',
-                    url: config.API_URL + 'courses/' + cid + '/chapters'
+                    url: config.API_URL + 'tags'
                 }).success(function (data) {
                     deferred.resolve(data);
                 }).error(function (msg) {

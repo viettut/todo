@@ -15,7 +15,7 @@
         .module('viettut')
         .controller('CourseController', CourseController);
 
-    function CourseController($auth, $http, $scope, $window, Upload, $timeout, $state) {
+    function CourseController($auth, $http, $scope, $window, Upload, $timeout, $state, TagService, AuthenService,  config) {
         $scope.laddaLoading = false;
         $scope.error = '';
         $scope.showError = false;
@@ -38,7 +38,7 @@
 
         $scope.initTag = function() {
             $http.defaults.headers.common.Authorization = "Bearer " + $auth.getToken();
-            $scope.allTags = $http.get('/app_dev.php/api/v1/tags');
+            $scope.allTags = TagService.getAllTags();
         };
         //initialize
         $scope.initTag();
@@ -83,7 +83,7 @@
             // start progress
             $scope.laddaLoading = true;
 
-            $http.post('/app_dev.php/api/v1/courses', data).
+            $http.post(config.API_URL + 'courses', data).
                 then(
                 function(response){
                     $scope.laddaLoading = false;
@@ -98,7 +98,7 @@
                             $auth.logout();
                         }
                         // re-login
-                        $window.location.href = '/app_dev.php/login';
+                        AuthenService.login();
                     }
 
                     $scope.laddaLoading = false;
@@ -113,7 +113,7 @@
             $scope.f = file;
             if (file && !file.$error) {
                 file.upload = Upload.upload({
-                    url: '/app_dev.php/courses/upload',
+                    url: config.BASE_URL + 'courses/upload',
                     file: file
                 });
 

@@ -24,5 +24,6 @@ parameters:
     mailer_sender: tagcade.dev@gmail.com
     mailer_sender_name: Tagcade.dev
     password_resetting_link: http://localhost:9010/#/reset/changePassword
-    uploadRootDirectory: /var/www/api.server.dev/web/uploads/images
+    uploadRootDirectory: web/uploads/images
     uploadDirectory: /uploads/images
+    popularSize: 10

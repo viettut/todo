@@ -3,10 +3,10 @@ Viettut\Bundles\UserSystem\LecturerBundle\Entity\User:
     table: core_user_lecturer
 
     fields:
-        firstName:
+        name:
             type: string
             nullable: true
-        lastName:
+        professional:
             type: string
             nullable: true
         company:
@@ -32,6 +32,14 @@ Viettut\Bundles\UserSystem\LecturerBundle\Entity\User:
             nullable: true
         avatar:
             type: string
+        active:
+            type: boolean
+            nullable: false
+            options:
+                default: true
+        activeCode:
+            type: string
+            nullable: false
         settings:
             type: json_array
             nullable: true

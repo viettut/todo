@@ -54,7 +54,7 @@ assetic:
 # Doctrine Configuration
 doctrine:
     dbal:
-        driver:   pdo_pgsql
+        driver:   pdo_mysql
         host:     "%database_host%"
         port:     "%database_port%"
         dbname:   "%database_name%"
@@ -102,8 +102,8 @@ swiftmailer:
     username:   "%mailer_user%"
     password:   "%mailer_password%"
     port :      "%mailer_port%"
-    #encryption: ssl
-    #auth_mode:  login
+    encryption: ssl
+    auth_mode:  login
     spool:      { type: memory }
 
 # REST API
@@ -225,6 +225,15 @@ knp_paginator:
         pagination: KnpPaginatorBundle:Pagination:twitter_bootstrap_v3_pagination.html.twig     # sliding pagination controls template
         sortable: KnpPaginatorBundle:Pagination:sortable_link.html.twig # sort link template
 
+
+hwi_oauth:
+    resource_owners:
+        any_name:
+            type: facebook
+            client_id: 529276757135612
+            client_secret: 0fe34b757c10440e7259665a53dda55a
+            options:
+                csrf: true
 
 parameters:
     jms_serializer.json_serialization_visitor.class: Viettut\Behaviors\JsonSerializationVisitor

@@ -24,8 +24,8 @@ class UserFormType extends AbstractRoleSpecificFormType
         $builder
             ->add('username')
             ->add('plainPassword')
-            ->add('firstName')
-            ->add('lastName')
+            ->add('name')
+            ->add('professional')
             ->add('company')
             ->add('email')
             ->add('phone')

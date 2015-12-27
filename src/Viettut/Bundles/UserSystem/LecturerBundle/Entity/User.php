@@ -9,8 +9,10 @@ use Viettut\Model\User\UserEntityInterface;
 class User extends BaseUser implements LecturerInterface
 {
     protected $id;
-    protected $firstName;
-    protected $lastName;
+    protected $name;
+    protected $professional;
+    protected $active;
+    protected $activeCode;
     protected $company;
     protected $phone;
     protected $city;
@@ -32,38 +34,79 @@ class User extends BaseUser implements LecturerInterface
     /**
      * @return string
      */
-    public function getFirstName()
+    public function getName()
     {
-        return $this->firstName;
+        return $this->name;
     }
 
     /**
-     * @param string $firstName
+     * @param string $name
      * @return self
      */
-    public function setFirstName($firstName)
+    public function setName($name)
     {
-        $this->firstName = $firstName;
+        $this->name = $name;
+
         return $this;
     }
 
     /**
      * @return string
      */
-    public function getLastName()
+    public function getProfessional()
     {
-        return $this->lastName;
+        return $this->professional;
     }
 
     /**
-     * @param string $lastName
+     * @param string $professional
      * @return self
      */
-    public function setLastName($lastName)
+    public function setProfessional($professional)
     {
-        $this->lastName = $lastName;
+        $this->professional = $professional;
+
         return $this;
     }
+
+    /**
+     * @return string
+     */
+    public function getActive()
+    {
+        return $this->active;
+    }
+
+    /**
+     * @param string $active
+     * @return self
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getActiveCode()
+    {
+        return $this->activeCode;
+    }
+
+    /**
+     * @param mixed $activeCode
+     * @return self
+     */
+    public function setActiveCode($activeCode)
+    {
+        $this->activeCode = $activeCode;
+
+        return $this;
+    }
+
 
     /**
      * @return string

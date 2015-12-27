@@ -7,24 +7,46 @@ interface LecturerInterface extends UserRoleInterface
     /**
      * @return string
      */
-    public function getFirstName();
+    public function getName();
 
     /**
-     * @param string $firstName
+     * @param string $name
      * @return self
      */
-    public function setFirstName($firstName);
+    public function setName($name);
 
     /**
      * @return string
      */
-    public function getLastName();
+    public function getProfessional();
 
     /**
-     * @param string $lastName
+     * @param string $professional
      * @return self
      */
-    public function setLastName($lastName);
+    public function setProfessional($professional);
+
+    /**
+     * @return string
+     */
+    public function getActive();
+
+    /**
+     * @param string $active
+     * @return self
+     */
+    public function setActive($active);
+
+    /**
+     * @return string
+     */
+    public function getActiveCode();
+
+    /**
+     * @param mixed $activeCode
+     * @return self
+     */
+    public function setActiveCode($activeCode);
 
     /**
      * @return string

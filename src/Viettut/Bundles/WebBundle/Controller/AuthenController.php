@@ -16,7 +16,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class AuthenController extends Controller
 {
     /**
-     * @Route("/login")
+     * @Route("/login", name="login_page")
      * @Template()
      */
     public function loginAction()
@@ -25,7 +25,7 @@ class AuthenController extends Controller
     }
 
     /**
-     * @Route("/register")
+     * @Route("/register", name="register_page")
      * @Template()
      */
     public function registerAction()

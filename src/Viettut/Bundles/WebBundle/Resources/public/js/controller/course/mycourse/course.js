@@ -15,7 +15,7 @@
         .module('viettut')
         .controller('CourseController', CourseController);
 
-    function CourseController($auth, $http, $scope, $window, Upload, $timeout, $state, myCourses) {
+    function CourseController($auth, $http, $scope, $window, Upload, $timeout, $state, myCourses, config) {
         $scope.myCourses = myCourses;
 
         $scope.getFirstParagraph = function(str) {
@@ -23,7 +23,7 @@
         };
 
         $scope.buildViewLink = function(course) {
-            return '/app_dev.php/' + course.author.username + '/courses/' + course.hashTag;
+            return config.BASE_URL + course.author.username + '/courses/' + course.hashTag;
         };
 
         $scope.isAuthenticated = $auth.isAuthenticated();

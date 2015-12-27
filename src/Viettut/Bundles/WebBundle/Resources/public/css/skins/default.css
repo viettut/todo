@@ -235,8 +235,9 @@ section.toggle.active > label {
 }
 
 section.page-top.custom-product {
-	background-color: #0077b3;
-	border-top-color: #0081c2;
+	/*background-color: #0077b3;*/
+	/*border-top-color: #0081c2;*/
+    background: transparent linear-gradient(45deg, #2095D1, #FF8AD6) repeat scroll 0% 0%;
 }
 
 .feature-box .feature-box-icon {

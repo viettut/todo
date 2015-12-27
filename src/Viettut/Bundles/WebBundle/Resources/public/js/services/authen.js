@@ -5,7 +5,7 @@
 
 angular
     .module('viettut')
-    .factory('ChapterService', function($auth, $http, $q, config) {
+    .factory('AuthenService', function($auth, $http, $q, $window, config) {
         return {
             getChaptersByCourse: function(cid) {
                 var deferred = $q.defer();
@@ -21,6 +21,15 @@ angular
                 });
 
                 return deferred.promise;
+            },
+            login: function() {
+                $window.location.href = config.BASE_URL + 'login';
+            },
+            register: function() {
+                $window.location.href = config.BASE_URL + 'register';
+            },
+            goHome: function(){
+                $window.location.href = config.BASE_URL;
             }
         };
     });

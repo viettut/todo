@@ -13,6 +13,7 @@ use FOS\UserBundle\Model\UserInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class LecturerController extends Controller
 {
@@ -26,7 +27,7 @@ class LecturerController extends Controller
     {
         $author = $this->get('viettut_user_system_lecturer.user_manager')->findUserByUsername($username);
         if (!$author instanceof UserInterface) {
-            $this->createNotFoundException('Page not found');
+            throw new NotFoundHttpException('page not found');
         }
 
         $courses = $this->get('viettut.repository.course')->getCourseByLecturer($author);
