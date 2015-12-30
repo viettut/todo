@@ -48,10 +48,13 @@
                                     <span><i class="fa fa-comments"></i> <a href="#">{{ course.comments | length }} Comments</a></span>
                                 </div>
                                 <div>{{ course.introduce | markdown }} </div>
-                                <div class="row">
-                                    <button class="btn btn-primary btn-lg pull-left">Previous Chapter</button>
-                                    <button class="btn btn-primary btn-lg pull-right">Next Chapter</button>
-                                </div>
+                                {% if lastChapter %}
+                                    <div class="row">
+                                        <div class="pull-left">
+                                            <a class="btn btn-primary btn-lg" href="{{ path('chapter_detail', {'username': course.author.username, 'hash': course.hashTag, 'cHash': nextChapter.hashTag}) }}">Next Chapter <i class="fa fa-play"></i></a>
+                                        </div>
+                                    </div>
+                                {% endif %}
                                 <div class="row col-md-12">
                                     <div class="post-block post-comments clearfix row col-md-12">
                                         <h3><i class="fa fa-comments"></i>Comments ({{ course.comments | length }})</h3>
@@ -171,12 +174,21 @@
                 <aside class="sidebar">
                     <div class="sticky">
                         <h4>Chapters</h4>
-                        <div class="list-group">
-                            <a href="#" class="list-group-item active">Introduce</a>
+                        <ul class="nav nav-tabs nav-stacked">
+                            <li class="active">
+                                <a href="#">Introduce</a>
+                            </li>
                             {% for chapter in course.chapters %}
-                                <a href="{{ path('chapter_detail', {'username': username, 'hash': course.hashTag, 'cHash': chapter.hashTag}) }}" class="list-group-item">Chapter {{ chapter.position }} : {{ chapter.header }}</a>
+                                <li>
+                                    <a href="{{ path('chapter_detail', {'username': username, 'hash': course.hashTag, 'cHash': chapter.hashTag}) }}" class="list-group-item">Chapter {{ chapter.position }} : {{ chapter.header }}</a>
+                                </li>
                             {% endfor %}
-                        </div>
+                        </ul>
+                        {#<div class="list-group">#}
+                            {#{% for chapter in course.chapters %}#}
+                                {#<a href="{{ path('chapter_detail', {'username': username, 'hash': course.hashTag, 'cHash': chapter.hashTag}) }}" class="list-group-item">Chapter {{ chapter.position }} : {{ chapter.header }}</a>#}
+                            {#{% endfor %}#}
+                        {#</div>#}
                     </div>
                 </aside>
             </div>

@@ -11,7 +11,7 @@ var config = {
     SCRIPT_DEST : 'web/js/',
     SCRIPT_FILE : 'app.min.js'
 };
-gulp.task('default', function(){
+gulp.task('default', ['styles', 'scripts', 'copyfont', 'copyimage'], function(){
     console.log('i am GULP');
 });
 
@@ -37,6 +37,7 @@ gulp.task('scripts', function(){
         'web/bundles/viettutweb/bower_components/ladda-angular/dist/ladda-angular.min.js',
 
         'web/bundles/viettutweb/js/app.js',
+        'web/bundles/viettutweb/js/sticky_sidebar.js',
         'web/bundles/viettutweb/js/controller/login.js',
         'web/bundles/viettutweb/js/controller/register.js',
         'web/bundles/viettutweb/js/controller/navbar.js',
@@ -77,6 +78,20 @@ gulp.task('styles', function(){
        'web/bundles/viettutweb/vendor/rs-plugin/css/settings.css',
        'web/bundles/viettutweb/vendor/circle-flip-slideshow/css/component.css',
        'web/bundles/viettutweb/css/skins/default.css',
-       'web/bundles/viettutweb/css/custom.css'
+       'web/bundles/viettutweb/css/custom.css',
+       'web/bundles/viettutweb/css/sidebar.css'
    ]).pipe(concat('main.css')).pipe(minifyCss()).pipe(gulp.dest('web/css/'))
+});
+
+gulp.task('copyfont', function(){
+   return gulp.src([
+       'web/bundles/viettutweb/bower_components/font-awesome/fonts/*',
+       'web/bundles/viettutweb/css/fonts/*'
+   ]).pipe(gulp.dest('web/fonts'))
+});
+
+gulp.task('copyimage', function(){
+   return gulp.src([
+       'web/bundles/viettutweb/img/**/*'
+   ]).pipe(gulp.dest('web/img'))
 });

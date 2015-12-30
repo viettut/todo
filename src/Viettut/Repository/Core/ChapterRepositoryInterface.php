@@ -35,4 +35,11 @@ interface ChapterRepositoryInterface extends ObjectRepository
      * @return mixed
      */
     public function getChapterByCourseAndHash(CourseInterface $course, $hash);
+
+    /**
+     * @param CourseInterface $course
+     * @param $position
+     * @return mixed
+     */
+    public function getChapterByCourseAndPosition(CourseInterface $course, $position);
 }

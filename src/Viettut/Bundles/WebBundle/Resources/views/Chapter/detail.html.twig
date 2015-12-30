@@ -44,10 +44,13 @@
                                 <h2 class="text-center"><a href="#">Chapter {{ chapter.position }}: {{ chapter.header }}</a></h2>
                                 <div>{{ chapter.content | markdown }} </div>
                                 <div ng-init="course={{ course.id }}"></div>
-                                <div>
-                                    <button class="btn btn-primary btn-lg pull-left">Previous Chapter</button>
-                                    <button class="btn btn-primary btn-lg pull-right">Next Chapter</button>
-                                </div>
+                                {% if lastChapter %}
+                                    <div class="row">
+                                        <div class="pull-left">
+                                            <a class="btn btn-primary btn-lg" href="{{ path('chapter_detail', {'username': course.author.username, 'hash': course.hashTag, 'cHash': nextChapter.hashTag}) }}">Next Chapter <i class="fa fa-play"></i></a>
+                                        </div>
+                                    </div>
+                                {% endif %}
                                 <div ng-controller="CommentController">
                                     <div class="post-block post-comments clearfix">
                                         <h3><i class="fa fa-comments"></i>Comments ({{ comments | length }})</h3>

@@ -18,6 +18,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Viettut\Entity\Core\Course;
 use Viettut\Exception\InvalidArgumentException;
+use Viettut\Model\Core\ChapterInterface;
 use Viettut\Model\Core\CourseInterface;
 use Viettut\Model\User\Role\LecturerInterface;
 use Viettut\Model\User\UserEntityInterface;
@@ -118,6 +119,11 @@ class CourseController extends Controller
         if(!$course instanceof CourseInterface) {
             throw new NotFoundHttpException('');
         }
+        $lastChapter = true;
+        $nextChapter = $this->get('viettut.repository.chapter')->getChapterByCourseAndPosition($course, 1);
+        if (!$nextChapter instanceof ChapterInterface) {
+            $lastChapter = false;
+        }
 
         $popularCourses = $this->get('viettut.repository.course')->getPopularCourse(intval($popularSize));
         $popularTutorials = $this->get('viettut.repository.tutorial')->getPopularTutorial(intval($popularSize));
@@ -126,7 +132,9 @@ class CourseController extends Controller
             'username' => $username,
             'course' => $course,
             "popularCourses" => $popularCourses,
-            "popularTutorials" => $popularTutorials
+            "popularTutorials" => $popularTutorials,
+            "lastChapter" => $lastChapter,
+            "nextChapter" => $nextChapter
         ));
     }
 
