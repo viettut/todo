@@ -1,21 +1,6 @@
-/**
- * Created by giang on 8/23/15.
- */
-(function() {
-    'use strict';
-
-    /**
-     * @ngdoc function
-     * @name viettut.controller:RegisterController
-     * @description
-     * # RegisterController
-     * Controller of the viettut
-     */
-    angular
-        .module('viettut')
-        .controller('RegisterController', RegisterController);
-
-    function RegisterController($scope, $auth, AuthenService) {
+angular
+    .module('viettut')
+    .controller('RegisterController', function ($scope, $auth, AuthenService) {
         $scope.laddaLoading = false;
         $scope.error = '';
         $scope.showError = false;
@@ -42,6 +27,6 @@
         $scope.login = function(){
             AuthenService.login();
         }
-    };
-})();
+    });
+
 

@@ -3,6 +3,12 @@ Viettut\Bundles\UserSystem\LecturerBundle\Entity\User:
     table: core_user_lecturer
 
     fields:
+        facebookId:
+            type: bigint
+            nullable: true
+        googleId:
+            type: string
+            nullable: true
         name:
             type: string
             nullable: true
@@ -13,6 +19,9 @@ Viettut\Bundles\UserSystem\LecturerBundle\Entity\User:
             type: string
             nullable: true
         phone:
+            type: string
+            nullable: true
+        gender:
             type: string
             nullable: true
         city:

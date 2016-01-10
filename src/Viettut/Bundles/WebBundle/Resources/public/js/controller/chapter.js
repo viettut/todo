@@ -1,21 +1,6 @@
-/**
- * Created by giang on 8/23/15.
- */
-(function() {
-    'use strict';
-
-    /**
-     * @ngdoc function
-     * @name viettut.controller:ChapterController
-     * @description
-     * # ChapterController
-     * Controller of the viettut
-     */
-    angular
-        .module('viettut')
-        .controller('ChapterController', ChapterController);
-
-    function ChapterController($auth, $http, $scope, $stateParams, $window, AuthenService, config, initialCourse) {
+angular
+    .module('viettut')
+    .controller('ChapterController', function ($auth, $http, $scope, $stateParams, $window, AuthenService, config, initialCourse) {
         $scope.courseId = $stateParams.cid;
         $scope.course = initialCourse;
         $scope.previewText = 'Show Preview';
@@ -68,5 +53,6 @@
         };
 
         $scope.isAuthenticated = $auth.isAuthenticated();
-    }
-})();
+    });
+
+

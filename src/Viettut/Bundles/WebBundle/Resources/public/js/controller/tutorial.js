@@ -1,21 +1,6 @@
-/**
- * Created by giang on 8/23/15.
- */
-(function() {
-    'use strict';
-
-    /**
-     * @ngdoc function
-     * @name viettut.controller:GuideController
-     * @description
-     * # GuideController
-     * Controller of the viettut
-     */
-    angular
-        .module('viettut')
-        .controller('TutorialController', TutorialController);
-
-    function TutorialController($auth, $http, $scope, $window) {
+angular
+    .module('viettut')
+    .controller('TutorialController', function ($auth, $http, $scope, $window) {
         $scope.laddaLoading = false;
         $scope.error = '';
         $scope.showError = false;
@@ -96,5 +81,5 @@
 
         $scope.isAuthenticated = $auth.isAuthenticated();
 
-    }
-})();
+    });
+

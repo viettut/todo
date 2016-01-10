@@ -140,4 +140,9 @@ class LecturerManager implements LecturerManagerInterface
     {
         return $this->FOSUserManager->findUserBy(['activeCode' => $code]);
     }
+
+    public function findUserByFacebookId($fbId)
+    {
+        return $this->FOSUserManager->findUserBy(['facebookId' => $fbId]);
+    }
 }

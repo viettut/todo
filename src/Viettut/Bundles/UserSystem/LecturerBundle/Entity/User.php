@@ -9,11 +9,14 @@ use Viettut\Model\User\UserEntityInterface;
 class User extends BaseUser implements LecturerInterface
 {
     protected $id;
+    protected $facebookId;
+    protected $googleId;
     protected $name;
     protected $professional;
     protected $active;
     protected $activeCode;
     protected $company;
+    protected $gender;
     protected $phone;
     protected $city;
     protected $state;
@@ -21,7 +24,46 @@ class User extends BaseUser implements LecturerInterface
     protected $postalCode;
     protected $country;
     protected $avatar;
-    protected $settings; //json string represent settings
+    protected $settings;
+
+    /**
+     * @return mixed
+     */
+    public function getFacebookId()
+    {
+        return $this->facebookId;
+    }
+
+    /**
+     * @param mixed $facebookId
+     * @return self
+     */
+    public function setFacebookId($facebookId)
+    {
+        $this->facebookId = $facebookId;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getGoogleId()
+    {
+        return $this->googleId;
+    }
+
+    /**
+     * @param mixed $googleId
+     * @return self
+     */
+    public function setGoogleId($googleId)
+    {
+        $this->googleId = $googleId;
+
+        return $this;
+    } //json string represent settings
+
 
     /**
      * @return UserEntityInterface
@@ -84,6 +126,25 @@ class User extends BaseUser implements LecturerInterface
     public function setActive($active)
     {
         $this->active = $active;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getGender()
+    {
+        return $this->gender;
+    }
+
+    /**
+     * @param mixed $gender
+     * @return self
+     */
+    public function setGender($gender)
+    {
+        $this->gender = $gender;
 
         return $this;
     }

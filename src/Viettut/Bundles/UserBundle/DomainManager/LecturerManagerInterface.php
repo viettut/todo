@@ -92,4 +92,6 @@ interface LecturerManagerInterface
     public function updateCanonicalFields(UserInterface $user);
 
     public function findUserByActiveCode($code);
+
+    public function findUserByFacebookId($fbId);
 }

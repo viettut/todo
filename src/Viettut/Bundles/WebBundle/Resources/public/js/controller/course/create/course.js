@@ -1,21 +1,6 @@
-/**
- * Created by giang on 8/23/15.
- */
-(function() {
-    'use strict';
-
-    /**
-     * @ngdoc function
-     * @name viettut.controller:GuideController
-     * @description
-     * # GuideController
-     * Controller of the viettut
-     */
-    angular
-        .module('viettut')
-        .controller('CourseController', CourseController);
-
-    function CourseController($auth, $http, $scope, $window, Upload, $timeout, $state, TagService, AuthenService,  config) {
+angular
+    .module('viettut')
+    .controller('CourseController', function ($auth, $http, $scope, $window, Upload, $timeout, $state, TagService, AuthenService,  config) {
         $scope.laddaLoading = false;
         $scope.error = '';
         $scope.showError = false;
@@ -136,5 +121,6 @@
                 $scope.uploadErrorMsg = 'Image\'s max height is 1000px and max size is 1MB';
             }
         };
-    }
-})();
+    });
+
+

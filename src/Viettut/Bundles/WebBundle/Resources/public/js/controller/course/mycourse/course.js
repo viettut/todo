@@ -1,21 +1,6 @@
-/**
- * Created by giang on 8/23/15.
- */
-(function() {
-    'use strict';
-
-    /**
-     * @ngdoc function
-     * @name viettut.controller:GuideController
-     * @description
-     * # GuideController
-     * Controller of the viettut
-     */
-    angular
-        .module('viettut')
-        .controller('CourseController', CourseController);
-
-    function CourseController($auth, $http, $scope, $window, Upload, $timeout, $state, myCourses, config) {
+angular
+    .module('viettut')
+    .controller('CourseController', function ($auth, $http, $scope, $window, Upload, $timeout, $state, myCourses, config) {
         $scope.myCourses = myCourses;
 
         $scope.getFirstParagraph = function(str) {
@@ -27,5 +12,6 @@
         };
 
         $scope.isAuthenticated = $auth.isAuthenticated();
-    }
-})();
+    });
+
+

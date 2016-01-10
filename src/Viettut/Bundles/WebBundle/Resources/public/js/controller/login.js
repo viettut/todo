@@ -1,21 +1,6 @@
-/**
- * Created by giang on 8/23/15.
- */
-(function() {
-    'use strict';
-
-    /**
-     * @ngdoc function
-     * @name viettut.controller:LoginController
-     * @description
-     * # LoginController
-     * Controller of the viettut
-     */
-    angular
-        .module('viettut')
-        .controller('LoginController', LoginController);
-
-    function LoginController($auth, $scope, $localStorage, $window, AuthenService, config) {
+angular
+    .module('viettut')
+    .controller('LoginController', function ($auth, $scope, $localStorage, $window, AuthenService, config) {
         $scope.$storage = $localStorage;
         $scope.laddaLoading = false;
         $scope.error = '';
@@ -59,7 +44,12 @@
         };
 
         $scope.socialLogin = function(provider) {
-            $auth.authenticate(provider);
+            $auth.authenticate(provider)
+                .then(function(response) {
+                    AuthenService.goHome();
+                })
+                .catch(function(response) {
+                    // Something went wrong.
+                });
         };
-    };
-})();
+    });

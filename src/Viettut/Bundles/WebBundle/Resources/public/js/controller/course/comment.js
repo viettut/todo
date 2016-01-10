@@ -1,21 +1,6 @@
-/**
- * Created by giang on 8/23/15.
- */
-(function() {
-    'use strict';
-
-    /**
-     * @ngdoc function
-     * @name viettut.controller:ChapterController
-     * @description
-     * # ChapterController
-     * Controller of the viettut
-     */
-    angular
-        .module('viettut')
-        .controller('CommentController', CommentController);
-
-    function CommentController($auth, $http, $scope, $window, AuthenService, config) {
+angular
+    .module('viettut')
+    .controller('CommentController', function CommentController($auth, $http, $scope, $window, AuthenService, config) {
         $scope.comments = [];
         $scope.content = '';
         $scope.laddaLoading = false;
@@ -111,5 +96,6 @@
         };
 
         $scope.isAuthenticated = $auth.isAuthenticated();
-    }
-})();
+    });
+
+
