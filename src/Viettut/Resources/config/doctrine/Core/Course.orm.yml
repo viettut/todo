@@ -11,6 +11,10 @@ Viettut\Entity\Core\Course:
             type: integer
             generator:
                 strategy: AUTO
+    actAs:
+        Searchable:
+        fields: [title]
+        batchUpdates: true
     fields:
         title:
             type: string

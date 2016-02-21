@@ -1,6 +1,6 @@
 Viettut\Bundles\UserSystem\LecturerBundle\Entity\User:
     type:  entity
-    table: core_user_lecturer
+    table: viettut_core_user_lecturer
 
     fields:
         facebookId:

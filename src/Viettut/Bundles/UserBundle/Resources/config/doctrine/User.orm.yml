@@ -1,6 +1,6 @@
 Viettut\Bundles\UserBundle\Entity\User:
     type: entity
-    table: core_user
+    table: viettut_core_user
     id:
         id:
             type: integer
