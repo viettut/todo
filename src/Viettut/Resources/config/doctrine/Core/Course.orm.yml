@@ -32,6 +32,9 @@ Viettut\Entity\Core\Course:
             type: integer
             options:
                 default: 0
+        token:
+            type: string
+            nullable: false
         enroll:
             type: integer
             options:

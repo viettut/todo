@@ -48,6 +48,8 @@ class CourseFormType extends AbstractRoleSpecificFormType
                     $course->setView(0);
                     $course->setEnroll(0);
                     $course->setActive(false);
+                    $course->setToken(uniqid("", true));
+
                 }
                 $course->setHashTag($this->getUrlFriendlyString($course->getTitle()));
 

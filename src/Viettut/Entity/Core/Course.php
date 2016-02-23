@@ -19,6 +19,7 @@ class Course extends CourseModel
     protected $courseTags;
     protected $imagePath;
     protected $active;
+    protected $token;
     protected $hashTag;
     protected $comments;
     protected $view;

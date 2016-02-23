@@ -26,7 +26,7 @@ use Viettut\Model\User\UserEntityInterface;
 class CourseController extends Controller
 {
     /**
-     * @Route("/lecturer/courses/create")
+     * @Route("/courses/create", name="create_course")
      * @Template()
      */
     public function createAction()
@@ -35,25 +35,16 @@ class CourseController extends Controller
     }
 
     /**
-     * @Route("/lecturer/courses/{cid}/add-chapter")
-     * @param int $cid
+     * @Route("/courses/{token}/add-chapter")
+     * @param string $token
      * @return \Symfony\Component\HttpFoundation\Response
      * @Template()
      */
-    public function addChapterAction($cid)
+    public function addChapterAction($token)
     {
-        $user = $this->getUser();
-        if (!$user instanceof UserEntityInterface) {
-            $this->redirectToRoute('viettut_bundles_web_authen_login');
-        }
-
-        $course = $this->get('viettut.repository.course')->find($cid);
+        $course = $this->get('viettut.repository.course')->getCourseByToken($token);
         if(!$course instanceof CourseInterface) {
-            throw new NotFoundHttpException('Not found');
-        }
-
-        if ($course->getAuthor()->getId() !== $user->getId()) {
-            throw new NotFoundHttpException('Not found');
+            throw new NotFoundHttpException('course not found or you do not have enough permission');
         }
 
         return $this->render('ViettutWebBundle:Course:addChapter.html.twig', array('course' => $course));

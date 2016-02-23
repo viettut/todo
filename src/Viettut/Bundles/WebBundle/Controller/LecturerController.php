@@ -18,7 +18,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class LecturerController extends Controller
 {
     /**
-     * @Route("/{username}")
+     * @Route("/{username}", name="lecturer_index")
      * @param string $username
      * @return \Symfony\Component\HttpFoundation\Response
      * @Template()
@@ -34,8 +34,9 @@ class LecturerController extends Controller
         $tutorials = $this->get('viettut.repository.tutorial')->getTutorialByLecturer($author);
 
         return $this->render('ViettutWebBundle:Lecturer:index.html.twig', array(
-           'courses' => $courses,
-            'tutorials' =>  $tutorials
+            'courses' => $courses,
+            'tutorials' =>  $tutorials,
+            'lecturer' => $username
         ));
     }
 }

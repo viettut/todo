@@ -179,4 +179,15 @@ interface CourseInterface extends ModelInterface
      * @return self
      */
     public function setComments($comments);
+
+    /**
+     * @return string
+     */
+    public function getToken();
+
+    /**
+     * @param string $token
+     * @return self
+     */
+    public function setToken($token);
 }

@@ -49,6 +49,40 @@ class CourseRepository extends EntityRepository implements CourseRepositoryInter
             ->getQuery()->getOneOrNullResult();
     }
 
+    public function getByTagName($tagName, $limit = null, $offset = null)
+    {
+        $qb = $this->createQueryBuilder('c')
+            ->leftJoin('c.courseTags', 'ct')
+            ->leftJoin('ct.tag', 't')
+            ->where('t.text = :tag_name')
+            ->setParameter('tag_name', $tagName, Type::STRING)
+        ;
+
+        if (is_int($limit)) {
+            $qb->setMaxResults($limit);
+        }
+
+        if (is_int($offset)) {
+            $qb->setFirstResult($offset);
+        }
+
+        return $qb->getQuery()->getResult();
+    }
+
+
+    /**
+     * @param $token
+     * @return mixed
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function getCourseByToken($token)
+    {
+        return $this->createQueryBuilder('c')
+            ->where('c.token = :token')
+            ->setParameter('token', $token)
+            ->getQuery()->getOneOrNullResult();
+    }
+
     /**
      * @param $maxResult
      * @return array

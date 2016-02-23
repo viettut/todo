@@ -37,4 +37,12 @@ interface TutorialRepositoryInterface extends ObjectRepository
      * @return mixed
      */
     public function getAllTutorialQuery();
+
+    /**
+     * @param $tagName
+     * @param null $limit
+     * @param null $offset
+     * @return mixed
+     */
+    public function getByTagName($tagName, $limit = null, $offset = null);
 }

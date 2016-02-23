@@ -1,5 +1,4 @@
 {% extends 'base.html.twig' %}
-{% block controller %}ng-controller="HomeController"{% endblock %}
 {% block main %}
     <style>
         .text-auto-wrap {
@@ -139,9 +138,11 @@
                     <li class="active">
                         <a href="#courses" data-toggle="tab"><i class="fa fa-star"></i>Khóa học</a>
                     </li>
-                    <li>
-                        <a href="#tutorials" data-toggle="tab">Bài hướng dẫn</a>
-                    </li>
+                    {% if popularTutorial | length > 0 %}
+                        <li>
+                            <a href="#tutorials" data-toggle="tab">Bài hướng dẫn</a>
+                        </li>
+                    {% endif %}
                 </ul>
                 <div class="tab-content">
                     <div id="courses" class="tab-pane active">
@@ -174,41 +175,40 @@
                             </div>
                         </div>
                     </div>
-                    <div id="tutorials" class="tab-pane">
-                        <div class="container">
-                            <div class="row">
-                                <h3>Bài hướng dẫn được quan tâm</h3>
-                                <ul class="portfolio-list sort-destination" data-sort-id="portfolio">
-                                    {% for tut in popularTutorial %}
-                                        <li class="col-md-4 col-sm-6 col-xs-12 isotope-item websites">
-                                            <div class="portfolio-item img-thumbnail">
-                                                <a href="{{ path('tutorial_detail', {'hash' : tut.hashTag, 'username' : tut.author.username}) }}" class="thumb-info">
-                                                    <img alt="" class="img-responsive" src="{{ asset('bundles/viettutweb/img/projects/project.jpg') }}">
-                                                    <span class="thumb-info-title">
-                                                        <span class="thumb-info-inner text-auto-wrap">{{ tut.title }}</span>
-                                                        <span class="thumb-info-type">{{ tut.author.username }}</span>
-                                                    </span>
-                                                    <span class="thumb-info-action">
-                                                        <span title="Universal" class="thumb-info-action-icon"><i class="fa fa-link"></i></span>
-                                                    </span>
-                                                </a>
-                                            </div>
-                                        </li>
-                                    {% endfor %}
-                                </ul>
-                            </div>
-                            <div class="row">
-                                <div class="span12 pagination-centered">
-                                    <a class="btn btn-primary btn-lg pull-right" href="{{ path('tutorial_index') }}">Read more ...</a>
+                    {% if popularTutorial | length > 0 %}
+                        <div id="tutorials" class="tab-pane">
+                            <div class="container">
+                                <div class="row">
+                                    <h3>Bài hướng dẫn được quan tâm</h3>
+                                    <ul class="portfolio-list sort-destination" data-sort-id="portfolio">
+                                        {% for tut in popularTutorial %}
+                                            <li class="col-md-4 col-sm-6 col-xs-12 isotope-item websites">
+                                                <div class="portfolio-item img-thumbnail">
+                                                    <a href="{{ path('tutorial_detail', {'hash' : tut.hashTag, 'username' : tut.author.username}) }}" class="thumb-info">
+                                                        <img alt="" class="img-responsive" src="{{ asset('bundles/viettutweb/img/projects/project.jpg') }}">
+                                                        <span class="thumb-info-title">
+                                                            <span class="thumb-info-inner text-auto-wrap">{{ tut.title }}</span>
+                                                            <span class="thumb-info-type">{{ tut.author.username }}</span>
+                                                        </span>
+                                                        <span class="thumb-info-action">
+                                                            <span title="Universal" class="thumb-info-action-icon"><i class="fa fa-link"></i></span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                                <div class="row">
+                                    <div class="span12 pagination-centered">
+                                        <a class="btn btn-primary btn-lg pull-right" href="{{ path('tutorial_index') }}">Read more ...</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
     </div>
-{% endblock %}
-{% block custom %}
-    <script src="{{ asset('bundles/viettutweb/js/controller/home.js') }}"></script>
 {% endblock %}

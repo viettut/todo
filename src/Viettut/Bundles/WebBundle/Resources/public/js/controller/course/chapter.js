@@ -1,13 +1,19 @@
 angular
     .module('viettut')
-    .controller('ChapterController', function ($auth, $http, $scope, $stateParams, $window, initialCourse, config, AuthenService) {
-        $scope.courseId = $stateParams.cid;
-        $scope.course = initialCourse;
+    .controller('ChapterController', function ($auth, $http, $scope, $window, config, AuthenService) {
         $scope.previewText = 'Show Preview';
         $scope.showPreview = false;
         $scope.header = '';
         $scope.content = '';
         $scope.laddaLoading = false;
+        $scope.courseId = angular.element($('#courseId')).text();
+
+        $scope.getCourse = function() {
+            $http.defaults.headers.common.Authorization = "Bearer " + $auth.getToken();
+            $scope.course = $http.get(config.API_URL + 'courses/' + $scope.courseId);
+        };
+
+        $scope.getCourse();
 
         $scope.add = function(){
             $http.defaults.headers.common.Authorization = "Bearer " + $auth.getToken();
@@ -20,12 +26,12 @@ angular
             // start progress
             $scope.laddaLoading = true;
 
-            $http.post(config.BASE_URL + 'chapters', data).
+            $http.post(config.API_URL + 'chapters', data).
                 then(
                 function(response){
                     $scope.laddaLoading = false;
                     if(response.status == 201) {
-                        $window.location.reload();
+                        $scope.addAnotherChapter();
                     }
                 },
                 function(response){
@@ -41,6 +47,14 @@ angular
                     $scope.error = response.data;
                     $scope.showError = true;
                 });
+        };
+
+        $scope.goHome = function() {
+            AuthenService.goHome();
+        };
+
+        $scope.addAnotherChapter = function(){
+            $window.location.reload();
         };
 
         $scope.preview = function(){

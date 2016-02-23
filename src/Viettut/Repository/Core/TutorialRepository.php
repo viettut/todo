@@ -77,4 +77,24 @@ class TutorialRepository extends EntityRepository implements TutorialRepositoryI
     {
         return $this->createQueryBuilder('t')->getQuery();
     }
+
+    public function getByTagName($tagName, $limit = null, $offset = null)
+    {
+        $qb = $this->createQueryBuilder('tu')
+            ->leftJoin('tu.tutorialTags', 'tt')
+            ->leftJoin('tt.tag', 't')
+            ->where('t.text = :tag_name')
+            ->setParameter('tag_name', $tagName, Type::STRING)
+        ;
+
+        if (is_int($limit)) {
+            $qb->setMaxResults($limit);
+        }
+
+        if (is_int($offset)) {
+            $qb->setFirstResult($offset);
+        }
+
+        return $qb->getQuery()->getResult();
+    }
 }

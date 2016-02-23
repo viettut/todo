@@ -46,10 +46,10 @@
                                 <div class="col-md-12">
                                     <div class="post-meta">
                                         <span><i class="fa fa-calendar"></i>{{ course.createdAt | date("m/d/Y") }}</span>
-                                        <span><i class="fa fa-user"></i> By <a href="#">{{ course.author.username }}</a> </span>
+                                        <span><i class="fa fa-user"></i> By <a href="{{ path('lecturer_index', {'username' : course.author.username}) }}">{{ course.author.username }}</a> </span>
                                         <span><i class="fa fa-tag"></i>
                                             {% for t in course.courseTags %}
-                                                <a href="#">{{ t.tag.text }}</a>
+                                                <a href="{{ path('tag_index', {'tag' : t.tag.text}) }}">{{ t.tag.text }}</a>
                                             {% endfor %}
                                         </span>
                                         <span><i class="fa fa-book"></i> <a href="#">{{ course.chapters | length }} Chapters</a></span>
