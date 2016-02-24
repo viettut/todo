@@ -9,6 +9,9 @@
 namespace Viettut\Repository\Core;
 use Doctrine\DBAL\Types\Type;
 use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\Query\ResultSetMapping;
+use Viettut\Bundles\UserSystem\LecturerBundle\Entity\User;
+use Viettut\Entity\Core\Course;
 use Viettut\Model\Core\CourseInterface;
 use Viettut\Model\User\Role\LecturerInterface;
 
@@ -144,5 +147,52 @@ class CourseRepository extends EntityRepository implements CourseRepositoryInter
         return $this->createQueryBuilder('c')->getQuery();
     }
 
+    public function search($keyword)
+    {
+        $rsm = new ResultSetMapping();
+        $rsm->addScalarResult('id', 'id')
+            ->addScalarResult('title', 'title')
+            ->addScalarResult('introduce', 'introduce')
+            ->addScalarResult('active', 'active')
+            ->addScalarResult('hash_tag', 'hashTag')
+            ->addScalarResult('view', 'view')
+            ->addScalarResult('token', 'token')
+            ->addScalarResult('enroll', 'enroll')
+            ->addScalarResult('image_path', 'imagePath')
+            ->addScalarResult('created_at', 'createdAt')
+            ->addScalarResult('updated_at', 'updatedAt')
+            ->addScalarResult('deleted_at', 'deletedAt')
+            ->addScalarResult('author_id', 'author')
+        ;
 
+        $sql = "SELECT * FROM viettut_course
+                WHERE MATCH (title) AGAINST (:keyword IN NATURAL LANGUAGE MODE);
+                ";
+
+        $query = $this->_em->createNativeQuery($sql, $rsm)->setParameter('keyword', $keyword, Type::STRING);
+        $results = $query->execute();
+        $courses = [];
+
+        $lecturerManager = $this->_em->getRepository(User::class);
+        foreach($results as $result) {
+            $course = new Course();
+            $course->setId($result['id']);
+            $course->setActive(filter_var($result['active'], FILTER_VALIDATE_BOOLEAN));
+            $course->setToken($result['token']);
+            $course->setEnroll(filter_var($result['enroll'], FILTER_VALIDATE_INT));
+            $course->setImagePath($result['imagePath']);
+            $course->setHashTag($result['hashTag']);
+            $course->setIntroduce($result['introduce']);
+            $course->setTitle($result['title']);
+            $course->setIntroduce($result['introduce']);
+            $course->setView(filter_var($result['view'], FILTER_VALIDATE_INT));
+
+            $author = $lecturerManager->find($result['author']);
+            $course->setAuthor($author);
+
+            $courses[] = $course;
+        }
+
+        return $courses;
+    }
 }

@@ -45,4 +45,10 @@ interface TutorialRepositoryInterface extends ObjectRepository
      * @return mixed
      */
     public function getByTagName($tagName, $limit = null, $offset = null);
+
+    /**
+     * @param $keyword
+     * @return mixed
+     */
+    public function search($keyword);
 }

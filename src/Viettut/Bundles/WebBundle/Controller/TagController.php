@@ -21,11 +21,12 @@ use Viettut\Model\Core\CourseInterface;
 use Viettut\Model\Core\TutorialInterface;
 use Viettut\Model\User\Role\LecturerInterface;
 use Viettut\Model\User\UserEntityInterface;
+use FOS\RestBundle\Controller\Annotations as Rest;
 
 class TagController extends Controller
 {
     /**
-     * @Route("/tag/{tag}", name="tag_index")
+     * @Rest\Get("/tag/{tag}", name="tag_index")
      * @param $tag
      * @Template()
      */

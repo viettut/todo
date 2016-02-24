@@ -9,17 +9,19 @@
 namespace Viettut\Bundles\WebBundle\Controller;
 
 
+use FOS\RestBundle\Controller\FOSRestController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use FOS\RestBundle\Controller\Annotations as Rest;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Viettut\Model\User\Role\LecturerInterface;
 
-class HomeController extends Controller
+class HomeController extends FOSRestController
 {
     /**
-     * @Route("/", name="home_page")
+     * @Rest\Get("/", name="home_page")
      * @param $request
      * @Template()
      */
@@ -35,7 +37,7 @@ class HomeController extends Controller
     }
 
     /**
-     * @Route("/user/active/{hash}", name="user_active")
+     * @Rest\Get("/user/active/{hash}", name="user_active")
      * @param $hash
      * @Template()
      */

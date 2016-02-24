@@ -9,6 +9,7 @@
 namespace Viettut\Bundles\WebBundle\Controller;
 
 
+use FOS\RestBundle\Controller\FOSRestController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -22,11 +23,12 @@ use Viettut\Model\Core\ChapterInterface;
 use Viettut\Model\Core\CourseInterface;
 use Viettut\Model\User\Role\LecturerInterface;
 use Viettut\Model\User\UserEntityInterface;
+use FOS\RestBundle\Controller\Annotations as Rest;
 
-class CourseController extends Controller
+class CourseController extends FOSRestController
 {
     /**
-     * @Route("/courses/create", name="create_course")
+     * @Rest\Get("/courses/create", name="create_course")
      * @Template()
      */
     public function createAction()
@@ -35,7 +37,7 @@ class CourseController extends Controller
     }
 
     /**
-     * @Route("/courses/{token}/add-chapter")
+     * @Rest\Get("/courses/{token}/add-chapter")
      * @param string $token
      * @return \Symfony\Component\HttpFoundation\Response
      * @Template()
@@ -51,7 +53,7 @@ class CourseController extends Controller
     }
 
     /**
-     * @Route("/courses/all", name="course_index")
+     * @Rest\Get("/courses/all", name="course_index")
      * @param $request
      * @return \Symfony\Component\HttpFoundation\Response
      * @Template()
@@ -68,7 +70,7 @@ class CourseController extends Controller
     }
 
     /**
-     * @Route("/lecturer/courses/mycourses")
+     * @Rest\Get("/lecturer/courses/mycourses")
      * @return \Symfony\Component\HttpFoundation\Response
      * @Template()
      */
@@ -88,7 +90,7 @@ class CourseController extends Controller
     /**
      * present a specific guide
      *
-     * @Route("/{username}/courses/{hash}", name="course_detail")
+     * @Rest\Get("/{username}/courses/{hash}", name="course_detail")
      * @Template()
      *
      * @param $username
@@ -130,7 +132,7 @@ class CourseController extends Controller
     }
 
     /**
-     * @Route("/courses/upload")
+     * @Rest\Get("/courses/upload")
      * @param Request $request
      * @return string
      */

@@ -19,13 +19,14 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Viettut\Exception\InvalidArgumentException;
 use Viettut\Model\Core\CourseInterface;
 use Viettut\Model\Core\TutorialInterface;
+use FOS\RestBundle\Controller\Annotations as Rest;
 use Viettut\Model\User\Role\LecturerInterface;
 use Viettut\Model\User\UserEntityInterface;
 
 class TutorialController extends Controller
 {
     /**
-     * @Route("/lecturer/tutorials/create", name="create_tutorial")
+     * @Rest\Get("/lecturer/tutorials/create", name="create_tutorial")
      * @Template()
      */
     public function createAction()
@@ -34,7 +35,7 @@ class TutorialController extends Controller
     }
 
     /**
-     * @Route("/tutorials/all", name="tutorial_index")
+     * @Rest\Get("/tutorials/all", name="tutorial_index")
      * @param $request
      * @return \Symfony\Component\HttpFoundation\Response
      * @Template()
@@ -51,7 +52,7 @@ class TutorialController extends Controller
     }
 
     /**
-     * @Route("/lecturer/tutorials/mytutorials")
+     * @Rest\Get("/lecturer/tutorials/mytutorials")
      * @return \Symfony\Component\HttpFoundation\Response
      * @Template()
      */
@@ -71,7 +72,7 @@ class TutorialController extends Controller
     /**
      * present a specific guide
      *
-     * @Route("/{username}/tutorials/{hash}", name="tutorial_detail")
+     * @Rest\Get("/{username}/tutorials/{hash}", name="tutorial_detail")
      * @Template()
      *
      * @param $username

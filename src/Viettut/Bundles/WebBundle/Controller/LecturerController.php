@@ -9,16 +9,18 @@
 namespace Viettut\Bundles\WebBundle\Controller;
 
 
+use FOS\RestBundle\Controller\FOSRestController;
 use FOS\UserBundle\Model\UserInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use FOS\RestBundle\Controller\Annotations as Rest;
 
-class LecturerController extends Controller
+class LecturerController extends FOSRestController
 {
     /**
-     * @Route("/{username}", name="lecturer_index")
+     * @Rest\Get("/{username}", name="lecturer_index")
      * @param string $username
      * @return \Symfony\Component\HttpFoundation\Response
      * @Template()
