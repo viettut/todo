@@ -9,52 +9,30 @@
 namespace Viettut\Bundles\WebBundle\Controller;
 
 
-use FOS\RestBundle\Controller\FOSRestController;
-use FOS\RestBundle\Routing\ClassResourceInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use FOS\RestBundle\Controller\Annotations as Rest;
-use FOS\RestBundle\Controller\Annotations\RouteResource;
-use Viettut\Bundles\ApiBundle\Controller\RestControllerAbstract;
-use Viettut\Handler\HandlerInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
-/**
- * @RouteResource("Public")
- */
-class SearchController extends RestControllerAbstract implements ClassResourceInterface
+class SearchController extends Controller
 {
     /**
-     * @Rest\Post("/public/api/search")
-     * @param Request $request
-     * @return array
+     * @Route("/public/search", name="public_search")
+     * @param $request
+     * @Template()
      */
     public function searchAction(Request $request)
     {
-        $params = $request->request->all();
-        if (!array_key_exists('keyword', $params)) {
-            return [];
-        }
+        $keyword = $request->query->get('q');
+        $courses = $this->get('viettut.repository.course')->search($keyword);
+        $tutorials = $this->get('viettut.repository.tutorial')->search($keyword);
 
-        $courses = $this->get('viettut.repository.course')->search($params['keyword']);
-        $tutorials = $this->get('viettut.repository.tutorial')->search($params['keyword']);
-
-        return array (
+        return $this->render('ViettutWebBundle:Search:search.html.twig', array(
             'courses' => $courses,
-            'tutorials' => $tutorials
-        );
-    }
-
-    protected function getResourceName()
-    {
-        // TODO: Implement getResourceName() method.
-    }
-
-    protected function getGETRouteName()
-    {
-        // TODO: Implement getGETRouteName() method.
-    }
-
-    protected function getHandler()
-    {
-        // TODO: Implement getHandler() method.
+            'tutorials' => $tutorials,
+            'keyword' => $keyword,
+            'totalMatch' => count($courses) + count($tutorials)
+        ));
     }
 }

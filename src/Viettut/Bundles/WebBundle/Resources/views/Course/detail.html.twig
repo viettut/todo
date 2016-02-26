@@ -39,15 +39,16 @@
                             <div class="post-content">
                                 <h2 class="text-center"><a href="#">{{ course.title }}</a></h2>
                                 <div class="post-meta">
-                                    <span><i class="fa fa-user"></i> By <a href="{{ path('lecturer_index', {'username' : course.author.username}) }}">{{ course.author.username }}</a> </span>
-                                    <span><i class="fa fa-tag"></i>
+                                    <span class="pull-right"><i class="fa fa-user"></i> By <a href="{{ path('lecturer_index', {'username' : course.author.username}) }}">{{ course.author.username }}</a> </span>
+                                    <span class="pull-right"><i class="fa fa-tag"></i>
                                         {% for t in course.courseTags %}
                                             <a href="{{ path('tag_index', {'tag' : t.tag.text}) }}">{{ t.tag.text }}</a>
                                         {% endfor %}
                                     </span>
-                                    <span><i class="fa fa-comments"></i> <a href="#">{{ course.comments | length }} Comments</a></span>
+                                    <span class="pull-right"><i class="fa fa-comments"></i> <a href="#">{{ course.comments | length }} Comments</a></span>
                                 </div>
-                                <div>{{ course.introduce | markdown }} </div>
+                                <hr class="tall"/>
+                                <div class="row">{{ course.introduce | markdown }} </div>
                                 {% if lastChapter %}
                                     <div class="row">
                                         <div class="pull-left">

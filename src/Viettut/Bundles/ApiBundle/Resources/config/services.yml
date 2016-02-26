@@ -4,6 +4,7 @@ imports:
     - { resource: services/tutorial.services.yml }
     - { resource: services/tag.services.yml }
     - { resource: services/comment.services.yml }
+    - { resource: services/subscriber.services.yml }
 
 parameters:
     # jwt

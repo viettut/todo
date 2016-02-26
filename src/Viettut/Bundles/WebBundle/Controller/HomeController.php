@@ -16,6 +16,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Viettut\Entity\Core\Subscriber;
+use Viettut\Model\Core\SubscriberInterface;
 use Viettut\Model\User\Role\LecturerInterface;
 
 class HomeController extends FOSRestController
@@ -56,4 +58,27 @@ class HomeController extends FOSRestController
         throw new NotFoundHttpException('Page not found');
     }
 
+    /**
+     * @Rest\Post("/public/api/subscribe", name="user_subscribe")
+     * @param Request $request
+     */
+    public function subscribeAction(Request $request)
+    {
+        $params = $request->request->all();
+
+        if (!array_key_exists('email', $params)) {
+            return false;
+        }
+
+        $subscriber = $this->get('viettut.repository.subscriber')->getByEmail($params['email']);
+
+        if (!$subscriber instanceof SubscriberInterface) {
+            $subscriber = new Subscriber();
+            $subscriber->setEmail($params['email']);
+            $this->getDoctrine()->getEntityManager()->persist($subscriber);
+            $this->getDoctrine()->getEntityManager()->flush();
+        }
+
+        return true;
+    }
 }

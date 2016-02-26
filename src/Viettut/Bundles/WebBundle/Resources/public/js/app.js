@@ -13,6 +13,7 @@
         .module('viettut', ['ui.router', 'ngTagsInput', 'ngSanitize', 'ngFileUpload', 'wiz.markdown', 'ladda', 'ngStorage', 'satellizer', 'ngAnimate', 'ui.bootstrap'])
         .constant('config', {
             'API_URL' : '/app_dev.php/api/v1/',
+            'PUBLIC_API_URL' : '/app_dev.php/public/api/',
             'BASE_URL' : '/app_dev.php/',
             'SIGN_UP_URL' : '/app_dev.php/api/user/v1/users',
             'SIGN_UP_REDIRECT' : '/app_dev.php/login'

@@ -38,7 +38,7 @@ class LecturerController extends FOSRestController
         return $this->render('ViettutWebBundle:Lecturer:index.html.twig', array(
             'courses' => $courses,
             'tutorials' =>  $tutorials,
-            'lecturer' => $username
+            'lecturer' => $author
         ));
     }
 }

@@ -12,12 +12,40 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <h1>{{ lecturer }}</h1>
+                    <h1>{{ lecturer.username }}</h1>
                 </div>
             </div>
         </div>
     </section>
     <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="thumbnail">
+                    <img alt="author" height="300" class="img-responsive" src="{{ lecturer.avatar }}">
+                </div>
+            </div>
+
+            <div class="col-md-8">
+
+                <h2 class="shorter"><strong>{{ lecturer.username }}</strong></h2>
+                <h4>{{ lecturer.professional }}</h4>
+
+							<span class="thumb-info-social-icons">
+								<a data-tooltip="" data-placement="bottom" target="_blank" href="http://www.facebook.com" data-original-title="Facebook"><i class="fa fa-facebook"></i><span>Facebook</span></a>
+								<a data-tooltip="" data-placement="bottom" href="http://www.twitter.com" data-original-title="Twitter"><i class="fa fa-twitter"></i><span>Twitter</span></a>
+								<a data-tooltip="" data-placement="bottom" href="http://www.linkedin.com" data-original-title="Linkedin"><i class="fa fa-linkedin"></i><span>Linkedin</span></a>
+							</span>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc <a href="#">vehicula</a> lacinia. Proin adipiscing porta tellus, ut feugiat nibh adipiscing sit amet. In eu justo a felis faucibus ornare vel id metus. Vestibulum ante ipsum primis in faucibus.</p>
+
+                <ul class="list icons list-unstyled">
+                    <li><i class="fa fa-check"></i> Fusce sit amet orci quis arcu vestibulum vestibulum sed ut felis.</li>
+                    <li><i class="fa fa-check"></i> Phasellus in risus quis lectus iaculis vulputate id quis nisl.</li>
+                    <li><i class="fa fa-check"></i> Iaculis vulputate id quis nisl.</li>
+                </ul>
+
+            </div>
+        </div>
         <div class="row">
             <div class="tabs">
                 <ul class="nav nav-tabs">

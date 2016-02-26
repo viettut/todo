@@ -39,6 +39,7 @@ gulp.task('scripts', function(){
         'web/bundles/viettutweb/js/app.js',
         'web/bundles/viettutweb/js/sticky_sidebar.js',
         'web/bundles/viettutweb/js/controller/login.js',
+        'web/bundles/viettutweb/js/controller/footer.js',
         'web/bundles/viettutweb/js/controller/register.js',
         'web/bundles/viettutweb/js/controller/navbar.js',
         'web/bundles/viettutweb/js/services/authen.js',

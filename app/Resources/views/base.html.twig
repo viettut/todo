@@ -31,7 +31,7 @@
                 </a>
             </div>
             <div class="search">
-                <form id="searchForm" method="get">
+                <form id="searchForm" method="get" action="{{ path('public_search') }}">
                     <div class="input-group">
                         <input type="text" class="form-control search" name="q" id="q" placeholder="Search..." required>
 								<span class="input-group-btn">
@@ -162,7 +162,7 @@
         {% endblock %}
     </div>
 
-    <footer id="footer">
+    <footer id="footer" ng-controller="FooterController">
         <div class="container">
             <div class="row">
                 <div class="footer-ribbon">
@@ -173,18 +173,20 @@
                         <h4>Newsletter</h4>
                         <p>Keep up on our always evolving product features and technology. Enter your e-mail and subscribe to our newsletter.</p>
 
-                        <div class="alert alert-success hidden" id="newsletterSuccess">
+                        <div class="alert alert-success" ng-show="subscribeSuccess">
                             <strong>Success!</strong> You've been added to our email list.
                         </div>
 
-                        <div class="alert alert-danger hidden" id="newsletterError"></div>
+                        <div class="alert alert-danger" ng-show="subscribeFail">
+                            Your email can not be added to subscriber list.
+                        </div>
 
-                        <form id="newsletterForm" method="POST">
+                        <form>
                             <div class="input-group">
-                                <input class="form-control" placeholder="Email Address" name="newsletterEmail" id="newsletterEmail" type="text">
-										<span class="input-group-btn">
-											<button class="btn btn-default" type="submit">Go!</button>
-										</span>
+                                <input class="form-control" placeholder="Email Address" ng-model="email" type="email">
+                                <span class="input-group-btn">
+                                    <button id="subscribeButton" class="btn btn-default" ng-click="subscribe()" data-loading-text="<i class='fa fa-spinner fa-spin'></i>" type="button">Go!</button>
+                                </span>
                             </div>
                         </form>
                     </div>
