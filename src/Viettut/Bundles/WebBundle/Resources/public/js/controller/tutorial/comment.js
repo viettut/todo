@@ -1,16 +1,12 @@
 angular
     .module('viettut')
-    .controller('CommentController', function ($auth, $http, $scope, $window) {
+    .controller('CommentController', function ($auth, $http, $scope, $window, config, AuthenService) {
         $scope.comments = [];
         $scope.content = '';
         $scope.laddaLoading = false;
         $scope.error = '';
         $scope.showError = false;
-        $scope.commentToggle = false;
-
-        $scope.showReplyForm = function() {
-
-        };
+        $scope.commentContent = '';
 
         $scope.reply = function() {
             $http.defaults.headers.common.Authorization = "Bearer " + $auth.getToken();
@@ -23,7 +19,7 @@ angular
             // start progress
             $scope.laddaLoading = true;
 
-            $http.post('/app_dev.php/api/v1/chapters', data).
+            $http.post(config.BASE_URL + 'api/v1/chapters', data).
                 then(
                 function(response){
                     $scope.laddaLoading = false;
@@ -37,7 +33,7 @@ angular
                             $auth.logout();
                         }
                         // re-login
-                        $window.location.href = '/app_dev.php/login';
+                        AuthenService.login();
                     }
 
                     $scope.laddaLoading = false;
@@ -46,19 +42,26 @@ angular
                 });
         };
 
+        //$scope.$watch('content', function(newVal, oldVal){
+        //    $scope.content = newVal;
+        //});
+
+        $scope.$watch('currentTutorial', function(newVal, oldVal){
+            $scope.currentTutorial = newVal;
+            $scope.reloadComment();
+        });
+
         $scope.reloadComment = function() {
             $http.defaults.headers.common.Authorization = "Bearer " + $auth.getToken();
 
             $http({
                 method: 'GET',
-                url: '/app_dev.php/api/v1/tutorials/' + $scope.currentTutorial + '/comments'
+                url: config.BASE_URL + 'api/v1/tutorials/' + $scope.currentTutorial + '/comments'
             }).then(function successCallback(response) {
                 $scope.comments = response.data;
             }, function errorCallback(response) {
             });
         };
-
-        $scope.reloadComment();
 
         $scope.addComment = function() {
             // start progress
@@ -66,18 +69,17 @@ angular
             $http.defaults.headers.common.Authorization = "Bearer " + $auth.getToken();
 
             var data = {
-                content: $scope.content,
+                content: $scope.commentContent,
                 tutorial: $scope.currentTutorial
             };
 
-            $http.post('/app_dev.php/api/v1/comments', data).
+            $http.post(config.BASE_URL + 'api/v1/comments', data).
                 then(
                 function(response){
                     $scope.laddaLoading = false;
                     if(response.status == 201) {
                         $scope.reloadComment();
-                        $scope.commentToggle = true;
-                        $scope.content = '';
+                        $scope.commentContent = '';
                     }
                 },
                 function(response){
@@ -86,7 +88,7 @@ angular
                             $auth.logout();
                         }
                         // re-login
-                        $window.location.href = '/app_dev.php/login';
+                        AuthenService.login();
                     }
 
                     $scope.laddaLoading = false;

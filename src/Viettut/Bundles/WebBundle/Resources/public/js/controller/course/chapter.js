@@ -10,17 +10,28 @@ angular
 
         $scope.getCourse = function() {
             $http.defaults.headers.common.Authorization = "Bearer " + $auth.getToken();
-            $scope.course = $http.get(config.API_URL + 'courses/' + $scope.courseId);
+            $http({
+                method: 'GET',
+                url: config.API_URL + 'courses/' + $scope.courseId
+            }).then(function successCallback(response) {
+                $scope.course = response.data;
+            }, function errorCallback(response) {
+            });
+
+            console.log($scope.course.id);
         };
 
-        $scope.getCourse();
+        $scope.$watch('courseId', function(newVal, oldVal){
+            $scope.courseId = newVal;
+            $scope.getCourse();
+        });
 
         $scope.add = function(){
             $http.defaults.headers.common.Authorization = "Bearer " + $auth.getToken();
             var data = {
                 header: $scope.header,
                 content: $scope.content,
-                course: $scope.course.id
+                course: $scope.courseId
             };
 
             // start progress

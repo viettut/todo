@@ -8,7 +8,7 @@ angular
         $scope.error = '';
         $scope.showError = false;
         $scope.commentToggle = false;
-        $scope.currentCourse = -1;
+        $scope.currentChapter = -1;
 
         $scope.showReplyForm = function() {
 
@@ -53,7 +53,7 @@ angular
 
             $http({
                 method: 'GET',
-                url: config.API_URL + 'courses/' + $scope.currentCourse + '/comments'
+                url: config.API_URL + 'chapters/' + $scope.currentChapter + '/comments'
             }).then(function successCallback(response) {
                 $scope.comments = response.data;
             }, function errorCallback(response) {
@@ -64,8 +64,8 @@ angular
             $scope.numberComments = newVal.length;
         });
 
-        $scope.$watch('currentCourse', function(newVal, oldVal){
-            $scope.currentCourse = newVal;
+        $scope.$watch('currentChapter', function(newVal, oldVal){
+            $scope.currentChapter = newVal;
             $scope.reloadComment();
         });
 
@@ -76,7 +76,7 @@ angular
 
             var data = {
                 content: $scope.content,
-                course: $scope.currentCourse
+                chapter: $scope.currentChapter
             };
 
             $http.post(config.API_URL + 'comments', data).
@@ -85,7 +85,6 @@ angular
                     $scope.laddaLoading = false;
                     if(response.status == 201) {
                         $scope.reloadComment();
-                        $scope.commentToggle = true;
                         $scope.content = '';
                     }
                 },

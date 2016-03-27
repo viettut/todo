@@ -1,1 +1,4 @@
 /* Add here all your CSS customizations */
+.markdown-body pre {
+    background-color: #dde !important;
+}

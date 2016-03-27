@@ -91,7 +91,7 @@
                             $auth.logout();
                         }
                         // re-login
-                        $window.location.href = '/app_dev.php/login';
+                        $window.location.href = '/web/app_dev.php/login';
                     }
 
                     $scope.laddaLoading = false;
@@ -128,7 +128,7 @@
                             $auth.logout();
                         }
                         // re-login
-                        $window.location.href = '/app_dev.php/login';
+                        $window.location.href = '/web/app_dev.php/login';
                     }
 
                     $scope.laddaLoading = false;

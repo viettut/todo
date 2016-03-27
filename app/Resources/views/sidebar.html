@@ -5,6 +5,7 @@
             <li><a href="#recentPosts" data-toggle="tab">Popular Tut</a></li>
         </ul>
         <div class="tab-content">
+            {% if popularCourses | length > 0 %}
             <div class="tab-pane active" id="popularPosts">
                 <ul class="simple-post-list">
                     {% for c in popularCourses %}
@@ -26,9 +27,10 @@
                     {% endfor %}
                 </ul>
             </div>
+            {% endif %}
+            {% if popularTutorials | length > 0 %}
             <div class="tab-pane" id="recentPosts">
                 <ul class="simple-post-list">
-
                     {% for tut in popularTutorials %}
                     <li>
                         <div class="post-info">
@@ -41,6 +43,7 @@
                     {% endfor %}
                 </ul>
             </div>
+            {% endif %}
         </div>
     </div>
 </aside>

@@ -28,6 +28,9 @@ Viettut\Entity\Core\Course:
         hashTag:
             expose: true
             groups: [course.detail, course.summary]
+        token:
+            expose: true
+            groups: [course.detail, course.summary]
         active:
             expose: true
             groups: [course.detail]

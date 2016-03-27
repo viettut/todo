@@ -68,13 +68,13 @@ angular
             // start progress
             $scope.laddaLoading = true;
 
-            $http.post(config.API_URL + 'courses', data).
-                then(
+            $http.patch(config.API_URL + 'courses/' + $scope.courseId, data).
+            then(
                 function(response){
                     $scope.laddaLoading = false;
-                    if(response.status == 201) {
+                    if(response.status == 204) {
                         $scope.course = response.data;
-                        $window.location.href = '/courses/' + $scope.course.token + '/add-chapter';
+                        $scope.alertSuccess();
                     }
                 },
                 function(response){
@@ -92,8 +92,44 @@ angular
                 });
         };
 
+        $scope.alertSuccess = function() {
+            var html = '<div class="alert alert-success">' +
+                       '    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>' +
+                       '    <strong>Good job!</strong> The course has been created successfully !' +
+                       '</div>';
+            angular.element($('form.form-horizontal')).before(html);
+        };
 
-        $scope.isAuthenticated = $auth.isAuthenticated();
+        $scope.loadCourse = function() {
+            $http.defaults.headers.common.Authorization = "Bearer " + $auth.getToken();
+            $http.get(config.API_URL + 'courses/' + $scope.courseId).
+            then(
+                function(response){
+                    $scope.loading = false;
+                    if(response.status == 200) {
+                        $scope.course = response.data;
+                        $scope.introduce = $scope.course.introduce;
+                        $scope.title = $scope.course.title;
+                        $scope.image = $scope.course.imagePath;
+
+                        var tagsLength = $scope.course.courseTags.length;
+                        for(var i = 0; i < tagsLength; i++) {
+                            $scope.courseTags.push({'tag': $scope.course.courseTags[i].tag.id});
+                            $scope.selectedTags.push({'text': $scope.course.courseTags[i].tag.text});
+                        }
+                    }
+                },
+                function(response){
+                    $scope.loading = false;
+                    if(response.status == 401) {
+                        if($auth.isAuthenticated()) {
+                            $auth.logout();
+                        }
+                        // re-login
+                        AuthenService.login();
+                    }
+                });
+        };
 
         $scope.uploadFiles = function (file) {
             $scope.f = file;
@@ -122,6 +158,13 @@ angular
                 $scope.uploadErrorMsg = 'Image\'s max height is 1000px and max size is 1MB';
             }
         };
+
+        $scope.$watch('courseId', function(newVal, oldVal){
+            $scope.courseId = newVal;
+            $scope.loadCourse();
+        });
+
+        $scope.isAuthenticated = $auth.isAuthenticated();
     });
 
 

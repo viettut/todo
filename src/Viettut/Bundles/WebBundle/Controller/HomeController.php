@@ -81,4 +81,13 @@ class HomeController extends FOSRestController
 
         return true;
     }
+
+    /**
+     * @Rest\Get("/coming-soon", name="coming_soon")
+     * @Template()
+     */
+    public function comingSoonAction()
+    {
+        return $this->render('ViettutWebBundle:Home:comingSoon.html.twig');
+    }
 }

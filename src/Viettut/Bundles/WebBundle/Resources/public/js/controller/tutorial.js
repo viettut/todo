@@ -1,6 +1,6 @@
 angular
     .module('viettut')
-    .controller('TutorialController', function ($auth, $http, $scope, $window) {
+    .controller('TutorialController', function ($auth, $http, $scope, $window, config, AuthenService) {
         $scope.laddaLoading = false;
         $scope.error = '';
         $scope.showError = false;
@@ -13,11 +13,12 @@ angular
 
         $scope.title = '';
         $scope.content = '';
+
         $scope.tutorial = {};
 
         $scope.initTag = function() {
             $http.defaults.headers.common.Authorization = "Bearer " + $auth.getToken();
-            $scope.allTags = $http.get('/app_dev.php/api/v1/tags');
+            $scope.allTags = $http.get(config.BASE_URL + 'api/v1/tags');
         };
         //initialize
         $scope.initTag();
@@ -56,12 +57,13 @@ angular
             // start progress
             $scope.laddaLoading = true;
 
-            $http.post('/app_dev.php/api/v1/tutorials', data).
+            $http.post(config.BASE_URL + 'api/v1/tutorials', data).
                 then(
                 function(response){
                     $scope.laddaLoading = false;
                     if(response.status == 201) {
                         $scope.tutorial = response.data;
+                        $window.location.href = config.BASE_URL + 'tutorials/all';
                     }
                 },
                 function(response){
@@ -70,7 +72,7 @@ angular
                             $auth.logout();
                         }
                         // re-login
-                        $window.location.href = '/app_dev.php/login';
+                        AuthenService.login();
                     }
 
                     $scope.laddaLoading = false;

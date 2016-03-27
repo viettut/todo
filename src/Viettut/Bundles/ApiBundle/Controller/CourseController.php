@@ -52,7 +52,7 @@ class CourseController extends RestControllerAbstract implements ClassResourceIn
      * Get a single adTag for the given id
      *
      * @Rest\View(
-     *      serializerGroups={"course.detail", "user.summary", "chapter.detail", "comment.summary"}
+     *      serializerGroups={"course.detail", "user.summary", "chapter.detail", "comment.summary", "coursetag.detail", "tag.detail"}
      * )
      * @ApiDoc(
      *  resource = true,
@@ -73,11 +73,24 @@ class CourseController extends RestControllerAbstract implements ClassResourceIn
     }
 
     /**
+     * Get all courses to which belongs the current signed user
      * @Rest\Get("/mycourses")
      *
-     * @return mixed
+     * @Rest\View(
+     *      serializerGroups={"course.detail", "user.summary", "chapter.detail", "comment.summary"}
+     * )
+     * @ApiDoc(
+     *  resource = true,
+     *  statusCodes = {
+     *      200 = "Returned when successful",
+     *      404 = "Returned when the resource is not found"
+     *  }
+     * )
+     *
+     * @return CourseInterface[]
+     * @throws AccessDeniedException when the resource does not exist
      */
-    public function getMycourseAction()
+    public function getMycoursesAction()
     {
         $lecturer = $this->getUser();
         if (!$lecturer instanceof LecturerInterface) {
@@ -116,7 +129,7 @@ class CourseController extends RestControllerAbstract implements ClassResourceIn
      * )
      *
      * @param $id
-     * @return mixed
+     * @return array
      */
     public function cgetCommentsAction($id)
     {

@@ -1,6 +1,6 @@
 # This file is auto-generated during the composer install
 parameters:
-    database_host: api.viettut.com
+    database_host: localhost
     database_port: null
     database_name: viettut
     database_user: viettut

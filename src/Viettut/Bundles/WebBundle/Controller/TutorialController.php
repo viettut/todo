@@ -22,9 +22,11 @@ use Viettut\Model\Core\TutorialInterface;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Viettut\Model\User\Role\LecturerInterface;
 use Viettut\Model\User\UserEntityInterface;
+use Viettut\Utilities\StringFactory;
 
 class TutorialController extends Controller
 {
+    use StringFactory;
     /**
      * @Rest\Get("/lecturer/tutorials/create", name="create_tutorial")
      * @Template()
@@ -99,6 +101,7 @@ class TutorialController extends Controller
 
         return $this->render('ViettutWebBundle:Tutorial:detail.html.twig', array(
                 'username' => $username,
+                'html' => $this->highlightCode($tutorial->getContent()),
                 'tutorial' => $tutorial,
                 "popularCourses" => $popularCourses,
                 "popularTutorials" => $popularTutorials

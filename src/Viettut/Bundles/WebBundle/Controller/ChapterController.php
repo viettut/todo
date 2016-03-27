@@ -9,6 +9,7 @@
 namespace Viettut\Bundles\WebBundle\Controller;
 
 
+use FOS\RestBundle\Controller\FOSRestController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -16,13 +17,16 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Viettut\Model\Core\ChapterInterface;
 use Viettut\Model\Core\CourseInterface;
 use Viettut\Model\User\Role\LecturerInterface;
+use Viettut\Utilities\StringFactory;
+use FOS\RestBundle\Controller\Annotations as Rest;
 
-class ChapterController extends Controller
+class ChapterController extends FOSRestController
 {
+    use StringFactory;
     /**
      * present a specific guide
      *
-     * @Route("/{username}/courses/{hash}/{cHash}", name="chapter_detail")
+     * @Rest\Get("/{username}/courses/{hash}/{cHash}", name="chapter_detail")
      * @Template()
      *
      * @param $username
@@ -67,6 +71,7 @@ class ChapterController extends Controller
         return $this->render('ViettutWebBundle:Chapter:detail.html.twig', array(
             'username' => $username,
             'chapter' => $chapter,
+            'html' => $this->highlightCode($chapter->getContent()),
             'course' => $course,
             "comments" => $comments,
             "popularCourses" => $popularCourses,

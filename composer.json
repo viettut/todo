@@ -8,6 +8,20 @@
             "SymfonyStandard\\": "app/SymfonyStandard/"
         }
     },
+    "repositories": {
+        "beautify": {
+            "type": "package",
+            "package": {
+                "name": "edwinm/Beautify",
+                "version": "1.3.0",
+                "source": {
+                    "url": "https://github.com/edwinm/Beautify.git",
+                    "type": "git",
+                    "reference": "master"
+                }
+            }
+        }
+    },
     "require": {
         "php": ">=5.3.9",
         "symfony/symfony": "2.7.*",
@@ -33,7 +47,8 @@
         "rollerworks/multi-user-bundle": "dev-master",
         "jms/serializer-bundle": "0.13.0",
         "facebook/php-sdk-v4": "^5.1",
-        "google/apiclient": "1.1.6"
+        "google/apiclient": "1.1.6",
+        "edwinm/Beautify": "*"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

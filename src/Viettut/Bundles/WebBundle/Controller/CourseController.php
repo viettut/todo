@@ -24,9 +24,11 @@ use Viettut\Model\Core\CourseInterface;
 use Viettut\Model\User\Role\LecturerInterface;
 use Viettut\Model\User\UserEntityInterface;
 use FOS\RestBundle\Controller\Annotations as Rest;
+use Viettut\Utilities\StringFactory;
 
 class CourseController extends FOSRestController
 {
+    use StringFactory;
     /**
      * @Rest\Get("/courses/create", name="create_course")
      * @Template()
@@ -49,7 +51,31 @@ class CourseController extends FOSRestController
             throw new NotFoundHttpException('course not found or you do not have enough permission');
         }
 
-        return $this->render('ViettutWebBundle:Course:addChapter.html.twig', array('course' => $course));
+        return $this->render('ViettutWebBundle:Course:addChapter.html.twig', array(
+                'course' => $course,
+                'html' => $this->highlightCode($course->getIntroduce())
+            )
+        );
+    }
+
+    /**
+     * @Rest\Get("/courses/{token}/edit")
+     * @param string $token
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @Template()
+     */
+    public function editAction($token)
+    {
+        $course = $this->get('viettut.repository.course')->getCourseByToken($token);
+        if(!$course instanceof CourseInterface) {
+            throw new NotFoundHttpException('course not found or you do not have enough permission');
+        }
+
+        return $this->render('ViettutWebBundle:Course:edit.html.twig', array(
+                'course' => $course,
+                'html' => $this->highlightCode($course->getIntroduce())
+            )
+        );
     }
 
     /**
@@ -76,14 +102,7 @@ class CourseController extends FOSRestController
      */
     public function myCoursesAction()
     {
-        $user = $this->getUser();
-
-        if (!$user instanceof UserEntityInterface) {
-            $this->redirectToRoute('viettut_bundles_web_authen_login');
-        }
-
-        $courses = $this->get('viettut.repository.course')->getCourseByLecturer($user);
-        return $this->render('ViettutWebBundle:Course:index.html.twig', array('courses' => $courses));
+        return $this->render('ViettutWebBundle:Course:myCourses.html.twig');
     }
 
 
@@ -124,6 +143,7 @@ class CourseController extends FOSRestController
         return $this->render('ViettutWebBundle:Course:detail.html.twig', array(
             'username' => $username,
             'course' => $course,
+            'html' => $this->highlightCode($course->getIntroduce()),
             "popularCourses" => $popularCourses,
             "popularTutorials" => $popularTutorials,
             "lastChapter" => $lastChapter,
@@ -132,7 +152,7 @@ class CourseController extends FOSRestController
     }
 
     /**
-     * @Rest\Get("/courses/upload")
+     * @Rest\Post("/courses/upload")
      * @param Request $request
      * @return string
      */
