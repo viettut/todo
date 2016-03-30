@@ -50,11 +50,10 @@
                                         </span>
                                     <span><i class="fa fa-book"></i> <a href="#"><{ course.chapters.length }> Chapters</a></span>
                                     <div class="btn-group pull-right" role="group" aria-label="Basic example">
-                                        <a href="<{ buildViewLink(course) }>" class="btn btn-primary padding-left-5 padding-right-5" target="_blank">View</a>
-                                        <a href="#/<{course.id}>/edit" class="btn btn-primary padding-left-5 padding-right-5">Edit</a>
-                                        <a href="#/<{course.id}>/delete" class="btn btn-primary padding-left-5 padding-right-5">Detete</a>
+                                        <a href="<{ buildViewLink(course) }>" class="btn btn-primary padding-left-5 padding-right-5" target="_blank" title="view in another tab">View</a>
+                                        <a ng-click="edit($index)" class="btn btn-primary padding-left-5 padding-right-5" title="edit this course">Edit</a>
+                                        <a ng-click="showConfirm($index)" class="btn btn-primary padding-left-5 padding-right-5" title="delete this course">Delete</a>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -70,6 +69,23 @@
                         <li><a href="http://codeschool.com" target="_blank">Code School</a></li>
                     </ul>
                 </aside>
+            </div>
+        </div>
+        <div id="deleteConfirm" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title" id="myModalLabel">Confirm</h4>
+                    </div>
+                    <div class="modal-body">
+                        Are you sure to remove this course completely !
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" ng-click="delete()">OK</button>
+                        <button type="button" class="btn btn-primary" ng-click="hideConfirm()">Cancel</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
