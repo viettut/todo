@@ -2,11 +2,14 @@ angular
     .module('viettut')
     .controller('CommentController', function ($auth, $http, $scope, $window, config, AuthenService) {
         $scope.comments = [];
+        $scope.numberComments = 0;
         $scope.content = '';
         $scope.laddaLoading = false;
         $scope.error = '';
         $scope.showError = false;
         $scope.commentContent = '';
+        $scope.currentTutorial = false;
+        $scope.commentToggle = false;
 
         $scope.reply = function() {
             $http.defaults.headers.common.Authorization = "Bearer " + $auth.getToken();
@@ -42,13 +45,8 @@ angular
                 });
         };
 
-        //$scope.$watch('content', function(newVal, oldVal){
-        //    $scope.content = newVal;
-        //});
-
-        $scope.$watch('currentTutorial', function(newVal, oldVal){
-            $scope.currentTutorial = newVal;
-            $scope.reloadComment();
+        $scope.$watch('comments', function(newVal, odlVal) {
+            $scope.numberComments = newVal.length;
         });
 
         $scope.reloadComment = function() {
@@ -62,6 +60,12 @@ angular
             }, function errorCallback(response) {
             });
         };
+
+        $scope.$watch('currentTutorial', function(newVal, oldVal){
+            if (typeof newVal == "number") {
+                $scope.currentTutorial = newVal;
+            }
+        });
 
         $scope.addComment = function() {
             // start progress
@@ -79,6 +83,7 @@ angular
                     $scope.laddaLoading = false;
                     if(response.status == 201) {
                         $scope.reloadComment();
+                        $scope.commentToggle = true;
                         $scope.commentContent = '';
                     }
                 },

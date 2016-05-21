@@ -17,3 +17,4 @@ parameters:
     uploadRootDirectory: /var/www/api.server.dev/web/uploads/images
     uploadDirectory: /uploads/images
     popularSize: 10
+    pageSize: 5

@@ -14,7 +14,7 @@ angular
         };
 
         $scope.edit = function(courseIndex) {
-            $window.location.href = '/courses/' + $scope.myCourses[courseIndex].token + '/edit';
+            $window.location.href = config.BASE_URL + 'courses/' + $scope.myCourses[courseIndex].token + '/edit';
         };
 
         $scope.delete = function() {

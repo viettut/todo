@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-{% block controller %}ng-controller="CommentController"{% endblock %}
+{% block controller %}ng-controller="TutorialController"{% endblock %}
 {% block main %}
     <style>
         textarea {
@@ -13,7 +13,7 @@
                 <div class="col-md-12">
                     <ul class="breadcrumb">
                         <li><a href="{{ path('home_page') }}">Home</a></li>
-                        <li class="active"><a href="{{ path('tutorial_index') }}">Tutorials</a></li>
+                        <li class="active"><a href="{{ path('tutorial_index') }}">Hướng dẫn</a></li>
                     </ul>
                 </div>
             </div>
@@ -42,54 +42,54 @@
                                     <span class="pull-right"><i class="fa fa-comments"></i> <a href="#">{{ tutorial.comments | length }} Comments</a></span>
                                 </div>
                                 <hr class="tall"/>
-                                <div class="markdown-body">
-                                    {{ html | raw }}
-                                </div>
-                                <div class="row col-md-12">
+                                <textarea style="display: none;" id="content">{{ tutorial.content }}</textarea>
+                                <wiz-markdown content="content" class="markdown-body"></wiz-markdown>
+                                <div class="row col-md-12" ng-controller="CommentController">
                                     <div class="post-block post-comments clearfix row col-md-12">
-                                        <h3><i class="fa fa-comments"></i>Comments ({{ tutorial.comments | length }})</h3>
-                                        {#<ul class="comments" ng-hide="commentToggle">#}
-                                            {#{% for comment in tutorial.comments %}#}
-                                                {#<li>#}
-                                                    {#<div class="comment">#}
-                                                        {#<div class="img-thumbnail">#}
-                                                            {#<img class="avatar" alt="" src="{{ asset('bundles/viettutweb/img/avatar-2.jpg') }}">#}
-                                                        {#</div>#}
-                                                        {#<div class="comment-block">#}
-                                                            {#<div class="comment-arrow"></div>#}
-                                                                {#<span class="comment-by">#}
-                                                                    {#<strong>{{ comment.author.username }}</strong>#}
-                                                                    {#<span class="pull-right">#}
-                                                                        {#<span> <a href="#"><i class="fa fa-reply"></i> Reply</a></span>#}
-                                                                    {#</span>#}
-                                                                {#</span>#}
-                                                            {#<p>{{ comment.content }}</p>#}
-                                                            {#<span class="date pull-right">{{ comment.createdAt | date('h:M d/m/Y') }}</span>#}
-                                                        {#</div>#}
-                                                    {#</div>#}
-                                                    {#<ul class="comments reply">#}
-                                                        {#<li>#}
-                                                            {#{% for reply in comment.replies %}#}
-                                                                {#<div class="comment">#}
-                                                                    {#<div class="img-thumbnail">#}
-                                                                        {#<img class="avatar" alt="" src="{{ asset('bundles/viettutweb/img/avatar-3.jpg') }}">#}
-                                                                    {#</div>#}
-                                                                    {#<div class="comment-block">#}
-                                                                        {#<div class="comment-arrow"></div>#}
-                                                                            {#<span class="comment-by">#}
-                                                                                {#<strong>{{ reply.author.username }}</strong>#}
-                                                                            {#</span>#}
-                                                                        {#<p>{{ reply.content }}</p>#}
-                                                                        {#<span class="date pull-right">{{ reply.createdAt | date('h:M d/m/Y') }}</span>#}
-                                                                    {#</div>#}
-                                                                {#</div>#}
-                                                            {#{% endfor %}#}
-                                                        {#</li>#}
-                                                    {#</ul>#}
-                                                {#</li>#}
-                                            {#{% endfor %}#}
-                                        {#</ul>#}
-                                        <ul class="comments">
+                                        <h3 ng-hide="commentToggle"><i class="fa fa-comments"></i>Comments ({{ tutorial.comments | length }})</h3>
+                                        <h3 ng-if="commentToggle"><i class="fa fa-comments"></i>Comments (<{ numberComments }>)</h3>
+                                        <ul class="comments" ng-hide="commentToggle">
+                                            {% for comment in tutorial.comments %}
+                                                <li>
+                                                    <div class="comment">
+                                                        <div class="img-thumbnail">
+                                                            <img class="avatar" alt="avatar" src="{{ comment.author.avatar }}">
+                                                        </div>
+                                                        <div class="comment-block">
+                                                            <div class="comment-arrow"></div>
+                                                                <span class="comment-by">
+                                                                    <strong>{{ comment.author.username }}</strong>
+                                                                    <span class="pull-right">
+                                                                        <span> <a href="#"><i class="fa fa-reply"></i> Reply</a></span>
+                                                                    </span>
+                                                                </span>
+                                                            <p>{{ comment.content }}</p>
+                                                            <span class="date pull-right">{{ comment.createdAt | date('h:i d/m/Y') }}</span>
+                                                        </div>
+                                                    </div>
+                                                    <ul class="comments reply">
+                                                        <li>
+                                                            {% for reply in comment.replies %}
+                                                                <div class="comment">
+                                                                    <div class="img-thumbnail">
+                                                                        <img class="avatar" alt="avatar" src="{{ reply.author.avatar }}">
+                                                                    </div>
+                                                                    <div class="comment-block">
+                                                                        <div class="comment-arrow"></div>
+                                                                            <span class="comment-by">
+                                                                                <strong>{{ reply.author.username }}</strong>
+                                                                            </span>
+                                                                        <p>{{ reply.content }}</p>
+                                                                        <span class="date pull-right">{{ reply.createdAt | date('h:i d/m/Y') }}</span>
+                                                                    </div>
+                                                                </div>
+                                                            {% endfor %}
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                        <ul class="comments" ng-if="commentToggle">
                                             <li ng-repeat="comment in comments">
                                                 <div class="comment">
                                                     <div class="img-thumbnail">
@@ -111,7 +111,7 @@
                                                     <li ng-repeat="reply in comment.replies">
                                                         <div class="comment">
                                                             <div class="img-thumbnail">
-                                                                <img class="avatar" alt="" src="{{ asset('bundles/viettutweb/img/avatar-3.jpg') }}">
+                                                                <img class="avatar" alt="avatar" ng-src="<{ comment.author.avatar }>">
                                                             </div>
                                                             <div class="comment-block">
                                                                 <div class="comment-arrow"></div>
@@ -129,14 +129,16 @@
                                     </div>
 
                                     <div class="post-leave-comment">
-                                        <h3>Leave a comment</h3>
+                                        <h3>Bình luận</h3>
                                         <div ng-init="currentTutorial={{ tutorial.id }}"></div>
                                         <form>
                                             <div class="row">
                                                 <div class="form-group">
                                                     <div class="col-md-12">
                                                         <label>Comment *</label>
-                                                        <textarea maxlength="5000" rows="10" ng-model="commentContent" class="form-control" name="comment"></textarea>
+                                                        <wiz-markdown-editor content="content" maxlength="5000" rows="10" class="form-control" style="height: 200px;width: 90%;">
+                                                        </wiz-markdown-editor>
+                                                        {#<textarea maxlength="5000" rows="10" ng-model="commentContent" class="form-control" name="comment"></textarea>#}
                                                     </div>
                                                 </div>
                                             </div>
@@ -148,7 +150,7 @@
                                                             ng-disabled="!isAuthenticated"
                                                             ng-click="addComment()"
                                                             class="ladda-button btn-primary"
-                                                            style="border-radius: 5px;">Post Comment</button>
+                                                            style="border-radius: 5px;">Đăng</button>
                                                 </div>
                                             </div>
                                         </form>
@@ -169,5 +171,5 @@
 {% block custom %}
     <script src="{{ asset('bundles/viettutweb/js/sticky_sidebar.js') }}"></script>
     <script src="{{ asset('bundles/viettutweb/js/controller/tutorial/comment.js') }}"></script>
-    <script src="{{ asset('bundles/viettutweb/js/controller/tutorial.js') }}"></script>
+    <script src="{{ asset('bundles/viettutweb/js/controller/tutorial/detail/tutorial.js') }}"></script>
 {% endblock %}

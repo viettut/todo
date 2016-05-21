@@ -8,7 +8,7 @@ angular
         $scope.error = '';
         $scope.showError = false;
         $scope.commentToggle = false;
-        $scope.currentCourse = -1;
+        $scope.currentCourse = false;
 
         $scope.showReplyForm = function() {
 
@@ -65,8 +65,9 @@ angular
         });
 
         $scope.$watch('currentCourse', function(newVal, oldVal){
-            $scope.currentCourse = newVal;
-            $scope.reloadComment();
+            if (typeof newVal == "number") {
+                $scope.currentCourse = newVal;
+            }
         });
 
         $scope.addComment = function() {

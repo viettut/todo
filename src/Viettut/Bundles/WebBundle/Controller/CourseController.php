@@ -86,9 +86,12 @@ class CourseController extends FOSRestController
      */
     public function indexAction(Request $request)
     {
+        $pageSize = $this->getParameter('pageSize');
+
         $pagination = $this->get('knp_paginator')->paginate(
             $this->get('viettut.repository.course')->getAllCourseQuery(),
-            $request->query->getInt('page', 1)/*page number*/
+            $request->query->getInt('page', 1)/*page number*/,
+            $pageSize
         );
         return $this->render('ViettutWebBundle:Course:index.html.twig', array(
             "pagination" => $pagination
@@ -143,7 +146,6 @@ class CourseController extends FOSRestController
         return $this->render('ViettutWebBundle:Course:detail.html.twig', array(
             'username' => $username,
             'course' => $course,
-            'html' => $this->highlightCode($course->getIntroduce()),
             "popularCourses" => $popularCourses,
             "popularTutorials" => $popularTutorials,
             "lastChapter" => $lastChapter,

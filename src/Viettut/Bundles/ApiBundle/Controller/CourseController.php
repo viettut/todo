@@ -50,7 +50,7 @@ class CourseController extends RestControllerAbstract implements ClassResourceIn
 
     /**
      * Get a single adTag for the given id
-     *
+     * @Rest\get("/public/api/v1/course/{id}", name="user_subscribe")
      * @Rest\View(
      *      serializerGroups={"course.detail", "user.summary", "chapter.detail", "comment.summary", "coursetag.detail", "tag.detail"}
      * )

@@ -43,13 +43,10 @@
             <nav>
                 <ul class="nav nav-pills nav-top">
                     <li>
-                        <a href="#"><i class="fa fa-angle-right"></i>About Us</a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-angle-right"></i>Contact Us</a>
+                        <a href="#"><i class="fa fa-angle-right"></i>Liên Hệ</a>
                     </li>
                     <li class="phone">
-                        <span><i class="fa fa-phone"></i>(123) 456-7890</span>
+                        <span><i class="fa fa-phone"></i>0902 154 954</span>
                     </li>
                 </ul>
             </nav>
@@ -68,44 +65,44 @@
                     <ul class="nav nav-pills nav-main" id="mainMenu">
                         <li class="dropdown">
                             <a class="dropdown-toggle" href="#">
-                                Course
+                                Khóa học
                                 <i class="fa fa-angle-down"></i>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="{{ path('course_index') }}">All courses</a></li>
-                                <li><a href="{{ path('create_course') }}">Create a course <span class="tip">hot</span></a></li>
-                                <li><a href="#">Search</a></li>
+                                <li><a href="{{ path('course_index') }}">Tất cả</a></li>
+                                <li><a href="{{ path('create_course') }}">Soạn khóa học<span class="tip">hot</span></a></li>
+                                <li><a href="#">Tìm kiếm</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
                             <a class="dropdown-toggle" href="#">
-                                Tutorial
+                                Hướng dẫn
                                 <i class="fa fa-angle-down"></i>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="{{ path('tutorial_index') }}">All tutorials</a></li>
-                                <li><a href="{{ path('create_tutorial') }}">Write a tutorial</a></li>
-                                <li><a href="#">Search</a></li>
+                                <li><a href="{{ path('tutorial_index') }}">Tất cả</a></li>
+                                <li><a href="{{ path('create_tutorial') }}">Viết bài</a></li>
+                                <li><a href="#">Tìm kiếm</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
                             <a class="dropdown-toggle" href="#">
-                                Answer & Question
+                                Hỏi & Đáp
                             </a>
                         </li>
                         <li class="dropdown">
                             <a class="dropdown-toggle" href="{{ path('coming_soon') }}">
-                                Challenges
+                                Bài test
                                 <i class="fa fa-angle-down"></i>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="{{ path('coming_soon') }}">All challenges</a></li>
-                                <li><a href="{{ path('coming_soon') }}">Search</a></li>
+                                <li><a href="{{ path('coming_soon') }}">Tất cả</a></li>
+                                <li><a href="{{ path('coming_soon') }}">Tìm kiếm</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
                             <a class="dropdown-toggle" href="#">
-                                Contact Us
+                                Liên Hệ
                             </a>
                         </li>
                         <li ng-show="!isAuthenticated()" ng-if="!isOnUserPage()">
@@ -122,7 +119,7 @@
                                 <li>
                                     <div class="mega-menu-content">
                                         <div class="row">
-                                            <div class="col-md-8">
+                                            <div class="col-md-6">
                                                 <div class="user-avatar">
                                                     <div class="img-thumbnail">
                                                         <img alt="avatar" ng-src="<{ avatar }>">
@@ -133,13 +130,13 @@
                                                     </p>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-6">
                                                 <ul class="list-account-options">
                                                     <li>
-                                                        <a href="javascript:;">My Account</a>
+                                                        <a href="javascript:;">Tài khoản</a>
                                                     </li>
                                                     <li>
-                                                        <a href="{{ path('viettut_bundles_web_course_mycourses') }}">My Courses</a>
+                                                        <a href="{{ path('viettut_bundles_web_course_mycourses') }}">Khóa học của tôi</a>
                                                     </li>
                                                     <li>
                                                         <a href="javascript:;" ng-click="logout()">Log Out</a>
@@ -171,19 +168,23 @@
                 <div class="col-md-3">
                     <div class="newsletter">
                         <h4>Newsletter</h4>
-                        <p>Keep up on our always evolving product features and technology. Enter your e-mail and subscribe to our newsletter.</p>
+                        <p>Subscribe để nhận được thông tin mới nhất về các khóa học và các bài hướng dẫn.</p>
 
                         <div class="alert alert-success" ng-show="subscribeSuccess">
-                            <strong>Success!</strong> You've been added to our email list.
+                            <strong>Email</strong> của bạn đã được thêm vào danh sách thành công.
                         </div>
 
                         <div class="alert alert-danger" ng-show="subscribeFail">
-                            Your email can not be added to subscriber list.
+                            Email của bạn hiện chưa được thêm vào danh sách
                         </div>
 
-                        <form>
+                        <div class="alert alert-danger" ng-show="invalidEmail">
+                            Email không hợp lệ !
+                        </div>
+
+                        <form name="subscribeForm">
                             <div class="input-group">
-                                <input class="form-control" placeholder="Email Address" ng-model="email" type="email">
+                                <input class="form-control" placeholder="Email Address" ng-model="email" type="email" name="email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" required>
                                 <span class="input-group-btn">
                                     <button id="subscribeButton" class="btn btn-default" ng-click="subscribe()" data-loading-text="<i class='fa fa-spinner fa-spin'></i>" type="button">Go!</button>
                                 </span>
@@ -192,7 +193,7 @@
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <h4>Latest Tweets</h4>
+                    <h4>Mọi người nói gì</h4>
                     <div id="tweet" class="twitter" data-plugin-tweets data-plugin-options='{"username": "", "count": 2}'>
                         <p>Please wait...</p>
                     </div>
@@ -202,7 +203,7 @@
                         <h4>Liên Hệ</h4>
                         <ul class="contact">
                             {#<li><p><i class="fa fa-map-marker"></i> <strong>Address:</strong> 1234 Street Name, City Name, United States</p></li>#}
-                            <li><p><i class="fa fa-phone"></i> <strong>Phone:</strong> (123) 456-7890</p></li>
+                            <li><p><i class="fa fa-phone"></i> <strong>Phone:</strong>0902 154 954</p></li>
                             <li><p><i class="fa fa-envelope"></i> <strong>Email:</strong> <a href="mailto:support@viettut.com">support@viettut.com</a></p></li>
                         </ul>
                     </div>
@@ -233,9 +234,9 @@
                     <div class="col-md-4">
                         <nav id="sub-menu">
                             <ul>
-                                <li><a href="#">FAQ's</a></li>
-                                <li><a href="#">Sitemap</a></li>
-                                <li><a href="#">Contact</a></li>
+                                <li><a href="#">Câu hỏi thường gặp</a></li>
+                                <li><a href="#">Site Map</a></li>
+                                <li><a href="#">Liên Hệ</a></li>
                             </ul>
                         </nav>
                     </div>

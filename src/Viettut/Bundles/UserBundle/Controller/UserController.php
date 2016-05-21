@@ -97,7 +97,13 @@ class UserController extends FOSRestController
             )
         ;
 
-        $this->get('mailer')->send($message);
+        $mailer = $this->get('mailer');
+        $mailer->send($message);
+
+        $spool = $mailer->getTransport()->getSpool();
+        $transport = $this->get('swiftmailer.transport.real');
+
+        $spool->flushQueue($transport);
         return $this->view($user, Codes::HTTP_CREATED, $routeOptions);
     }
 

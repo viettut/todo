@@ -1,8 +1,8 @@
 <aside class="sidebar">
     <div class="tabs">
         <ul class="nav nav-tabs">
-            <li class="active"><a href="#popularPosts" data-toggle="tab">Popular Course</a></li>
-            <li><a href="#recentPosts" data-toggle="tab">Popular Tut</a></li>
+            <li class="active"><a href="#popularPosts" data-toggle="tab">Khóa khác</a></li>
+            <li><a href="#recentPosts" data-toggle="tab">Hướng dẫn khác</a></li>
         </ul>
         <div class="tab-content">
             {% if popularCourses | length > 0 %}
@@ -20,7 +20,7 @@
                         <div class="post-info">
                             <a href="{{ path('course_detail', {'hash' : c.hashTag, 'username' : c.author.username}) }}">{{ c.title }}</a>
                             <div class="post-meta">
-                                {{ c.createdAt | date('F d, Y') }}
+                                {{ c.createdAt | date('h:i d/m/Y') }}
                             </div>
                         </div>
                     </li>

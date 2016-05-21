@@ -44,10 +44,14 @@ class TutorialController extends Controller
      */
     public function indexAction(Request $request)
     {
+        $pageSize = $this->getParameter('pageSize');
+
         $pagination = $this->get('knp_paginator')->paginate(
             $this->get('viettut.repository.tutorial')->getAllTutorialQuery(),
-            $request->query->getInt('page', 1)/*page number*/
+            $request->query->getInt('page', 1)/*page number*/,
+            $pageSize
         );
+
         return $this->render('ViettutWebBundle:Tutorial:index.html.twig', array(
             "pagination" => $pagination
         ));

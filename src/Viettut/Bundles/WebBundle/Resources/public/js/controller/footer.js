@@ -4,8 +4,18 @@ angular
         $scope.email = '';
         $scope.subscribeFail = false;
         $scope.subscribeSuccess = false;
+        $scope.invalidEmail = false;
+
 
         $scope.subscribe = function() {
+            $scope.invalidEmail = false;
+            var pattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+            if (!pattern.test($scope.email)) {
+                $scope.invalidEmail = true;
+                $scope.email = '';
+                return false;
+            }
+
             // start progress
             angular.element('#subscribeButton').button('loading');
             var data = {
