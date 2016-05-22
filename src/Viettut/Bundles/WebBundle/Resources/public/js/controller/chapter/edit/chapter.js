@@ -16,10 +16,8 @@ angular
             $http.defaults.headers.common.Authorization = "Bearer " + $auth.getToken();
 
             var data = {
-                title: $scope.title,
-                imagePath: $scope.image,
-                introduce: $scope.introduce,
-                courseTags: $scope.courseTags
+                header: $scope.header,
+                content: $scope.content,
             };
 
             // start progress
@@ -52,7 +50,7 @@ angular
         $scope.alertSuccess = function() {
             var html = '<div class="alert alert-success">' +
                 '    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>' +
-                '    <strong>Good job!</strong> The course has been created successfully !' +
+                '    Cập nhật thành công !' +
                 '</div>';
             angular.element($('form.form-horizontal')).before(html);
         };
