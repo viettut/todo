@@ -78,6 +78,8 @@ class CourseController extends FOSRestController
         );
     }
 
+
+
     /**
      * @Rest\Get("/courses/all", name="course_index")
      * @param $request

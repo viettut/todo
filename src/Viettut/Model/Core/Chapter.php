@@ -45,6 +45,11 @@ class Chapter implements ChapterInterface
     protected $active;
 
     /**
+     * @var
+     */
+    protected $token;
+
+    /**
      * @var UserEntityInterface
      */
     protected $author;
@@ -198,6 +203,25 @@ class Chapter implements ChapterInterface
     {
         return $this->active;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getToken()
+    {
+        return $this->token;
+    }
+
+    /**
+     * @param mixed $token
+     * @return self
+     */
+    public function setToken($token)
+    {
+        $this->token = $token;
+        return $this;
+    }
+
 
     /**
      * Get deletedAt

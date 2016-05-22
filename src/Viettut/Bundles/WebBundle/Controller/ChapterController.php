@@ -82,6 +82,27 @@ class ChapterController extends FOSRestController
     }
 
     /**
+     * @Rest\Get("/chapters/{token}/edit")
+     * @param string $token
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @Template()
+     */
+    public function editAction($token)
+    {
+        $chapter = $this->get('viettut.repository.chapter')->getByToken($token);
+
+        if(!$chapter instanceof ChapterInterface) {
+            throw new NotFoundHttpException('chapter not found or you do not have enough permission');
+        }
+
+        return $this->render('ViettutWebBundle:Chapter:edit.html.twig', array (
+                'chapter' => $chapter,
+                'html' => $this->highlightCode($chapter->getContent())
+            )
+        );
+    }
+
+    /**
      * @Route("/{username}/courses/{hash}/{cHash}/next", name="next_chapter_detail")
      * @param $username
      * @param $hash

@@ -55,6 +55,7 @@ class ChapterFormType extends AbstractRoleSpecificFormType
                     $chapter->setActive(true);
                     $chapter->setHashTag($this->getUrlFriendlyString($chapter->getHeader()));
                     $chapter->setPosition(count($course->getChapters()));
+                    $chapter->setToken(uniqid('', true));
                 }
             }
         );

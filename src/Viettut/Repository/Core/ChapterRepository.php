@@ -91,4 +91,13 @@ class ChapterRepository extends EntityRepository implements ChapterRepositoryInt
 
         return $qb->getQuery()->getOneOrNullResult();
     }
+
+    public function getByToken($token)
+    {
+        return $this->createQueryBuilder('ch')
+            ->where('ch.token = :token')
+            ->setParameter('token', $token)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
 }

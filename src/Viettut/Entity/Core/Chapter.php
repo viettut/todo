@@ -18,6 +18,7 @@ class Chapter extends ChapterModel
     protected $position;
     protected $comments;
     protected $active;
+    protected $token;
     protected $author;
     protected $course;
     protected $createdAt;

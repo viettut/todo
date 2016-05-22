@@ -16,8 +16,7 @@ angular
         $scope.preview = '';
         $scope.titleValid = $scope.title.length < 15;
         $scope.introduceValid = $scope.introduce < 32;
-        $scope.previewText = 'Show Preview';
-        $scope.showPreview = false;
+        $scope.loading = true;
 
         $scope.course = {};
 
@@ -27,15 +26,6 @@ angular
         };
         //initialize
         $scope.initTag();
-
-        $scope.preview = function(){
-            $scope.showPreview = !$scope.showPreview;
-
-            if($scope.showPreview) {
-                $scope.previewText = 'Hide Preview';
-            }
-            else $scope.previewText = 'Show Preview';
-        };
 
         $scope.loadTags = function() {
             return $scope.allTags;
@@ -117,6 +107,8 @@ angular
                             $scope.courseTags.push({'tag': $scope.course.courseTags[i].tag.id});
                             $scope.selectedTags.push({'text': $scope.course.courseTags[i].tag.text});
                         }
+
+                        $scope.loading = false;
                     }
                 },
                 function(response){

@@ -97,6 +97,17 @@ interface ChapterInterface extends ModelInterface
     public function getActive();
 
     /**
+     * @return mixed
+     */
+    public function getToken();
+
+    /**
+     * @param mixed $token
+     * @return self
+     */
+    public function setToken($token);
+
+    /**
      * Get deletedAt
      *
      * @return \DateTime

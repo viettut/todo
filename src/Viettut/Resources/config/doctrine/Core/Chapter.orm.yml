@@ -29,6 +29,10 @@ Viettut\Entity\Core\Chapter:
             type: boolean
             options:
                 default: true
+        token:
+            type: string
+            nullable: false
+
         createdAt:
             type: datetime
             gedmo:
