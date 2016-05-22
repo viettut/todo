@@ -9,6 +9,7 @@ parameters:
     # voter
     viettut.security.auth.voter.course.class: Viettut\Security\Authorization\Voter\CourseVoter
     viettut.security.auth.voter.tutorial.class: Viettut\Security\Authorization\Voter\TutorialVoter
+    viettut.security.auth.voter.chapter.class: Viettut\Security\Authorization\Voter\ChapterVoter
 services:
 #    service_name:
 #        class: AppBundle\Directory\ClassName
@@ -48,6 +49,12 @@ services:
 
     viettut.security.auth.voter.tutorial:
         class:  %viettut.security.auth.voter.tutorial.class%
+        public: false
+        tags:
+            - { name: security.voter }
+
+    viettut.security.auth.voter.chapter:
+        class:  %viettut.security.auth.voter.chapter.class%
         public: false
         tags:
             - { name: security.voter }

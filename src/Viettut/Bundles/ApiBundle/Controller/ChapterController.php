@@ -111,6 +111,29 @@ class ChapterController extends RestControllerAbstract implements ClassResourceI
     }
 
     /**
+     * Update an existing chapter from the submitted data
+     *
+     * @ApiDoc(
+     *  resource = true,
+     *  statusCodes = {
+     *      204 = "Returned when successful",
+     *      400 = "Returned when the submitted data has errors"
+     *  }
+     * )
+     *
+     * @param Request $request the request object
+     * @param int $id the resource id
+     *
+     * @return FormTypeInterface|View
+     *
+     * @throws NotFoundHttpException when resource not exist
+     */
+    public function patchAction(Request $request, $id)
+    {
+        return $this->patch($request, $id);
+    }
+
+    /**
      * @return string
      */
     protected function getResourceName()

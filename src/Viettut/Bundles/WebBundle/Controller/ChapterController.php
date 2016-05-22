@@ -82,7 +82,7 @@ class ChapterController extends FOSRestController
     }
 
     /**
-     * @Rest\Get("/chapters/{token}/edit")
+     * @Rest\Get("/chapters/{token}/edit", name="chapter_edit")
      * @param string $token
      * @return \Symfony\Component\HttpFoundation\Response
      * @Template()
