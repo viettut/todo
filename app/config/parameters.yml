@@ -14,7 +14,7 @@ parameters:
     mailer_sender_name: 'ViettuT Academy'
     secret: ThisTokenIsNotSoSecretChangeIt
     password_resetting_link: 'http://localhost:9010/#/reset/changePassword'
-    uploadRootDirectory: /var/www/api.server.dev/web/uploads/images
-    uploadDirectory: /uploads/images
-    popularSize: 10
-    pageSize: 5
+    upload_root_directory: /var/www/api.server.dev/web/uploads/images
+    upload_directory: /uploads/images
+    popular_size: 10
+    page_size: 5

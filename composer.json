@@ -24,7 +24,7 @@
     },
     "require": {
         "php": ">=5.3.9",
-        "symfony/symfony": "2.7.*",
+        "symfony/symfony": "2.8.*",
         "doctrine/orm": "~2.2,>=2.2.3,<2.5",
         "doctrine/dbal": "~2.4.4",
         "doctrine/doctrine-bundle": "~1.4",
@@ -45,10 +45,9 @@
         "raphy/markdown-bundle": "@stable",
         "knplabs/knp-paginator-bundle": "^2.5",
         "rollerworks/multi-user-bundle": "dev-master",
-        "jms/serializer-bundle": "0.13.0",
+        "jms/serializer-bundle": "0.13.*@dev",
         "facebook/php-sdk-v4": "^5.1",
-        "google/apiclient": "1.1.6",
-        "edwinm/Beautify": "*"
+        "google/apiclient": "1.1.6"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

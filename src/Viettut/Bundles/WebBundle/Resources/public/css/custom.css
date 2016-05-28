@@ -31,3 +31,8 @@ textarea {
 .border-radius5 {
     border-radius: 5px;
 }
+
+#comment-form .form-control {
+    height: 200px;
+    width: 90%;
+}

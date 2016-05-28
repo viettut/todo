@@ -7,6 +7,7 @@ imports:
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
+    jms_serializer.json_serialization_visitor.class: Viettut\Behaviors\JsonSerializationVisitor
 
 framework:
     #esi: ~
@@ -228,11 +229,3 @@ knp_paginator:
         pagination: KnpPaginatorBundle:Pagination:twitter_bootstrap_v3_pagination.html.twig     # sliding pagination controls template
         sortable: KnpPaginatorBundle:Pagination:sortable_link.html.twig # sort link template
 
-#lucaszz_facebook_authentication:
-#    app_id: 529276757135612
-#    app_secret: 0fe34b757c10440e7259665a53dda55a
-#    scope: ["public_profile", "email", "user_birthday"]
-#    fields: ["name", "email", "birthday"]
-
-parameters:
-    jms_serializer.json_serialization_visitor.class: Viettut\Behaviors\JsonSerializationVisitor

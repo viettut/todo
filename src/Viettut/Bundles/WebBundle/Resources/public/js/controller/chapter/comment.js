@@ -56,13 +56,10 @@ angular
                 url: config.API_URL + 'chapters/' + $scope.currentChapter + '/comments'
             }).then(function successCallback(response) {
                 $scope.comments = response.data;
+                $scope.numberComments = $scope.comments.length;
             }, function errorCallback(response) {
             });
         };
-
-        $scope.$watch('comments', function(newVal, odlVal) {
-            $scope.numberComments = newVal.length;
-        });
 
         $scope.$watch('currentChapter', function(newVal, oldVal){
             $scope.currentChapter = newVal;
@@ -86,6 +83,7 @@ angular
                     if(response.status == 201) {
                         $scope.reloadComment();
                         $scope.content = '';
+                        $scope.commentToggle = true;
                     }
                 },
                 function(response){

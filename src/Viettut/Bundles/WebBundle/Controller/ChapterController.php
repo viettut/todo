@@ -12,17 +12,14 @@ namespace Viettut\Bundles\WebBundle\Controller;
 use FOS\RestBundle\Controller\FOSRestController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Viettut\Model\Core\ChapterInterface;
 use Viettut\Model\Core\CourseInterface;
 use Viettut\Model\User\Role\LecturerInterface;
-use Viettut\Utilities\StringFactory;
 use FOS\RestBundle\Controller\Annotations as Rest;
 
 class ChapterController extends FOSRestController
 {
-    use StringFactory;
     /**
      * present a specific guide
      *
@@ -36,7 +33,7 @@ class ChapterController extends FOSRestController
      */
     public function detailAction($username, $hash, $cHash)
     {
-        $popularSize = $this->container->getParameter('popularSize');
+        $popularSize = $this->container->getParameter('popular_size');
         $lecturer = $this->get('viettut_user.domain_manager.lecturer')->findUserByUsernameOrEmail($username);
         if (!$lecturer instanceof LecturerInterface) {
             throw new NotFoundHttpException(
@@ -71,7 +68,6 @@ class ChapterController extends FOSRestController
         return $this->render('ViettutWebBundle:Chapter:detail.html.twig', array(
             'username' => $username,
             'chapter' => $chapter,
-            'html' => $this->highlightCode($chapter->getContent()),
             'course' => $course,
             "comments" => $comments,
             "popularCourses" => $popularCourses,
@@ -96,8 +92,7 @@ class ChapterController extends FOSRestController
         }
 
         return $this->render('ViettutWebBundle:Chapter:edit.html.twig', array (
-                'chapter' => $chapter,
-                'html' => $this->highlightCode($chapter->getContent())
+                'chapter' => $chapter
             )
         );
     }

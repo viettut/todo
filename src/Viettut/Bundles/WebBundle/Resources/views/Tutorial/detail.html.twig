@@ -42,12 +42,12 @@
                                     <span class="pull-right"><i class="fa fa-comments"></i> <a href="#">{{ tutorial.comments | length }} Comments</a></span>
                                 </div>
                                 <hr class="tall"/>
-                                <textarea style="display: none;" id="content">{{ tutorial.content }}</textarea>
+                                <textarea class="hidden" id="content">{{ tutorial.content }}</textarea>
                                 <wiz-markdown content="content" class="markdown-body"></wiz-markdown>
                                 <div class="row col-md-12" ng-controller="CommentController">
                                     <div class="post-block post-comments clearfix row col-md-12">
-                                        <h3 ng-hide="commentToggle"><i class="fa fa-comments"></i>Comments ({{ tutorial.comments | length }})</h3>
-                                        <h3 ng-if="commentToggle"><i class="fa fa-comments"></i>Comments (<{ numberComments }>)</h3>
+                                        <h3 ng-hide="commentToggle"><i class="fa fa-comments"></i>Bình luận ({{ tutorial.comments | length }})</h3>
+                                        <h3 ng-if="commentToggle"><i class="fa fa-comments"></i>Bình luận (<{ numberComments }>)</h3>
                                         <ul class="comments" ng-hide="commentToggle">
                                             {% for comment in tutorial.comments %}
                                                 <li>
@@ -129,16 +129,14 @@
                                     </div>
 
                                     <div class="post-leave-comment">
-                                        <h3>Bình luận</h3>
+                                        <h3>Ý kiến</h3>
                                         <div ng-init="currentTutorial={{ tutorial.id }}"></div>
                                         <form>
                                             <div class="row">
                                                 <div class="form-group">
                                                     <div class="col-md-12">
-                                                        <label>Comment *</label>
                                                         <wiz-markdown-editor content="content" maxlength="5000" rows="10" class="form-control" style="height: 200px;width: 90%;">
                                                         </wiz-markdown-editor>
-                                                        {#<textarea maxlength="5000" rows="10" ng-model="commentContent" class="form-control" name="comment"></textarea>#}
                                                     </div>
                                                 </div>
                                             </div>

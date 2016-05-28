@@ -1,5 +1,4 @@
 {% extends 'base.html.twig' %}
-{% block controller %}ng-controller="CourseController"{% endblock %}
 {% block main %}
     <section class="page-top">
         <div class="container">
@@ -48,8 +47,8 @@
                                             {% endfor %}
                                         </span>
                                         {% endif %}
-                                        <span><i class="fa fa-book"></i> <a href="#">{{ course.chapters | length }} Chapters</a></span>
-                                        <span><i class="fa fa-book"></i> <a href="#">{{ course.comments | length }} comments</a></span>
+                                        <span><i class="fa fa-book"></i> <a href="#">{{ course.chapters | length }} Chương</a></span>
+                                        <span><i class="fa fa-book"></i> <a href="#">{{ course.comments | length }} Bình luận</a></span>
                                         <a href="{{ path('course_detail', {'hash' : course.hashTag, 'username' : course.author.username}) }}" class="btn btn-xs btn-primary pull-right">Đọc tiếp...</a>
                                     </div>
                                 </div>

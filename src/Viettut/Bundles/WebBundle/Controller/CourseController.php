@@ -12,23 +12,18 @@ namespace Viettut\Bundles\WebBundle\Controller;
 use FOS\RestBundle\Controller\FOSRestController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Viettut\Entity\Core\Course;
 use Viettut\Exception\InvalidArgumentException;
 use Viettut\Model\Core\ChapterInterface;
 use Viettut\Model\Core\CourseInterface;
 use Viettut\Model\User\Role\LecturerInterface;
-use Viettut\Model\User\UserEntityInterface;
 use FOS\RestBundle\Controller\Annotations as Rest;
-use Viettut\Utilities\StringFactory;
 
 class CourseController extends FOSRestController
 {
-    use StringFactory;
     /**
      * @Rest\Get("/courses/create", name="create_course")
      * @Template()
@@ -52,8 +47,7 @@ class CourseController extends FOSRestController
         }
 
         return $this->render('ViettutWebBundle:Course:addChapter.html.twig', array(
-                'course' => $course,
-                'html' => $this->highlightCode($course->getIntroduce())
+                'course' => $course
             )
         );
     }
@@ -72,8 +66,7 @@ class CourseController extends FOSRestController
         }
 
         return $this->render('ViettutWebBundle:Course:edit.html.twig', array(
-                'course' => $course,
-                'html' => $this->highlightCode($course->getIntroduce())
+                'course' => $course
             )
         );
     }
@@ -88,13 +81,14 @@ class CourseController extends FOSRestController
      */
     public function indexAction(Request $request)
     {
-        $pageSize = $this->getParameter('pageSize');
+        $pageSize = $this->getParameter('page_size');
 
         $pagination = $this->get('knp_paginator')->paginate(
             $this->get('viettut.repository.course')->getAllCourseQuery(),
             $request->query->getInt('page', 1)/*page number*/,
             $pageSize
         );
+
         return $this->render('ViettutWebBundle:Course:index.html.twig', array(
             "pagination" => $pagination
         ));
@@ -123,7 +117,7 @@ class CourseController extends FOSRestController
      */
     public function detailAction($username, $hash)
     {
-        $popularSize = $this->container->getParameter('popularSize');
+        $popularSize = $this->container->getParameter('popular_size');
         $lecturer = $this->get('viettut_user.domain_manager.lecturer')->findUserByUsernameOrEmail($username);
         if (!$lecturer instanceof LecturerInterface) {
             throw new NotFoundHttpException(
@@ -162,8 +156,8 @@ class CourseController extends FOSRestController
      */
     public function uploadImage(Request $request)
     {
-        $uploadRootDir = $this->container->getParameter('uploadRootDirectory');
-        $uploadDir = $this->container->getParameter('uploadDirectory');
+        $uploadRootDir = $this->container->getParameter('upload_root_directory');
+        $uploadDir = $this->container->getParameter('upload_directory');
         foreach ($_FILES as $file) {
 
             $uploadFile = new UploadedFile($file['tmp_name'], $file['name'], $file['type'], $file['size'], $file['error'], $test = false);

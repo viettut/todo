@@ -12,21 +12,15 @@ namespace Viettut\Bundles\WebBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Viettut\Exception\InvalidArgumentException;
-use Viettut\Model\Core\CourseInterface;
 use Viettut\Model\Core\TutorialInterface;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Viettut\Model\User\Role\LecturerInterface;
 use Viettut\Model\User\UserEntityInterface;
-use Viettut\Utilities\StringFactory;
 
 class TutorialController extends Controller
 {
-    use StringFactory;
     /**
      * @Rest\Get("/lecturer/tutorials/create", name="create_tutorial")
      * @Template()
@@ -44,7 +38,7 @@ class TutorialController extends Controller
      */
     public function indexAction(Request $request)
     {
-        $pageSize = $this->getParameter('pageSize');
+        $pageSize = $this->getParameter('page_size');
 
         $pagination = $this->get('knp_paginator')->paginate(
             $this->get('viettut.repository.tutorial')->getAllTutorialQuery(),
@@ -87,7 +81,7 @@ class TutorialController extends Controller
      */
     public function detailAction($username, $hash)
     {
-        $popularSize = $this->container->getParameter('popularSize');
+        $popularSize = $this->container->getParameter('popular_size');
         $lecturer = $this->get('viettut_user.domain_manager.lecturer')->findUserByUsernameOrEmail($username);
         if (!$lecturer instanceof LecturerInterface) {
             throw new NotFoundHttpException(
@@ -105,7 +99,6 @@ class TutorialController extends Controller
 
         return $this->render('ViettutWebBundle:Tutorial:detail.html.twig', array(
                 'username' => $username,
-                'html' => $this->highlightCode($tutorial->getContent()),
                 'tutorial' => $tutorial,
                 "popularCourses" => $popularCourses,
                 "popularTutorials" => $popularTutorials

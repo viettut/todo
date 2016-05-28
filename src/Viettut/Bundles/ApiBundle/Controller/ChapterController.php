@@ -81,12 +81,13 @@ class ChapterController extends RestControllerAbstract implements ClassResourceI
      * @param $id
      * @return mixed
      */
-    public function cgetCommentsAction($id)
+    public function getCommentsAction($id)
     {
         $chapter = $this->one($id);
 
         $commentManager = $this->get('viettut.domain_manager.comment');
-        return $commentManager->getByChapter($chapter);
+        $result = $commentManager->getByChapter($chapter);
+        return $result;
     }
 
 

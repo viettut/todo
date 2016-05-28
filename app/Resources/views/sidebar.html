@@ -36,7 +36,7 @@
                         <div class="post-info">
                             <a href="{{ path('tutorial_detail', {'hash' : tut.hashTag, 'username' : tut.author.username}) }}">{{ tut.title }}</a>
                             <div class="post-meta">
-                                {{ tut.createdAt | date('F d, Y') }}
+                                {{ tut.createdAt | date('h:i d/m/Y') }}
                             </div>
                         </div>
                     </li>

@@ -56,13 +56,11 @@ angular
                 url: config.API_URL + 'courses/' + $scope.currentCourse + '/comments'
             }).then(function successCallback(response) {
                 $scope.comments = response.data;
+                $scope.numberComments = $scope.comments.length;
+
             }, function errorCallback(response) {
             });
         };
-
-        $scope.$watch('comments', function(newVal, odlVal) {
-            $scope.numberComments = newVal.length;
-        });
 
         $scope.$watch('currentCourse', function(newVal, oldVal){
             if (typeof newVal == "number") {

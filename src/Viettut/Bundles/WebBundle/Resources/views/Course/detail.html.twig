@@ -40,7 +40,7 @@
                                         {% endfor %}
                                     </span>
                                     {% endif %}
-                                    <span class="pull-right"><i class="fa fa-comments"></i> <a href="#">{{ course.comments | length }} Comments</a></span>
+                                    <span class="pull-right"><i class="fa fa-comments"></i> <a href="#">{{ course.comments | length }} Bình luận</a></span>
                                 </div>
                                 <hr class="tall"/>
                                 <textarea class="hidden" id="introduce">{{ course.introduce }}</textarea>
@@ -55,8 +55,8 @@
                                 <div class="row col-md-12" ng-controller="CommentController">
                                     <div ng-init="currentCourse={{ course.id }}"></div>
                                     <div class="post-block post-comments clearfix row col-md-12">
-                                        <h3 ng-hide="commentToggle"><i class="fa fa-comments"></i>Comments ({{ course.comments | length }})</h3>
-                                        <h3 ng-if="commentToggle"><i class="fa fa-comments"></i>Comments (<{ numberComments }>)</h3>
+                                        <h3 ng-hide="commentToggle"><i class="fa fa-comments"></i> Bình luận ({{ course.comments | length }})</h3>
+                                        <h3 ng-if="commentToggle"><i class="fa fa-comments"></i> Bình luận (<{ numberComments }>)</h3>
                                         <ul class="comments" ng-hide="commentToggle">
                                             {% for comment in course.comments %}
                                                 <li>
@@ -137,13 +137,13 @@
                                         </ul>
                                     </div>
 
-                                    <div class="post-block post-leave-comment">
-                                        <h3>Bình luận</h3>
-                                        <form>
+                                    <div class="post-leave-comment">
+                                        <h3>Ý kiến</h3>
+                                        <form id="comment-form">
                                             <div class="row">
                                                 <div class="form-group">
                                                     <div class="col-md-12">
-                                                        <wiz-markdown-editor content="content" maxlength="5000" rows="10" class="form-control" class="height200 width90pc">
+                                                        <wiz-markdown-editor content="content" maxlength="5000" rows="10" class="form-control">
                                                         </wiz-markdown-editor>
                                                     </div>
                                                 </div>

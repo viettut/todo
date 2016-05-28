@@ -6,7 +6,6 @@
  * Time: 11:31 AM
  */
 namespace Viettut\Utilities;
-require_once(__DIR__ . '/../../../vendor/edwinm/Beautify/beautify.php');
 trait StringFactory {
     /**
      * generate dash-separated string which is url-friendly
@@ -51,10 +50,5 @@ trait StringFactory {
         $str = preg_replace('/(Đ)/', 'D', $str);
 
         return $str;
-    }
-
-    protected function highlightCode($code)
-    {
-        return beautify($code);
     }
 }
