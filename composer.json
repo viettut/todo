@@ -33,7 +33,9 @@
         "rollerworks/multi-user-bundle": "dev-master",
         "jms/serializer-bundle": "0.13.0",
         "facebook/php-sdk-v4": "^5.1",
-        "google/apiclient": "1.1.6",
+        "google/apiclient": "1.1.6"
+    },
+    "require-dev" : {
         "sensio/generator-bundle": "~2.3"
     },
     "scripts": {
