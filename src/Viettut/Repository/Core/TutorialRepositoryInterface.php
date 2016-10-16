@@ -37,4 +37,11 @@ interface TutorialRepositoryInterface extends ObjectRepository
      * @return mixed
      */
     public function getAllTutorialQuery();
+
+
+    /**
+     * @param $keyword
+     * @return mixed
+     */
+    public function search($keyword);
 }

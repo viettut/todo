@@ -50,4 +50,11 @@ interface CourseRepositoryInterface extends ObjectRepository
      * @return mixed
      */
     public function getAllCourseQuery();
+
+
+    /**
+     * @param $keyword
+     * @return mixed
+     */
+    public function search($keyword);
 }

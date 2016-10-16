@@ -206,7 +206,7 @@ window.theme = {};
 			}
 
 			// Auto Height
-			$(window).afterResize(function() {
+			$(window).resize(function() {
 				activeItemHeight = $el.find('.owl-item.active').height();
 				$el.find('.owl-stage-outer').height(activeItemHeight);
 			});
@@ -2418,7 +2418,7 @@ window.theme = {};
 					$headerContainer.css('min-height', $header.height());
 				}
 
-				$(window).afterResize(function() {
+				$(window).resize(function() {
 					$headerContainer.css('min-height', $header.height());
 				});
 

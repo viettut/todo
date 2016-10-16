@@ -156,6 +156,7 @@ class AuthenController extends Controller
                 ->setGoogleId($user['id'])
                 ->setActive(true)
                 ->setAvatar($user['picture'])
+                ->setActiveCode(uniqid())
             ;
             $userManager->save($lecturer);
         }
