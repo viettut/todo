@@ -19,7 +19,6 @@ angular
                 $localStorage.username = response.data.username;
                 $localStorage.name = response.data.username;
                 $localStorage.avatar = response.data.avatar;
-                console.log('user -> ' + JSON.stringify(response));
                 $window.location.href = config.BASE_URL;
                 $scope.laddaLoading = false;
             }).catch(function(data) {

@@ -12,10 +12,10 @@
     angular
         .module('viettut', ['ui.router', 'ngTagsInput', 'ngSanitize', 'ngFileUpload', 'wiz.markdown', 'ladda', 'ngStorage', 'satellizer', 'ngAnimate', 'ui.bootstrap'])
         .constant('config', {
-            'API_URL' : '/app.php/api/v1/',
-            'BASE_URL' : '/app.php/',
-            'SIGN_UP_URL' : '/app.php/api/user/v1/users',
-            'SIGN_UP_REDIRECT' : '/app.php/login'
+            'API_URL' : '/api/v1/',
+            'BASE_URL' : '/',
+            'SIGN_UP_URL' : '/api/user/v1/users',
+            'SIGN_UP_REDIRECT' : '/login'
         })
         .config(function ($authProvider, $interpolateProvider, config) {
             $interpolateProvider.startSymbol('<{');
@@ -44,7 +44,7 @@
 
             $authProvider.google({
                 clientId: '355171488116-rml9h7b9ivdn8ub5sgu6r6eh1vkluvav.apps.googleusercontent.com',
-                url: '/app.php/google/login',
+                url: '/google/login',
                 authorizationEndpoint: 'https://accounts.google.com/o/oauth2/auth',
                 redirectUri: window.location.origin + '/app_dev.php',
                 requiredUrlParams: ['scope'],
@@ -58,7 +58,7 @@
             });
 
             $authProvider.github({
-                url: '/app.php/github/login',
+                url: '/github/login',
                 clientId: '13f81c8b888c1b57cc86',
                 authorizationEndpoint: 'https://github.com/login/oauth/authorize',
                 redirectUri: window.location.origin,

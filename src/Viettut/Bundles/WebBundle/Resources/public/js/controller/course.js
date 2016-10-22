@@ -39,7 +39,7 @@
 
         $scope.initTag = function() {
             $http.defaults.headers.common.Authorization = "Bearer " + $auth.getToken();
-            $scope.allTags = $http.get('/app_dev.php/api/v1/tags');
+            $scope.allTags = $http.get('/api/v1/tags');
         };
         //initialize
         $scope.initTag();

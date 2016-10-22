@@ -5,7 +5,6 @@ angular
         $scope.name = $localStorage.name;
         $scope.avatar = $localStorage.avatar;
         $scope.professional = '';
-        console.log('avatar -> ' + $scope.avatar);
         $scope.register = function() {
             AuthenService.register();
         };
