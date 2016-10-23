@@ -20,6 +20,7 @@
     </section>
     <div class="container">
         <div ng-init="courseId={{ course.id }}"></div>
+        <input type="hidden" value="{{ course.token }}" id="course-token"/>
         <div class="row">
             <div class="col-md-9">
                 <div class="progress" ng-show="loading">
@@ -88,6 +89,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <button ladda-button="laddaLoading" data-style="slide-right" ng-disabled="!isAuthenticated && createGuide.$valid" ng-click="create()" class="ladda-button btn-primary border-radius5">Cập nhật</button>
+                            <button class="ladda-button btn-primary border-radius5" ng-disabled="!isAuthenticated" ng-click="addChapter()">Thêm Chương</button>
                         </div>
                     </div>
                 </form>

@@ -7,6 +7,7 @@ angular
         $scope.content = '';
         $scope.laddaLoading = false;
         $scope.courseId = angular.element($('#courseId')).text();
+        $scope.introduce = $('textarea#introduce').val();
 
         $scope.getCourse = function() {
             $http.defaults.headers.common.Authorization = "Bearer " + $auth.getToken();
@@ -14,7 +15,7 @@ angular
                 method: 'GET',
                 url: config.API_URL + 'courses/' + $scope.courseId
             }).then(function successCallback(response) {
-                $scope.course = response.data;
+                $scope.course = responses.data;
             }, function errorCallback(response) {
             });
 

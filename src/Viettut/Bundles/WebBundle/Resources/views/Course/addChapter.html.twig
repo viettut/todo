@@ -28,15 +28,14 @@
                                 <img class="img-responsive" src="{{ course.imagePath }}" alt="image path">
                             </div>
                         </div>
-                        <div class="post-date">
-                            <span class="day">{{ course.createdAt | date('d') }}</span>
-                            <span class="month">{{ course.createdAt | date('F') | slice(0, 3) }}</span>
-                        </div>
+                        {#<div class="post-date">#}
+                            {#<span class="day">{{ course.createdAt | date('d') }}</span>#}
+                            {#<span class="month">{{ course.createdAt | date('F') | slice(0, 3) }}</span>#}
+                        {#</div>#}
                         <div class="post-content">
                             <h2 class="text-center"><a href="#">{{ course.title }}</a></h2>
-                            <div class="markdown-body">
-                                {{ html | raw }}
-                            </div>
+                            <textarea class="hidden" id="introduce">{{ course.introduce | raw }}</textarea>
+                            <wiz-markdown content="introduce" class="markdown-body"></wiz-markdown>
                         </div>
                         <div ng-init="courseId={{ course.id }}"></div>
                     </article>
@@ -87,7 +86,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <button ladda-button="laddaLoading" data-style="slide-right" ng-disabled="!isAuthenticated && createGuide.$valid" ng-click="add()" class="ladda-button btn-primary border-radius5">Thêm</button>
-                                <button ng-click="preview()" class="ladda-button btn-primary border-radius5"><{ previewText }></button>
+                                {#<button ng-click="preview()" class="ladda-button btn-primary border-radius5"><{ previewText }></button>#}
                             </div>
                         </div>
                         <div class="modal fade hidden" id="add-chapter-success" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

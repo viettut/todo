@@ -156,6 +156,12 @@ angular
             $scope.loadCourse();
         });
 
+
+        $scope.addChapter = function() {
+            var courseToken = $('input#course-token').val();
+            $window.location.href = config.BASE_URL + 'courses/' + courseToken + '/add-chapter';
+        };
+
         $scope.isAuthenticated = $auth.isAuthenticated();
     });
 

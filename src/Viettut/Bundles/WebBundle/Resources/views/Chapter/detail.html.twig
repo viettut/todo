@@ -26,13 +26,13 @@
                                     <img class="img-responsive" src="{{ course.imagePath }}" alt="image path">
                                 </div>
                             </div>
-                            <div class="post-date">
-                                <span class="day">{{ course.createdAt | date('d') }}</span>
-                                <span class="month">{{ course.createdAt | date('F') | slice(0, 3) }}</span>
-                            </div>
+                            {#<div class="post-date">#}
+                                {#<span class="day">{{ course.createdAt | date('d') }}</span>#}
+                                {#<span class="month">{{ course.createdAt | date('F') | slice(0, 3) }}</span>#}
+                            {#</div>#}
                             <div class="post-content">
                                 <h2 class="text-center"><a href="#">Chapter {{ chapter.position }}: {{ chapter.header }}</a></h2>
-                                <textarea class="hidden" id="content">{{ chapter.content }}</textarea>
+                                <textarea class="hidden" id="content">{{ chapter.content | raw }}</textarea>
                                 <wiz-markdown content="content" class="markdown-body"></wiz-markdown>
                                 {% if lastChapter %}
                                     <div class="row">

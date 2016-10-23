@@ -34,7 +34,7 @@ class CourseController extends FOSRestController
     }
 
     /**
-     * @Rest\Get("/courses/{token}/add-chapter")
+     * @Rest\Get("/courses/{token}/add-chapter", name="add_chapter")
      * @param string $token
      * @return \Symfony\Component\HttpFoundation\Response
      * @Template()

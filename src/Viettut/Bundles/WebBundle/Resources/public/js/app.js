@@ -52,7 +52,7 @@
 
             $authProvider.google({
                 clientId: '355171488116-rml9h7b9ivdn8ub5sgu6r6eh1vkluvav.apps.googleusercontent.com',
-                url: '/app_dev.php/google/login',
+                url: '/google/login',
                 authorizationEndpoint: 'https://accounts.google.com/o/oauth2/auth',
                 redirectUri: window.location.origin + '/app_dev.php',
                 requiredUrlParams: ['scope'],
@@ -66,7 +66,7 @@
             });
 
             $authProvider.github({
-                url: '/app_dev.php/github/login',
+                url: '/github/login',
                 clientId: '13f81c8b888c1b57cc86',
                 authorizationEndpoint: 'https://github.com/login/oauth/authorize',
                 redirectUri: window.location.origin,
