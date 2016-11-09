@@ -11,20 +11,20 @@
      */
     angular
         .module('viettut', ['ui.router', 'ngTagsInput', 'ngSanitize', 'ngFileUpload', 'wiz.markdown', 'ladda', 'ngStorage', 'satellizer', 'ngAnimate', 'ui.bootstrap'])
-        //.constant('config', {
-        //    'API_URL' : '/api/v1/',
-        //    'PUBLIC_API_URL' : '/public/api/',
-        //    'BASE_URL' : '/',
-        //    'SIGN_UP_URL' : '/api/user/v1/users',
-        //    'SIGN_UP_REDIRECT' : 'login'
-        //})
         .constant('config', {
-            'API_URL' : '/app_dev.php/api/v1/',
-            'PUBLIC_API_URL' : '/app_dev.php/public/api/',
-            'BASE_URL' : '/app_dev.php/',
-            'SIGN_UP_URL' : '/app_dev.php/api/user/v1/users',
+            'API_URL' : '/api/v1/',
+            'PUBLIC_API_URL' : '/public/api/',
+            'BASE_URL' : '/',
+            'SIGN_UP_URL' : '/api/user/v1/users',
             'SIGN_UP_REDIRECT' : 'login'
         })
+        //.constant('config', {
+        //    'API_URL' : '/app_dev.php/api/v1/',
+        //    'PUBLIC_API_URL' : '/app_dev.php/public/api/',
+        //    'BASE_URL' : '/app_dev.php/',
+        //    'SIGN_UP_URL' : '/app_dev.php/api/user/v1/users',
+        //    'SIGN_UP_REDIRECT' : 'login'
+        //})
         .config(function ($authProvider, $interpolateProvider, config) {
             $interpolateProvider.startSymbol('<{');
             $interpolateProvider.endSymbol('}>');
@@ -38,7 +38,7 @@
             // Social login
             $authProvider.facebook({
                 name: 'facebook',
-                clientId: '529276757135612',
+                clientId: '1245562308819573',
                 url: '/facebook/login',
                 authorizationEndpoint: 'https://www.facebook.com/v2.5/dialog/oauth',
                 redirectUri: window.location.origin + '/',
@@ -54,7 +54,7 @@
                 clientId: '355171488116-rml9h7b9ivdn8ub5sgu6r6eh1vkluvav.apps.googleusercontent.com',
                 url: '/google/login',
                 authorizationEndpoint: 'https://accounts.google.com/o/oauth2/auth',
-                redirectUri: window.location.origin + '/app_dev.php',
+                redirectUri: window.location.origin,
                 requiredUrlParams: ['scope'],
                 optionalUrlParams: ['display'],
                 scope: ['profile', 'email'],

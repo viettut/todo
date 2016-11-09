@@ -6,13 +6,13 @@
                 <div class="col-md-12">
                     <ul class="breadcrumb">
                         <li><a href="{{ path('home_page') }}">Home</a></li>
-                        <li class="active">Search</li>
+                        <li class="active">Tìm kiếm </li>
                     </ul>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <h1>Search Results for: {{ keyword }}</h1>
+                    <h1>Kết quả tìm kiếm cho: {{ keyword }}</h1>
                 </div>
             </div>
         </div>
@@ -20,12 +20,12 @@
     <div class="container">
         <div class="row">
             <div class="col-md-9">
-                <h5 class="dark shorter">New search:</h5>
-                <p>If you are not happy with the results below please do another search:</p>
+                <h5 class="dark shorter">Tìm kiếm thêm:</h5>
+                <p>Nếu không tìm thấy thông tin bạn cần xin hãy thử lại:</p>
 
                 <form method="get" action="{{ path('public_search') }}">
                     <div class="input-group">
-                        <input class="form-control" placeholder="Search..." name="q" id="q" type="text">
+                        <input class="form-control" placeholder="từ khóa" name="q" id="q" type="text">
 									<span class="input-group-btn">
 										<button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
 									</span>
@@ -50,7 +50,7 @@
                     {% for tutorial in tutorials %}
                         <li>
                             <div class="post-info">
-                                <a href="{{ path('course_detail', {'hash' : course.hashTag, 'username' : tutorial.author.username}) }}">{{ tutorial.title }}</a>
+                                <a href="{{ path('tutorial_detail', {'hash' : tutorial.hashTag, 'username' : tutorial.author.username}) }}">{{ tutorial.title }}</a>
                                 <div class="post-meta">
                                     {{ tutorial.createdAt | date('F d y') }}
                                 </div>
@@ -58,7 +58,6 @@
                         </li>
                     {% endfor %}
                 </ul>
-
                 <ul class="pagination pull-right">
                     <li><a href="#">«</a></li>
                     <li class="active"><a href="#">1</a></li>

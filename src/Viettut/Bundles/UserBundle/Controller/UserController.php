@@ -81,29 +81,29 @@ class UserController extends FOSRestController
             '_format' => 'json'
         );
 
-        $message = \Swift_Message::newInstance()
-            ->setSubject('Welcome aboard !')
-            ->setFrom('noreply@viettut.com')
-            ->setTo($email)
-            ->setBody(
-                $this->renderView(
-                    ':Emails:welcome.html.twig',
-                    array(
-                        'name' => $name,
-                        'link' => $link
-                    )
-                ),
-                'text/html'
-            )
-        ;
-
-        $mailer = $this->get('mailer');
-        $mailer->send($message);
-
-        $spool = $mailer->getTransport()->getSpool();
-        $transport = $this->get('swiftmailer.transport.real');
-
-        $spool->flushQueue($transport);
+//        $message = \Swift_Message::newInstance()
+//            ->setSubject('Welcome aboard !')
+//            ->setFrom('noreply@viettut.com')
+//            ->setTo($email)
+//            ->setBody(
+//                $this->renderView(
+//                    ':Emails:welcome.html.twig',
+//                    array(
+//                        'name' => $name,
+//                        'link' => $link
+//                    )
+//                ),
+//                'text/html'
+//            )
+//        ;
+//
+//        $mailer = $this->get('mailer');
+//        $mailer->send($message);
+//
+//        $spool = $mailer->getTransport()->getSpool();
+//        $transport = $this->get('swiftmailer.transport.real');
+//
+//        $spool->flushQueue($transport);
         return $this->view($user, Codes::HTTP_CREATED, $routeOptions);
     }
 
